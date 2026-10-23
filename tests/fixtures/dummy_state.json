@@ -1,8 +1,10 @@
 {
   "document_text": "Acme Coffee plans to launch BrewBox, a monthly specialty coffee subscription, in Italy at around 19 EUR per month. Main competitors: Nespresso, Caffè Vergnano. Goal: 5,000 subscribers in the first year.",
   "brief": {
-    "company": "Acme Coffee",
-    "product": "BrewBox, a monthly specialty coffee subscription",
+    "company_name": "Acme Coffee",
+    "company_description": "Small Turin-based specialty coffee roaster founded in 2019",
+    "product_name": "BrewBox",
+    "product_description": "A monthly specialty coffee subscription with a new origin every month",
     "target_country": "Italy",
     "price_hint": "around 19 EUR per month",
     "known_competitors": ["Nespresso", "Caffè Vergnano"],
@@ -18,7 +20,7 @@
     "customer_needs": ["Freshness", "Discovering new origins", "Convenient delivery"],
     "segments": [
       {"segment_id": "SEG1", "label": "Urban coffee enthusiasts", "description": "25-40 year olds in large cities who brew specialty coffee at home", "needs": ["Variety", "Traceable origin"], "estimated_size": "~400k people, S3", "source_ids": ["S3"]},
-      {"segment_id": "SEG2", "label": "Gift buyers", "description": "People buying coffee as a gift for holidays", "needs": ["Nice packaging", "Easy ordering"], "estimated_size": "unknown", "source_ids": []}
+      {"segment_id": "SEG2", "label": "Gift buyers", "description": "People buying coffee as a gift for holidays", "needs": ["Nice packaging", "Easy ordering"], "estimated_size": null, "source_ids": []}
     ],
     "data_quality_notes": ["No reliable figure for the size of the gift segment"],
     "sources": [
@@ -30,7 +32,7 @@
   "strategy": {
     "target_segment_id": "SEG1",
     "target_description": "Young urban professionals who already brew specialty coffee at home",
-    "positioning": "The easiest way to discover fresh specialty coffee, without the capsule waste",
+    "positioning_statement": "The easiest way to discover fresh specialty coffee, without the capsule waste",
     "value_proposition": "A new freshly roasted origin every month, delivered to your door",
     "pricing_direction": "Slightly below Nespresso per cup, to win convenience-oriented switchers",
     "channels": ["Instagram", "Coffee influencers", "Online shop"],
@@ -41,16 +43,16 @@
     "concept": "Every month a new journey, from the farm to your cup",
     "tagline": "Ogni mese, un nuovo viaggio.",
     "key_messages": [
-      {"message": "Freshly roasted, shipped within 48 hours", "audience_need": "Freshness"},
-      {"message": "Discover a new origin every month", "audience_need": "Variety"}
+      {"channel": "Instagram", "headline": "Roasted this week", "body": "Freshly roasted, shipped within 48 hours."},
+      {"channel": "Coffee influencers", "headline": "A new origin every month", "body": "Discover a new coffee origin every month, from farm to cup."}
     ],
     "content_ideas": ["Instagram reels from the farms", "Influencer unboxing videos"],
     "visual_direction": "Warm earthy colors, travel-map illustrations, close-up shots of beans"
   },
   "validations": [
-    {"stage": "strategy", "passed": false, "issues": [{"severity": "blocking", "field": "supporting_source_ids", "message": "Strategy cites no sources; add the sources that support the target choice."}]},
+    {"stage": "strategy", "passed": false, "issues": [{"severity": "blocking", "check": "strategy_cites_sources", "message": "Strategy cites no sources; add the sources that support the target choice."}]},
     {"stage": "strategy", "passed": true, "issues": []},
-    {"stage": "campaign", "passed": true, "issues": [{"severity": "warning", "field": "content_ideas", "message": "No idea for the online shop channel."}]}
+    {"stage": "campaign", "passed": true, "issues": [{"severity": "warning", "check": "one_message_per_channel", "message": "No key message for the Online shop channel."}]}
   ],
   "strategy_revisions": 1,
   "campaign_revisions": 0,

@@ -9,12 +9,12 @@ from typing_extensions import TypedDict
 from premortem.schemas import Analysis, Campaign, CompanyBrief, Strategy, ValidationResult
 
 
-class LaunchState(TypedDict, total=False):
+class LaunchState(TypedDict):
     document_text: str
-    brief: CompanyBrief
-    analysis: Analysis
-    strategy: Strategy
-    campaign: Campaign
+    brief: CompanyBrief | None
+    analysis: Analysis | None
+    strategy: Strategy | None
+    campaign: Campaign | None
     # Appended by every validation node, never overwritten.
     validations: Annotated[list[ValidationResult], operator.add]
     strategy_revisions: int

@@ -13,12 +13,18 @@ SegmentId = Annotated[str, Field(pattern=r"^SEG[1-9]\d*$", description="Segment 
 
 PriceLevel = Literal["low", "mid", "high", "premium", "unknown"]
 Severity = Literal["blocking", "warning"]
-Stage = Literal["brief", "analysis", "strategy", "campaign"]
+Stage = Literal["analysis", "strategy", "campaign"]
 
 
 class CompanyBrief(BaseModel):
-    company: str = Field(description="Name of the company launching the product.")
-    product: str = Field(description="Short description of the product being launched.")
+    company_name: str = Field(description="Name of the company launching the product.")
+    company_description: str = Field(
+        description="What the company does, its background and size, as stated in the document."
+    )
+    product_name: str = Field(description="Name of the product being launched.")
+    product_description: str = Field(
+        description="What the product is and its main features, as stated in the document."
+    )
     target_country: str = Field(description="Country where the product will be launched.")
     price_hint: str | None = Field(
         default=None,
@@ -64,9 +70,10 @@ class MarketSegment(BaseModel):
     label: str = Field(description="Short name of the segment (a few words).")
     description: str = Field(description="Who belongs to this segment.")
     needs: list[str] = Field(description="Main needs of this segment relevant to the product.")
-    estimated_size: str = Field(
+    estimated_size: str | None = Field(
+        default=None,
         description="Estimated size in free text, citing the source id (e.g. '~2M households, S3'). "
-        "Write 'unknown' rather than inventing a number."
+        "Fill only when a source states it; otherwise null, and flag it in data_quality_notes.",
     )
     source_ids: list[SourceId] = Field(
         default_factory=list, description="Ids of the sources supporting this segment."
@@ -92,7 +99,9 @@ class Strategy(BaseModel):
         description="Id of the chosen segment; must exist in the analysis segments."
     )
     target_description: str = Field(description="Who the launch targets, in plain words.")
-    positioning: str = Field(description="How the product should be perceived against competitors.")
+    positioning_statement: str = Field(
+        description="How the product should be perceived by the target segment against competitors."
+    )
     value_proposition: str = Field(description="The main benefit the target customer gets.")
     pricing_direction: str = Field(
         description="Recommended price direction relative to competitors, with the reason."
@@ -105,8 +114,9 @@ class Strategy(BaseModel):
 
 
 class CampaignMessage(BaseModel):
-    message: str = Field(description="One key message of the campaign.")
-    audience_need: str = Field(description="The target segment need this message answers.")
+    channel: str = Field(description="Channel this message is for; must be one of the strategy channels.")
+    headline: str = Field(description="Short headline of the message.")
+    body: str = Field(description="Message text, consistent with the positioning statement.")
 
 
 class Campaign(BaseModel):
@@ -121,9 +131,7 @@ class ValidationIssue(BaseModel):
     severity: Severity = Field(
         description="'blocking': must be fixed, the stage is revised. 'warning': reported only."
     )
-    field: str | None = Field(
-        default=None, description="Name of the field the issue refers to, if any."
-    )
+    check: str = Field(description="Name of the check that raised the issue.")
     message: str = Field(description="What is wrong and how to fix it.")
 
 
