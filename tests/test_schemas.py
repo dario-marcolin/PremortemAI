@@ -16,10 +16,10 @@ def state() -> dict:
 
 
 def test_dummy_state_builds_every_model(state):
-    assert state["brief"].company == "Acme Coffee"
+    assert state["brief"].company_name == "Acme Coffee"
     assert state["analysis"].competitors[0].price_level == "high"
     assert state["strategy"].target_segment_id == "SEG1"
-    assert state["campaign"].key_messages[0].audience_need == "Freshness"
+    assert state["campaign"].key_messages[0].channel in state["strategy"].channels
     assert all(isinstance(v, ValidationResult) for v in state["validations"])
 
 
@@ -43,7 +43,7 @@ def test_analyst_state_builds(state):
     analyst = TypeAdapter(AnalystState).validate_python(
         {"messages": [], "brief": state["brief"], "document_text": state["document_text"]}
     )
-    assert analyst["brief"].product.startswith("BrewBox")
+    assert analyst["brief"].product_name == "BrewBox"
 
 
 @pytest.mark.parametrize("bad_id", ["s1", "S0", "SEG1", "Source1", ""])
