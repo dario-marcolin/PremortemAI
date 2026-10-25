@@ -6,6 +6,7 @@ Not collected by pytest (no test_ prefix) because it calls the LLM and Tavily. R
     uv run python tests/run_analyst.py --doc path/to/file.pdf
 
 Each run writes a folder outputs/analyst_runs/<timestamp>_<document name>/ with:
+    brief.json         the CompanyBrief given to the Analyst
     analysis.json      the Analysis returned by the subgraph
     research_log.md    every search and its results, as the report step saw them
     run.json           run details: model, searches, tool rounds, tokens, duration
@@ -61,6 +62,7 @@ def main() -> int:
 
     run_dir = OUTPUT_DIR / f"{datetime.now():%Y%m%d_%H%M%S}_{doc.stem}"
     run_dir.mkdir(parents=True)
+    (run_dir / "brief.json").write_text(brief.model_dump_json(indent=2))
     (run_dir / "analysis.json").write_text(analysis.model_dump_json(indent=2))
     (run_dir / "research_log.md").write_text(research_log(messages))
     run_info = {
