@@ -88,12 +88,12 @@ def test_tool_rounds_are_capped(monkeypatch, fake_search):
 def test_invented_url_is_removed_and_ids_renumbered():
     sources = [
         Source(id="S1", kind="web", reference="https://invented.com"),
-        Source(id="S2", kind="web", reference=URL + "/"),
+        Source(id="S2", kind="web", reference=URL.replace("https://", "http://www.") + "/"),
         Source(id="S3", kind="document", reference="Doc, section 5"),
     ]
     analysis = make_analysis(sources, competitor_ids=("S1", "S2"), segment_ids=("S3",), size="1.3M adults, S3")
     out = analyst.normalize_sources(analysis, {URL})
-    assert [(s.id, s.kind) for s in out.sources] == [("S1", "document"), ("S2", "web")]
+    assert [(s.id, s.reference) for s in out.sources] == [("S1", "Doc, section 5"), ("S2", URL)]
     assert out.competitors[0].source_ids == ["S2"]
     assert out.segments[0].source_ids == ["S1"]
     assert out.segments[0].estimated_size == "1.3M adults, S1"

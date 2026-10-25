@@ -80,6 +80,12 @@ def searched_urls(messages: list[BaseMessage]) -> set[str]:
     return urls
 
 
+def _url_key(url: str) -> str:
+    """Compare URLs without scheme, "www." and trailing slash: LLMs often drop them."""
+    url = re.sub(r"^https?://(www\.)?", "", url.strip(), flags=re.IGNORECASE)
+    return url.rstrip("/").lower()
+
+
 def _texts(analysis: Analysis) -> list[str]:
     """Free-text fields that may cite source ids inline, e.g. "480M euros [S2]"."""
     texts = [analysis.market_overview, *analysis.customer_needs, *analysis.data_quality_notes]
@@ -107,17 +113,20 @@ def normalize_sources(analysis: Analysis, allowed_urls: set[str]) -> Analysis:
     ordered = [s for s in analysis.sources if s.kind == "document"] + [
         s for s in analysis.sources if s.kind == "web"
     ]
-    allowed = {u.rstrip("/") for u in allowed_urls}
+    allowed = {_url_key(u): u for u in allowed_urls}
     for source in ordered:
         if source.id not in cited:
             continue
-        if source.kind == "web" and source.reference.rstrip("/") not in allowed:
-            added_notes.append(f"Removed a source ({source.reference}): URL not found in the search results.")
-            continue
-        key = (source.kind, source.reference)
+        reference = source.reference
+        if source.kind == "web":
+            if _url_key(reference) not in allowed:
+                added_notes.append(f"Removed a source ({reference}): URL not found in the search results.")
+                continue
+            reference = allowed[_url_key(reference)]  # the exact URL the search returned
+        key = (source.kind, reference)
         if key not in by_reference:
             by_reference[key] = f"S{len(kept) + 1}"
-            kept.append(Source(id=by_reference[key], kind=source.kind, reference=source.reference))
+            kept.append(Source(id=by_reference[key], kind=source.kind, reference=reference))
         mapping[source.id] = by_reference[key]
 
     def remap_ids(ids: list[str], owner: str) -> list[str]:
