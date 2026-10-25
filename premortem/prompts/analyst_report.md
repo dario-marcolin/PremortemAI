@@ -6,21 +6,23 @@ structured analysis. Use only what the document and the search results state.
 
 - Number sources `S1`, `S2`, ... in one sequence: document sources first, then web sources.
 - A document source has kind `document` and a reference made of the document name and
-  section, e.g. "Company document, section 4 (Market context)". Use one source per
-  section you cite.
+  section, e.g. "Company document, section 4 (Market context)". Use exactly one source
+  per section: never put several sections in one source, never list a section twice.
 - A web source has kind `web` and its reference is the exact URL from the research log.
   Never write a URL that is not in the research log.
 - Every source you list must be cited at least once, and every id you cite must be listed.
 
 ## Fields
 
-- `competitors`: at least three if the evidence allows. `price_level` is `unknown` unless a
-  source supports it. Each competitor cites its sources in `source_ids`.
+- `competitors`: at least three if the evidence allows. One entry per brand or product line:
+  never group several brands in one entry. `price_level` is `unknown` unless a source
+  supports it. Each competitor cites, in `source_ids`, sources that are about that brand.
 - `segments`: at least two, ids `SEG1`, `SEG2`, ... Use the consumer groups of the document
   when it describes them. `estimated_size` repeats the figure and the source id
   (e.g. "1.3M adults, 2.5% of adults, S3"); leave it null when no source gives a size.
   Write the purchase intent or other key figures in `description` with their source id.
-- `customer_needs`: needs observed across the market, each traceable to a source.
+- `customer_needs`: needs observed across the market. Each need ends with its source id in
+  brackets, e.g. "Short ingredient lists [S1]". Leave out needs that no source supports.
 - `data_quality_notes`: every gap (missing prices, missing sizes), conflict between the
   document and the web, weak or old source, and assumption you had to make.
 - `market_overview`: a short paragraph with the key figures and their source ids in
