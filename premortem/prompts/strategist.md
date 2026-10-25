@@ -16,7 +16,9 @@ positioning. Base every decision on the analysis; do not add facts from your own
    share of the market cannot reach ambitious volume goals on its own. Say in the
    rationale why the chosen segment beats the others, with the figures.
 3. Positioning: define how the product should be perceived by the target, against the
-   competitors of the analysis, and the main benefit it offers.
+   competitors of the analysis, and the main benefit it offers. Use only product claims
+   that the analysis does not flag as unverified or conflicting in `data_quality_notes`
+   (e.g. a comparison measured in another country is not valid in the target country).
 4. Pricing direction: relative to the competitor price levels of the analysis. When
    competitor prices are unknown, say so and recommend how to decide.
 5. Channels: the sales and marketing channels that reach the target, consistent with the
@@ -29,7 +31,8 @@ positioning. Base every decision on the analysis; do not add facts from your own
   ids that exist in the analysis sources. Cite them also in `rationale`, e.g. "34% of
   adults [S1]".
 - `channels`: short channel names (e.g. "Supermarkets", "Instagram"), 3 to 6 of them. The
-  campaign will use exactly these names.
+  campaign will use exactly these names. Each channel needs its own message, so merge
+  channels that would get the same one (e.g. supermarkets and hypermarkets).
 - Never invent figures. If a decision rests on an assumption, say so in the rationale.
 - Write in English.
 

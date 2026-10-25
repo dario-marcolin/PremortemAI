@@ -22,8 +22,12 @@ the analysis. Your job is to turn the strategy into a launch campaign.
 - Every message must reflect the positioning statement and the value proposition, and
   speak to the needs of the target segment. Do not target other segments.
 - Product claims (protein content, labels, certifications, taste results) must come from
-  the brief or the strategy. Do not invent claims, figures or awards. Legal and health
-  claims must stay factual.
+  the brief or the strategy. Do not invent claims, figures or awards.
+- No comparative claims against competitors ("more protein than...") unless the strategy
+  states the comparison is valid in the target country.
+- Health and nutrition claims stay factual (e.g. "15 g of protein per bag", "high in
+  protein"). Do not promise effects on the body, weight, muscles or performance.
+- The tagline expresses the positioning statement, not a different idea.
 - Write the campaign copy as it would be published; do not explain it inside the copy.
 
 ## Revisions
