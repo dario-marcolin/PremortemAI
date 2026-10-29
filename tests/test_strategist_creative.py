@@ -67,19 +67,20 @@ def test_strategist_revises_on_blocking_issue(monkeypatch, state):
 def test_strategist_revises_on_human_feedback(monkeypatch, state):
     state["validations"] = [v for v in state["validations"] if v.passed]
     state["human_feedback"] = "Target office workers instead."
-    state["strategy_revisions"] = 2
+    state["strategy_revisions"] = 0  # human_approval resets the counter on a rejection
     out, prompt = run(monkeypatch, strategist_module, strategist_module.strategist, state, state["strategy"])
-    # A human rejection resets the validation budget, and the feedback is used only once
-    assert out["strategy_revisions"] == 0 and out["human_feedback"] is None
+    # Feedback alone does not use the validation budget, and only human_approval clears it
+    assert out["strategy_revisions"] == 0 and "human_feedback" not in out
     assert "Target office workers instead." in prompt
 
 
-def test_strategist_does_not_reuse_cleared_feedback(monkeypatch, state):
-    state["validations"] = [v for v in state["validations"] if v.passed]
+def test_strategist_keeps_feedback_in_validator_revisions(monkeypatch, state):
+    state["validations"] = [*state["validations"], blocking("strategy")]
     state["human_feedback"] = "Target office workers instead."
-    out, _ = run(monkeypatch, strategist_module, strategist_module.strategist, state, state["strategy"])
-    out, prompt = run(monkeypatch, strategist_module, strategist_module.strategist, {**state, **out}, state["strategy"])
-    assert out["strategy_revisions"] == 0 and "Revise" not in prompt
+    state["strategy_revisions"] = 0
+    out, prompt = run(monkeypatch, strategist_module, strategist_module.strategist, state, state["strategy"])
+    assert out["strategy_revisions"] == 1
+    assert "Target office workers instead." in prompt and "SEG9 is not in the analysis." in prompt
 
 
 def test_strategist_retries_then_fails_on_missing_output(monkeypatch, state):

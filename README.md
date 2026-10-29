@@ -26,7 +26,18 @@ uv run python -c "from premortem.llm import get_llm; print(get_llm().invoke('hel
 
 ## Run
 
-TODO (filled in as the phases land).
+Full pipeline from the terminal (pauses for your approval of the strategy):
+
+```bash
+uv run python scripts/run_cli.py --doc data/demo/demo_company.pdf
+uv run python scripts/run_cli.py --doc data/demo/demo_company.pdf --auto-approve
+uv run python scripts/run_cli.py --doc data/demo/demo_company.pdf --reject "Target vegans"
+```
+
+At `Approve? [y/n/feedback]`, `y` approves and any other text rejects the strategy with
+that feedback. Results go to `outputs/<run_id>/` (`state.json`, `run.json`).
+
+Offline tests (fake LLMs, no API credits): `uv run pytest`.
 
 ## Roadmap
 

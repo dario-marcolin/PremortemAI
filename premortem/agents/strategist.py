@@ -2,7 +2,7 @@
 
 from langchain_core.messages import HumanMessage, SystemMessage
 
-from premortem.agents.revision import revision_request
+from premortem.agents.revision import blocking_issues, revision_request
 from premortem.llm import get_llm, invoke_structured
 from premortem.prompts import load_prompt
 from premortem.schemas import Strategy
@@ -19,11 +19,10 @@ def strategist(state: LaunchState) -> dict:
     )
     llm = get_llm().with_structured_output(Strategy)
     strategy = invoke_structured(llm, [SystemMessage(load_prompt("strategist")), HumanMessage(content)])
-    # Feedback is used once, then cleared. Only validator-driven revisions count toward
-    # MAX_REVISIONS: a human rejection starts a new budget for the validation loop.
+    # Only revisions that answer blocking issues count toward MAX_REVISIONS. The feedback
+    # stays in the state (human_approval resets the counter and clears it on approval),
+    # so it is not a reason to count a revision.
     revisions = state.get("strategy_revisions", 0)
-    if feedback:
-        revisions = 0
-    elif revision:
+    if state.get("strategy") is not None and blocking_issues(state, "strategy"):
         revisions += 1
-    return {"strategy": strategy, "strategy_revisions": revisions, "human_feedback": None}
+    return {"strategy": strategy, "strategy_revisions": revisions}
