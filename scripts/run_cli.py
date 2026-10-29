@@ -10,70 +10,32 @@ strategy and its validation issues are printed and the script asks Approve? [y/n
 --auto-approve approves every time; --reject rejects the first strategy with that text.
 
 Each run writes a folder outputs/<run_id>/ with:
+    log.txt        every log line, as the run goes (and the traceback of a failure)
     blueprint.md   the Launch Blueprint (written by the graph's last node)
     state.json     the final LaunchState
-    run.json       document, models, human decisions, tokens, duration
+    run.json       document, models, status, human decisions, tokens, pipeline seconds
 """
 
 import argparse
-import json
 import sys
 import textwrap
-import time
-from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from langchain_core.callbacks import get_usage_metadata_callback  # noqa: E402
-from langgraph.types import Command  # noqa: E402
-from pydantic import TypeAdapter  # noqa: E402
-
 from premortem import config  # noqa: E402
-from premortem.graph import build_graph, initial_state  # noqa: E402
-from premortem.ingestion.parser import DocumentParseError, parse_document  # noqa: E402
-from premortem.state import LaunchState  # noqa: E402
+from premortem.ingestion.parser import DocumentParseError  # noqa: E402
+from premortem.runner import LogLine, Run  # noqa: E402
 
-# Enough for several rejections: each one adds up to 2 * (MAX_REVISIONS + 1) + 1 steps
-RECURSION_LIMIT = 100
+MARKS = {"node": "✔", "warning": "⚠", "error": "✘"}
 
 
-def summary(node: str, update: dict) -> str:
-    """One line describing what a node wrote."""
-    if node == "extract_brief":
-        b = update["brief"]
-        return f"{b.company_name}, {b.product_name} ({b.target_country}), {len(b.missing_info)} missing info"
-    if node == "analyst":
-        a = update["analysis"]
-        return f"{len(a.competitors)} competitors, {len(a.segments)} segments, {len(a.sources)} sources"
-    if node.startswith("validate_"):
-        (v,) = update["validations"]
-        blocking = sum(i.severity == "blocking" for i in v.issues)
-        return f"{'passed' if v.passed else 'FAILED'}, {blocking} blocking, {len(v.issues) - blocking} warnings"
-    if node == "strategist":
-        s = update["strategy"]
-        return f"target {s.target_segment_id}, channels {', '.join(s.channels)} (revisions: {update['strategy_revisions']})"
-    if node == "creative":
-        c = update["campaign"]
-        return f'"{c.tagline}", {len(c.key_messages)} messages (revisions: {update["campaign_revisions"]})'
-    if node == "human_approval":
-        return "rejected" if update.get("human_feedback") else "approved"
-    if node == "blueprint":
-        return "blueprint.md written"
-    return ""
-
-
-def print_update(namespace: tuple, update: dict) -> None:
-    for node, values in update.items():
-        if node == "__interrupt__":
-            continue
-        if namespace:  # inside the Analyst subgraph: show the searches only
-            for message in (values or {}).get("messages", []):
-                for call in getattr(message, "tool_calls", []):
-                    print(f"      search: {call['args'].get('query')}")
-            continue
-        print(f"  ✔ {node:18} {summary(node, values or {})}")
+def print_line(line: LogLine) -> None:
+    if line.kind in ("search", "results"):
+        print(f"      {'search: ' if line.kind == 'search' else '→ '}{line.text}")
+    elif line.kind != "pause":  # the approval screen follows
+        print(f"  {MARKS[line.kind]} {line.node:18} {line.text}")
 
 
 def show_approval(payload: dict) -> None:
@@ -113,63 +75,38 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        text = parse_document(args.doc)
+        run = Run(args.doc)
     except DocumentParseError as e:
         print(f"Error: {e}")
         return 1
+    print(f"Run {run.run_id}\nAgents: {config.LLM_MODEL}, judge: {config.JUDGE_MODEL}\n")
+    for line in run.log:  # parser warnings
+        print_line(line)
 
-    run_id = f"{datetime.now():%Y%m%d_%H%M%S}_{Path(args.doc).stem}"
-    app = build_graph()
-    # The thread_id is the run_id: the blueprint node writes to outputs/<thread_id>/
-    cfg = {"configurable": {"thread_id": run_id}, "recursion_limit": RECURSION_LIMIT}
-    print(f"Run {run_id}\nAgents: {config.LLM_MODEL}, judge: {config.JUDGE_MODEL}\n")
+    while True:
+        for line in run.advance():
+            print_line(line)
+        if run.status != "waiting":
+            break
+        payload = run.pending
+        show_approval(payload)
+        if args.reject and not run.decisions:
+            answer = {"approved": False, "feedback": args.reject}
+        elif args.auto_approve:
+            answer = {"approved": True}
+        else:
+            answer = ask_human()
+        print(f"\n→ {'approved' if answer['approved'] else 'rejected: ' + (answer.get('feedback') or '(no text)')}\n")
+        run.answer(answer)
 
-    decisions = []
-    command = initial_state(text)
-    start = time.perf_counter()
-    with get_usage_metadata_callback() as usage:
-        while True:
-            for namespace, update in app.stream(command, cfg, stream_mode="updates", subgraphs=True):
-                print_update(namespace, update)
-            snapshot = app.get_state(cfg)
-            if not snapshot.next:
-                break
-            payload = snapshot.interrupts[0].value
-            show_approval(payload)
-            if args.reject and not decisions:
-                answer = {"approved": False, "feedback": args.reject}
-            elif args.auto_approve:
-                answer = {"approved": True}
-            else:
-                answer = ask_human()
-            print(f"\n→ {'approved' if answer['approved'] else 'rejected: ' + (answer.get('feedback') or '(no text)')}\n")
-            decisions.append({**answer, "target_segment_id": payload["strategy"]["target_segment_id"],
-                              "unresolved": payload["unresolved"]})
-            command = Command(resume=answer)
-    seconds = round(time.perf_counter() - start, 1)
-
-    run_dir = config.OUTPUT_DIR / run_id
-    run_dir.mkdir(parents=True, exist_ok=True)
-    state = TypeAdapter(LaunchState).dump_python(snapshot.values, mode="json")
-    (run_dir / "state.json").write_text(json.dumps(state, indent=2, ensure_ascii=False))
-    run = {
-        "document": str(Path(args.doc).resolve()),
-        "model": config.LLM_MODEL,
-        "judge_model": config.JUDGE_MODEL,
-        "decisions": decisions,
-        "strategy_revisions": state["strategy_revisions"],
-        "campaign_revisions": state["campaign_revisions"],
-        "validations": [{"stage": v["stage"], "passed": v["passed"]} for v in state["validations"]],
-        "tokens": {model: dict(u) for model, u in usage.usage_metadata.items()},
-        "seconds": seconds,
-    }
-    (run_dir / "run.json").write_text(json.dumps(run, indent=2, ensure_ascii=False))
-
-    unresolved = [v for v in state["validations"][-1:] if not v["passed"]]
-    print(f"Done in {seconds}s. Tagline: {state['campaign']['tagline']}")
-    if unresolved:
-        print("⚠ The campaign still has blocking issues (revision limit reached): see state.json.")
-    print(f"Saved to {run_dir}/ (blueprint.md, state.json, run.json)")
+    if run.status == "failed":
+        print(f"\nThe run failed: {run.error}\nTraceback in {run.dir}/log.txt")
+        return 1
+    state = run.state
+    print(f"Done in {run.seconds:.1f}s of pipeline time. Tagline: {state['campaign'].tagline}")
+    if not state["validations"][-1].passed:
+        print("⚠ The campaign still has blocking issues (revision limit reached): see the blueprint.")
+    print(f"Saved to {run.dir}/ (blueprint.md, state.json, run.json, log.txt)")
     return 0
 
 
