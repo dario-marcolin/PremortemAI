@@ -4,12 +4,25 @@ Each rule returns a list of ValidationIssue (empty when the rule passes). The ch
 are stable: the blueprint and the evaluation refer to them.
 """
 
+import re
+
 from premortem.schemas import Analysis, Campaign, Stage, Strategy, ValidationIssue
 from premortem.state import LaunchState
 
 
 def _issue(severity: str, check: str, message: str) -> ValidationIssue:
     return ValidationIssue(severity=severity, check=check, message=message)
+
+
+def _channel_key(channel: str) -> str:
+    return " ".join(re.findall(r"\w+", channel.casefold()))
+
+
+def same_channel(message_channel: str, strategy_channel: str) -> bool:
+    """Case and punctuation are ignored, and a more specific name matches its channel
+    ("Instagram Reels" is an "Instagram" message)."""
+    message, strategy = _channel_key(message_channel), _channel_key(strategy_channel)
+    return bool(strategy) and re.search(rf"\b{re.escape(strategy)}\b", message) is not None
 
 
 # Analysis (warnings only: the graph never loops back to the Analyst)
@@ -68,7 +81,7 @@ def supporting_source_ids_exist(analysis: Analysis, strategy: Strategy) -> list[
 
 
 def target_segment_has_size(analysis: Analysis, strategy: Strategy) -> list[ValidationIssue]:
-    segment = next((s for s in analysis.segments if s.segment_id == strategy.target_segment_id), None)
+    segment = analysis.find_segment(strategy.target_segment_id)
     if segment is None or segment.estimated_size:
         return []  # a missing segment is reported by target_segment_exists
     return [
@@ -85,7 +98,13 @@ def target_segment_has_size(analysis: Analysis, strategy: Strategy) -> list[Vali
 
 
 def message_channels_in_strategy(strategy: Strategy, campaign: Campaign) -> list[ValidationIssue]:
-    extra = list(dict.fromkeys(m.channel for m in campaign.key_messages if m.channel not in strategy.channels))
+    extra = list(
+        dict.fromkeys(
+            m.channel
+            for m in campaign.key_messages
+            if not any(same_channel(m.channel, c) for c in strategy.channels)
+        )
+    )
     if not extra:
         return []
     return [
@@ -99,11 +118,10 @@ def message_channels_in_strategy(strategy: Strategy, campaign: Campaign) -> list
 
 
 def one_message_per_channel(strategy: Strategy, campaign: Campaign) -> list[ValidationIssue]:
-    covered = {m.channel for m in campaign.key_messages}
     return [
         _issue("warning", "one_message_per_channel", f"No key message for the strategy channel '{c}'.")
         for c in strategy.channels
-        if c not in covered
+        if not any(same_channel(m.channel, c) for m in campaign.key_messages)
     ]
 
 

@@ -2,7 +2,7 @@
 
 A node revises when the last validation of its stage has blocking issues, or when the
 human left feedback. The previous output, every issue of that validation and the
-feedback are then added to the prompt.
+feedback are then added to the prompt. The Strategist clears the feedback once used.
 """
 
 from pydantic import BaseModel

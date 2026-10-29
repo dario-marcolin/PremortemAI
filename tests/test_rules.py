@@ -81,3 +81,10 @@ def test_channel_without_message(state):
     issues = rules.one_message_per_channel(state["strategy"], state["campaign"])
     assert checks(issues) == [("one_message_per_channel", "warning")]
     assert "Online shop" in issues[0].message
+
+
+def test_channel_names_match_loosely(state):
+    for m, channel in zip(state["campaign"].key_messages, ["instagram reels", "coffee-influencers", "ONLINE SHOP"]):
+        m.channel = channel
+    assert rules.message_channels_in_strategy(state["strategy"], state["campaign"]) == []
+    assert rules.one_message_per_channel(state["strategy"], state["campaign"]) == []

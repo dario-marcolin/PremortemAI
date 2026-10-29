@@ -67,9 +67,24 @@ def test_strategist_revises_on_blocking_issue(monkeypatch, state):
 def test_strategist_revises_on_human_feedback(monkeypatch, state):
     state["validations"] = [v for v in state["validations"] if v.passed]
     state["human_feedback"] = "Target office workers instead."
+    state["strategy_revisions"] = 2
     out, prompt = run(monkeypatch, strategist_module, strategist_module.strategist, state, state["strategy"])
-    assert out["strategy_revisions"] == state["strategy_revisions"] + 1
+    # A human rejection resets the validation budget, and the feedback is used only once
+    assert out["strategy_revisions"] == 0 and out["human_feedback"] is None
     assert "Target office workers instead." in prompt
+
+
+def test_strategist_does_not_reuse_cleared_feedback(monkeypatch, state):
+    state["validations"] = [v for v in state["validations"] if v.passed]
+    state["human_feedback"] = "Target office workers instead."
+    out, _ = run(monkeypatch, strategist_module, strategist_module.strategist, state, state["strategy"])
+    out, prompt = run(monkeypatch, strategist_module, strategist_module.strategist, {**state, **out}, state["strategy"])
+    assert out["strategy_revisions"] == 0 and "Revise" not in prompt
+
+
+def test_strategist_retries_then_fails_on_missing_output(monkeypatch, state):
+    with pytest.raises(RuntimeError, match="no structured output"):
+        run(monkeypatch, strategist_module, strategist_module.strategist, first_run(state, "strategy"), None)
 
 
 def test_strategist_ignores_warnings_and_other_stages(monkeypatch, state):

@@ -93,3 +93,42 @@ def test_feedback_reaches_the_strategy_judge_only(state):
     state["human_feedback"] = "Target vegans."
     assert "<human_feedback>" in judge_module.judge_input("strategy", state)
     assert "<human_feedback>" not in judge_module.judge_input("analysis", state)
+
+
+def test_quote_with_json_escaped_characters_is_found(monkeypatch, state):
+    state["strategy"].positioning_statement = 'The "clean" protein snack\nfor busy adults'
+    install(monkeypatch, JudgeIssue(severity="blocking", check="differentiation", field="strategy.positioning_statement",
+                                    quote='The "clean" protein snack for busy adults', message="Not different."))
+    result = validator_module.make_validator("strategy")(state)["validations"][0]
+    assert result.issues[0].severity == "blocking"
+
+
+@pytest.mark.parametrize("quote", ["", "SEG1", "strategy"])
+def test_trivial_quote_is_downgraded(monkeypatch, state, quote):
+    install(monkeypatch, issue(quote=quote))
+    result = validator_module.make_validator("strategy")(state)["validations"][0]
+    assert result.passed and result.issues[0].severity == "warning"
+
+
+def test_quote_from_another_field_is_downgraded(monkeypatch, state):
+    # The quote exists in the input, but not in the field the judge names
+    install(monkeypatch, JudgeIssue(severity="blocking", check="positioning_fits_needs",
+                                    field="strategy.positioning_statement", quote="1.3 million adults, 2.5% of adults",
+                                    message="Wrong field."))
+    result = validator_module.make_validator("strategy")(state)["validations"][0]
+    assert result.passed
+
+
+def test_field_resolution():
+    sections = {"analysis": Analysis(**json.loads(FIXTURE.read_text())["analysis"])}
+    size = sections["analysis"].find_segment("SEG1").estimated_size
+    assert judge_module.field_values("analysis.segments[SEG1].estimated_size", sections) == [size]
+    assert size in judge_module.field_values("unknown.path", sections)
+
+
+def test_missing_verdict_is_a_warning(monkeypatch, state):
+    fake = install(monkeypatch)
+    fake.verdict = None
+    result = validator_module.make_validator("strategy")(state)["validations"][0]
+    assert fake.calls == 2 and result.passed
+    assert [i.check for i in result.issues] == ["judge.no_verdict"]

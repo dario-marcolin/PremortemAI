@@ -8,3 +8,16 @@ def get_llm(temperature: float | None = config.DEFAULT_TEMPERATURE, model: str |
         raise RuntimeError("LLM_API_KEY is not set: copy .env.example to .env and fill it in")
     kwargs = {} if temperature is None else {"temperature": temperature}
     return init_chat_model(model or config.LLM_MODEL, api_key=config.LLM_API_KEY, **kwargs)
+
+
+def invoke_structured(llm, messages, attempts: int = 2):
+    """Invoke a with_structured_output model, retrying when it returns None.
+
+    The model returns None when it answers in prose instead of calling the schema tool.
+    Retry once, then raise, so no node ever writes None into the state.
+    """
+    for _ in range(attempts):
+        result = llm.invoke(messages)
+        if result is not None:
+            return result
+    raise RuntimeError(f"The model returned no structured output after {attempts} attempts")

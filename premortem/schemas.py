@@ -93,6 +93,9 @@ class Analysis(BaseModel):
         description="Every source cited anywhere in the analysis, each with a unique id."
     )
 
+    def find_segment(self, segment_id: str) -> "MarketSegment | None":
+        return next((s for s in self.segments if s.segment_id == segment_id), None)
+
 
 class Strategy(BaseModel):
     target_segment_id: SegmentId = Field(

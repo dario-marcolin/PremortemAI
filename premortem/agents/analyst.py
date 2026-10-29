@@ -13,7 +13,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 
 from premortem import config
-from premortem.llm import get_llm
+from premortem.llm import get_llm, invoke_structured
 from premortem.prompts import load_prompt
 from premortem.schemas import Analysis, Source
 from premortem.state import AnalystState
@@ -22,6 +22,8 @@ from premortem.tools.web_search import web_search
 # Each round is one analyst_llm step and one tools step; the final report takes one more.
 MAX_TOOL_ROUNDS = (config.ANALYST_RECURSION_LIMIT - 2) // 2
 SOURCE_ID = re.compile(r"\bS[1-9]\d*\b")
+# A bracket group ("[S2]", "[S1, S3]") or a bare id ("1.3M adults, S3")
+CITATION = re.compile(r"\[[^\]]*\]|\bS[1-9]\d*\b")
 
 
 def get_analyst_tools() -> list:
@@ -55,11 +57,14 @@ def route_analyst(state: AnalystState) -> str:
 
 def research_log(messages: list[BaseMessage]) -> str:
     """The conversation as plain text, so the report call needs no tool history."""
+    answered = {m.tool_call_id for m in messages if isinstance(m, ToolMessage)}
     lines = []
     for m in messages:
         if isinstance(m, AIMessage):
             for call in m.tool_calls:
-                lines.append(f"Search: {call['args'].get('query', call['args'])}")
+                query = call["args"].get("query", call["args"])
+                # The call that hit MAX_TOOL_ROUNDS is never run: say so, so no figure is attributed to it
+                lines.append(f"Search: {query}" if call["id"] in answered else f"Search not run (limit reached): {query}")
             if m.text.strip():
                 lines.append(f"Analyst notes:\n{m.text.strip()}")
         elif isinstance(m, ToolMessage):
@@ -95,6 +100,19 @@ def _texts(analysis: Analysis) -> list[str]:
     return texts
 
 
+def rewrite_citations(text: str, listed: set[str], replace) -> str:
+    """Apply replace to the source ids of text: every id inside brackets, but a bare id
+    only when it is a listed source, so names like "Galaxy S24" are left intact."""
+
+    def sub(match: re.Match) -> str:
+        token = match.group()
+        if token.startswith("["):
+            return SOURCE_ID.sub(lambda m: replace(m.group()), token)
+        return replace(token) if token in listed else token
+
+    return CITATION.sub(sub, text)
+
+
 def normalize_sources(analysis: Analysis, allowed_urls: set[str]) -> Analysis:
     """Renumber sources S1, S2... (document first, then web) and drop what cannot be traced.
 
@@ -104,7 +122,9 @@ def normalize_sources(analysis: Analysis, allowed_urls: set[str]) -> Analysis:
     """
     cited = {i for c in analysis.competitors for i in c.source_ids}
     cited |= {i for s in analysis.segments for i in s.source_ids}
-    cited |= {m for text in _texts(analysis) for m in SOURCE_ID.findall(text)}
+    listed = {s.id for s in analysis.sources}
+    for text in _texts(analysis):
+        rewrite_citations(text, listed, lambda i: cited.add(i) or i)
 
     added_notes: list[str] = []
     kept: list[Source] = []
@@ -138,7 +158,7 @@ def normalize_sources(analysis: Analysis, allowed_urls: set[str]) -> Analysis:
     def remap_text(text: str | None) -> str | None:
         if text is None:
             return None
-        return SOURCE_ID.sub(lambda m: mapping.get(m.group(), "S?"), text)
+        return rewrite_citations(text, listed, lambda i: mapping.get(i, "S?"))
 
     competitors = [
         c.model_copy(
@@ -175,7 +195,8 @@ def normalize_sources(analysis: Analysis, allowed_urls: set[str]) -> Analysis:
 def analyst_report(state: AnalystState) -> dict:
     llm = get_llm().with_structured_output(Analysis)
     messages = state.get("messages", [])
-    analysis = llm.invoke(
+    analysis = invoke_structured(
+        llm,
         [
             SystemMessage(load_prompt("analyst_report")),
             HumanMessage(

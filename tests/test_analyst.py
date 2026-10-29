@@ -130,3 +130,17 @@ def test_research_log_and_urls():
                 ToolMessage(json.dumps([{"error": "No results"}]), tool_call_id="c2")]
     assert "Search: q1" in analyst.research_log(messages)
     assert analyst.searched_urls(messages) == {URL}
+
+
+def test_unanswered_search_is_marked_not_run():
+    messages = [search_turn(1), ToolMessage("[]", tool_call_id="c1"), search_turn(2)]
+    log = analyst.research_log(messages)
+    assert "Search: q1" in log and "Search not run (limit reached): q2" in log
+
+
+def test_product_names_are_not_taken_for_source_ids():
+    sources = [Source(id="S1", kind="document", reference="Doc"), Source(id="S3", kind="web", reference=URL)]
+    analysis = make_analysis(sources, competitor_ids=("S3",))
+    analysis.competitors[0].positioning = "Bundled with Galaxy S24 phones [S3]"
+    out = analyst.normalize_sources(analysis, {URL})
+    assert out.competitors[0].positioning == "Bundled with Galaxy S24 phones [S2]"

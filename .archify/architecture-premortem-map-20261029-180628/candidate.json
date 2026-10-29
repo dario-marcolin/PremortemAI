@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "PremortemAI: mappa del progetto (Fase 7)",
+    "output": ".archify/architecture-premortem-map-20261029-180628/premortem-map.html",
+    "locale": "it",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "git@github.com:dario-marcolin/PremortemAI.git",
+      "link_mode": "local-only",
+      "revision": "9fbe364c973c7f7c22d87075aafc4e648ee79fc6"
+    }
+  },
+  "components": [
+    {
+      "id": "doc", "type": "external", "label": "Documento", "sublabel": "PDF DOCX PPTX MD TXT",
+      "pos": [40, 200], "size": [120, 64],
+      "sources": [{ "path": "premortem/ingestion/parser.py", "line": 10, "label": "ALLOWED_EXTENSIONS" }]
+    },
+    {
+      "id": "parser", "type": "backend", "label": "parse_document", "sublabel": "MarkItDown", "tag": "max 60k token",
+      "pos": [220, 200], "size": [120, 64],
+      "sources": [
+        { "path": "premortem/ingestion/parser.py", "line": 24, "end_line": 57 },
+        { "path": "premortem/config.py", "line": 21, "label": "DOC_TOKEN_BUDGET" }
+      ]
+    },
+    {
+      "id": "brief", "type": "backend", "label": "extract_brief", "sublabel": "LLM strutturato",
+      "pos": [410, 200], "size": [120, 64],
+      "sources": [
+        { "path": "premortem/ingestion/brief_extractor.py", "line": 10, "end_line": 17 },
+        { "path": "premortem/schemas.py", "line": 19, "label": "CompanyBrief" }
+      ]
+    },
+    {
+      "id": "analyst", "type": "backend", "label": "Analyst", "sublabel": "sottografo ReAct", "tag": "max 6 ricerche",
+      "pos": [640, 200], "size": [120, 64],
+      "sources": [
+        { "path": "premortem/agents/analyst.py", "line": 191, "end_line": 201, "label": "build_analyst" },
+        { "path": "premortem/agents/analyst.py", "line": 175, "end_line": 188, "label": "analyst_report" },
+        { "path": "premortem/agents/analyst.py", "line": 98, "end_line": 172, "label": "normalize_sources" }
+      ]
+    },
+    {
+      "id": "tavily", "type": "external", "label": "Tavily", "sublabel": "web_search, 5 risultati",
+      "pos": [640, 40], "size": [120, 64],
+      "sources": [{ "path": "premortem/tools/web_search.py", "line": 13, "end_line": 42 }]
+    },
+    {
+      "id": "strategist", "type": "backend", "label": "Strategist", "sublabel": "segmento, posizionamento",
+      "pos": [845, 200], "size": [120, 64],
+      "sources": [
+        { "path": "premortem/agents/strategist.py", "line": 12, "end_line": 22 },
+        { "path": "premortem/agents/revision.py", "line": 18, "end_line": 35, "label": "revision_request" }
+      ]
+    },
+    {
+      "id": "creative", "type": "backend", "label": "Creative", "sublabel": "messaggi per canale",
+      "pos": [1050, 200], "size": [120, 64],
+      "sources": [
+        { "path": "premortem/agents/creative.py", "line": 12, "end_line": 26 },
+        { "path": "premortem/agents/revision.py", "line": 18, "end_line": 35, "label": "revision_request" }
+      ]
+    },
+    {
+      "id": "validator", "type": "security", "label": "Validator", "sublabel": "make_validator(stage)", "tag": "append validations",
+      "pos": [845, 400], "size": [120, 64],
+      "sources": [
+        { "path": "premortem/agents/validator.py", "line": 9, "end_line": 20 },
+        { "path": "premortem/state.py", "line": 18, "end_line": 19, "label": "validations append-only" }
+      ]
+    },
+    {
+      "id": "rules", "type": "backend", "label": "Regole", "sublabel": "Python, no LLM",
+      "pos": [720, 580], "size": [120, 64],
+      "sources": [{ "path": "premortem/validation/rules.py", "line": 110, "end_line": 121, "label": "run_rules" }]
+    },
+    {
+      "id": "judge", "type": "backend", "label": "LLM judge", "sublabel": "JUDGE_MODEL", "tag": "citazione verificata",
+      "pos": [970, 580], "size": [120, 64],
+      "sources": [
+        { "path": "premortem/validation/judge.py", "line": 55, "end_line": 78 },
+        { "path": "premortem/config.py", "line": 8 }
+      ]
+    }
+  ],
+  "connections": [
+    { "id": "doc-parser", "from": "doc", "to": "parser", "label": "file", "variant": "emphasis" },
+    { "id": "parser-brief", "from": "parser", "to": "brief", "label": "testo", "variant": "emphasis" },
+    { "id": "brief-analyst", "from": "brief", "to": "analyst", "label": "CompanyBrief", "variant": "emphasis" },
+    { "id": "analyst-tavily", "from": "analyst", "to": "tavily", "label": "query" },
+    { "id": "analyst-strategist", "from": "analyst", "to": "strategist", "label": "Analysis", "variant": "emphasis" },
+    { "id": "strategist-creative", "from": "strategist", "to": "creative", "label": "Strategy", "variant": "emphasis" },
+    { "id": "analyst-validator", "from": "analyst", "to": "validator", "label": "solo warning" },
+    { "id": "strategist-validator", "from": "strategist", "to": "validator", "label": "verifica" },
+    { "id": "validator-strategist", "from": "validator", "to": "strategist", "label": "revisione", "variant": "dashed" },
+    { "id": "creative-validator", "from": "creative", "to": "validator", "label": "verifica" },
+    { "id": "validator-creative", "from": "validator", "to": "creative", "label": "revisione", "variant": "dashed" },
+    { "id": "validator-rules", "from": "validator", "to": "rules", "label": "1. regole" },
+    { "id": "validator-judge", "from": "validator", "to": "judge", "label": "2. se nessun blocking" }
+  ],
+  "cards": [
+    {
+      "dot": "amber", "title": "Stato al commit 9fbe364",
+      "items": [
+        "Nodi pronti fino alla Fase 7, ma il grafo principale su LaunchState non esiste ancora: nessun file collega i nodi",
+        "premortem/output/ ed eval/cases/ sono ancora vuoti",
+        "MAX_REVISIONS = 2 è in config.py ma nessun codice lo legge ancora"
+      ]
+    },
+    {
+      "dot": "cyan", "title": "Revisione",
+      "items": [
+        "Strategist e Creative rifanno l'output se l'ultima validazione del loro stage ha issue blocking",
+        "Lo Strategist rivede anche quando c'è human_feedback",
+        "Lo stage analysis produce solo warning: non si torna all'Analyst"
+      ]
+    },
+    {
+      "dot": "rose", "title": "Validazione",
+      "items": [
+        "Prima le regole deterministiche; il judge gira solo se nessuna regola blocca",
+        "Il judge deve citare il campo d'input: un blocking con citazione non trovata diventa warning"
+      ]
+    },
+    {
+      "dot": "emerald", "title": "LLM e fonti",
+      "items": [
+        "Tutte le chiamate passano da get_llm() (llm.py); default anthropic:claude-sonnet-5-5",
+        "Prompt di sistema in premortem/prompts/*.md",
+        "normalize_sources rinumera le fonti S1, S2… e scarta gli URL che nessuna ricerca ha restituito"
+      ]
+    }
+  ]
+}
