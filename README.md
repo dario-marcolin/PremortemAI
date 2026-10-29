@@ -35,7 +35,9 @@ uv run python scripts/run_cli.py --doc data/demo/demo_company.pdf --reject "Targ
 ```
 
 At `Approve? [y/n/feedback]`, `y` approves and any other text rejects the strategy with
-that feedback. Results go to `outputs/<run_id>/` (`state.json`, `run.json`).
+that feedback. Results go to `outputs/<run_id>/`: `blueprint.md` (the Launch Blueprint),
+`state.json` and `run.json`. To re-render the blueprint of a saved run:
+`uv run python tests/run_blueprint.py --run outputs/<run_id>`.
 
 Offline tests (fake LLMs, no API credits): `uv run pytest`.
 

@@ -2,7 +2,7 @@
 
 Revision loops are bounded by MAX_REVISIONS. When the limit is reached, the stage goes on
 with its blocking issues unresolved: they stay in `validations`, are shown to the human
-at the approval step and will be listed in the blueprint.
+at the approval step and are listed at the top of the blueprint.
 
 Human feedback stays in the state from a rejection until the next approval, so the
 Strategist and the strategy judge see it in every revision that follows the rejection.
@@ -10,6 +10,7 @@ Strategist and the strategy judge see it in every revision that follows the reje
 
 from langgraph.checkpoint.memory import MemorySaver
 from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+from langgraph.config import get_config
 from langgraph.graph import END, StateGraph
 from langgraph.types import interrupt
 
@@ -20,6 +21,7 @@ from premortem.agents.revision import blocking_issues, latest_validation
 from premortem.agents.strategist import strategist
 from premortem.agents.validator import make_validator
 from premortem.ingestion.brief_extractor import extract_brief
+from premortem.output.blueprint import save_blueprint
 from premortem.schemas import Stage
 from premortem.state import LaunchState
 
@@ -82,7 +84,8 @@ def route_human(state: LaunchState) -> str:
 
 
 def build_blueprint_node(state: LaunchState) -> dict:
-    """Placeholder until Phase 9 (render_blueprint)."""
+    """Write outputs/<thread_id>/blueprint.md. The state has no blueprint field: the file is the output."""
+    save_blueprint(state, config.OUTPUT_DIR / get_config()["configurable"]["thread_id"] / "blueprint.md")
     return {}
 
 

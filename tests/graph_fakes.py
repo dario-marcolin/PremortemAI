@@ -2,7 +2,8 @@
 
 One FakeModel replaces get_llm in every module. It answers by output schema with the
 objects of tests/fixtures/dummy_state.json, runs one web search in the Analyst loop, and
-lets each test decide which issues the judge raises per stage.
+lets each test decide which issues the judge raises per stage. Plain invoke() calls (the
+executive summary) return SUMMARY.
 """
 
 import json
@@ -18,12 +19,14 @@ from premortem import config
 from premortem.agents import analyst, creative, strategist
 from premortem.graph import build_graph, initial_state
 from premortem.ingestion import brief_extractor
+from premortem.output import blueprint
 from premortem.schemas import Analysis, Campaign, CompanyBrief, Strategy
 from premortem.state import LaunchState
 from premortem.tools import web_search as ws
 from premortem.validation import judge as judge_module
 from premortem.validation.judge import JudgeIssue, JudgeVerdict
 
+SUMMARY = "Launch the product for SEG1 in Italy."
 FIXTURE = Path(__file__).parent / "fixtures" / "dummy_state.json"
 STATE = TypeAdapter(LaunchState).validate_python(json.loads(FIXTURE.read_text()))
 # Blocking issues the quote check accepts: the quotes are real values of the fixture
@@ -50,6 +53,10 @@ class FakeModel:
 
     def bind_tools(self, _tools):
         return _Bound(self, None)
+
+    def invoke(self, messages):
+        self.prompts["summary"].append(_text(messages[-1]))
+        return AIMessage(SUMMARY)
 
     def with_structured_output(self, schema):
         return _Bound(self, schema)
@@ -78,7 +85,7 @@ class _Bound:
 
 
 def install(monkeypatch, model: FakeModel) -> FakeModel:
-    for module in (brief_extractor, analyst, strategist, creative, judge_module):
+    for module in (brief_extractor, analyst, strategist, creative, judge_module, blueprint):
         monkeypatch.setattr(module, "get_llm", lambda *_args, **_kwargs: model)
     # The web sources of the fixture are returned by the search, so the Analyst keeps them
     results = [{"title": s.id, "url": s.reference, "content": "snippet"}
@@ -92,6 +99,7 @@ def run_graph(answers: list[dict] | None = None):
     """Run to END, answering each interrupt with the next answer (then approving).
 
     Returns the final state values, the interrupt payloads and the nodes in run order.
+    The blueprint is written to config.OUTPUT_DIR / "test" / "blueprint.md".
     """
     answers = list(answers or [])
     app = build_graph()

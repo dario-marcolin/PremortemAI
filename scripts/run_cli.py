@@ -10,6 +10,7 @@ strategy and its validation issues are printed and the script asks Approve? [y/n
 --auto-approve approves every time; --reject rejects the first strategy with that text.
 
 Each run writes a folder outputs/<run_id>/ with:
+    blueprint.md   the Launch Blueprint (written by the graph's last node)
     state.json     the final LaunchState
     run.json       document, models, human decisions, tokens, duration
 """
@@ -19,7 +20,6 @@ import json
 import sys
 import textwrap
 import time
-import uuid
 from datetime import datetime
 from pathlib import Path
 
@@ -35,7 +35,6 @@ from premortem.graph import build_graph, initial_state  # noqa: E402
 from premortem.ingestion.parser import DocumentParseError, parse_document  # noqa: E402
 from premortem.state import LaunchState  # noqa: E402
 
-OUTPUT_DIR = ROOT / "outputs"
 # Enough for several rejections: each one adds up to 2 * (MAX_REVISIONS + 1) + 1 steps
 RECURSION_LIMIT = 100
 
@@ -60,6 +59,8 @@ def summary(node: str, update: dict) -> str:
         return f'"{c.tagline}", {len(c.key_messages)} messages (revisions: {update["campaign_revisions"]})'
     if node == "human_approval":
         return "rejected" if update.get("human_feedback") else "approved"
+    if node == "blueprint":
+        return "blueprint.md written"
     return ""
 
 
@@ -119,7 +120,8 @@ def main() -> int:
 
     run_id = f"{datetime.now():%Y%m%d_%H%M%S}_{Path(args.doc).stem}"
     app = build_graph()
-    cfg = {"configurable": {"thread_id": f"{run_id}_{uuid.uuid4().hex[:6]}"}, "recursion_limit": RECURSION_LIMIT}
+    # The thread_id is the run_id: the blueprint node writes to outputs/<thread_id>/
+    cfg = {"configurable": {"thread_id": run_id}, "recursion_limit": RECURSION_LIMIT}
     print(f"Run {run_id}\nAgents: {config.LLM_MODEL}, judge: {config.JUDGE_MODEL}\n")
 
     decisions = []
@@ -146,8 +148,8 @@ def main() -> int:
             command = Command(resume=answer)
     seconds = round(time.perf_counter() - start, 1)
 
-    run_dir = OUTPUT_DIR / run_id
-    run_dir.mkdir(parents=True)
+    run_dir = config.OUTPUT_DIR / run_id
+    run_dir.mkdir(parents=True, exist_ok=True)
     state = TypeAdapter(LaunchState).dump_python(snapshot.values, mode="json")
     (run_dir / "state.json").write_text(json.dumps(state, indent=2, ensure_ascii=False))
     run = {
@@ -167,7 +169,7 @@ def main() -> int:
     print(f"Done in {seconds}s. Tagline: {state['campaign']['tagline']}")
     if unresolved:
         print("⚠ The campaign still has blocking issues (revision limit reached): see state.json.")
-    print(f"Saved to {run_dir.relative_to(ROOT)}/")
+    print(f"Saved to {run_dir}/ (blueprint.md, state.json, run.json)")
     return 0
 
 

@@ -1,7 +1,7 @@
 """End-to-end run of the main graph with fake LLMs, auto-approving at the interrupt."""
 
 from premortem.graph import build_graph
-from tests.graph_fakes import STATE, FakeModel, install, run_graph
+from tests.graph_fakes import STATE, SUMMARY, FakeModel, install, run_graph
 
 PIPELINE = ["extract_brief", "analyst", "validate_analysis", "strategist", "validate_strategy",
             "human_approval", "creative", "validate_campaign", "blueprint"]
@@ -24,6 +24,14 @@ def test_auto_approved_run_reaches_end_with_every_field_filled(monkeypatch):
     assert values["human_feedback"] is None
     # The subgraph state (messages) does not leak into LaunchState
     assert "messages" not in values
+
+
+def test_run_writes_the_blueprint(monkeypatch, output_dir):
+    install(monkeypatch, FakeModel())
+    run_graph()
+    md = (output_dir / "test" / "blueprint.md").read_text()
+    assert md.startswith(f"# Launch Blueprint: {STATE['brief'].product_name}")
+    assert SUMMARY in md
 
 
 def test_analyst_searches_and_keeps_web_sources(monkeypatch):

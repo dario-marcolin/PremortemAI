@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from dotenv import load_dotenv
 
@@ -19,3 +20,6 @@ MAX_REVISIONS = 2
 MAX_SEARCH_RESULTS = 5
 ANALYST_RECURSION_LIMIT = 15
 DOC_TOKEN_BUDGET = 60_000
+
+# Each run writes outputs/<run_id>/ (blueprint.md, state.json); run_id is the graph thread_id
+OUTPUT_DIR = Path(__file__).resolve().parent.parent / "outputs"
