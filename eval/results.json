@@ -1,0 +1,1420 @@
+{
+  "cases": {
+    "demo_fr": {
+      "case": {
+        "id": "demo_fr",
+        "document": "data/demo/demo_company.pdf",
+        "category": "Food: protein snack",
+        "country": "France",
+        "trap": "Vegans and strict vegetarians: 72% purchase intent but only 1.3 million adults, 2.5% of adults 18-64"
+      },
+      "multi_agent": {
+        "dir": "outputs/eval_20261030_121147/demo_fr/multi_agent",
+        "metrics": {
+          "system": "multi_agent",
+          "status": "done",
+          "error": null,
+          "cost": {
+            "tokens": {
+              "claude-haiku-5-5": {
+                "input_tokens": 59590,
+                "output_tokens": 13028,
+                "total_tokens": 72618
+              },
+              "claude-sonnet-5-5": {
+                "input_tokens": 27653,
+                "output_tokens": 3867,
+                "total_tokens": 31520
+              }
+            },
+            "total_tokens": 104138,
+            "seconds": 98.3
+          },
+          "trap": {
+            "applies": true,
+            "segment": "Vegans and strict vegetarians: 72% purchase intent but only 1.3 million adults, 2.5% of adults 18-64",
+            "target": "SEG1 Weekly sport practitioners",
+            "avoided": true
+          },
+          "traceability": {
+            "score": 0.85,
+            "claims": 20,
+            "traced": 17,
+            "unquoted": 0,
+            "items": [
+              {
+                "quote": "Proteo Crisps launches in France in March 2026 in Paris, Lyon and Lille, targeting weekly sport practitioners: 17.5 million adults, with 41% purchase intent for a similar concept.",
+                "refs": [],
+                "valid_refs": 0,
+                "traced": false
+              },
+              {
+                "quote": "The French protein snack category is worth 480 million euros in 2024 and grows about 11% per year (2021-2024) [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Plant-based products account for 18% of the category [1], and 27% of French adults bought a protein snack in the last three months [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Supermarkets and hypermarkets hold 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "The savoury snack market overall is worth 2.9 billion euros [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "A web source reports that hyperprotein foods sold in French supermarkets reached about 380 million euros in 2024 [2]; this covers a broader scope than snacks and is not directly comparable with the 480 million euro snack figure.",
+                "refs": [
+                  "2"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "| Weekly sport practitioners | 17.5 million adults, 34% of adults aged 18-64 [1] | High protein per portion; Snack that fits around training; Availability in gyms and sport shops | [1] |",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "| SEG2 | Health-conscious office workers | 9.0 million adults, 18% of adults aged 18-64 [1] | Everyday snack with protein; Short ingredient list; Nutri-Score A or B on the front of pack | [1] |",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "| SEG3 | Vegans and strict vegetarians | 1.3 million adults, 2.5% of adults aged 18-64 [1] | Vegan certification; Plant-based protein; Gluten-free | [1] |",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "| SEG4 | Parents of school-age children | 7.1 million adults, 14% of adults aged 18-64 [1] | Snack for children and family use; Short ingredient list | [1] |",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Largest consumer group in the France Snack Panel: 41% purchase intent for a high-protein, plant-based crisp concept similar to Proteo Crisps [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "9.0 million adults (18%) with 38% purchase intent for the concept [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Most enthusiastic group, with 72% purchase intent [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "7.1 million adults (14%) with 22% purchase intent for the concept [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Puffed (not baked) protein chips made from rice flour, chickpea flour and pea protein; 40 g bag containing about 8.2-8.5 g of protein, sold in Belgium [4].",
+                "refs": [
+                  "4"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "The only price found (Näno Supps, 2.50 euros for 40 g) is from Belgium and is not used as a French benchmark.",
+                "refs": [],
+                "valid_refs": 0,
+                "traced": false
+              },
+              {
+                "quote": "Entered the protein snack category in 2023 with lower prices [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Protein bars and snacks with a sport-oriented image, present in gyms and supermarkets [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "French health and wellness food brand, widely available in supermarkets, with some protein products [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Segment size for SEG1-SEG4 is a share of adults aged 18-64 (about 51 million), as stated in the document.",
+                "refs": [],
+                "valid_refs": 0,
+                "traced": false
+              }
+            ]
+          },
+          "faithfulness": {
+            "score": 1.0,
+            "checked": 33,
+            "matched": 33,
+            "not_found": 0,
+            "unverifiable": 0,
+            "items": [
+              {
+                "figure": "17.5 million",
+                "quote": "Proteo Crisps launches in France in March 2026 in Paris, Lyon and Lille, targeting weekly sport practitioners: 17.5 million adults, with 41% purchase intent for a similar concept.",
+                "status": "document"
+              },
+              {
+                "figure": "41%",
+                "quote": "Proteo Crisps launches in France in March 2026 in Paris, Lyon and Lille, targeting weekly sport practitioners: 17.5 million adults, with 41% purchase intent for a similar concept.",
+                "status": "document"
+              },
+              {
+                "figure": "480 million euros",
+                "quote": "The French protein snack category is worth 480 million euros in 2024 and grows about 11% per year (2021-2024) [1].",
+                "status": "document"
+              },
+              {
+                "figure": "11%",
+                "quote": "The French protein snack category is worth 480 million euros in 2024 and grows about 11% per year (2021-2024) [1].",
+                "status": "document"
+              },
+              {
+                "figure": "18%",
+                "quote": "Plant-based products account for 18% of the category [1], and 27% of French adults bought a protein snack in the last three months [1].",
+                "status": "document"
+              },
+              {
+                "figure": "27%",
+                "quote": "Plant-based products account for 18% of the category [1], and 27% of French adults bought a protein snack in the last three months [1].",
+                "status": "document"
+              },
+              {
+                "figure": "68%",
+                "quote": "Supermarkets and hypermarkets hold 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+                "status": "document"
+              },
+              {
+                "figure": "17%",
+                "quote": "Supermarkets and hypermarkets hold 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+                "status": "document"
+              },
+              {
+                "figure": "9%",
+                "quote": "Supermarkets and hypermarkets hold 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+                "status": "document"
+              },
+              {
+                "figure": "6%",
+                "quote": "Supermarkets and hypermarkets hold 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+                "status": "document"
+              },
+              {
+                "figure": "2.9 billion euros",
+                "quote": "The savoury snack market overall is worth 2.9 billion euros [1].",
+                "status": "document"
+              },
+              {
+                "figure": "380 million euros",
+                "quote": "A web source reports that hyperprotein foods sold in French supermarkets reached about 380 million euros in 2024 [2]; this covers a broader scope than snacks and is not directly comparable with the 480 million euro snack figure.",
+                "status": "source"
+              },
+              {
+                "figure": "17.5 million",
+                "quote": "| Weekly sport practitioners | 17.5 million adults, 34% of adults aged 18-64 [1] | High protein per portion; Snack that fits around training; Availability in gyms and sport shops | [1] |",
+                "status": "document"
+              },
+              {
+                "figure": "34%",
+                "quote": "| Weekly sport practitioners | 17.5 million adults, 34% of adults aged 18-64 [1] | High protein per portion; Snack that fits around training; Availability in gyms and sport shops | [1] |",
+                "status": "document"
+              },
+              {
+                "figure": "9.0 million",
+                "quote": "| SEG2 | Health-conscious office workers | 9.0 million adults, 18% of adults aged 18-64 [1] | Everyday snack with protein; Short ingredient list; Nutri-Score A or B on the front of pack | [1] |",
+                "status": "document"
+              },
+              {
+                "figure": "18%",
+                "quote": "| SEG2 | Health-conscious office workers | 9.0 million adults, 18% of adults aged 18-64 [1] | Everyday snack with protein; Short ingredient list; Nutri-Score A or B on the front of pack | [1] |",
+                "status": "document"
+              },
+              {
+                "figure": "1.3 million",
+                "quote": "| SEG3 | Vegans and strict vegetarians | 1.3 million adults, 2.5% of adults aged 18-64 [1] | Vegan certification; Plant-based protein; Gluten-free | [1] |",
+                "status": "document"
+              },
+              {
+                "figure": "2.5%",
+                "quote": "| SEG3 | Vegans and strict vegetarians | 1.3 million adults, 2.5% of adults aged 18-64 [1] | Vegan certification; Plant-based protein; Gluten-free | [1] |",
+                "status": "document"
+              },
+              {
+                "figure": "7.1 million",
+                "quote": "| SEG4 | Parents of school-age children | 7.1 million adults, 14% of adults aged 18-64 [1] | Snack for children and family use; Short ingredient list | [1] |",
+                "status": "document"
+              },
+              {
+                "figure": "14%",
+                "quote": "| SEG4 | Parents of school-age children | 7.1 million adults, 14% of adults aged 18-64 [1] | Snack for children and family use; Short ingredient list | [1] |",
+                "status": "document"
+              },
+              {
+                "figure": "41%",
+                "quote": "Largest consumer group in the France Snack Panel: 41% purchase intent for a high-protein, plant-based crisp concept similar to Proteo Crisps [1].",
+                "status": "document"
+              },
+              {
+                "figure": "9.0 million",
+                "quote": "9.0 million adults (18%) with 38% purchase intent for the concept [1].",
+                "status": "document"
+              },
+              {
+                "figure": "18%",
+                "quote": "9.0 million adults (18%) with 38% purchase intent for the concept [1].",
+                "status": "document"
+              },
+              {
+                "figure": "38%",
+                "quote": "9.0 million adults (18%) with 38% purchase intent for the concept [1].",
+                "status": "document"
+              },
+              {
+                "figure": "72%",
+                "quote": "Most enthusiastic group, with 72% purchase intent [1].",
+                "status": "document"
+              },
+              {
+                "figure": "7.1 million",
+                "quote": "7.1 million adults (14%) with 22% purchase intent for the concept [1].",
+                "status": "document"
+              },
+              {
+                "figure": "14%",
+                "quote": "7.1 million adults (14%) with 22% purchase intent for the concept [1].",
+                "status": "document"
+              },
+              {
+                "figure": "22%",
+                "quote": "7.1 million adults (14%) with 22% purchase intent for the concept [1].",
+                "status": "document"
+              },
+              {
+                "figure": "40 g",
+                "quote": "Puffed (not baked) protein chips made from rice flour, chickpea flour and pea protein; 40 g bag containing about 8.2-8.5 g of protein, sold in Belgium [4].",
+                "status": "document"
+              },
+              {
+                "figure": "8.2-8.5 g",
+                "quote": "Puffed (not baked) protein chips made from rice flour, chickpea flour and pea protein; 40 g bag containing about 8.2-8.5 g of protein, sold in Belgium [4].",
+                "status": "source"
+              },
+              {
+                "figure": "2.50 euros",
+                "quote": "The only price found (Näno Supps, 2.50 euros for 40 g) is from Belgium and is not used as a French benchmark.",
+                "status": "document"
+              },
+              {
+                "figure": "40 g",
+                "quote": "The only price found (Näno Supps, 2.50 euros for 40 g) is from Belgium and is not used as a French benchmark.",
+                "status": "document"
+              },
+              {
+                "figure": "51 million",
+                "quote": "Segment size for SEG1-SEG4 is a share of adults aged 18-64 (about 51 million), as stated in the document.",
+                "status": "document"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "number": "1",
+              "reference": "Document: Company document, sections 1-7 (Company overview, Product, Why France, Market context, Consumer groups, Competitive landscape, Production and distribution)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "2",
+              "reference": "https://www.intotheminds.com/blog/marche-aliments-hyperproteines",
+              "kind": "web",
+              "url": "https://www.intotheminds.com/blog/marche-aliments-hyperproteines",
+              "status": "ok",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "3",
+              "reference": "https://barebells.lu/collections/protein-bars",
+              "kind": "web",
+              "url": "https://barebells.lu/collections/protein-bars",
+              "status": "ok",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "4",
+              "reference": "https://senutrition.be/products/protein-chips",
+              "kind": "web",
+              "url": "https://senutrition.be/products/protein-chips",
+              "status": "ok",
+              "detail": "",
+              "valid": true
+            }
+          ],
+          "coherence": {
+            "strategy_vs_analysis": {
+              "score": 4,
+              "reason": "The target (SEG1, 17.5M adults, 41% intent) is compared with the other segments by size and intent, and goals such as the 2% share are cited. The channel mix follows the 68%/17% channel shares. The one gap is pricing, which is left undecided (\"not yet decidable\") apart from a premium-to-private-label direction."
+            },
+            "campaign_vs_strategy": {
+              "score": 4,
+              "reason": "The messages reflect the positioning (crisp-style protein, six ingredients, unlike sport bars) and use only the five strategy channels, with sport and gym messages aimed at SEG1. The supermarket and organic messages are fairly generic and not specific to sport practitioners. The \"Ma pause du midi\" and ingredient-list content leans toward office workers, which is the stated secondary audience."
+            }
+          },
+          "eval_tokens": {
+            "claude-sonnet-5-5": {
+              "input_tokens": 17795,
+              "output_tokens": 2029,
+              "total_tokens": 19824
+            }
+          }
+        }
+      },
+      "baseline": {
+        "dir": "outputs/eval_20261030_121147/demo_fr/baseline",
+        "metrics": {
+          "system": "baseline",
+          "status": "done",
+          "error": null,
+          "cost": {
+            "tokens": {
+              "claude-haiku-5-5": {
+                "input_tokens": 2915,
+                "output_tokens": 9821,
+                "total_tokens": 12736
+              }
+            },
+            "total_tokens": 12736,
+            "seconds": 48.0
+          },
+          "trap": {
+            "applies": true,
+            "segment": "Vegans and strict vegetarians: 72% purchase intent but only 1.3 million adults, 2.5% of adults 18-64",
+            "target": "Active everyday snackers: health-conscious office workers and weekly sport practitioners who snack during the working day",
+            "avoided": true
+          },
+          "traceability": {
+            "score": 0.9166666666666666,
+            "claims": 12,
+            "traced": 11,
+            "unquoted": 0,
+            "items": [
+              {
+                "quote": "The French protein snack category is worth €480 million and grows about 11% a year [4].",
+                "refs": [
+                  "4"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "The French savoury snack market was worth €2.9 billion in 2024.",
+                "refs": [
+                  "4"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Plant-based products make up 18% of protein snacks, and 27% of French adults bought a protein snack in the previous three months [4].",
+                "refs": [
+                  "4"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Channel split of protein snack sales: supermarkets and hypermarkets 68%, specialised sport and organic shops 17%, online 9%, gyms and vending 6% [4].",
+                "refs": [
+                  "4"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "| Weekly sport practitioners | 17.5 million | 34% | 41% | ~7.2 million | Protein for training and recovery; convenient, non-sugary snacks; gym availability; credible protein per serving [5] |",
+                "refs": [
+                  "5"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "| Health-conscious office workers | 9.0 million | 18% | 38% | ~3.4 million | Better-for-you snacking at work; short ingredient lists; Nutri-Score; taste over \"diet\" feel [5] |",
+                "refs": [
+                  "5"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "| Parents of school-age children | 7.1 million | 14% | 22% | ~1.6 million | Lunchbox and family snacking; sensible nutrition; trust in ingredients [5] |",
+                "refs": [
+                  "5"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "| Vegans and strict vegetarians | 1.3 million | 2.5% | 72% | ~0.9 million | Plant-based protein; certified vegan; clean label [5] |",
+                "refs": [
+                  "5"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Group sizes are adults aged 18–64 in France (about 51 million).",
+                "refs": [],
+                "valid_refs": 0,
+                "traced": false
+              },
+              {
+                "quote": "It is the second-largest savoury snack market in Europe and the fastest-growing protein snack market in Southern Europe.",
+                "refs": [
+                  "3"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Competitors named.** Barebells (protein bars and snacks, sport-oriented, strong in gyms and supermarkets); Gerble (French health and wellness brand with some protein products, widely available in supermarkets); supermarket private labels (entered protein snacks in 2023 at lower prices) [6].",
+                "refs": [
+                  "6"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Vegans show the highest enthusiasm but the smallest reachable base and are already well served by specialist brands.",
+                "refs": [
+                  "5"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              }
+            ]
+          },
+          "faithfulness": {
+            "score": 1.0,
+            "checked": 22,
+            "matched": 22,
+            "not_found": 0,
+            "unverifiable": 0,
+            "items": [
+              {
+                "figure": "€480 million",
+                "quote": "The French protein snack category is worth €480 million and grows about 11% a year [4].",
+                "status": "document"
+              },
+              {
+                "figure": "11%",
+                "quote": "The French protein snack category is worth €480 million and grows about 11% a year [4].",
+                "status": "document"
+              },
+              {
+                "figure": "€2.9 billion",
+                "quote": "The French savoury snack market was worth €2.9 billion in 2024.",
+                "status": "document"
+              },
+              {
+                "figure": "18%",
+                "quote": "Plant-based products make up 18% of protein snacks, and 27% of French adults bought a protein snack in the previous three months [4].",
+                "status": "document"
+              },
+              {
+                "figure": "27%",
+                "quote": "Plant-based products make up 18% of protein snacks, and 27% of French adults bought a protein snack in the previous three months [4].",
+                "status": "document"
+              },
+              {
+                "figure": "68%",
+                "quote": "Channel split of protein snack sales: supermarkets and hypermarkets 68%, specialised sport and organic shops 17%, online 9%, gyms and vending 6% [4].",
+                "status": "document"
+              },
+              {
+                "figure": "17%",
+                "quote": "Channel split of protein snack sales: supermarkets and hypermarkets 68%, specialised sport and organic shops 17%, online 9%, gyms and vending 6% [4].",
+                "status": "document"
+              },
+              {
+                "figure": "9%",
+                "quote": "Channel split of protein snack sales: supermarkets and hypermarkets 68%, specialised sport and organic shops 17%, online 9%, gyms and vending 6% [4].",
+                "status": "document"
+              },
+              {
+                "figure": "6%",
+                "quote": "Channel split of protein snack sales: supermarkets and hypermarkets 68%, specialised sport and organic shops 17%, online 9%, gyms and vending 6% [4].",
+                "status": "document"
+              },
+              {
+                "figure": "17.5 million",
+                "quote": "| Weekly sport practitioners | 17.5 million | 34% | 41% | ~7.2 million | Protein for training and recovery; convenient, non-sugary snacks; gym availability; credible protein per serving [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "34%",
+                "quote": "| Weekly sport practitioners | 17.5 million | 34% | 41% | ~7.2 million | Protein for training and recovery; convenient, non-sugary snacks; gym availability; credible protein per serving [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "41%",
+                "quote": "| Weekly sport practitioners | 17.5 million | 34% | 41% | ~7.2 million | Protein for training and recovery; convenient, non-sugary snacks; gym availability; credible protein per serving [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "9.0 million",
+                "quote": "| Health-conscious office workers | 9.0 million | 18% | 38% | ~3.4 million | Better-for-you snacking at work; short ingredient lists; Nutri-Score; taste over \"diet\" feel [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "18%",
+                "quote": "| Health-conscious office workers | 9.0 million | 18% | 38% | ~3.4 million | Better-for-you snacking at work; short ingredient lists; Nutri-Score; taste over \"diet\" feel [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "38%",
+                "quote": "| Health-conscious office workers | 9.0 million | 18% | 38% | ~3.4 million | Better-for-you snacking at work; short ingredient lists; Nutri-Score; taste over \"diet\" feel [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "7.1 million",
+                "quote": "| Parents of school-age children | 7.1 million | 14% | 22% | ~1.6 million | Lunchbox and family snacking; sensible nutrition; trust in ingredients [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "14%",
+                "quote": "| Parents of school-age children | 7.1 million | 14% | 22% | ~1.6 million | Lunchbox and family snacking; sensible nutrition; trust in ingredients [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "22%",
+                "quote": "| Parents of school-age children | 7.1 million | 14% | 22% | ~1.6 million | Lunchbox and family snacking; sensible nutrition; trust in ingredients [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "1.3 million",
+                "quote": "| Vegans and strict vegetarians | 1.3 million | 2.5% | 72% | ~0.9 million | Plant-based protein; certified vegan; clean label [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "2.5%",
+                "quote": "| Vegans and strict vegetarians | 1.3 million | 2.5% | 72% | ~0.9 million | Plant-based protein; certified vegan; clean label [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "72%",
+                "quote": "| Vegans and strict vegetarians | 1.3 million | 2.5% | 72% | ~0.9 million | Plant-based protein; certified vegan; clean label [5] |",
+                "status": "document"
+              },
+              {
+                "figure": "51 million",
+                "quote": "Group sizes are adults aged 18–64 in France (about 51 million).",
+                "status": "document"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "number": "1",
+              "reference": "Document: demo_company.pdf, section 1 (Company overview)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "2",
+              "reference": "Document: demo_company.pdf, section 2 (The product: Proteo Crisps)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "3",
+              "reference": "Document: demo_company.pdf, section 3 (Why France, and launch goals)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "4",
+              "reference": "Document: demo_company.pdf, section 4 (Market context; figures attributed in the brief to NutriMarket Insights, \"Protein snacks in France 2025\", and France Snack Panel 2024)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "5",
+              "reference": "Document: demo_company.pdf, section 5 (Consumer groups; figures from France Snack Panel 2024)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "6",
+              "reference": "Document: demo_company.pdf, section 6 (Competitive landscape)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "7",
+              "reference": "Document: demo_company.pdf, section 7 (Production and distribution)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "8",
+              "reference": "Document: demo_company.pdf, section 8 (Open points)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            }
+          ],
+          "coherence": {
+            "strategy_vs_analysis": {
+              "score": 4,
+              "reason": "The primary target (office workers plus sport practitioners who snack at work), the supermarket-led channels (68%), the positioning against Barebells and Gerble, and the vegan decision (small base, 1.3M, 2.5%, used as advocates) all follow from the segment and competitor analysis with figures. Minor gaps: sport practitioners are the largest and highest-intent group but are placed secondary even though the plan merges them with office workers, and pricing is only directional because no benchmark exists, though the plan says so openly."
+            },
+            "campaign_vs_strategy": {
+              "score": 4,
+              "reason": "Messages match the positioning (\"crunchy snack that happens to be high in protein\"), the everyday-snacker target and the strategy channels (in-store, gyms, organic, online), and the visuals avoid gym-heavy imagery. Minor gaps: social media and PR are not listed as channels in the strategy, and the \"aperitif\" and founder-story content is somewhat generic."
+            }
+          },
+          "eval_tokens": {
+            "claude-sonnet-5-5": {
+              "input_tokens": 16949,
+              "output_tokens": 2610,
+              "total_tokens": 19559
+            }
+          }
+        }
+      }
+    },
+    "nordbrew_de": {
+      "case": {
+        "id": "nordbrew_de",
+        "document": "eval/cases/nordbrew_cold_brew_de.md",
+        "category": "Beverage: ready-to-drink coffee",
+        "country": "Germany",
+        "trap": "Specialty coffee enthusiasts (home baristas, specialty cafe regulars): 76% purchase intent but only 0.5 million adults, 1% of adults 18-64"
+      },
+      "multi_agent": {
+        "dir": "outputs/eval_20261030_121147/nordbrew_de/multi_agent",
+        "metrics": {
+          "system": "multi_agent",
+          "status": "done",
+          "error": null,
+          "cost": {
+            "tokens": {
+              "claude-haiku-5-5": {
+                "input_tokens": 54475,
+                "output_tokens": 16183,
+                "total_tokens": 70658
+              },
+              "claude-sonnet-5-5": {
+                "input_tokens": 28050,
+                "output_tokens": 5686,
+                "total_tokens": 33736
+              }
+            },
+            "total_tokens": 104394,
+            "seconds": 116.5
+          },
+          "trap": {
+            "applies": true,
+            "segment": "Specialty coffee enthusiasts (home baristas, specialty cafe regulars): 76% purchase intent but only 0.5 million adults, 1% of adults 18-64",
+            "target": "SEG2 Commuters buying on the go (German adults who buy coffee on the go at least weekly; secondary: students)",
+            "avoided": true
+          },
+          "traceability": {
+            "score": 1.0,
+            "claims": 25,
+            "traced": 25,
+            "unquoted": 0,
+            "items": [
+              {
+                "quote": "The chilled RTD coffee category in Germany was worth 610 million euros in 2024 and grew about 7% per year in 2021-2024 [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Plant-based drinks hold a 14% share of the category [1]",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "23% of adults bought chilled RTD coffee in the last three months [1]",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Supermarkets and discounters account for 54% of category sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other channels 9% [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "0.5 million adults, 1% of adults 18-64 [1]",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "11.4 million adults, 22% of adults 18-64 [1]",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "2.6 million adults, 5% of adults 18-64 [1]",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "8.9 million adults, 17% of adults 18-64 [1]",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "the most interested group with 76% purchase intent for a canned cold brew with oat drink at about 2.50 euros [1]",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Adults who buy coffee on the go at least weekly; 34% purchase intent [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Students aged 18-64 in the survey; 41% purchase intent, the highest of the three large groups [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Office workers who drink coffee at their desk; 27% purchase intent [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "They make up 81% of Nordbrew's Instagram community in Denmark [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Emmi prices (2.29 euros Globus, 2.19 euros EDEKA for 230 ml) come from supermarktcheck.de and carry no date [4].",
+                "refs": [
+                  "4"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "The Austrian price of 1.99 euros was excluded because Austria is not Germany [5].",
+                "refs": [
+                  "5"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "The Starbucks prices (4.45 to 5.45 euros) are café menu prices for cold brew [6], not retail can prices, and are not comparable to a 250 ml can.",
+                "refs": [
+                  "6"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "The only Oatly price found is a 1 litre oat drink on promotion at 1.99 euros, from a Facebook post; this is a weak source and a different product [7].",
+                "refs": [
+                  "7"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Interest in a canned cold brew coffee with oat drink, low sugar, at about 2.50 euros, measured among German adults 18-64 [1]",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Starbucks cold brew served in cafés, 20-hour cold extraction, low acidity; a café product, not a retail can, so not directly comparable to a 250 ml can [6].",
+                "refs": [
+                  "6"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Lower-priced store brands that entered the chilled coffee category in 2022 [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Category leader in chilled milk coffee, sold in most German supermarkets and petrol stations; milk-based and sweetened, in a 230 ml cup rather than a can [1][2][3].",
+                "refs": [
+                  "1",
+                  "2",
+                  "3"
+                ],
+                "valid_refs": 3,
+                "traced": true
+              },
+              {
+                "quote": "Oat-based iced coffee with smaller distribution, mainly in organic shops and supermarkets in large cities [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "Strong brand with wide distribution, sweetened milk coffee; the document names it as a main competitor [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "They mostly buy in specialty cafés and online [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              },
+              {
+                "quote": "They mostly buy at petrol stations, kiosks and supermarkets near transport hubs [1].",
+                "refs": [
+                  "1"
+                ],
+                "valid_refs": 1,
+                "traced": true
+              }
+            ]
+          },
+          "faithfulness": {
+            "score": 1.0,
+            "checked": 31,
+            "matched": 31,
+            "not_found": 0,
+            "unverifiable": 1,
+            "items": [
+              {
+                "figure": "610 million euros",
+                "quote": "The chilled RTD coffee category in Germany was worth 610 million euros in 2024 and grew about 7% per year in 2021-2024 [1].",
+                "status": "document"
+              },
+              {
+                "figure": "7% per year",
+                "quote": "The chilled RTD coffee category in Germany was worth 610 million euros in 2024 and grew about 7% per year in 2021-2024 [1].",
+                "status": "document"
+              },
+              {
+                "figure": "14%",
+                "quote": "Plant-based drinks hold a 14% share of the category [1]",
+                "status": "document"
+              },
+              {
+                "figure": "23%",
+                "quote": "23% of adults bought chilled RTD coffee in the last three months [1]",
+                "status": "document"
+              },
+              {
+                "figure": "54%",
+                "quote": "Supermarkets and discounters account for 54% of category sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other channels 9% [1].",
+                "status": "document"
+              },
+              {
+                "figure": "24%",
+                "quote": "Supermarkets and discounters account for 54% of category sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other channels 9% [1].",
+                "status": "document"
+              },
+              {
+                "figure": "13%",
+                "quote": "Supermarkets and discounters account for 54% of category sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other channels 9% [1].",
+                "status": "document"
+              },
+              {
+                "figure": "9%",
+                "quote": "Supermarkets and discounters account for 54% of category sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other channels 9% [1].",
+                "status": "document"
+              },
+              {
+                "figure": "0.5 million adults",
+                "quote": "0.5 million adults, 1% of adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "1%",
+                "quote": "0.5 million adults, 1% of adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "11.4 million adults",
+                "quote": "11.4 million adults, 22% of adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "22%",
+                "quote": "11.4 million adults, 22% of adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "2.6 million adults",
+                "quote": "2.6 million adults, 5% of adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "5%",
+                "quote": "2.6 million adults, 5% of adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "8.9 million adults",
+                "quote": "8.9 million adults, 17% of adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "17%",
+                "quote": "8.9 million adults, 17% of adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "76%",
+                "quote": "the most interested group with 76% purchase intent for a canned cold brew with oat drink at about 2.50 euros [1]",
+                "status": "document"
+              },
+              {
+                "figure": "2.50 euros",
+                "quote": "the most interested group with 76% purchase intent for a canned cold brew with oat drink at about 2.50 euros [1]",
+                "status": "document"
+              },
+              {
+                "figure": "34%",
+                "quote": "Adults who buy coffee on the go at least weekly; 34% purchase intent [1].",
+                "status": "document"
+              },
+              {
+                "figure": "41%",
+                "quote": "Students aged 18-64 in the survey; 41% purchase intent, the highest of the three large groups [1].",
+                "status": "document"
+              },
+              {
+                "figure": "27%",
+                "quote": "Office workers who drink coffee at their desk; 27% purchase intent [1].",
+                "status": "document"
+              },
+              {
+                "figure": "81%",
+                "quote": "They make up 81% of Nordbrew's Instagram community in Denmark [1].",
+                "status": "document"
+              },
+              {
+                "figure": "2.29 euros",
+                "quote": "Emmi prices (2.29 euros Globus, 2.19 euros EDEKA for 230 ml) come from supermarktcheck.de and carry no date [4].",
+                "status": "source"
+              },
+              {
+                "figure": "2.19 euros",
+                "quote": "Emmi prices (2.29 euros Globus, 2.19 euros EDEKA for 230 ml) come from supermarktcheck.de and carry no date [4].",
+                "status": "source"
+              },
+              {
+                "figure": "230 ml",
+                "quote": "Emmi prices (2.29 euros Globus, 2.19 euros EDEKA for 230 ml) come from supermarktcheck.de and carry no date [4].",
+                "status": "source"
+              },
+              {
+                "figure": "1.99 euros",
+                "quote": "The Austrian price of 1.99 euros was excluded because Austria is not Germany [5].",
+                "status": "unverifiable"
+              },
+              {
+                "figure": "4.45 to 5.45 euros",
+                "quote": "The Starbucks prices (4.45 to 5.45 euros) are café menu prices for cold brew [6], not retail can prices, and are not comparable to a 250 ml can.",
+                "status": "source"
+              },
+              {
+                "figure": "1 litre",
+                "quote": "The only Oatly price found is a 1 litre oat drink on promotion at 1.99 euros, from a Facebook post; this is a weak source and a different product [7].",
+                "status": "document"
+              },
+              {
+                "figure": "1.99 euros",
+                "quote": "The only Oatly price found is a 1 litre oat drink on promotion at 1.99 euros, from a Facebook post; this is a weak source and a different product [7].",
+                "status": "source"
+              },
+              {
+                "figure": "2.50 euros",
+                "quote": "Interest in a canned cold brew coffee with oat drink, low sugar, at about 2.50 euros, measured among German adults 18-64 [1]",
+                "status": "document"
+              },
+              {
+                "figure": "20-hour",
+                "quote": "Starbucks cold brew served in cafés, 20-hour cold extraction, low acidity; a café product, not a retail can, so not directly comparable to a 250 ml can [6].",
+                "status": "source"
+              },
+              {
+                "figure": "230 ml",
+                "quote": "Category leader in chilled milk coffee, sold in most German supermarkets and petrol stations; milk-based and sweetened, in a 230 ml cup rather than a can [1][2][3].",
+                "status": "source"
+              }
+            ]
+          },
+          "sources": [
+            {
+              "number": "1",
+              "reference": "Document: Company document, sections 1-8 (Company overview, Product, Launch goals, Market context, Consumer groups, Competitors, Distribution and marketing, Open points)",
+              "kind": "document",
+              "url": null,
+              "status": "document",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "2",
+              "reference": "https://www.dutchexpatshop.com/en/emmi-caffe-latte-macchiato-small.html",
+              "kind": "web",
+              "url": "https://www.dutchexpatshop.com/en/emmi-caffe-latte-macchiato-small.html",
+              "status": "ok",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "3",
+              "reference": "https://www.youtube.com/watch?v=mBloIjMSxSA",
+              "kind": "web",
+              "url": "https://www.youtube.com/watch?v=mBloIjMSxSA",
+              "status": "ok",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "4",
+              "reference": "https://www.supermarktcheck.de/product/4760-emmi-caffe-latte-",
+              "kind": "web",
+              "url": "https://www.supermarktcheck.de/product/4760-emmi-caffe-latte-",
+              "status": "ok",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "5",
+              "reference": "https://www.supermarkt.at/products/91852/emmi-caffe-latte-macchiato",
+              "kind": "web",
+              "url": "https://www.supermarkt.at/products/91852/emmi-caffe-latte-macchiato",
+              "status": "unreadable",
+              "detail": "TimeoutError",
+              "valid": true
+            },
+            {
+              "number": "6",
+              "reference": "https://starbucksspeisekarte.de/starbucks-getraenke",
+              "kind": "web",
+              "url": "https://starbucksspeisekarte.de/starbucks-getraenke",
+              "status": "ok",
+              "detail": "",
+              "valid": true
+            },
+            {
+              "number": "7",
+              "reference": "https://www.facebook.com/ecksteinaltenglan/videos/-oatly-barista-edition-diese-woche-im-angebotob-barista-edition-fiber-low-calori/2605688283214450",
+              "kind": "web",
+              "url": "https://www.facebook.com/ecksteinaltenglan/videos/-oatly-barista-edition-diese-woche-im-angebotob-barista-edition-fiber-low-calori/2605688283214450",
+              "status": "ok",
+              "detail": "",
+              "valid": true
+            }
+          ],
+          "coherence": {
+            "strategy_vs_analysis": {
+              "score": 4,
+              "reason": "The commuter target follows from the segment figures (11.4M × 34% ≈ 3.9M vs. 0.38M for specialty), the 3,500-POS goal and the channel data (24% + 13% + 54%). The plan holds the price as a working price and names the validation gap. One minor gap: the secondary student target is justified only by \"same outlets\", although the plan itself says there is no channel data for students."
+            },
+            "campaign_vs_strategy": {
+              "score": 4,
+              "reason": "Messages fit the commuter target and positioning (18-hour cold brew, no added sugar, oat, \"für den Weg zum Gleis\") and use only the four strategy channels. Minor gaps: the supermarket and online messages are generic product-fact messages rather than commuter-specific ones, and the Vanilla lead is not backed by the analysis. The content ideas also add social video and out-of-home, which are not strategy channels."
+            }
+          },
+          "eval_tokens": {
+            "claude-sonnet-5-5": {
+              "input_tokens": 18967,
+              "output_tokens": 3155,
+              "total_tokens": 22122
+            }
+          }
+        }
+      },
+      "baseline": {
+        "dir": "outputs/eval_20261030_121147/nordbrew_de/baseline",
+        "metrics": {
+          "system": "baseline",
+          "status": "failed",
+          "error": "AnthropicInvalidRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgYKyhyxmMk3uZZc3GBPG'}",
+          "cost": {
+            "tokens": {},
+            "total_tokens": 0,
+            "seconds": 26.5
+          },
+          "trap": {
+            "applies": true,
+            "segment": "Specialty coffee enthusiasts (home baristas, specialty cafe regulars): 76% purchase intent but only 0.5 million adults, 1% of adults 18-64"
+          }
+        }
+      }
+    },
+    "lumora_es": {
+      "case": {
+        "id": "lumora_es",
+        "document": "eval/cases/lumora_sunrise_lamp_es.md",
+        "category": "Consumer electronics: sunrise alarm lamp",
+        "country": "Spain",
+        "trap": null
+      },
+      "multi_agent": {
+        "dir": "outputs/eval_20261030_121147/lumora_es/multi_agent",
+        "metrics": {
+          "system": "multi_agent",
+          "status": "failed",
+          "error": "AnthropicInvalidRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgYL1fWgvNrwGVzjor8dC'}",
+          "cost": {
+            "tokens": {},
+            "total_tokens": 0,
+            "seconds": 0.5
+          },
+          "trap": {
+            "applies": false,
+            "segment": null
+          }
+        }
+      },
+      "baseline": {
+        "dir": "outputs/eval_20261030_121147/lumora_es/baseline",
+        "metrics": {
+          "system": "baseline",
+          "status": "failed",
+          "error": "AnthropicInvalidRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgYL1hbhUc76mXcRsNWo2'}",
+          "cost": {
+            "tokens": {},
+            "total_tokens": 0,
+            "seconds": 0.3
+          },
+          "trap": {
+            "applies": false,
+            "segment": null
+          }
+        }
+      }
+    },
+    "fakturo_it": {
+      "case": {
+        "id": "fakturo_it",
+        "document": "eval/cases/fakturo_invoicing_app_it.md",
+        "category": "Software: invoicing app for freelancers",
+        "country": "Italy",
+        "trap": null
+      },
+      "multi_agent": {
+        "dir": "outputs/eval_20261030_121147/fakturo_it/multi_agent",
+        "metrics": {
+          "system": "multi_agent",
+          "status": "failed",
+          "error": "AnthropicInvalidRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgYL1iqrKWiT7MS13QjYm'}",
+          "cost": {
+            "tokens": {},
+            "total_tokens": 0,
+            "seconds": 0.3
+          },
+          "trap": {
+            "applies": false,
+            "segment": null
+          }
+        }
+      },
+      "baseline": {
+        "dir": "outputs/eval_20261030_121147/fakturo_it/baseline",
+        "metrics": {
+          "system": "baseline",
+          "status": "failed",
+          "error": "AnthropicInvalidRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgYL1k8Fcj4N9tT3pRYhm'}",
+          "cost": {
+            "tokens": {},
+            "total_tokens": 0,
+            "seconds": 0.3
+          },
+          "trap": {
+            "applies": false,
+            "segment": null
+          }
+        }
+      }
+    },
+    "krikit_nl": {
+      "case": {
+        "id": "krikit_nl",
+        "document": "eval/cases/krikit_insect_dogfood_nl.md",
+        "category": "Pet food: insect-protein dog food",
+        "country": "Netherlands",
+        "trap": null
+      },
+      "multi_agent": {
+        "dir": "outputs/eval_20261030_121147/krikit_nl/multi_agent",
+        "metrics": {
+          "system": "multi_agent",
+          "status": "failed",
+          "error": "AnthropicInvalidRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgYL1mVcAiH7WkYZXBi3u'}",
+          "cost": {
+            "tokens": {},
+            "total_tokens": 0,
+            "seconds": 0.3
+          },
+          "trap": {
+            "applies": false,
+            "segment": null
+          }
+        }
+      },
+      "baseline": {
+        "dir": "outputs/eval_20261030_121147/krikit_nl/baseline",
+        "metrics": {
+          "system": "baseline",
+          "status": "failed",
+          "error": "AnthropicInvalidRequestError: Error code: 400 - {'type': 'error', 'error': {'type': 'invalid_request_error', 'message': 'Your credit balance is too low to access the Anthropic API. Please go to Plans & Billing to upgrade or purchase credits.'}, 'request_id': 'req_011CgYL1nuw3e4DeExTfAKw7'}",
+          "cost": {
+            "tokens": {},
+            "total_tokens": 0,
+            "seconds": 0.4
+          },
+          "trap": {
+            "applies": false,
+            "segment": null
+          }
+        }
+      }
+    }
+  },
+  "updated": "2026-10-30T12:17:38.764877",
+  "model": "anthropic:claude-haiku-5-5",
+  "judge_model": "anthropic:claude-sonnet-5-5"
+}

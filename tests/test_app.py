@@ -1,4 +1,4 @@
-"""The Streamlit UI driven by AppTest with fake LLMs: run, approval pause, rejection, result."""
+"""The Streamlit UI driven by AppTest with fake LLMs: run, approval pause, rejection, result, evaluation."""
 
 from pathlib import Path
 
@@ -55,7 +55,7 @@ def test_run_pauses_for_approval_then_shows_the_blueprint(app):
 
     button(app, "Approve strategy").click().run()
     assert run.status == "done"
-    assert [t.label for t in app.tabs] == ["Blueprint", "Segments", "Validation log"]
+    assert [t.label for t in app.tabs] == ["Blueprint", "Segments", "Validation log", "Evaluation"]
     assert "blueprint.md written" in [l.text for l in run.log]
     assert not app.exception
 
@@ -69,3 +69,53 @@ def test_reject_sends_the_feedback_and_asks_again(app):
     assert run.decisions[0] == {"approved": False, "feedback": "Target students instead",
                                 "target_segment_id": STATE["strategy"].target_segment_id, "unresolved": False}
     assert app.text_area(key="feedback").value == ""
+
+
+def metric(at: AppTest, label: str):
+    return next(m for m in at.metric if m.label == label)
+
+
+def test_result_is_evaluated_at_the_end(app):
+    app.run()
+    button(app, "Approve strategy").click().run()
+    run = app.session_state.run
+    assert (run.dir / "metrics.json").exists()
+    assert metric(app, "Strategy vs analysis").value == "4 / 5"
+    assert metric(app, "Traceability").value == "0%"  # the fake claim (the summary) cites nothing
+    assert metric(app, "Traceability").delta == ""  # no baseline yet
+    assert not app.exception
+
+
+def test_baseline_comparison_adds_the_differences(app):
+    app.run()
+    button(app, "Approve strategy").click().run()
+    button(app, "Compare with the single-prompt baseline").click().run()
+    run = app.session_state.run
+    assert {p.name for p in (run.dir / "baseline").iterdir()} == {"blueprint.md", "run.json", "log.txt", "metrics.json"}
+    # Baseline: its one claim cites the document [1] -> 100%; the blueprint's claim cites nothing -> 0%
+    assert metric(app, "Traceability").delta == "-100 pts vs single prompt"
+    assert metric(app, "Campaign vs strategy").delta == "+0 vs single prompt"
+    assert not app.exception
+
+
+def test_evaluation_can_be_turned_off_and_asked_later(app):
+    app.toggle(key="auto_eval").set_value(False).run()
+    button(app, "Approve strategy").click().run()
+    run = app.session_state.run
+    assert not (run.dir / "metrics.json").exists()
+    button(app, "Evaluate this run").click().run()
+    assert (run.dir / "metrics.json").exists()
+
+
+def test_evaluation_error_keeps_the_result(app, monkeypatch):
+    from eval import metrics
+
+    def broken(*_args, **_kwargs):
+        raise RuntimeError("judge unavailable")
+
+    monkeypatch.setattr(metrics, "extract_claims", broken)
+    app.run()
+    button(app, "Approve strategy").click().run()
+    assert any("judge unavailable" in e.value for e in app.error)
+    assert "Blueprint" in [t.label for t in app.tabs]
+    assert not app.exception

@@ -1,5 +1,6 @@
 """Streamlit UI (Phase 11): upload a company document, follow the run log, approve the strategy,
-download the Launch Blueprint.
+download the Launch Blueprint and read its evaluation (Phase 10 metrics, optionally against the
+single-prompt baseline).
 
     uv run streamlit run app.py
 
@@ -16,6 +17,8 @@ from pathlib import Path
 
 import streamlit as st
 
+from eval.baseline import run_baseline
+from eval.metrics import evaluate, find_case, load_metrics, scores
 from premortem import config
 from premortem.ingestion.parser import ALLOWED_EXTENSIONS, DocumentParseError
 from premortem.output.blueprint import validation_log
@@ -76,7 +79,7 @@ def missing_keys() -> list[str]:
 
 
 def start_run(upload, saved: Path | None) -> None:
-    st.session_state.start_error = None
+    st.session_state.start_error = st.session_state.eval_error = None
     if upload is not None:
         # The parser takes a path: keep the original name, so the run id names the document
         path = Path(tempfile.mkdtemp(prefix="premortem_")) / upload.name
@@ -97,6 +100,24 @@ def answer(approved: bool) -> None:
 
 def retry() -> None:
     st.session_state.run.error = None
+
+
+def request_evaluation(system: str) -> None:
+    """Asked from a button; run_evaluation does the work in the next script run, under a spinner."""
+    st.session_state.eval_request = system
+    st.session_state.eval_error = None
+
+
+def run_evaluation(run: Run, system: str) -> None:
+    """Score the blueprint (multi_agent), or write and score the single-prompt plan (baseline)."""
+    case = find_case(run.document)
+    out_dir = run.dir if system == "multi_agent" else run.dir / "baseline"
+    try:
+        if system == "baseline":
+            run_baseline(run.document, out_dir)
+        evaluate(out_dir, run.document_text, case and case.get("trap"))
+    except Exception as e:  # the result stays on screen; the tab shows the error
+        st.session_state.eval_error = f"{type(e).__name__}: {e}"
 
 
 # ── header: title, status line, pipeline track ──────────────────────────────────────────
@@ -255,7 +276,7 @@ def result_panel(run: Run) -> None:
                              mime="text/markdown", type="primary", width="stretch", disabled=not blueprint)
     record.download_button("Download state.json", (run.dir / "state.json").read_text(),
                            file_name=f"{run.run_id}_state.json", mime="application/json", width="stretch")
-    tab_blueprint, tab_segments, tab_log = st.tabs(["Blueprint", "Segments", "Validation log"])
+    tab_blueprint, tab_segments, tab_log, tab_eval = st.tabs(["Blueprint", "Segments", "Validation log", "Evaluation"])
     with tab_blueprint, st.container(border=True):
         # One h1 per screen: the blueprint's headings move down one level
         st.markdown(re.sub(r"^#", "##", blueprint, flags=re.M) or "No blueprint was written.")
@@ -268,6 +289,93 @@ def result_panel(run: Run) -> None:
             r = entry["result"]
             st.markdown(f"**{r.stage.capitalize()}, check {entry['attempt']}** · {'passed' if r.passed else 'failed'}")
             issues_list([(STAGE_ISSUE[status], i.check, i.message) for i, status in entry["issues"]])
+    with tab_eval:
+        evaluation_tab(run)
+
+
+# ── evaluation (Phase 10 metrics) ───────────────────────────────────────────────────────
+
+def _pct(x) -> str:
+    return "—" if x is None else f"{x:.0%}"
+
+
+def _delta(ours, theirs, fmt) -> str | None:
+    return None if ours is None or theirs is None else f"{fmt(ours - theirs)} vs single prompt"
+
+
+def metric_tiles(m: dict, b: dict | None) -> None:
+    """The headline scores of the blueprint; with the baseline, the difference under each one."""
+    ours, theirs = scores(m), scores(b) if b else {}
+    tiles = [
+        ("Traceability", _pct(ours["traceability"]), "Claims about the market with a valid source",
+         _delta(ours["traceability"], theirs.get("traceability"), lambda d: f"{d * 100:+.0f} pts"), "normal"),
+        ("Faithfulness", _pct(ours["faithfulness"]), "Figures found in the document or in a cited source",
+         _delta(ours["faithfulness"], theirs.get("faithfulness"), lambda d: f"{d * 100:+.0f} pts"), "normal"),
+        ("Strategy vs analysis", f"{ours['coherence_strategy'] or '—'} / 5", "Coherence, LLM judge with a fixed rubric",
+         _delta(ours["coherence_strategy"], theirs.get("coherence_strategy"), lambda d: f"{d:+d}"), "normal"),
+        ("Campaign vs strategy", f"{ours['coherence_campaign'] or '—'} / 5", "Coherence, LLM judge with a fixed rubric",
+         _delta(ours["coherence_campaign"], theirs.get("coherence_campaign"), lambda d: f"{d:+d}"), "normal"),
+        ("Tokens", f"{ours['tokens']:,}" if ours["tokens"] is not None else "—", "All models of the run",
+         _delta(ours["tokens"], theirs.get("tokens"), lambda d: f"{d:+,}"), "inverse"),
+        ("Pipeline time", f"{ours['seconds']:.0f} s" if ours["seconds"] is not None else "—", "Human wait excluded",
+         _delta(ours["seconds"], theirs.get("seconds"), lambda d: f"{d:+.0f} s"), "inverse"),
+    ]
+    for row in (tiles[:3], tiles[3:]):
+        for col, (label, value, help_text, delta, color) in zip(st.columns(3), row):
+            col.metric(label, value, delta=delta, delta_color=color, help=help_text, border=True)
+
+
+def evaluation_details(m: dict) -> None:
+    t, f = m["traceability"], m["faithfulness"]
+    with st.expander(f"Claims · {t['traced']} of {t['claims']} with a valid source"):
+        st.dataframe([{"Claim": i["quote"], "References": ", ".join(i["refs"]) or "—", "Valid source": i["traced"]}
+                      for i in t["items"]], hide_index=True, width="stretch")
+        if t["unquoted"]:
+            st.caption(f"{t['unquoted']} claim(s) left out: the judge's quote is not in the plan.")
+    with st.expander(f"Figures · {f['matched']} of {f['checked']} found, {f['unverifiable']} unverifiable"):
+        st.dataframe([{"Figure": i["figure"], "Found in": i["status"], "Claim": i["quote"]} for i in f["items"]],
+                     hide_index=True, width="stretch")
+        st.caption("Unverifiable: a cited page could not be read; these figures are not in the score.")
+    with st.expander(f"Sources · {sum(s['valid'] for s in m['sources'])} of {len(m['sources'])} valid"):
+        st.dataframe([{"#": s["number"], "Reference": s["reference"], "Status": s["status"], "Valid": s["valid"]}
+                      for s in m["sources"]], hide_index=True, width="stretch")
+
+
+def evaluation_tab(run: Run) -> None:
+    m, b = load_metrics(run.dir), load_metrics(run.dir / "baseline")
+    if st.session_state.get("eval_error"):
+        st.error(f"The evaluation stopped: {st.session_state.eval_error}")
+    if m is None:
+        st.caption("Scores the blueprint: traceability, faithfulness of the figures, coherence. "
+                   "Two calls to the judge model; the pages of the cited sources are opened.")
+        st.button("Evaluate this run", type="primary", on_click=request_evaluation, args=("multi_agent",))
+        return
+    if m.get("error"):
+        st.error(f"Not evaluated: {m['error']}")
+        return
+    metric_tiles(m, b if b and not b.get("error") else None)
+
+    for label, key in (("Strategy vs analysis", "strategy_vs_analysis"), ("Campaign vs strategy", "campaign_vs_strategy")):
+        score = m["coherence"][key]
+        st.markdown(f"**{label} · {score['score']}/5.** {score['reason']}")
+    trap = m["trap"]
+    if trap["applies"]:
+        verdict = ":green-badge[trap avoided]" if trap["avoided"] else ":red-badge[trap segment targeted]"
+        st.markdown(f"{verdict} The plan targets *{trap['target']}*. Trap segment of this case: {trap['segment']}.")
+    evaluation_details(m)
+
+    if b is None:
+        st.button("Compare with the single-prompt baseline", on_click=request_evaluation, args=("baseline",),
+                  help="Same model, same document, one prompt asking for the full plan (no tools, no validator).")
+    elif b.get("error"):
+        st.error(f"Baseline: {b['error']}")
+    else:
+        with st.expander("Single-prompt plan (baseline) and its scores"):
+            evaluation_details(b)
+            plan = (run.dir / "baseline" / "blueprint.md").read_text()
+            st.markdown(re.sub(r"^#", "##", plan, flags=re.M))
+    st.caption(f"Judge: {config.JUDGE_MODEL}, rubric in eval/prompts/coherence.md; references and figures are "
+               f"checked in code. Saved to outputs/{run.run_id}/metrics.json.")
 
 
 def main_panel(run: Run) -> None:
@@ -304,6 +412,8 @@ with st.sidebar:
               disabled=bool(missing) or (upload is None and saved is None))
     if st.session_state.get("start_error"):
         st.error(st.session_state.start_error)
+    st.toggle("Evaluate the result", value=True, key="auto_eval",
+              help="When the run ends, score the blueprint (Phase 10 metrics). Two calls to the judge model.")
     st.caption(f"Agents: {config.LLM_MODEL}  \nJudge: {config.JUDGE_MODEL}")
 
 run: Run | None = st.session_state.get("run")
@@ -355,5 +465,16 @@ with top.container():
     header(run)
 with log_box.container(border=True):
     run_log(run)
+
+if run.status == "done":
+    request = st.session_state.pop("eval_request", None)
+    if (request is None and st.session_state.get("auto_eval", True) and not st.session_state.get("eval_error")
+            and load_metrics(run.dir) is None):
+        request = "multi_agent"
+    if request:
+        with main_box.container(), st.spinner("Writing the single-prompt plan and scoring it…" if request == "baseline"
+                                              else "Evaluating the blueprint: claims, figures, coherence…"):
+            run_evaluation(run, request)
+
 with main_box.container():
     main_panel(run)

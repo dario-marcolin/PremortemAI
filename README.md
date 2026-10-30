@@ -27,7 +27,9 @@ uv run python -c "from premortem.llm import get_llm; print(get_llm().invoke('hel
 ## Run
 
 In the browser: upload a document (or pick one from `data/demo/` or `eval/cases/`), follow
-the run log, approve or reject the strategy, download the blueprint:
+the run log, approve or reject the strategy, download the blueprint. At the end the
+**Evaluation** tab scores the blueprint (traceability, faithfulness, coherence, trap, cost)
+and can compare it with the single-prompt baseline:
 
 ```bash
 uv run streamlit run app.py
@@ -48,6 +50,21 @@ the blueprint of a saved run:
 `uv run python tests/run_blueprint.py --run outputs/<run_id>`.
 
 Offline tests (fake LLMs, no API credits): `uv run pytest`.
+
+## Evaluation
+
+Runs the pipeline (auto-approve) and a single-prompt baseline (same model, same document,
+no tools, no validator) on every case of `eval/cases/`, scores both and writes
+`eval/report.md`:
+
+```bash
+uv run python -m eval.run_eval                        # all cases, both systems
+uv run python -m eval.run_eval --cases nordbrew_de    # some cases
+uv run python -m eval.run_eval --report-only          # rebuild the report (e.g. after the human rating)
+```
+
+Metrics are defined in `eval/metrics.py`; the blind human rating is in `eval/rating/` (see
+its README).
 
 ## Roadmap
 

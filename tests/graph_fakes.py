@@ -2,8 +2,9 @@
 
 One FakeModel replaces get_llm in every module. It answers by output schema with the
 objects of tests/fixtures/dummy_state.json, runs one web search in the Analyst loop, and
-lets each test decide which issues the judge raises per stage. Plain invoke() calls (the
-executive summary) return SUMMARY.
+lets each test decide which issues the judge raises per stage. Plain invoke() calls return
+SUMMARY (the executive summary) or BASELINE_PLAN (the single-prompt baseline of eval/).
+The evaluation judge gets CLAIMS and a fixed coherence verdict; source pages are not fetched.
 """
 
 import json
@@ -15,6 +16,9 @@ from langchain_core.messages import AIMessage
 from langgraph.types import Command
 from pydantic import TypeAdapter
 
+from eval import baseline as baseline_module
+from eval import metrics
+from eval.metrics import Claim, Claims, CoherenceVerdict, Page
 from premortem import config
 from premortem.agents import analyst, creative, strategist
 from premortem.graph import build_graph, initial_state
@@ -33,6 +37,24 @@ STATE = TypeAdapter(LaunchState).validate_python(json.loads(FIXTURE.read_text())
 BLOCK_STRATEGY = JudgeIssue(severity="blocking", check="segment_size_and_access",
                             field="analysis.segments[SEG1].estimated_size", quote="~400k people, S3",
                             message="SEG1 is too small.")
+BASELINE_CLAIM = "27% of adults bought a protein snack in the last three months [1]."
+BASELINE_PLAN = f"""# Launch plan
+
+## 1. Executive summary
+
+Target students in Italy.
+
+## 3. Market and competitors
+
+{BASELINE_CLAIM} The market grows fast [2].
+
+## Sources
+
+1. Document: company.md, section 4
+2. <https://example.com/report>
+"""
+# One claim of the blueprint (its summary) and one of the baseline: each plan finds only its own
+CLAIMS = Claims(claims=[Claim(quote=SUMMARY), Claim(quote=BASELINE_CLAIM, figures=["27%"], refs=["1"])])
 BLOCK_CAMPAIGN = JudgeIssue(severity="blocking", check="claims_supported", field="strategy.positioning_statement",
                             quote=STATE["strategy"].positioning_statement, message="The tagline promises too much.")
 
@@ -54,7 +76,10 @@ class FakeModel:
     def bind_tools(self, _tools):
         return _Bound(self, None)
 
-    def invoke(self, messages):
+    def invoke(self, messages, **_kwargs):
+        if "marketing consultant" in _text(messages[0]):
+            self.prompts["baseline"].append(_text(messages[-1]))
+            return AIMessage(BASELINE_PLAN)
         self.prompts["summary"].append(_text(messages[-1]))
         return AIMessage(SUMMARY)
 
@@ -66,8 +91,17 @@ class _Bound:
     def __init__(self, model: FakeModel, schema):
         self.model, self.schema = model, schema
 
+    def with_config(self, **_kwargs):
+        return self
+
     def invoke(self, messages):
         prompt = _text(messages[-1])
+        if self.schema in (Claims, CoherenceVerdict):
+            self.model.prompts[self.schema.__name__].append(prompt)
+            if self.schema is Claims:
+                return CLAIMS
+            return CoherenceVerdict(strategy_vs_analysis=4, strategy_reason="Follows the analysis.",
+                                    campaign_vs_strategy=5, campaign_reason="Every message fits.", target="SEG1", targets_trap=False if "<trap_segment>" in prompt else None)
         if self.schema is JudgeVerdict:
             stage = re.search(r"Validate the (\w+)", prompt).group(1)
             calls = self.model.prompts[f"judge_{stage}"]
@@ -85,8 +119,9 @@ class _Bound:
 
 
 def install(monkeypatch, model: FakeModel) -> FakeModel:
-    for module in (brief_extractor, analyst, strategist, creative, judge_module, blueprint):
+    for module in (brief_extractor, analyst, strategist, creative, judge_module, blueprint, metrics, baseline_module):
         monkeypatch.setattr(module, "get_llm", lambda *_args, **_kwargs: model)
+    monkeypatch.setattr(metrics, "fetch_page", lambda url: Page(url, "ok", "The market grew 12% in 2024."))
     # The web sources of the fixture are returned by the search, so the Analyst keeps them
     results = [{"title": s.id, "url": s.reference, "content": "snippet"}
                for s in STATE["analysis"].sources if s.kind == "web"]
