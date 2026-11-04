@@ -3,6 +3,15 @@
 Agent-based premortem analysis: given a project document, the agents imagine
 how the project failed and produce a structured report.
 
+## Architecture
+
+Document → `extract_brief` → Analyst (Tavily web search) → Strategist ⇄ Validator →
+human approval → Creative ⇄ Validator → Launch Blueprint. The evaluation harness runs the
+same pipeline against a single-prompt baseline.
+
+[Interactive map](https://dario-marcolin.github.io/PremortemAI/architecture.html)
+(zoom, search, light/dark theme; source: [docs/architecture.html](docs/architecture.html)).
+
 ## Team and roles
 
 - **A** – project setup, core pipeline

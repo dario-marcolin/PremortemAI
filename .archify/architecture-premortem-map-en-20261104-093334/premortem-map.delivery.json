@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "80a22f9b-c400-4ca9-9201-34e393863622",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-en-20261104-093334/candidate.json",
+  "output": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-en-20261104-093334/premortem-map.html",
+  "specification": {
+    "sha256": "1a23dfb95b66dcb40006018d1727f391975ae692f72e37296883abd4e37837c5",
+    "bytes": 18278
+  },
+  "artifact": {
+    "sha256": "1b459501fa9285772eae4ebe14b0e21b969733a147f6bc174f66467e2774c1ca",
+    "bytes": 886945
+  }
+}
