@@ -1,0 +1,144 @@
+{#- Rendered by premortem/output/blueprint.py. Every value comes from the state, except the
+    executive summary. Source ids go through `cite` (lists) and `refs` (ids inside text),
+    which number them [1], [2]... in order of first appearance. -#}
+# Launch Blueprint: {{ brief.product_name }}
+
+**{{ brief.company_name }}** · launch in {{ brief.target_country }} · generated on {{ generated }}
+
+## 1. Executive summary
+
+{{ summary }}
+
+{% if open_issues %}
+> **Unresolved blocking issues.** The revision limit was reached before the following issues were fixed. Read them before acting on the plan (details in section 7).
+>
+{% for stage, issue in open_issues %}
+> - *{{ stage }}*, `{{ issue.check }}`: {{ issue.message | refs }}
+{% endfor %}
+
+{% endif %}
+## 2. Company brief
+
+| | |
+|---|---|
+| Company | {{ brief.company_description | cell }} |
+| Product | {{ brief.product_description | cell }} |
+| Target country | {{ brief.target_country | cell }} |
+| Price | {{ (brief.price_hint or "not stated in the document") | cell }} |
+| Competitors named | {{ (brief.known_competitors | join(", ") or "none") | cell }} |
+
+**Stated goals**
+
+{% for goal in brief.stated_goals %}
+- {{ goal }}
+{% else %}
+- None stated in the document.
+{% endfor %}
+
+**Missing information** (not in the document; the analysis searched the web for part of it)
+
+{% for item in brief.missing_info %}
+- {{ item }}
+{% else %}
+- None.
+{% endfor %}
+
+## 3. Market and competitors
+
+{{ analysis.market_overview | refs }}
+
+| Competitor | Positioning | Price level | Sources |
+|---|---|---|---|
+{% for c in analysis.competitors %}
+| {{ c.name | cell }} | {{ c.positioning | refs | cell }} | {{ c.price_level }} | {{ c.source_ids | cite }} |
+{% endfor %}
+
+**Customer needs**
+
+{% for need in analysis.customer_needs %}
+- {{ need | refs }}
+{% endfor %}
+
+## 4. Segments
+
+| | Segment | Estimated size | Main needs | Sources |
+|---|---|---|---|---|
+{% for s in analysis.segments %}
+| {{ "**→ " ~ s.segment_id ~ "**" if s.segment_id == strategy.target_segment_id else s.segment_id }} | {{ s.label | cell }} | {{ (s.estimated_size or "unknown") | refs | cell }} | {{ s.needs | join("; ") | refs | cell }} | {{ s.source_ids | cite }} |
+{% endfor %}
+
+→ marks the target segment chosen in the strategy.
+
+{% for s in analysis.segments %}
+- **{{ s.segment_id }} {{ s.label }}**: {{ s.description | refs }}
+{% endfor %}
+
+{% if analysis.data_quality_notes %}
+**Data gaps and assumptions**
+
+{% for note in analysis.data_quality_notes %}
+- {{ note | refs }}
+{% endfor %}
+
+{% endif %}
+## 5. Strategy
+
+{% if target %}
+**Target:** {{ target.segment_id }} {{ target.label }}. {{ strategy.target_description | refs }}
+{% else %}
+**Target:** {{ strategy.target_segment_id }} (not found in the analysis). {{ strategy.target_description | refs }}
+{% endif %}
+
+**Positioning.** {{ strategy.positioning_statement | refs }}
+
+**Value proposition.** {{ strategy.value_proposition | refs }}
+
+**Pricing direction.** {{ strategy.pricing_direction | refs }}
+
+**Channels:** {{ strategy.channels | join(", ") }}
+
+**Rationale.** {{ strategy.rationale | refs }}
+
+Supporting sources: {{ strategy.supporting_source_ids | cite or "none" }}
+
+*Approved by the company at the human approval step, after {{ strategy_revisions }} revision(s) requested by the validator in the last round.*
+
+## 6. Campaign
+
+**Concept.** {{ campaign.concept }}
+
+**Tagline:** *{{ campaign.tagline }}*
+
+| Channel | Headline | Message |
+|---|---|---|
+{% for m in campaign.key_messages %}
+| {{ m.channel | cell }} | {{ m.headline | cell }} | {{ m.body | cell }} |
+{% endfor %}
+
+**Content ideas**
+
+{% for idea in campaign.content_ideas %}
+- {{ idea }}
+{% endfor %}
+
+**Visual direction.** {{ campaign.visual_direction }}
+
+## 7. Validation log
+
+Every check of the deterministic rules and of the LLM judge, in run order. A blocking issue sends the stage back for revision, up to {{ max_revisions }} times; warnings are reported only.
+
+{% for entry in log %}
+### {{ entry.stage | capitalize }}, check {{ entry.attempt }}: {{ "passed" if entry.result.passed else "failed" }}
+
+{% for issue, status in entry.issues %}
+- **{{ status }}** · `{{ issue.check }}`: {{ issue.message | refs }}
+{% else %}
+- No issues.
+{% endfor %}
+
+{% endfor %}
+## 8. Sources
+
+{% for number, source in references() %}
+{{ number }}. {{ "Document: " ~ source.reference if source.kind == "document" else "<" ~ source.reference ~ ">" }}
+{% endfor %}

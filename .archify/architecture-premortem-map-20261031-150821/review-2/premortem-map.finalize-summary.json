@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/candidate.json",
+    "sha256": "d9af34ddc5faf3d57b987408cae6bb28ad086199bfdc1df7230b81f527d73d66",
+    "bytes": 18320
+  },
+  "artifact": {
+    "path": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/premortem-map.html",
+    "sha256": "e5e367ca7b3faede77eae099dbc9bb8b7a759dc396ca0666c3058b92d523d8d3",
+    "bytes": 887180
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [
+    {
+      "code": "i18n/locale-fallback",
+      "severity": "warning",
+      "message": "meta.locale \"it\" has no bundled catalog and no usable meta.translations; the Viewer chrome and <html lang> fall back to English.",
+      "subject": {
+        "diagramType": "architecture",
+        "path": "/meta/locale"
+      },
+      "evidence": {
+        "locale": "it",
+        "bundledLocales": [
+          "en",
+          "zh-CN",
+          "zh-TW",
+          "es",
+          "ko",
+          "ar"
+        ]
+      },
+      "supportedFixes": [
+        "Supply meta.translations for this locale.",
+        "Use a bundled locale: en, zh-CN, zh-TW, es, ko, ar."
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/review-2/premortem-map.finalize.json",
+    "summaryReceipt": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/review-2/premortem-map.finalize-summary.json",
+    "browserCheckReceipt": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/review-2/premortem-map.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-31T14:08:24.904Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2186,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "routesOverSuggestedBends": 1
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [],
+      "detours": [
+        {
+          "relationship": {
+            "id": "runner-outputs",
+            "from": "runner",
+            "to": "outputs",
+            "label": "log.txt, state, run",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "bends": 3,
+          "stretch": 1.07
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "runner → outputs needs 3 bends: move node runner or outputs so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

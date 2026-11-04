@@ -1,0 +1,30 @@
+# Achromatic ledger style (design-taste-frontend skill, seed 1984085540): ink chrome on an
+# off-white ground, near-black primary, the one hue (#1d5fbf) only on the running step.
+[theme]
+base = "light"
+primaryColor = "#141414"
+backgroundColor = "#f8f8f8"
+secondaryBackgroundColor = "#eeeeee"
+textColor = "#0a0a0a"
+borderColor = "#e6e6e6"
+showWidgetBorder = true
+linkColor = "#1d5fbf"
+blueColor = "#1d5fbf"
+greenColor = "#2e7d32"
+redColor = "#c4242a"
+font = "Geist:https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&display=swap"
+codeFont = "Geist Mono:https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap"
+baseFontSize = 14
+headingFontSizes = ["24px", "16px", "14px", "14px", "14px", "14px"]
+headingFontWeights = [600, 500, 500, 500, 500, 500]
+baseRadius = "6px"
+showSidebarBorder = true
+
+[theme.sidebar]
+backgroundColor = "#f8f8f8"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false

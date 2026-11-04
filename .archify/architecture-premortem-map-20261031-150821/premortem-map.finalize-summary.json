@@ -1,0 +1,327 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/candidate.json",
+    "sha256": "26f1ab0b39da268f89d63a1dcaa4ad06f7a49c5b6aacd89c501ebf7a17dee547",
+    "bytes": 18460
+  },
+  "artifact": {
+    "path": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/premortem-map.html",
+    "sha256": "bee335a729b66af225f9b0444687d1bf923d33fc19c3c948086158bf6c2f83ad",
+    "bytes": 889364
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [
+    {
+      "code": "i18n/locale-fallback",
+      "severity": "warning",
+      "message": "meta.locale \"it\" has no bundled catalog and no usable meta.translations; the Viewer chrome and <html lang> fall back to English.",
+      "subject": {
+        "diagramType": "architecture",
+        "path": "/meta/locale"
+      },
+      "evidence": {
+        "locale": "it",
+        "bundledLocales": [
+          "en",
+          "zh-CN",
+          "zh-TW",
+          "es",
+          "ko",
+          "ar"
+        ]
+      },
+      "supportedFixes": [
+        "Supply meta.translations for this locale.",
+        "Use a bundled locale: en, zh-CN, zh-TW, es, ko, ar."
+      ]
+    }
+  ],
+  "diagnosticSummary": {
+    "total": 1,
+    "shown": 1,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/premortem-map.finalize.json",
+    "summaryReceipt": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/premortem-map.finalize-summary.json",
+    "browserCheckReceipt": "/Users/dariomarcolin/PremortemAI/.archify/architecture-premortem-map-20261031-150821/premortem-map.browser-check.json"
+  },
+  "update": {
+    "status": "current",
+    "installedVersion": "3.2.0",
+    "availableVersion": "3.2.0",
+    "releaseNotes": null,
+    "checkedAt": "2026-10-31T14:08:24.904Z",
+    "source": "cache",
+    "noticeRequired": false,
+    "noticeText": null
+  },
+  "visualReview": "not-requested",
+  "durationMs": 2747,
+  "browserCheck": {
+    "requested": true,
+    "ran": true
+  },
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 9,
+      "routesOverSuggestedBends": 4
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "id": "ui-runner",
+            "from": "ui",
+            "to": "runner",
+            "label": "avvia, approva",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "id": "ui-metrics",
+            "from": "ui",
+            "to": "metrics",
+            "label": "tab Evaluation",
+            "collectionIndex": 26,
+            "artifactIndex": 27
+          },
+          "point": [
+            346.95000000000005,
+            197
+          ],
+          "sharedNode": "ui"
+        },
+        {
+          "left": {
+            "id": "cli-runner",
+            "from": "cli",
+            "to": "runner",
+            "label": "--doc, y/n",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "right": {
+            "id": "ui-metrics",
+            "from": "ui",
+            "to": "metrics",
+            "label": "tab Evaluation",
+            "collectionIndex": 26,
+            "artifactIndex": 27
+          },
+          "point": [
+            287,
+            225
+          ]
+        },
+        {
+          "left": {
+            "id": "runner-outputs",
+            "from": "runner",
+            "to": "outputs",
+            "label": "log.txt, state, run",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "right": {
+            "id": "runeval-baseline",
+            "from": "runeval",
+            "to": "baseline",
+            "label": "run_baseline",
+            "collectionIndex": 23,
+            "artifactIndex": 24
+          },
+          "point": [
+            266,
+            432
+          ]
+        },
+        {
+          "left": {
+            "id": "runner-outputs",
+            "from": "runner",
+            "to": "outputs",
+            "label": "log.txt, state, run",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "right": {
+            "id": "runeval-metrics",
+            "from": "runeval",
+            "to": "metrics",
+            "label": "evaluate",
+            "collectionIndex": 24,
+            "artifactIndex": 25
+          },
+          "point": [
+            266,
+            446
+          ]
+        },
+        {
+          "left": {
+            "id": "runner-outputs",
+            "from": "runner",
+            "to": "outputs",
+            "label": "log.txt, state, run",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "right": {
+            "id": "ui-metrics",
+            "from": "ui",
+            "to": "metrics",
+            "label": "tab Evaluation",
+            "collectionIndex": 26,
+            "artifactIndex": 27
+          },
+          "point": [
+            287,
+            288
+          ]
+        },
+        {
+          "left": {
+            "id": "runeval-runner",
+            "from": "runeval",
+            "to": "runner",
+            "label": "Run, approva sempre",
+            "collectionIndex": 22,
+            "artifactIndex": 23
+          },
+          "right": {
+            "id": "ui-metrics",
+            "from": "ui",
+            "to": "metrics",
+            "label": "tab Evaluation",
+            "collectionIndex": 26,
+            "artifactIndex": 27
+          },
+          "point": [
+            287,
+            239
+          ]
+        },
+        {
+          "left": {
+            "id": "runeval-baseline",
+            "from": "runeval",
+            "to": "baseline",
+            "label": "run_baseline",
+            "collectionIndex": 23,
+            "artifactIndex": 24
+          },
+          "right": {
+            "id": "ui-metrics",
+            "from": "ui",
+            "to": "metrics",
+            "label": "tab Evaluation",
+            "collectionIndex": 26,
+            "artifactIndex": 27
+          },
+          "point": [
+            412,
+            432
+          ]
+        },
+        {
+          "left": {
+            "id": "runeval-metrics",
+            "from": "runeval",
+            "to": "metrics",
+            "label": "evaluate",
+            "collectionIndex": 24,
+            "artifactIndex": 25
+          },
+          "right": {
+            "id": "baseline-outputs",
+            "from": "baseline",
+            "to": "outputs",
+            "label": "baseline/",
+            "collectionIndex": 27,
+            "artifactIndex": 28
+          },
+          "point": [
+            420,
+            597
+          ]
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "id": "runner-outputs",
+            "from": "runner",
+            "to": "outputs",
+            "label": "log.txt, state, run",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "bends": 3,
+          "stretch": 1.081
+        },
+        {
+          "relationship": {
+            "id": "runeval-results",
+            "from": "runeval",
+            "to": "results",
+            "label": "risultati, report",
+            "collectionIndex": 25,
+            "artifactIndex": 26
+          },
+          "bends": 3,
+          "stretch": 1.079
+        },
+        {
+          "relationship": {
+            "id": "ui-metrics",
+            "from": "ui",
+            "to": "metrics",
+            "label": "tab Evaluation",
+            "collectionIndex": 26,
+            "artifactIndex": 27
+          },
+          "bends": 6,
+          "stretch": 1.256
+        },
+        {
+          "relationship": {
+            "id": "metrics-outputs",
+            "from": "metrics",
+            "to": "outputs",
+            "label": "metrics.json",
+            "collectionIndex": 28,
+            "artifactIndex": 29
+          },
+          "bends": 3,
+          "stretch": 1.122
+        }
+      ],
+      "truncated": true
+    },
+    "hints": [
+      "ui → runner and ui → metrics cross next to ui: move node runner or metrics so the two reach ui from different sides (for example one level with it, one directly above or below it).",
+      "cli → runner crosses ui → metrics: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "runner → outputs crosses runeval → baseline: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "runner → outputs crosses runeval → metrics: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "runner → outputs crosses ui → metrics: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "runeval → runner crosses ui → metrics: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "runeval → baseline crosses ui → metrics: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "runeval → metrics crosses baseline → outputs: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}
