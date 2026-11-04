@@ -1,0 +1,274 @@
+{
+  "brief": {
+    "company_name": "Verdo Foods S.r.l.",
+    "company_description": "Italian food company founded in 2020 in Bologna, making legume-based savoury snacks; 28 employees and 4.2 million euros turnover in 2024, sold in about 2,300 points of sale in Italy.",
+    "product_name": "Proteo Crisps",
+    "product_description": "Oven-baked crisps made from chickpea flour and pea protein, 15 g of protein per 40 g bag, six ingredients, vegan and gluten-free, Nutri-Score A (Sea Salt, Rosemary) and B (Smoked Paprika), compostable packaging.",
+    "target_country": "France",
+    "price_hint": null,
+    "known_competitors": [
+      "Barebells",
+      "Gerble",
+      "Supermarket private labels"
+    ],
+    "stated_goals": [
+      "Reach a 2% value share of the French protein snack category within 24 months of launch",
+      "Be listed in at least 1,500 points of sale in the first year",
+      "Generate 25% of company turnover from France by the end of 2027",
+      "Reach break-even on the French operation in the third year"
+    ],
+    "missing_info": [
+      "Product price: not stated, needed for the pricing strategy",
+      "Marketing budget: not stated"
+    ]
+  },
+  "analysis": {
+    "market_overview": "The French protein snack category is reported at 480 million euros in 2024, growing 11% a year over 2021-2024 [S1]. Plant-based products make up 18% of protein snacks and 27% of French adults bought a protein snack in the last three months [S1]. Supermarkets and hypermarkets hold 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [S1]. The savoury snack market in France is 2.9 billion euros [S1]. These figures are company-supplied and not independently verified. A web source gives a narrower-scope figure of 380 million euros for high-protein food in French grocery retail in 2024, up from about 70 million in 2020 [S2]; the scopes may differ, so the 480 million figure is unconfirmed. Proteo Crisps' Nutri-Score A and B ratings fit a market where the French National Assembly voted in November 2025 to make front-of-pack Nutri-Score mandatory, though this is not yet definitively adopted [S3, S4].",
+    "competitors": [
+      {
+        "name": "Barebells",
+        "positioning": "Swedish protein bar and drink brand with a sport-oriented, premium-taste image; strong presence in gyms and supermarkets. Sold as bars and drinks, not crisps.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S1",
+          "S5",
+          "S6"
+        ]
+      },
+      {
+        "name": "Gerblé",
+        "positioning": "French health and wellness food brand, widely available in supermarkets; the document says it has some protein products, but the research found only biscuits and snacks and no protein product.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S1",
+          "S7"
+        ]
+      },
+      {
+        "name": "Supermarket private labels",
+        "positioning": "Retailer-owned protein snack ranges that entered the category in 2023 with lower prices, according to the company document.",
+        "price_level": "low",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "name": "IronMaxx Protein Chips",
+        "positioning": "German protein chip brand, baked and palm-oil-free, made from soy protein concentrate, claiming 40% protein; found online and in specialist shops, not confirmed in French supermarkets.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S8",
+          "S9"
+        ]
+      },
+      {
+        "name": "Chiefs Protein Chips",
+        "positioning": "Protein chip brand claiming high protein, gluten-free and 40% less fat than potato crisps; flavours include paprika and sour cream. Found on the brand's own site only.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S10"
+        ]
+      }
+    ],
+    "customer_needs": [
+      "High protein content in a snack [S1]",
+      "Taste and texture that match or beat conventional crisps; texture was the most appreciated attribute in blind tests [S1]",
+      "Short ingredient lists and no additives [S1]",
+      "Nutritional clarity on pack, with Nutri-Score familiar to French consumers [S1, S3]",
+      "Plant-based options, with about half of French adults ready to try plant-based alternatives in 2024 [S11]",
+      "Protein snacks that are not ultra-processed, a concern raised by consumer-watch criticism of protein-enriched products [S12]",
+      "Sustainable packaging [S1]",
+      "Value for money: protein versions can cost much more per kilo than standard products [S12]"
+    ],
+    "segments": [
+      {
+        "segment_id": "SEG1",
+        "label": "Vegans and strict vegetarians",
+        "description": "Most enthusiastic group for the concept, with 72% purchase intent in the France Snack Panel 2024, but small: 1.3 million adults, 2.5% of adults aged 18-64 [S1]. Founders' first instinct is to target this group; it is also the most active on social media [S1]. Older national surveys put vegan and vegetarian eating at a small share of the population, which suggests the group may be smaller or differently defined [S13, S14].",
+        "needs": [
+          "Plant-based and vegan certification",
+          "Gluten-free products",
+          "High protein without animal ingredients"
+        ],
+        "estimated_size": "1.3 million adults, 2.5% of adults, S1",
+        "source_ids": [
+          "S1",
+          "S13",
+          "S14"
+        ]
+      },
+      {
+        "segment_id": "SEG2",
+        "label": "Weekly sport practitioners",
+        "description": "Largest consumer group: 17.5 million adults (34% of adults), with 41% purchase intent for a high-protein plant-based crisp [S1]. Groups overlap, and many are also office workers [S1]. Reached via gyms and sport shops, which hold a small share of channel sales [S1].",
+        "needs": [
+          "High protein per portion",
+          "Convenient snack around training",
+          "Sport-oriented image"
+        ],
+        "estimated_size": "17.5 million adults, 34% of adults, S1",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "segment_id": "SEG3",
+        "label": "Health-conscious office workers",
+        "description": "9.0 million adults (18% of adults), with 38% purchase intent [S1]. Likely to respond to Nutri-Score A and short ingredient lists; the document links this group to the snack habit but does not give a separate profile [S1].",
+        "needs": [
+          "Nutri-Score A or B rating",
+          "Short ingredient lists",
+          "Everyday snack for the working day"
+        ],
+        "estimated_size": "9.0 million adults, 18% of adults, S1",
+        "source_ids": [
+          "S1"
+        ]
+      },
+      {
+        "segment_id": "SEG4",
+        "label": "Parents of school-age children",
+        "description": "7.1 million adults (14% of adults), with 22% purchase intent, the lowest of the four groups [S1].",
+        "needs": [
+          "Nutritional profile suitable for children",
+          "Simple ingredient list"
+        ],
+        "estimated_size": "7.1 million adults, 14% of adults, S1",
+        "source_ids": [
+          "S1"
+        ]
+      }
+    ],
+    "data_quality_notes": [
+      "The 480 million euro protein snack figure, 11% growth, 2.9 billion savoury snack market, 18% plant-based share and 27% buyer share come from the company document, citing NutriMarket Insights 2025 and France Snack Panel 2024. The research did not verify them. A web source gives 380 million euros for a wider high-protein grocery scope [S2], so the figures conflict or differ in scope.",
+      "The channel split (68/17/9/6) is from the document only and was not verified.",
+      "The consumer group figures (sizes and purchase intent) come only from the France Snack Panel 2024 as reported in the document, with no independent check. Groups overlap, so sizes must not be added together. The purchase intent was measured for a concept similar to Proteo Crisps, not the product itself.",
+      "The vegan and vegetarian size of 1.3 million (2.5%) conflicts in definition with older surveys: FranceAgriMer 2020 gives about 2% for vegetarian, pescetarian or vegan eating, and vegans at 0.3%. These are older and use different definitions [S13, S14].",
+      "No French shelf price was found for any protein chip, private label or Proteo-type product. Competitor price levels are therefore 'unknown' except where a source gives a basis. Barebells prices found are for bars (about 2.20 euros per 55 g bar), not comparable to crisps; these are not included as a price level.",
+      "Private-label protein snack products and their prices were not found; the 'low' price level for private labels rests only on the company document's statement of lower prices [S1].",
+      "Gerblé's protein products are claimed in the document but not confirmed by the research, which found only biscuits and snacks.",
+      "The research found IronMaxx and Chiefs chips online and in other countries, but not confirmed on French supermarket shelves. Their protein claims are manufacturer claims, not tested.",
+      "The 'second largest savoury snack market in Europe' and 'fastest growing protein snack market in Southern Europe' claims are not verified.",
+      "Trend figures (10% of new French products highlighting protein in 2024; 22% increased plant-protein intake in 2022) come from a weak secondary source and are unverified [S11].",
+      "The Nutri-Score mandate is not yet adopted; the source is a November 2025 parliamentary vote, and status may have changed since.",
+      "Price, marketing budget, target group, positioning, distributor, campaign and regulatory details are open, as the brief states; the analysis does not assume them.",
+      "Segment sizes are given as stated by the document; the document gives no size for weekly sport practitioners' French purchase behaviour beyond the panel."
+    ],
+    "sources": [
+      {
+        "id": "S1",
+        "kind": "document",
+        "reference": "Company document, section 4 (Market context) and section 5 (Consumer groups), with sections 2, 3, 6 and 7 for product, goals, competitors and distribution"
+      },
+      {
+        "id": "S2",
+        "kind": "web",
+        "reference": "https://www.intotheminds.com/blog/marche-aliments-hyperproteines"
+      },
+      {
+        "id": "S3",
+        "kind": "web",
+        "reference": "https://petitions.assemblee-nationale.fr/initiatives/i-4753"
+      },
+      {
+        "id": "S4",
+        "kind": "web",
+        "reference": "https://blog.yeswelab.fr/agroalimentaire/nutri-score-obligatoire-laboratoire"
+      },
+      {
+        "id": "S5",
+        "kind": "web",
+        "reference": "https://www.bodyworld.eu/nl/fr/barebells-protein-bar-55-g-4016"
+      },
+      {
+        "id": "S6",
+        "kind": "web",
+        "reference": "https://www.idealo.fr/prix/201051736/barebells-protein-bar-12-x-55-g.html"
+      },
+      {
+        "id": "S7",
+        "kind": "web",
+        "reference": "https://lafamilleatable.com/en/products/p-biscuit-gouter-pepites-chocolat-gerble-3251490307002"
+      },
+      {
+        "id": "S8",
+        "kind": "web",
+        "reference": "https://www.ironmaxx.de/en/products/protein-chips-3-0-60g-bag-barbecue"
+      },
+      {
+        "id": "S9",
+        "kind": "web",
+        "reference": "https://www.proteini.si/en/snacks/snacks/ironmaxx-protein-chips-40"
+      },
+      {
+        "id": "S10",
+        "kind": "web",
+        "reference": "https://chiefs.food/collections/protein-chips"
+      },
+      {
+        "id": "S11",
+        "kind": "web",
+        "reference": "https://lesuperdaily.com/episode/proteine-le-nouvel-ingredient-magique-des-marques-de-food"
+      },
+      {
+        "id": "S12",
+        "kind": "web",
+        "reference": "https://www.foodwatch.org/fr/actualites/enquete-10-produits-proteines-ultra-transformes"
+      },
+      {
+        "id": "S13",
+        "kind": "web",
+        "reference": "https://www.franceagrimer.fr/chiffre-et-analyses-economiques/vegetariens-et-flexitariens-en-france-en-2020"
+      },
+      {
+        "id": "S14",
+        "kind": "web",
+        "reference": "https://www.vegecantines.fr/chiffres-cles-2"
+      }
+    ]
+  },
+  "strategy_small_segment": {
+    "target_segment_id": "SEG1",
+    "target_description": "Vegans and strict vegetarians in France, the most enthusiastic group for a plant-based protein crisp.",
+    "positioning_statement": "For French vegans, Proteo Crisps is the plant-based protein crisp made by people who share their values: vegan certified, six ingredients, compostable packaging.",
+    "value_proposition": "A vegan, high-protein crisp (15 g per bag) with a clean label and sustainable packaging.",
+    "pricing_direction": "Premium price, justified by vegan certification and compostable packaging; competitor prices are unknown.",
+    "channels": [
+      "Organic shops",
+      "Online shop",
+      "Instagram vegan community"
+    ],
+    "rationale": "SEG1 shows by far the highest purchase intent, 72% [S1], and is the most active group on social media [S1]. Its values match the product: vegan certified, no additives, compostable packaging. Starting with the most enthusiastic community gives the brand loyal ambassadors.",
+    "supporting_source_ids": [
+      "S1"
+    ]
+  },
+  "strategy_large_segment": {
+    "target_segment_id": "SEG2",
+    "target_description": "Weekly sport practitioners in France: adults who train regularly and want a high-protein, convenient snack around training. The largest group (17.5 million adults, 34% of adults) with 41% purchase intent for a high-protein plant-based crisp [S1]. Many overlap with office workers, so the group is not additive with SEG3. Reached first through gyms and sport shops, and through supermarkets where most protein snack sales happen.",
+    "positioning_statement": "For weekly sport practitioners in France, Proteo Crisps is the crisp that delivers 15 g of protein per 40 g bag with the taste and crunch of a regular crisp: a high-protein, plant-based snack with six ingredients, no additives and no palm oil, that fits around training and the working day. Against the protein bars and drinks of Barebells and the unverified protein chips of IronMaxx and Chiefs, it is a crisp first, not a bar, and it is not an athlete-only product.",
+    "value_proposition": "A high-protein savoury snack that tastes like a good crisp (texture was the most appreciated attribute in the 2024 Italian blind tests, where it was preferred to leading potato crisps by 47% to 32% [S1]), with 15 g of protein per bag, a short ingredient list and vegan, gluten-free certification.",
+    "pricing_direction": "Unknown: no French shelf price exists for any protein chip, private label or Proteo-type product, and competitor price levels are unknown except private labels, which the company document describes as lower-priced [S1]. Do not set a premium or parity price yet. Before the launch, run a shelf price check in Paris, Lyon and Lille supermarkets, gyms and organic shops against private-label protein snacks and the protein chip brands, and set the price near the middle of that range, with a clear per-100 g value message. Note that protein versions can cost much more per kilo than standard products, a consumer concern [S12], so the value gap must be explained.",
+    "channels": [
+      "Supermarkets",
+      "Gyms and sport shops",
+      "Organic shops",
+      "Online shop"
+    ],
+    "rationale": "Size and interest: SEG2 is the largest group at 17.5 million adults with 41% purchase intent [S1]. SEG1 has the highest intent (72%) but only 1.3 million adults (2.5%) [S1], and older surveys suggest it may be smaller still [S13, S14]; it cannot reach the 1,500-point-of-sale or 2% value-share goals alone. SEG3 is 9.0 million adults with 38% intent [S1], a close second that is a useful secondary audience and overlaps with SEG2; SEG4 has the lowest intent (22%) [S1]. Accessibility: the brief already plans gyms, organic shops and supermarkets, and the analysis shows supermarkets and hypermarkets hold 68% of protein snack sales, with gyms and sport shops at a small share [S1]. Gyms and sport shops are the entry point for SEG2; supermarkets carry the volume needed for the 1,500-point goal. Competition: Barebells is strong in gyms but sells bars and drinks, not crisps [S1, S5, S6]; the chips of IronMaxx [S8, S9] and Chiefs [S10] are not confirmed on French supermarket shelves, so the crisp-format, supermarket-ready space is less contested. Fit with goals: reaching SEG2 through supermarkets gives the best path to 1,500 points of sale and the 2% value share. Claim check: the 15 g protein and 30% comparison claim is not used in the message because the analysis does not verify it for France and it is a company claim versus the leading Italian plant-based crisp; the message uses the Italian taste test only as a supporting fact, with the caveat that it was measured in Italy [S1]. The market figures (480 million euros, 11% growth) are company-supplied and conflict with a narrower 380 million euro web figure [S2], so they are not used as headline claims. Nutri-Score A and B ratings are a credible on-pack claim, but the mandate is not adopted [S3, S4]. Assumptions: the price direction and the channel mix assume the national distributor negotiation and the Herbes de Provence timing are still open; the value share goal depends on the unverified market size. Risk: SEG2 purchase intent refers to a similar concept, not the product itself [S1]. Plant-based is a secondary message to avoid positioning the product as vegan-only, consistent with the mission.",
+    "supporting_source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S8",
+      "S9",
+      "S10",
+      "S12",
+      "S13",
+      "S14"
+    ]
+  }
+}

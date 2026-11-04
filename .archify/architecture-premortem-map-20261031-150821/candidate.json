@@ -1,0 +1,839 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "PremortemAI: mappa del progetto (Fase 10)",
+    "output": ".archify/architecture-premortem-map-20261031-150821/premortem-map.html",
+    "locale": "it",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "git@github.com:dario-marcolin/PremortemAI.git",
+      "link_mode": "local-only",
+      "revision": "dde0d3fc159ebdee1a6955b798ae2c9a7d0d798d"
+    }
+  },
+  "components": [
+    {
+      "id": "person",
+      "type": "external",
+      "label": "Azienda",
+      "sublabel": "documento + decisione",
+      "pos": [
+        40,
+        40
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/ingestion/parser.py",
+          "line": 10,
+          "label": "ALLOWED_EXTENSIONS"
+        }
+      ]
+    },
+    {
+      "id": "ui",
+      "type": "frontend",
+      "label": "app.py",
+      "sublabel": "UI Streamlit",
+      "tag": "tab Evaluation",
+      "pos": [
+        290,
+        40
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "app.py",
+          "line": 239,
+          "end_line": 267,
+          "label": "approval_panel"
+        },
+        {
+          "path": "app.py",
+          "line": 344,
+          "end_line": 378,
+          "label": "evaluation_tab"
+        },
+        {
+          "path": "app.py",
+          "line": 457,
+          "end_line": 478,
+          "label": "stream e valutazione automatica"
+        }
+      ]
+    },
+    {
+      "id": "cli",
+      "type": "frontend",
+      "label": "run_cli.py",
+      "sublabel": "terminale",
+      "pos": [
+        40,
+        200
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "scripts/run_cli.py",
+          "line": 70,
+          "end_line": 110,
+          "label": "main"
+        },
+        {
+          "path": "scripts/run_cli.py",
+          "line": 59,
+          "end_line": 67,
+          "label": "ask_human"
+        }
+      ]
+    },
+    {
+      "id": "runner",
+      "type": "backend",
+      "label": "runner.py",
+      "sublabel": "Run: advance, answer",
+      "tag": "thread_id = run_id",
+      "pos": [
+        290,
+        200
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/runner.py",
+          "line": 107,
+          "end_line": 131,
+          "label": "Run, parse_document"
+        },
+        {
+          "path": "premortem/runner.py",
+          "line": 158,
+          "end_line": 184,
+          "label": "advance, answer"
+        }
+      ]
+    },
+    {
+      "id": "brief",
+      "type": "backend",
+      "label": "extract_brief",
+      "sublabel": "LLM strutturato",
+      "pos": [
+        510,
+        200
+      ],
+      "size": [
+        120,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/graph.py",
+          "line": 49,
+          "end_line": 50,
+          "label": "extract_brief_node"
+        },
+        {
+          "path": "premortem/ingestion/brief_extractor.py",
+          "line": 10,
+          "end_line": 18
+        }
+      ]
+    },
+    {
+      "id": "tavily",
+      "type": "external",
+      "label": "Tavily",
+      "sublabel": "web_search, 5 risultati",
+      "pos": [
+        740,
+        40
+      ],
+      "size": [
+        120,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/tools/web_search.py",
+          "line": 19,
+          "end_line": 42
+        }
+      ]
+    },
+    {
+      "id": "analyst",
+      "type": "backend",
+      "label": "Analyst",
+      "sublabel": "sottografo ReAct",
+      "tag": "max 6 ricerche",
+      "pos": [
+        740,
+        200
+      ],
+      "size": [
+        120,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/agents/analyst.py",
+          "line": 212,
+          "end_line": 222,
+          "label": "build_analyst"
+        },
+        {
+          "path": "premortem/agents/analyst.py",
+          "line": 116,
+          "end_line": 192,
+          "label": "normalize_sources"
+        },
+        {
+          "path": "premortem/graph.py",
+          "line": 95,
+          "label": "nodo del grafo"
+        }
+      ]
+    },
+    {
+      "id": "strategist",
+      "type": "backend",
+      "label": "Strategist",
+      "sublabel": "segmento, posizionamento",
+      "pos": [
+        945,
+        200
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/agents/strategist.py",
+          "line": 12,
+          "end_line": 28
+        },
+        {
+          "path": "premortem/agents/revision.py",
+          "line": 25,
+          "end_line": 42,
+          "label": "revision_request"
+        }
+      ]
+    },
+    {
+      "id": "human",
+      "type": "security",
+      "label": "Approvazione",
+      "sublabel": "interrupt() → UI / CLI",
+      "tag": "MemorySaver",
+      "pos": [
+        1160,
+        200
+      ],
+      "size": [
+        140,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/graph.py",
+          "line": 65,
+          "end_line": 83,
+          "label": "human_approval, route_human"
+        },
+        {
+          "path": "premortem/graph.py",
+          "line": 114,
+          "label": "checkpointer"
+        },
+        {
+          "path": "premortem/runner.py",
+          "line": 140,
+          "end_line": 146,
+          "label": "pending"
+        }
+      ]
+    },
+    {
+      "id": "creative",
+      "type": "backend",
+      "label": "Creative",
+      "sublabel": "messaggi per canale",
+      "pos": [
+        1390,
+        200
+      ],
+      "size": [
+        120,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/agents/creative.py",
+          "line": 12,
+          "end_line": 26
+        },
+        {
+          "path": "premortem/agents/revision.py",
+          "line": 25,
+          "end_line": 42,
+          "label": "revision_request"
+        }
+      ]
+    },
+    {
+      "id": "validator",
+      "type": "security",
+      "label": "Validator",
+      "sublabel": "make_validator(stage)",
+      "tag": "3 nodi nel grafo",
+      "pos": [
+        1170,
+        400
+      ],
+      "size": [
+        120,
+        80
+      ],
+      "sources": [
+        {
+          "path": "premortem/agents/validator.py",
+          "line": 9,
+          "end_line": 20
+        },
+        {
+          "path": "premortem/graph.py",
+          "line": 53,
+          "end_line": 62,
+          "label": "route_strategy, route_campaign"
+        },
+        {
+          "path": "premortem/graph.py",
+          "line": 104,
+          "end_line": 113,
+          "label": "archi del grafo"
+        }
+      ]
+    },
+    {
+      "id": "rules",
+      "type": "backend",
+      "label": "Regole",
+      "sublabel": "Python, no LLM",
+      "pos": [
+        1050,
+        600
+      ],
+      "size": [
+        120,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/validation/rules.py",
+          "line": 128,
+          "end_line": 139,
+          "label": "run_rules"
+        }
+      ]
+    },
+    {
+      "id": "judge",
+      "type": "backend",
+      "label": "LLM judge",
+      "sublabel": "JUDGE_MODEL",
+      "tag": "citazione verificata",
+      "pos": [
+        1290,
+        600
+      ],
+      "size": [
+        120,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/validation/judge.py",
+          "line": 151,
+          "end_line": 159
+        },
+        {
+          "path": "premortem/config.py",
+          "line": 10
+        }
+      ]
+    },
+    {
+      "id": "blueprint",
+      "type": "backend",
+      "label": "Blueprint",
+      "sublabel": "Jinja2 + summary LLM",
+      "tag": "fonti [1], [2]",
+      "pos": [
+        1580,
+        400
+      ],
+      "size": [
+        130,
+        80
+      ],
+      "sources": [
+        {
+          "path": "premortem/graph.py",
+          "line": 86,
+          "end_line": 89,
+          "label": "build_blueprint_node"
+        },
+        {
+          "path": "premortem/output/blueprint.py",
+          "line": 123,
+          "end_line": 151,
+          "label": "render, save"
+        },
+        {
+          "path": "premortem/output/blueprint.py",
+          "line": 114,
+          "end_line": 120,
+          "label": "write_executive_summary"
+        }
+      ]
+    },
+    {
+      "id": "outputs",
+      "type": "database",
+      "label": "outputs/<run_id>/",
+      "sublabel": "log, md, state, run",
+      "pos": [
+        510,
+        650
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "premortem/config.py",
+          "line": 25,
+          "label": "OUTPUT_DIR"
+        },
+        {
+          "path": "premortem/runner.py",
+          "line": 186,
+          "end_line": 205,
+          "label": "save: state.json, run.json"
+        },
+        {
+          "path": "premortem/runner.py",
+          "line": 213,
+          "end_line": 216,
+          "label": "log.txt"
+        }
+      ]
+    },
+    {
+      "id": "runeval",
+      "type": "frontend",
+      "label": "run_eval.py",
+      "sublabel": "tutti i casi, due sistemi",
+      "tag": "auto-approve",
+      "pos": [
+        290,
+        450
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "eval/run_eval.py",
+          "line": 42,
+          "end_line": 49,
+          "label": "run_multi_agent"
+        },
+        {
+          "path": "eval/run_eval.py",
+          "line": 53,
+          "end_line": 71,
+          "label": "run_case"
+        },
+        {
+          "path": "eval/run_eval.py",
+          "line": 228,
+          "end_line": 264,
+          "label": "main"
+        }
+      ]
+    },
+    {
+      "id": "cases",
+      "type": "database",
+      "label": "eval/cases/",
+      "sublabel": "5 casi, 2 con trappola",
+      "pos": [
+        40,
+        450
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "eval/cases/cases.json",
+          "line": 1,
+          "label": "cases.json"
+        },
+        {
+          "path": "eval/metrics.py",
+          "line": 65,
+          "end_line": 75,
+          "label": "load_cases, find_case"
+        }
+      ]
+    },
+    {
+      "id": "baseline",
+      "type": "backend",
+      "label": "Baseline",
+      "sublabel": "un prompt, no tool",
+      "tag": "stesso modello",
+      "pos": [
+        510,
+        450
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "eval/baseline.py",
+          "line": 27,
+          "end_line": 57,
+          "label": "run_baseline"
+        },
+        {
+          "path": "eval/prompts/baseline.md",
+          "line": 1
+        }
+      ]
+    },
+    {
+      "id": "metrics",
+      "type": "security",
+      "label": "metrics.py",
+      "sublabel": "evaluate()",
+      "tag": "judge + pagine citate",
+      "pos": [
+        290,
+        650
+      ],
+      "size": [
+        130,
+        64
+      ],
+      "sources": [
+        {
+          "path": "eval/metrics.py",
+          "line": 343,
+          "end_line": 371,
+          "label": "evaluate"
+        },
+        {
+          "path": "eval/metrics.py",
+          "line": 291,
+          "end_line": 333,
+          "label": "check_claims"
+        },
+        {
+          "path": "eval/metrics.py",
+          "line": 211,
+          "end_line": 241,
+          "label": "fetch_page(s)"
+        }
+      ]
+    },
+    {
+      "id": "results",
+      "type": "database",
+      "label": "eval/results.json",
+      "sublabel": "report.md, rating/",
+      "pos": [
+        40,
+        650
+      ],
+      "size": [
+        150,
+        64
+      ],
+      "sources": [
+        {
+          "path": "eval/run_eval.py",
+          "line": 36,
+          "end_line": 38
+        },
+        {
+          "path": "eval/run_eval.py",
+          "line": 117,
+          "label": "render_report"
+        },
+        {
+          "path": "eval/rating.py",
+          "line": 40,
+          "end_line": 72,
+          "label": "write_sheet (X/Y cieco)"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "id": "person-ui",
+      "from": "person",
+      "to": "ui",
+      "label": "browser",
+      "variant": "emphasis"
+    },
+    {
+      "id": "person-cli",
+      "from": "person",
+      "to": "cli",
+      "label": "terminale"
+    },
+    {
+      "id": "ui-runner",
+      "from": "ui",
+      "to": "runner",
+      "label": "avvia, approva",
+      "variant": "emphasis"
+    },
+    {
+      "id": "cli-runner",
+      "from": "cli",
+      "to": "runner",
+      "label": "--doc, y/n"
+    },
+    {
+      "id": "runner-brief",
+      "from": "runner",
+      "to": "brief",
+      "label": "advance()",
+      "variant": "emphasis"
+    },
+    {
+      "id": "runner-outputs",
+      "from": "runner",
+      "to": "outputs",
+      "label": "log.txt, state, run"
+    },
+    {
+      "id": "brief-analyst",
+      "from": "brief",
+      "to": "analyst",
+      "label": "CompanyBrief",
+      "variant": "emphasis"
+    },
+    {
+      "id": "analyst-tavily",
+      "from": "analyst",
+      "to": "tavily",
+      "label": "query"
+    },
+    {
+      "id": "analyst-strategist",
+      "from": "analyst",
+      "to": "strategist",
+      "label": "Analysis",
+      "variant": "emphasis"
+    },
+    {
+      "id": "analyst-validator",
+      "from": "analyst",
+      "to": "validator",
+      "label": "solo warning"
+    },
+    {
+      "id": "strategist-validator",
+      "from": "strategist",
+      "to": "validator",
+      "label": "verifica"
+    },
+    {
+      "id": "validator-strategist",
+      "from": "validator",
+      "to": "strategist",
+      "label": "revise (< 2)",
+      "variant": "dashed"
+    },
+    {
+      "id": "validator-human",
+      "from": "validator",
+      "to": "human",
+      "label": "ok",
+      "variant": "emphasis"
+    },
+    {
+      "id": "human-strategist",
+      "from": "human",
+      "to": "strategist",
+      "label": "rifiutata + feedback",
+      "variant": "dashed",
+      "fromSide": "top",
+      "toSide": "top"
+    },
+    {
+      "id": "human-creative",
+      "from": "human",
+      "to": "creative",
+      "label": "approvata",
+      "variant": "emphasis"
+    },
+    {
+      "id": "creative-validator",
+      "from": "creative",
+      "to": "validator",
+      "label": "verifica"
+    },
+    {
+      "id": "validator-creative",
+      "from": "validator",
+      "to": "creative",
+      "label": "revise (< 2)",
+      "variant": "dashed"
+    },
+    {
+      "id": "validator-blueprint",
+      "from": "validator",
+      "to": "blueprint",
+      "label": "ok",
+      "variant": "emphasis"
+    },
+    {
+      "id": "validator-rules",
+      "from": "validator",
+      "to": "rules",
+      "label": "1. regole"
+    },
+    {
+      "id": "validator-judge",
+      "from": "validator",
+      "to": "judge",
+      "label": "2. se nessun blocking"
+    },
+    {
+      "id": "blueprint-outputs",
+      "from": "blueprint",
+      "to": "outputs",
+      "label": "blueprint.md"
+    },
+    {
+      "id": "runeval-cases",
+      "from": "runeval",
+      "to": "cases",
+      "label": "cases.json"
+    },
+    {
+      "id": "runeval-runner",
+      "from": "runeval",
+      "to": "runner",
+      "label": "Run, approva sempre"
+    },
+    {
+      "id": "runeval-baseline",
+      "from": "runeval",
+      "to": "baseline",
+      "label": "run_baseline"
+    },
+    {
+      "id": "runeval-metrics",
+      "from": "runeval",
+      "to": "metrics",
+      "label": "evaluate"
+    },
+    {
+      "id": "runeval-results",
+      "from": "runeval",
+      "to": "results",
+      "label": "risultati, report"
+    },
+    {
+      "id": "baseline-outputs",
+      "from": "baseline",
+      "to": "outputs",
+      "label": "baseline/"
+    },
+    {
+      "id": "metrics-outputs",
+      "from": "metrics",
+      "to": "outputs",
+      "label": "metrics.json"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "amber",
+      "title": "Stato al commit dde0d3f",
+      "items": [
+        "Fasi 0–11 minime complete: la Fase 10 aggiunge valutazione, baseline e tab Evaluation nella UI",
+        "Prima run live: solo demo_fr completo; gli altri 4 casi si sono fermati a crediti API esauriti",
+        "Su demo_fr la baseline pareggia: traceability 85% vs 92%, coerenza 4 vs 4, ~8x token",
+        "Export PDF del blueprint non fatto: solo Markdown"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "Runner condiviso",
+      "items": [
+        "CLI e UI creano un Run; la valutazione lo userà con l'approvazione automatica",
+        "All'interrupt il runner espone la strategia (pending); la risposta riprende il grafo con Command(resume)",
+        "Un nodo che fallisce viene registrato nel log; Retry riparte dall'ultimo checkpoint",
+        "Nella UI il Run vive in st.session_state; uno stream interrotto da un clic riprende dal checkpoint"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Valutazione (Fase 10)",
+      "items": [
+        "Stesso documento a due sistemi: pipeline multi-agente con auto-approve e un singolo prompt senza tool né validator",
+        "Metriche: traceability delle affermazioni, figure ritrovate nel documento o nella fonte citata, coerenza 1–5 e trappola (judge con rubrica fissa), token e secondi",
+        "Nella UI la valutazione parte da sola a fine run (toggle); il confronto con la baseline è un pulsante",
+        "rating.py prepara coppie cieche X/Y per il giudizio umano"
+      ]
+    },
+    {
+      "dot": "rose",
+      "title": "Revisione e validazione",
+      "items": [
+        "revise solo se l'ultima validazione dello stage ha issue blocking e il contatore è < MAX_REVISIONS (2)",
+        "Prima le regole; il judge gira solo se nessuna regola blocca",
+        "Un rifiuto azzera strategy_revisions; human_feedback resta nello stato fino all'approvazione"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Output",
+      "items": [
+        "Il nodo blueprint scrive blueprint.md; il runner scrive log.txt riga per riga, poi state.json e run.json",
+        "run.json: stato, errore, decisioni, token per modello, secondi della sola pipeline",
+        "Il blueprint è renderizzato dallo stato; solo l'executive summary è scritto dall'LLM"
+      ]
+    }
+  ]
+}
