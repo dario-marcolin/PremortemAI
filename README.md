@@ -5,6 +5,8 @@ how the project failed and produce a structured report.
 
 ## Architecture
 
+[![PremortemAI architecture map](docs/architecture.png)](https://dario-marcolin.github.io/PremortemAI/architecture.html)
+
 Document → `extract_brief` → Analyst (Tavily web search) → Strategist ⇄ Validator →
 human approval → Creative ⇄ Validator → Launch Blueprint. The evaluation harness runs the
 same pipeline against a single-prompt baseline.
