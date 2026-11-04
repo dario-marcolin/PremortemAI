@@ -14,12 +14,6 @@ same pipeline against a single-prompt baseline.
 [Interactive map](https://dario-marcolin.github.io/PremortemAI/architecture.html)
 (zoom, search, light/dark theme; source: [docs/architecture.html](docs/architecture.html)).
 
-## Team and roles
-
-- **A** – project setup, core pipeline
-- **B** – review and integration
-- **C** – documentation and evaluation
-
 ## Setup
 
 ```bash
