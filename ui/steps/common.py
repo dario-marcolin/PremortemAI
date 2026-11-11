@@ -77,7 +77,12 @@ def what_changed(view: RunView, key: str, chosen: int, citer: Citer) -> None:
         return
     rows = []
     for k in changed:
-        if isinstance(new[k], list) and new[k] and isinstance(new[k][0], dict):  # segments, competitors, messages
+        if k.endswith("source_ids"):
+            added = [i for i in new[k] if i not in (old.get(k) or [])]
+            dropped = [i for i in (old.get(k) or []) if i not in new[k]]
+            body = ("<div>" + (f"Added {citer.ids(added)} " if added else "")
+                    + (f"Dropped <del>{esc(', '.join(dropped))}</del>" if dropped else "") + "</div>")
+        elif isinstance(new[k], list) and new[k] and isinstance(new[k][0], dict):  # segments, competitors, messages
             body = f"<div>{esc(_short(new[k])[:400])}</div>"
         else:
             body = f"<div>{inline_diff(_short(old.get(k, '')), _short(new[k]), citer)}</div>"

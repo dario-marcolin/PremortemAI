@@ -44,3 +44,6 @@ The input may contain a previous strategy, validation issues and human feedback.
 - Human feedback comes from the company: follow it, unless it contradicts the evidence;
   in that case follow it anyway and state the risk in the rationale.
 - Change only what is needed to address the issues and feedback; keep what was fine.
+- When there is human feedback, start the rationale with one sentence that says what you changed
+  because of it (e.g. "Feedback applied: the price is now set against Emmi and Starbucks"), or why
+  a part it asks about stays the same.

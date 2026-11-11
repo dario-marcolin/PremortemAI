@@ -65,7 +65,7 @@ def render(view: RunView) -> None:
                       icon=":material/download:", width="stretch", key=f"dl_md_{view.run_id}")
     if (view.dir / "state.json").exists():
         c.download_button("state.json", (view.dir / "state.json").read_text(), file_name=f"{view.run_id}_state.json",
-                          mime="application/json", width="stretch", key=f"dl_state_{view.run_id}", type="tertiary")
+                          mime="application/json", width="stretch", key=f"dl_state_{view.run_id}", icon=":material/data_object:")
 
     side, main = st.columns([1, 4], gap="large")
     with side:

@@ -10,11 +10,25 @@ claim cites its source. A human approves the strategy before the campaign is wri
 [![PremortemAI architecture map](docs/architecture.png)](https://dario-marcolin.github.io/PremortemAI/architecture.html)
 
 Document → `extract_brief` → Analyst (Tavily web search) → Strategist ⇄ Validator →
-human approval → Creative ⇄ Validator → Launch Blueprint. The evaluation harness runs the
-same pipeline against a single-prompt baseline.
+your review → Creative ⇄ Validator → Launch Blueprint. Each role has its own model
+(`RunSettings`), on any supported provider. The evaluation harness runs the same pipeline
+against a single-prompt baseline.
 
-[Interactive map](https://dario-marcolin.github.io/PremortemAI/architecture.html)
-(zoom, search, light/dark theme; source: [docs/architecture.html](docs/architecture.html)).
+[Interactive map](https://dario-marcolin.github.io/PremortemAI/architecture.html), updated for
+Phase 15 (zoom, search, light/dark theme; source: [docs/architecture.html](docs/architecture.html)).
+The same map is in the app, on the *How it works* page.
+
+## The app
+
+`uv run streamlit run app.py` opens five pages in the top bar:
+
+| Page | What it does |
+|---|---|
+| **New run** | Paste a key (the provider is detected from its prefix, *Check key* runs three tiny test calls), or in `local` mode pick any provider with a key in `.env`. Choose a sample document or upload one. |
+| **Run** | A timeline of the agents on the left, one page per agent: the brief and what the document does not say, the segments by size and intent, the competitors and the searches, the strategy and what it relies on, the campaign. The run pauses for your review of the strategy: approve, or send it back with feedback and see *What changed*, word by word. Every source id is a chip with a card on hover. |
+| **Blueprint** (in the timeline) | The Launch Blueprint with a table of contents and hover citations; download it as PDF or Markdown. |
+| **Saved runs** | The committed runs (`examples/`, `eval/runs/`), read-only, with no key. A link opens one directly, e.g. `?saved=examples/demo_anthropic&step=analysis`. |
+| **Evaluation** | The scores of a run against the single prompt, and the Phase 14 results of all cases. |
 
 **See a result without running anything:** [`examples/`](examples/) holds two complete runs on the
 demo document, one with Claude ([`demo_anthropic`](examples/demo_anthropic/blueprint.md)) and one with
@@ -89,7 +103,9 @@ A run takes about 2 to 3 minutes (longer on a free tier when the rate limit is r
 
 1. Go to [Google AI Studio](https://aistudio.google.com/apikey) and sign in with a Google account.
 2. *Create API key*. It starts with `AIza` or `AQ.`.
-3. Put it in `.env` as `LLM_API_KEY`, with `LLM_PROVIDER=gemini`.
+3. Put it in `.env` as `GEMINI_API_KEY` (or `LLM_API_KEY` with `LLM_PROVIDER=gemini`). With several
+   keys in `.env` (`ANTHROPIC_API_KEY`, `GEMINI_API_KEY`…), the *New run* page in `local` mode lets
+   you pick the provider.
 
 The free tier is limited per minute and per day, so a run is slower and the app waits when the
 limit is reached (it does not fail). Free models give **weaker plans**: in

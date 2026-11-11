@@ -32,11 +32,6 @@ def render(view: RunView, info) -> None:
         st.write(b.product_description)
         st.subheader("The company")
         st.write(b.company_description)
-    with right:
-        if b.missing_info:
-            items = "".join(f"<li>{esc(m)}</li>" for m in b.missing_info)
-            html_block(f'<div class="pm-missing"><h3>Missing from the document · {missing}</h3>'
-                       f'<ul style="padding-left:18px;margin:0">{items}</ul></div>')
         st.subheader("Launch goals")
         if b.stated_goals:
             html_block("<ul class='pm-reason'>" + "".join(f"<li>{esc(g)}</li>" for g in b.stated_goals) + "</ul>")
@@ -44,3 +39,10 @@ def render(view: RunView, info) -> None:
             st.caption("None stated.")
         st.subheader("Competitors named")
         st.write(", ".join(b.known_competitors) if b.known_competitors else "—")
+    with right:
+        if b.missing_info:
+            items = "".join(f"<li>{esc(m)}</li>" for m in b.missing_info)
+            html_block(f'<div class="pm-missing"><h3>Missing from the document · {missing}</h3>'
+                       f'<ul style="padding-left:18px;margin:0">{items}</ul></div>')
+        else:
+            st.caption("The document gives everything the plan needs.")
