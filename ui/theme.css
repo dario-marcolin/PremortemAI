@@ -277,9 +277,10 @@ button[kind="secondary"], [data-testid="stBaseButton-secondary"] { font-weight: 
 }
 
 /* Top bar, right: the model access of this session */
-/* After the page links, not at the right edge: Streamlit Cloud puts Share, star and GitHub there */
-.pm-topright { position: fixed; top: 0; left: 690px; height: 60px; display: flex; align-items: center; gap: 8px;
-  z-index: 999991; font-size: 13px; color: var(--muted); pointer-events: none; }
+/* At the right of the top bar, on the line of the page links and at their size. It leaves room on
+   the right for Streamlit's toolbar (Share, star, edit and GitHub on Streamlit Cloud). */
+.pm-topright { position: fixed; top: 0; right: 230px; height: 54px; display: flex; align-items: center; gap: 8px;
+  z-index: 999991; font-size: 13px; line-height: 20px; color: var(--muted); pointer-events: none; }
 .pm-topright .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--positive); }
 .pm-topright .dot.off { background: var(--control); }
 @media (max-width: 1180px) { .pm-topright { display: none; } }

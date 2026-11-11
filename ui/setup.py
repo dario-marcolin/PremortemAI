@@ -19,6 +19,28 @@ from ui.live import LiveRun
 from ui.theme import esc, html_block
 from ui.view import ROOT
 
+# Streamlit drops a widget's state when its page is not shown: these are copied aside, so the key,
+# the document and the toggles are still there after a visit to another page. The copy lives in
+# st.session_state only (this browser tab), never on disk.
+KEPT = {"llm_key": "", "local_provider": None, "doc_source": "Sample document", "sample": None,
+        "review_strategy": True, "auto_eval": False}
+
+
+def restore_widgets() -> None:
+    for key, default in KEPT.items():
+        if key not in st.session_state:
+            if f"_kept_{key}" in st.session_state:
+                st.session_state[key] = st.session_state[f"_kept_{key}"]
+            elif default is not None:
+                st.session_state[key] = default
+
+
+def remember_widgets() -> None:
+    for key in KEPT:
+        if key in st.session_state:
+            st.session_state[f"_kept_{key}"] = st.session_state[key]
+
+
 ROLE_LABELS = {"brief": "Brief extractor", "analyst": "Analyst", "strategist": "Strategist", "creative": "Creative",
                "validator": "Validator", "blueprint": "Blueprint summary"}
 
@@ -127,7 +149,7 @@ def search_section(settings: RunSettings | None) -> bool:
 
 def document_section() -> Path | None:
     st.subheader("Company document")
-    source = st.segmented_control("Document", ["Sample document", "Upload your own"], default="Sample document",
+    source = st.segmented_control("Document", ["Sample document", "Upload your own"],
                                   key="doc_source", label_visibility="collapsed")
     if source == "Upload your own":
         upload = st.file_uploader("Company or product document", type=[e.lstrip(".") for e in sorted(ALLOWED_EXTENSIONS)],
@@ -162,6 +184,7 @@ def start(path: Path, settings: RunSettings, search_ok: bool, review: bool, eval
 
 
 def page() -> None:
+    restore_widgets()
     html_block('<h1 style="margin:0 0 6px;padding:0">New run</h1>'
                '<p class="pm-sub">Five agents turn a company document into a launch plan. You review the strategy before '
                'the campaign is written, and every claim links to its source.</p>')
@@ -172,14 +195,14 @@ def page() -> None:
         path = document_section()
     with right, st.container(border=True, key="run_summary"):
         st.subheader("This run")
-        review = st.toggle("Pause for my review of the strategy", value=True, key="review_strategy",
+        review = st.toggle("Pause for my review of the strategy", key="review_strategy",
                            help="Off: the strategy is approved automatically, as in the evaluation.")
         stages = ["Brief", "Analysis", "Strategy", "Campaign", "Blueprint"]
         strip = '<span class="a">→</span>'.join(
             f'<span class="s{" rv" if s == "Strategy" and review else ""}">{s}{" · your review" if s == "Strategy" and review else ""}</span>'
             for s in stages)
         html_block(f'<div class="pm-strip" style="margin:0 0 14px">{strip}</div>')
-        evaluate = st.toggle("Evaluate the result", value=False, key="auto_eval",
+        evaluate = st.toggle("Evaluate the result", key="auto_eval",
                              help="When the run ends, score the blueprint. Two calls to the judge model.")
         if settings is not None:
             rows = "".join(f"<tr><td>{ROLE_LABELS[r]}</td><td>{esc(m)}</td></tr>" for r, m in settings.models.items())
@@ -194,3 +217,4 @@ def page() -> None:
         if st.session_state.get("start_error"):
             st.error(st.session_state.start_error)
         st.caption("A run takes about 3 minutes on Anthropic, longer on free tiers.")
+    remember_widgets()

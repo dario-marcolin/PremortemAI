@@ -85,6 +85,19 @@ def test_public_app_offers_only_the_tested_providers(monkeypatch):
     assert button(at, "Run the pipeline").disabled
 
 
+def test_the_pasted_key_survives_a_visit_to_another_page(monkeypatch):
+    monkeypatch.setenv("PREMORTEM_MODE", "public")
+    at = new_app().run()
+    at.text_input(key="llm_key").input("AIza-visitor").run()
+    at.session_state.goto = "saved"
+    at.run()
+    assert "llm_key" not in at.session_state  # Streamlit dropped the widget of the hidden page
+    at.session_state.goto = "new"
+    at.run()
+    assert at.text_input(key="llm_key").value == "AIza-visitor"
+    assert not button(at, "Run the pipeline").disabled
+
+
 def test_missing_tavily_key_is_a_warning_and_the_run_stays_possible(monkeypatch):
     monkeypatch.delenv("TAVILY_API_KEY")
     at = new_app().run()
