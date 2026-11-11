@@ -5,6 +5,49 @@ specialised agents analyse the market (with web search), choose a target and a p
 write the campaign, check each other's work, and produce a **Launch Blueprint** where every
 claim cites its source. A human approves the strategy before the campaign is written.
 
+## Try it online
+
+**[premortemai.streamlit.app](https://premortemai.streamlit.app)** — nothing to install.
+
+- **To look around, you need nothing.** Open *Saved runs* and pick a run: every agent's page, the
+  blueprint and the evaluation open with no key and no cost. Start with
+  [the demo run on Claude](https://premortemai.streamlit.app/run?saved=examples/demo_anthropic&step=analysis).
+- **To make your own plan, you need an Anthropic or Google Gemini API key.** A
+  [free Gemini key](#get-a-free-gemini-key) takes two minutes and works. Web search is provided by
+  the app. Your key stays in your browser tab: it is never saved, and it is gone when you close the tab.
+
+If the page shows *"This app has gone to sleep"*, click the button to wake it up and wait about a minute.
+
+### Your first run, step by step
+
+1. **New run:** paste your key. The provider is recognised from the key; *Check key* makes three
+   tiny test calls and says if anything is wrong.
+2. Keep the sample document **demo_company.pdf** (a fictional food company launching protein crisps
+   in France), or upload your own (PDF, Word, PowerPoint, Markdown or text, with selectable text).
+3. Click **Run the pipeline**. The timeline on the left shows each agent as it works: Brief,
+   Analysis, Strategy, Campaign, Blueprint. Click any step to open its page, during the run or after.
+   A run takes about 3 minutes on Claude, a few minutes more on the free Gemini tier.
+4. **The run stops at the strategy and waits for you.** Read the target and the reasoning, then
+   *Approve and continue*, or write what to change (or click a suggestion) and *Send back*.
+   The new round shows **What changed**, word by word.
+5. **Blueprint:** the final plan. Hover any number such as `[3]` to see its source; click a web
+   source to open it. *Download PDF* saves it.
+
+Small grey chips such as `S3` on the agent pages are the agents' own source ids: hover them too.
+A red `?` chip means a citation points to a source that does not exist. Free models write weaker
+plans than Claude; the app says so where it matters.
+
+### The pages
+
+| Page | What it does |
+|---|---|
+| **New run** | Paste an Anthropic or Gemini key, choose a sample document or upload one, run. In `local` mode (below) the keys come from `.env` instead. |
+| **Run** | The timeline of the agents and one page per agent: the brief and what the document does not say, the segments by size and purchase intent, the competitors and the web searches, the strategy and what it relies on, the campaign. The Validator's checks and every round of a step are on its page. |
+| **Blueprint** (in the timeline) | The Launch Blueprint with a table of contents and hover citations; download it as PDF or Markdown. |
+| **Saved runs** | Finished runs kept in the repository (`examples/`, `eval/runs/`), read-only. A link opens one directly, e.g. `?saved=examples/demo_anthropic&step=analysis`. |
+| **Evaluation** | The scores of a run against a single-prompt baseline, and the results over all evaluation cases. |
+| **How it works** | One paragraph per agent and the project map. |
+
 ## Architecture
 
 [![PremortemAI architecture map](docs/architecture.png)](https://dario-marcolin.github.io/PremortemAI/architecture.html)
@@ -18,24 +61,12 @@ against a single-prompt baseline.
 Phase 15 (zoom, search, light/dark theme; source: [docs/architecture.html](docs/architecture.html)).
 The same map is in the app, on the *How it works* page.
 
-## The app
-
-`uv run streamlit run app.py` opens five pages in the top bar:
-
-| Page | What it does |
-|---|---|
-| **New run** | Paste an Anthropic or Gemini key (the provider is detected from its prefix, *Check key* runs three tiny test calls), or in `local` mode pick Anthropic or Gemini from the keys in `.env`. Choose a sample document or upload one. |
-| **Run** | A timeline of the agents on the left, one page per agent: the brief and what the document does not say, the segments by size and intent, the competitors and the searches, the strategy and what it relies on, the campaign. The run pauses for your review of the strategy: approve, or send it back with feedback and see *What changed*, word by word. Every source id is a chip with a card on hover. |
-| **Blueprint** (in the timeline) | The Launch Blueprint with a table of contents and hover citations; download it as PDF or Markdown. |
-| **Saved runs** | The committed runs (`examples/`, `eval/runs/`), read-only, with no key. A link opens one directly, e.g. `?saved=examples/demo_anthropic&step=analysis`. |
-| **Evaluation** | The scores of a run against the single prompt, and the Phase 14 results of all cases. |
-
 **See a result without running anything:** [`examples/`](examples/) holds two complete runs on the
 demo document, one with Claude ([`demo_anthropic`](examples/demo_anthropic/blueprint.md)) and one with
 the free Gemini tier ([`demo_gemini`](examples/demo_gemini/blueprint.md)). Each folder has the
 blueprint, the full state, the run record (models, tokens, time) and the log.
 
-## Quick start
+## Run it on your computer
 
 You need `git`, an LLM key (a [free Gemini key](#get-a-free-gemini-key) works) and, for web
 search, a [Tavily key](https://app.tavily.com) (free plan, about 1,000 searches a month; one run
@@ -103,7 +134,8 @@ A run takes about 2 to 3 minutes (longer on a free tier when the rate limit is r
 
 1. Go to [Google AI Studio](https://aistudio.google.com/apikey) and sign in with a Google account.
 2. *Create API key*. It starts with `AIza` or `AQ.`.
-3. Put it in `.env` as `GEMINI_API_KEY` (or `LLM_API_KEY` with `LLM_PROVIDER=gemini`). With several
+3. **Online:** paste it in the key field of *New run*. **On your computer:** put it in `.env` as
+   `GEMINI_API_KEY` (or `LLM_API_KEY` with `LLM_PROVIDER=gemini`). With several
    keys in `.env` (`ANTHROPIC_API_KEY`, `GEMINI_API_KEY`…), the *New run* page in `local` mode lets
    you pick the provider.
 
@@ -151,7 +183,7 @@ would use it for anyone with the link. In both modes the keys never reach the ru
 (`run.json`, `state.json`, `log.txt`) or the checkpoints; a test checks it.
 
 A key pasted in the public app passes through the Streamlit server and this code (over HTTPS).
-If you prefer not to paste a key, run the app locally.
+If you prefer not to paste a key, [run the app on your computer](#run-it-on-your-computer).
 
 ## Cost of a run
 
@@ -176,10 +208,9 @@ concrete outcome.
 
 ## More on running
 
-In the browser: upload a document (or pick one from `data/demo/` or `eval/cases/`), follow
-the run log, approve or reject the strategy, download the blueprint. At the end the
-**Evaluation** tab scores the blueprint (traceability, faithfulness, coherence, trap, cost)
-and can compare it with the single-prompt baseline.
+In the browser the steps are the same as [online](#your-first-run-step-by-step). With *Evaluate the
+result* switched on, the **Evaluation** step of the timeline scores the blueprint (traceability,
+faithfulness, coherence, trap, cost) when the run ends, and can compare it with the single-prompt baseline.
 
 From the terminal, the pipeline pauses for your approval of the strategy:
 
