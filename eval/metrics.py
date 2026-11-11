@@ -231,12 +231,16 @@ def fetch_page(url: str) -> Page:
     return Page(url, "ok", " ".join(parser.parts))
 
 
-def fetch_pages(urls: list[str], fetch: bool = True) -> dict[str, Page]:
+def fetch_pages(urls: list[str], fetch: bool = True, cache: dict[str, Page] | None = None) -> dict[str, Page]:
+    """cache: pages already fetched (the repeated judge runs of one plan open each page once)."""
     urls = list(dict.fromkeys(urls))
     if not fetch:
         return {u: Page(u, "unchecked") for u in urls}
+    cache = {} if cache is None else cache
+    todo = [u for u in urls if u not in cache]
     with ThreadPoolExecutor(max_workers=8) as pool:
-        return dict(zip(urls, pool.map(fetch_page, urls)))
+        cache.update(zip(todo, pool.map(fetch_page, todo)))
+    return {u: cache[u] for u in urls}
 
 
 # ── LLM calls: claims, coherence ────────────────────────────────────────────────────────
@@ -342,7 +346,7 @@ def cost(run: dict) -> dict:
 
 
 def evaluate(out_dir: str | Path, document_text: str, trap: str | None = None, fetch: bool = True,
-             settings: RunSettings | None = None) -> dict:
+             settings: RunSettings | None = None, cache: dict[str, Page] | None = None) -> dict:
     """Score the plan in out_dir and write out_dir/metrics.json. trap: the case's trap segment, if any.
     settings=None reads them from the environment; the judge is settings.eval_judge."""
     out_dir = Path(out_dir)
@@ -358,7 +362,7 @@ def evaluate(out_dir: str | Path, document_text: str, trap: str | None = None, f
         plan, sources = plan_text(markdown), parse_sources(markdown)
         usage = UsageMetadataCallbackHandler()
         claims = extract_claims(plan, usage, settings)
-        pages = fetch_pages([s["url"] for s in sources.values() if s["kind"] == "web"], fetch)
+        pages = fetch_pages([s["url"] for s in sources.values() if s["kind"] == "web"], fetch, cache)
         metrics["traceability"], metrics["faithfulness"] = check_claims(claims, plan, sources, document_text, pages)
         metrics["sources"] = [{"number": n, **s, "status": pages[s["url"]].status if s["url"] else s["kind"],
                                "detail": pages[s["url"]].detail if s["url"] else "",
@@ -376,6 +380,53 @@ def evaluate(out_dir: str | Path, document_text: str, trap: str | None = None, f
     return metrics
 
 
+JUDGED = ("traceability", "faithfulness", "coherence_strategy", "coherence_campaign", "trap_avoided")
+
+
+def evaluate_repeated(out_dir: str | Path, document_text: str, trap: str | None = None, fetch: bool = True,
+                      settings: RunSettings | None = None, runs: int = 3) -> dict:
+    """Score the plan `runs` times with the same judge (Phase 14).
+
+    The judge's claim extraction varies between calls: traceability moved by up to 14 points between
+    three Haiku runs on the same plan (dev log, 11 Nov). metrics.json keeps the details of the first
+    run, the scores of every run (`judge_runs`) and their mean (`judge_mean`), which scores() reports.
+    The cited pages are fetched once."""
+    cache: dict[str, Page] = {}
+    first = evaluate(out_dir, document_text, trap, fetch, settings, cache)
+    if first.get("error") or runs <= 1:
+        return first
+    every = [first] + [evaluate(out_dir, document_text, trap, fetch, settings, cache) for _ in range(runs - 1)]
+    metrics = dict(first)
+    metrics["judge_runs"] = [{k: scores(m)[k] for k in JUDGED} for m in every]
+    metrics["judge_mean"] = {}
+    for key in JUDGED:
+        values = [r[key] for r in metrics["judge_runs"] if r[key] is not None]
+        mean_value = sum(values) / len(values) if values else None
+        if key == "trap_avoided" and mean_value is not None:
+            mean_value = mean_value >= 0.5  # the majority verdict
+        metrics["judge_mean"][key] = mean_value
+    tokens: dict[str, dict] = {}
+    for m in every:
+        for model, u in (m.get("eval_tokens") or {}).items():
+            total = tokens.setdefault(model, dict.fromkeys(u, 0))
+            for k, v in u.items():
+                total[k] = total.get(k, 0) + v
+    metrics["eval_tokens"] = tokens
+    (Path(out_dir) / "metrics.json").write_text(json.dumps(metrics, indent=2, ensure_ascii=False))
+    return metrics
+
+
+def spread(metrics: dict | None) -> dict[str, tuple[float, float]]:
+    """(min, max) of each judged score over the repeated judge runs; empty with one run."""
+    runs = (metrics or {}).get("judge_runs") or []
+    out = {}
+    for key in JUDGED:
+        values = [r[key] for r in runs if r[key] is not None and key != "trap_avoided"]
+        if len(values) > 1:
+            out[key] = (min(values), max(values))
+    return out
+
+
 def load_metrics(out_dir: str | Path) -> dict | None:
     path = Path(out_dir) / "metrics.json"
     return json.loads(path.read_text()) if path.exists() else None
@@ -385,6 +436,9 @@ def scores(metrics: dict | None) -> dict:
     """The headline numbers of one evaluated plan (None when not available)."""
     m = metrics or {}
     coherence = m.get("coherence") or {}
+    if m.get("judge_mean"):  # repeated judge runs: their mean
+        return {**m["judge_mean"], "tokens": (m.get("cost") or {}).get("total_tokens"),
+                "seconds": (m.get("cost") or {}).get("seconds")}
     return {
         "traceability": (m.get("traceability") or {}).get("score"),
         "faithfulness": (m.get("faithfulness") or {}).get("score"),

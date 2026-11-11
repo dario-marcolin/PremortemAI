@@ -2,6 +2,7 @@
 
     uv run python scripts/check_setup.py              # everything, with the settings of .env
     uv run python scripts/check_setup.py --offline    # no API call: Python, packages, .env only
+    uv run python scripts/check_setup.py --provider anthropic   # another provider of the same .env
 
 It reads the same .env as the CLI (local mode). It prints one line per check, what works and what
 is missing, and exits with 1 if the pipeline cannot run. It never prints a key.
@@ -58,6 +59,7 @@ def check_search(settings) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("--offline", action="store_true", help="skip the model and web search checks (no API call)")
+    parser.add_argument("--provider", help="check this preset instead of LLM_PROVIDER (e.g. anthropic, gemini)")
     args = parser.parse_args(argv)
 
     print("PremortemAI setup check\n")
@@ -74,7 +76,7 @@ def main(argv: list[str] | None = None) -> int:
     check_env_file()
 
     try:
-        settings = RunSettings.from_env(mode="local")
+        settings = RunSettings.from_env(mode="local", provider=args.provider)
     except ValueError as e:
         line(FAIL, "Models", str(e))
         return 1
@@ -85,10 +87,11 @@ def main(argv: list[str] | None = None) -> int:
     print(f"{'':7}{'eval judge':<11} {settings.eval_judge}")
 
     ready = True
+    key_name = f"{settings.provider.upper()}_API_KEY or LLM_API_KEY"
     if settings.llm_api_key:
-        line(OK, "LLM_API_KEY", "set")
+        line(OK, "LLM key", "set")
     else:
-        line(FAIL, "LLM_API_KEY", "empty in .env: the pipeline needs a key of the provider above")
+        line(FAIL, "LLM key", f"empty in .env: set {key_name} to a key of the provider above")
         ready = False
     if settings.tavily_api_key:
         line(OK, "TAVILY_API_KEY", "set")

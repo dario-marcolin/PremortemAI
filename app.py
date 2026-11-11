@@ -84,9 +84,12 @@ def key_settings() -> tuple[RunSettings | None, str | None]:
     `local` mode: keys and models from .env (our demo). `public` (the default): the visitor pastes
     a key, kept only in st.session_state. Phase 15 turns this into the full setup screen."""
     if current_mode() == "local":
-        settings = RunSettings.from_env(mode="local")
+        try:
+            settings = RunSettings.from_env(mode="local")
+        except ValueError as e:  # e.g. a Gemini key in LLM_API_KEY with the anthropic preset
+            return None, str(e)
         st.caption(f"Using the key from .env ({PRESETS[settings.provider].label if settings.provider in PRESETS else settings.provider})")
-        return settings, None if settings.llm_api_key else "Missing in .env: LLM_API_KEY."
+        return settings, None if settings.llm_api_key else f"Missing in .env: {settings.provider.upper()}_API_KEY or LLM_API_KEY."
 
     tavily = RunSettings.from_env(mode="public").tavily_api_key  # ours, from the Secrets
     key = st.text_input("LLM API key", type="password", key="llm_key",

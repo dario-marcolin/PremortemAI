@@ -196,3 +196,23 @@ def test_empty_leftovers_keep_the_preset(monkeypatch):
     monkeypatch.setenv("LLM_PROVIDER", "gemini")
     monkeypatch.setenv("LLM_MODEL", "")
     assert RunSettings.from_env().model("blueprint") == "google_genai:gemini-3.6-flash"
+
+
+def test_one_env_holds_the_keys_of_several_providers(monkeypatch):
+    for name in ("LLM_PROVIDER", "LLM_MODEL", "LLM_JUDGE_MODEL", "LLM_API_KEY"):
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-a")
+    monkeypatch.setenv("GEMINI_API_KEY", "AIza-g")
+    assert RunSettings.from_env(mode="local").llm_api_key == "sk-ant-a"
+    gemini = RunSettings.from_env(mode="local", provider="gemini")
+    assert gemini.provider == "gemini" and gemini.llm_api_key == "AIza-g"
+    assert RunSettings.from_env(mode="public", provider="gemini").llm_api_key is None
+
+
+def test_a_key_of_another_provider_is_refused(monkeypatch):
+    for name in ("LLM_PROVIDER", "LLM_MODEL", "LLM_JUDGE_MODEL", "ANTHROPIC_API_KEY"):
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("LLM_API_KEY", "AQ.gemini-key")
+    with pytest.raises(ValueError, match="ANTHROPIC_API_KEY"):
+        RunSettings.from_env(mode="local", provider="anthropic")
+    assert RunSettings.from_env(mode="local", provider="gemini").llm_api_key == "AQ.gemini-key"

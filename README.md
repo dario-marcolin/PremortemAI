@@ -57,6 +57,10 @@ LLM_API_KEY=AIza...        # your key of that provider
 TAVILY_API_KEY=tvly-...
 ```
 
+To keep the keys of several providers in one `.env`, use `ANTHROPIC_API_KEY`, `GEMINI_API_KEY`
+(and so on, `<PROVIDER>_API_KEY`) instead of `LLM_API_KEY`, and switch with `LLM_PROVIDER` only.
+A key whose prefix belongs to another provider is refused, so a Gemini key is never sent to Anthropic.
+
 `.env` is git-ignored: never commit real keys.
 
 **4. Check the setup** (three tiny model requests and one search):
@@ -184,7 +188,14 @@ no tools, no validator) on every case of `eval/cases/`, scores both and writes
 uv run python -m eval.run_eval                        # all cases, both systems
 uv run python -m eval.run_eval --cases nordbrew_de    # some cases
 uv run python -m eval.run_eval --report-only          # rebuild the report (e.g. after the human rating)
+uv run python -m eval.run_eval --cases demo_fr --provider gemini   # the same case on the free preset
+uv run python -m eval.score_examples                  # score the saved runs of examples/
 ```
+
+Both systems use the `--provider` preset (default `anthropic`); the judge is always the anthropic
+preset's (Haiku), so every run is scored by the same judge. It scores each plan 3 times
+(`--judge-runs`) and the report gives the mean and the spread. The runs are kept in `eval/runs/`.
+The Phase 10 results are archived in `eval/archive/`.
 
 Metrics are defined in `eval/metrics.py`; the blind human rating is in `eval/rating/` (see
 its README).

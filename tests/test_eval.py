@@ -314,3 +314,92 @@ def test_evaluation_error_does_not_stop_the_case(monkeypatch, document, output_d
         "evaluation failed: RuntimeError: judge down"] * 2
     assert "| fake | Multi-agent | failed: evaluation failed" in render_report(
         {"updated": "2026-11-04T10:00:00", "model": "m", "judge_model": "j", "cases": {"fake": entry}})
+
+
+# ── Phase 14: repeated judge, providers, kept runs ──────────────────────────────────────
+
+def test_repeated_judge_gives_mean_spread_and_majority(monkeypatch, tmp_path):
+    runs = iter([(0.8, 4, True), (0.9, 4, True), (0.7, 3, False)])
+
+    def fake_evaluate(out_dir, *_a, **_k):
+        trace, coherence, avoided = next(runs)
+        return {"traceability": {"score": trace}, "faithfulness": {"score": 1.0},
+                "coherence": {"strategy_vs_analysis": {"score": coherence}, "campaign_vs_strategy": {"score": 4}},
+                "trap": {"avoided": avoided}, "cost": {"total_tokens": 100, "seconds": 5},
+                "eval_tokens": {"haiku": {"input_tokens": 10, "output_tokens": 1, "total_tokens": 11}}}
+
+    monkeypatch.setattr(metrics, "evaluate", fake_evaluate)
+    m = metrics.evaluate_repeated(tmp_path, "doc", runs=3)
+    assert len(m["judge_runs"]) == 3
+    s = scores(m)
+    assert s["traceability"] == pytest.approx(0.8) and s["coherence_strategy"] == pytest.approx(11 / 3)
+    assert s["trap_avoided"] is True and s["tokens"] == 100  # majority verdict; the system's own cost
+    assert metrics.spread(m)["traceability"] == (0.7, 0.9) and "faithfulness" not in metrics.spread(m) or \
+        metrics.spread(m)["faithfulness"] == (1.0, 1.0)
+    assert m["eval_tokens"]["haiku"]["total_tokens"] == 33
+    assert json.loads((tmp_path / "metrics.json").read_text())["judge_mean"] == m["judge_mean"]
+
+
+def test_repeated_judge_fetches_each_page_once(monkeypatch, tmp_path):
+    fetched = []
+    monkeypatch.setattr(metrics, "fetch_page", lambda url: fetched.append(url) or Page(url, "ok", "x"))
+    cache = {}
+    metrics.fetch_pages(["https://a.example", "https://b.example"], cache=cache)
+    metrics.fetch_pages(["https://a.example"], cache=cache)
+    assert fetched == ["https://a.example", "https://b.example"]
+
+
+def test_main_runs_a_preset_judged_by_anthropic_and_keeps_the_runs(monkeypatch, document, output_dir, tmp_path):
+    from eval import run_eval
+
+    install(monkeypatch, FakeModel())
+    for name in ("LLM_PROVIDER", "LLM_MODEL", "LLM_JUDGE_MODEL", "LLM_BASE_URL", "LLM_API_KEY"):
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-x")
+    monkeypatch.setenv("GEMINI_API_KEY", "AIza-x")
+    monkeypatch.setenv("TAVILY_API_KEY", "tvly-x")
+    case = {"id": "fake", "document": str(document), "category": "Coffee", "country": "Italy", "trap": None}
+    monkeypatch.setattr(run_eval, "load_cases", lambda: [case])
+    for name in ("RESULTS", "REPORT", "FINDINGS"):
+        monkeypatch.setattr(run_eval, name, tmp_path / getattr(run_eval, name).name)
+    monkeypatch.setattr(run_eval, "RUNS_DIR", tmp_path / "runs")
+    monkeypatch.setattr(run_eval.rating, "read_ratings", lambda: None)
+    sheets = []
+    monkeypatch.setattr(run_eval.rating, "write_sheet", lambda plans: sheets.append(plans))
+
+    run_eval.main(["--provider", "gemini", "--judge-runs", "2"])
+    results = json.loads((tmp_path / "results.json").read_text())
+    entry = results["presets"]["gemini"]["fake"]
+    assert results["cases"] == {} or "fake" not in results["cases"]
+    assert entry["settings"]["provider"] == "gemini"
+    assert entry["judge"] == {"model": "anthropic:claude-haiku-5-5", "runs": 2}
+    assert entry["multi_agent"]["metrics"]["judge_model"] == "anthropic:claude-haiku-5-5"
+    assert len(entry["multi_agent"]["metrics"]["judge_runs"]) == 2
+    assert (tmp_path / "runs" / "gemini" / "fake" / "multi_agent" / "blueprint.md").exists()
+    assert sheets == []  # the blind rating is for the reference preset only
+
+    run_eval.main(["--judge-runs", "1"])  # the reference preset: main results, rating sheet, both sections
+    results = json.loads((tmp_path / "results.json").read_text())
+    assert results["provider"] == "anthropic" and "fake" in results["cases"] and len(sheets) == 1
+    report = (tmp_path / "report.md").read_text()
+    assert "## Other presets (same judge)" in report and "| fake | gemini | Multi-agent |" in report
+
+
+def test_score_examples_writes_the_baseline_and_both_metrics(monkeypatch, document, output_dir, tmp_path):
+    from eval import score_examples
+
+    install(monkeypatch, FakeModel())
+    for name in ("LLM_PROVIDER", "LLM_MODEL", "LLM_JUDGE_MODEL", "LLM_API_KEY"):
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "sk-ant-x")
+    run = Run(document, settings=SETTINGS, run_id="ex")
+    list(run.advance())
+    run.answer({"approved": True})
+    list(run.advance())
+    record = json.loads((run.dir / "run.json").read_text())
+    record["document"] = str(document)  # absolute: ROOT / absolute path is the path itself
+    (run.dir / "run.json").write_text(json.dumps(record))
+    out = score_examples.score(run.dir, SETTINGS, judge_runs=2)
+    assert (run.dir / "baseline" / "blueprint.md").exists()
+    assert len(out["multi_agent"]["judge_runs"]) == 2 and len(out["baseline"]["judge_runs"]) == 2
+    assert json.loads((run.dir / "metrics.json").read_text())["judge_mean"]

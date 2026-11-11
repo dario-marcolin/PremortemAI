@@ -79,19 +79,21 @@ class RunSettings:
     # --- Constructors ---------------------------------------------------------------------------
 
     @classmethod
-    def from_env(cls, mode: Mode | None = None) -> "RunSettings":
+    def from_env(cls, mode: Mode | None = None, provider: str | None = None) -> "RunSettings":
         """The CLI, the evaluation and `local` mode.
 
         Starts from a preset: LLM_PROVIDER (a preset name, e.g. `gemini`), else the preset whose models
         use LLM_MODEL's prefix, else `anthropic`. LLM_MODEL, when set, replaces every role;
         LLM_MODEL_<ROLE> (e.g. LLM_MODEL_BLUEPRINT) replaces one role.
-        In `public` mode LLM_API_KEY is never read: the visitor brings the key.
+        provider= replaces LLM_PROVIDER (the evaluation runs the gemini preset and judges with anthropic).
+        The key: <PROVIDER>_API_KEY (e.g. ANTHROPIC_API_KEY, GEMINI_API_KEY), else LLM_API_KEY, so one .env
+        can hold the keys of several providers. In `public` mode no LLM key is read: the visitor brings it.
         """
         from premortem.providers import PRESETS
 
         mode = mode or current_mode()
         base_model = _clean(os.getenv("LLM_MODEL"))
-        provider = _clean(os.getenv("LLM_PROVIDER"))
+        provider = _clean(provider) or _clean(os.getenv("LLM_PROVIDER"))
         if provider is None and base_model and ":" in base_model:
             prefix = _prefix(base_model)
             provider = next((name for name, p in PRESETS.items() if _prefix(p.models["analyst"]) == prefix), prefix)
@@ -122,7 +124,7 @@ class RunSettings:
         return cls(
             provider=provider,
             models=models,
-            llm_api_key=os.getenv("LLM_API_KEY") if mode == "local" else None,
+            llm_api_key=_env_key(provider) if mode == "local" else None,
             tavily_api_key=os.getenv("TAVILY_API_KEY"),
             base_url=os.getenv("LLM_BASE_URL") or (preset.base_url if preset else None),
             eval_judge=_clean(os.getenv("LLM_JUDGE_MODEL")) or (preset.eval_judge if preset else None),
@@ -153,6 +155,23 @@ class RunSettings:
         models["blueprint"] = f"openai:{big_model or model}"
         return cls(provider="custom", models=models, llm_api_key=llm_api_key,
                    tavily_api_key=tavily_api_key, base_url=base_url)
+
+
+def _env_key(provider: str) -> str | None:
+    """The LLM key of a provider in .env: <PROVIDER>_API_KEY first, else LLM_API_KEY.
+    LLM_API_KEY is refused when its prefix says it belongs to another provider: a Gemini key
+    must never be sent to Anthropic."""
+    from premortem.providers import detect_provider
+
+    own = _clean(os.getenv(f"{provider.upper()}_API_KEY"))
+    if own:
+        return own
+    key = _clean(os.getenv("LLM_API_KEY"))
+    owner = detect_provider(key)
+    if key and owner and owner != provider and provider != "custom":
+        raise ValueError(f"LLM_API_KEY looks like a {owner} key, but the provider is {provider!r}. "
+                         f"Put the {provider} key in {provider.upper()}_API_KEY (or in LLM_API_KEY).")
+    return key
 
 
 def _prefix(model: str) -> str:
