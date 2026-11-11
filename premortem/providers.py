@@ -77,6 +77,9 @@ PRESETS: dict[str, Preset] = {
     ),
 }
 
+# The presets the app offers: the ones tested end to end. The others stay for the CLI and .env.
+IN_APP = ("anthropic", "gemini")
+
 # Key prefix -> preset. Order matters: the specific "sk-" prefixes come before plain "sk-" (OpenAI).
 # Google AI Studio keys: the classic "AIza..." and the newer "AQ." format.
 KEY_PREFIXES = [("sk-ant-", "anthropic"), ("sk-or-", "openrouter"), ("gsk_", "groq"), ("AIza", "gemini"),

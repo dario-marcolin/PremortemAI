@@ -44,7 +44,7 @@ Not in scope: the RAG system. Understanding the code is not a phase: the team do
 | Evaluation with cheaper models (Haiku), agents with a better model (Sonnet) | 12 | One model per role |
 | Big model for the final blueprint | 12 | Opus for the executive summary |
 | UI rework: precise references, hover as in Obsidian | 15 | Full UI rework, with citation cards on hover |
-| Each step clickable: **we want to revise each agent result** | 15 | A page per agent, plus a review step after the Analyst, the Strategist and the Creative (15.2) |
+| Each step clickable: **we want to revise each agent result** | 15 | A page per agent, open during the run and at the end, with rounds and "What changed"; the strategy is approved or sent back (15.2, decided 11 Nov) |
 | Pricing agent? | B1 (bonus) | A Pricing agent between the Analyst and the Strategist |
 | Web search (Gemini, LangGraph agent tool) | B2 (bonus) | Already a LangChain tool inside the Analyst's ReAct loop (Tavily). B2 makes it better. |
 | RAG system (to evaluate) | — | Not in scope |
@@ -195,6 +195,12 @@ The last phase, and the one the professor sees first. Today's UI is a working co
 
 #### 15.2 Graph change: a review of every agent result
 
+**Decision, 11 Nov: not built.** The team's reading of the professor's note is that each agent's result
+must be open to inspection during the run and at the end. The page per agent (15.4) covers it: the
+timeline opens any step at any time, with its rounds, "What changed" and the Validator's issues, on
+live and saved runs alike. The strategy, the key decision, keeps its review (approve, or send back
+with feedback). The plan below is kept for reference.
+
 The professor's main request. The clickable timeline is built on it.
 
 | # | File | Content |
@@ -308,7 +314,7 @@ Watch without helping, note where they hesitate, and fix the top three problems.
 
 | Must | Should | Could |
 |---|---|---|
-| Setup screen: any key, detection, "Check key", `local` and `public` modes | Review of every step (15.2) with rounds and "What changed" | Suggestion chips |
+| Setup screen: any key, detection, "Check key", `local` and `public` modes | ~~Review of every step (15.2)~~ (decided not needed, see 15.2); rounds and "What changed" | Suggestion chips |
 | Timeline with a page per agent | Bubble chart of the segments | PDF export with a print stylesheet |
 | Hover citations | Blueprint reader with a table of contents | Tablet layout |
 | Saved runs | "How it works" screen | |

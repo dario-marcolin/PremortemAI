@@ -63,7 +63,7 @@ def test_public_mode_asks_for_a_key_and_ignores_ours(monkeypatch, mode):
     else:
         monkeypatch.delenv("PREMORTEM_MODE")  # unset = public
     at = new_app().run()
-    assert "Paste an LLM API key" in texts(at)  # LLM_API_KEY in the environment is not used
+    assert "Paste an Anthropic or Gemini API key" in texts(at)  # LLM_API_KEY in the environment is not used
     assert button(at, "Run the pipeline").disabled
 
 
@@ -74,6 +74,15 @@ def test_public_mode_detects_the_provider_from_the_key(monkeypatch):
     assert at.selectbox[0].value == "gemini"
     assert "google_genai:" in texts(at)  # the model of each agent
     assert not button(at, "Run the pipeline").disabled
+
+
+def test_public_app_offers_only_the_tested_providers(monkeypatch):
+    monkeypatch.setenv("PREMORTEM_MODE", "public")
+    at = new_app().run()
+    assert at.selectbox[0].options == ["Anthropic (Claude)", "Google Gemini (free tier)"]
+    at.text_input(key="llm_key").input("sk-proj-openai").run()  # an OpenAI key: explained, not sent
+    assert "looks like it is for OpenAI" in texts(at)
+    assert button(at, "Run the pipeline").disabled
 
 
 def test_missing_tavily_key_is_a_warning_and_the_run_stays_possible(monkeypatch):

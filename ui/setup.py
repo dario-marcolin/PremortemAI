@@ -13,13 +13,12 @@ from premortem import config
 from premortem.config import RunSettings, current_mode
 from premortem.ingestion.parser import ALLOWED_EXTENSIONS, DocumentParseError
 from premortem.llm import check_model
-from premortem.providers import PRESETS, detect_provider
+from premortem.providers import IN_APP, PRESETS, detect_provider
 from premortem.runner import Run
 from ui.live import LiveRun
 from ui.theme import esc, html_block
 from ui.view import ROOT
 
-CUSTOM = "custom"
 ROLE_LABELS = {"brief": "Brief extractor", "analyst": "Analyst", "strategist": "Strategist", "creative": "Creative",
                "validator": "Validator", "blueprint": "Blueprint summary"}
 
@@ -48,7 +47,7 @@ def model_section() -> tuple[RunSettings | None, str | None]:
         except ValueError as e:
             return None, str(e)
         # Every preset with its own key in .env (GEMINI_API_KEY, ANTHROPIC_API_KEY…), plus the default one
-        ready = [p for p in PRESETS if os.getenv(f"{p.upper()}_API_KEY", "").strip()]
+        ready = [p for p in IN_APP if os.getenv(f"{p.upper()}_API_KEY", "").strip()]
         options = [default, *[p for p in ready if p != default]]
         provider = default
         if len(options) > 1:
@@ -67,31 +66,27 @@ def model_section() -> tuple[RunSettings | None, str | None]:
         return settings, None
 
     tavily = RunSettings.from_env(mode="public").tavily_api_key  # ours, from the Secrets
-    key = st.text_input("Your LLM API key", type="password", key="llm_key", placeholder="sk-ant-…, AIza…, gsk_…, sk-or-…",
+    key = st.text_input("Your LLM API key", type="password", key="llm_key", placeholder="sk-ant-… or AIza…",
                         help="Kept in this browser session only: never written to disk, to the logs or to the run files.")
     guess = detect_provider(key)
-    options = [*PRESETS, CUSTOM]
-    provider = st.selectbox("Provider", options, index=options.index(guess) if guess else 0, key=f"provider_{guess}",
-                            format_func=lambda p: PRESETS[p].label if p in PRESETS else "Custom (OpenAI-compatible)",
-                            help="Detected from the key prefix. Change it if the guess is wrong.")
-    if provider == CUSTOM:
-        a, b = st.columns(2)
-        base_url = a.text_input("Base URL", placeholder="https://…/v1", key="custom_url")
-        model = b.text_input("Model", key="custom_model")
-        big = st.text_input("Bigger model for the blueprint summary (optional)", key="custom_big")
-        st.caption("Any service with an OpenAI-compatible API: Together, DeepSeek, a university server, a local Ollama.")
-    else:
-        detected = "Detected from the key: " if guess == provider and key.strip() else ""
-        st.caption(f"{detected}{PRESETS[provider].label}. {PRESETS[provider].note}")
+    options = list(IN_APP)
+    provider = st.selectbox("Provider", options, index=options.index(guess) if guess in options else 0,
+                            key=f"provider_{guess}", format_func=lambda p: PRESETS[p].label,
+                            help="Detected from the key prefix. The app offers the providers tested end to end.")
+    detected = "Detected from the key: " if guess == provider and key.strip() else ""
+    st.caption(f"{detected}{PRESETS[provider].label}. {PRESETS[provider].note}")
     if not key.strip():
         st.session_state.provider_label = None
-        return None, "Paste an LLM API key to run the pipeline, or open a saved run with no key."
+        return None, "Paste an Anthropic or Gemini API key to run the pipeline, or open a saved run with no key."
+    if guess and guess not in options:
+        st.session_state.provider_label = None
+        return None, (f"This key looks like it is for {PRESETS[guess].label}. The app runs on Anthropic and Google Gemini, "
+                      "the providers tested end to end. A free Gemini key works: see the README.")
     try:
-        settings = (RunSettings.custom(base_url, key, model, big or None, tavily_api_key=tavily) if provider == CUSTOM
-                    else RunSettings.preset(provider, key, tavily_api_key=tavily))
+        settings = RunSettings.preset(provider, key, tavily_api_key=tavily)
     except ValueError as e:
         return None, str(e)
-    st.session_state.provider_label = PRESETS[provider].label.split(" (")[0] if provider in PRESETS else "Custom"
+    st.session_state.provider_label = PRESETS[provider].label.split(" (")[0]
 
     signature = (provider, key[-6:], settings.models["analyst"])
     if st.button("Check key", icon=":material/key:", help="Three tiny requests: a plain call, a tool call, a structured output."):

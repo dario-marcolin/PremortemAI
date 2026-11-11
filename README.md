@@ -24,7 +24,7 @@ The same map is in the app, on the *How it works* page.
 
 | Page | What it does |
 |---|---|
-| **New run** | Paste a key (the provider is detected from its prefix, *Check key* runs three tiny test calls), or in `local` mode pick any provider with a key in `.env`. Choose a sample document or upload one. |
+| **New run** | Paste an Anthropic or Gemini key (the provider is detected from its prefix, *Check key* runs three tiny test calls), or in `local` mode pick Anthropic or Gemini from the keys in `.env`. Choose a sample document or upload one. |
 | **Run** | A timeline of the agents on the left, one page per agent: the brief and what the document does not say, the segments by size and intent, the competitors and the searches, the strategy and what it relies on, the campaign. The run pauses for your review of the strategy: approve, or send it back with feedback and see *What changed*, word by word. Every source id is a chip with a card on hover. |
 | **Blueprint** (in the timeline) | The Launch Blueprint with a table of contents and hover citations; download it as PDF or Markdown. |
 | **Saved runs** | The committed runs (`examples/`, `eval/runs/`), read-only, with no key. A link opens one directly, e.g. `?saved=examples/demo_anthropic&step=analysis`. |
@@ -125,7 +125,8 @@ Each role has its own model. The presets (`premortem/providers.py`):
 | `groq` | `openai/gpt-oss-120b` | same | same | `check_model` only |
 | `openrouter` | `openai/gpt-5-mini` | `anthropic/claude-opus-5-5` | `openai/gpt-5-mini` | `check_model` only |
 
-The other presets are supported but less tested than Anthropic and Gemini. Small or free models
+**The app offers Anthropic and Gemini only**, the presets tested end to end. The others work from
+the command line and from `.env`, but are less tested. Small or free models
 give weaker plans. A model must support **tool calling** (the Analyst's web search) and
 **structured output** (every agent returns a typed object); `check_setup.py` and the app's
 *Check key* test both before a run.
@@ -134,8 +135,8 @@ give weaker plans. A model must support **tool calling** (the Analyst's web sear
   `STRATEGIST`, `CREATIVE`, `VALIDATOR`, `BLUEPRINT`), and `LLM_JUDGE_MODEL` for the evaluation.
 - **Every role:** `LLM_MODEL=provider:model`. Leave it empty to keep the preset.
 - **Any OpenAI-compatible service** (Together, DeepSeek, a university server, a local Ollama…):
-  `LLM_BASE_URL=https://…/v1`, `LLM_MODEL=openai:<model name>`, and its key in `LLM_API_KEY`.
-  In the app, choose *Custom (OpenAI-compatible)*.
+  `LLM_BASE_URL=https://…/v1`, `LLM_MODEL=openai:<model name>`, and its key in `LLM_API_KEY`
+  (command line and `local` mode; not offered in the public app).
 
 ## Two modes: `local` and `public`
 
