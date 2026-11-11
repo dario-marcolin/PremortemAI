@@ -306,3 +306,6 @@ button[kind="secondary"], [data-testid="stBaseButton-secondary"] { font-weight: 
 
 /* Streamlit's link icon next to every heading (a #section anchor): not useful here, and it reads as "copy" */
 [data-testid="stHeaderActionElements"], [data-testid="stHeadingWithActionElements"] a[href^="#"] { display: none !important; }
+
+/* The button under the meter (Start a new run, Stop, Resume): a little air below the figures */
+.st-key-new_from_saved, .st-key-stop, .st-key-resume { margin-top: 12px; }
