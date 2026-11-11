@@ -1,0 +1,772 @@
+{
+  "system": "multi_agent",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 98858,
+        "output_tokens": 19745,
+        "total_tokens": 118603
+      },
+      "claude-opus-5-5": {
+        "input_tokens": 7310,
+        "output_tokens": 2418,
+        "total_tokens": 9728
+      }
+    },
+    "total_tokens": 128331,
+    "seconds": 162.3
+  },
+  "trap": {
+    "applies": true,
+    "segment": "Specialty coffee enthusiasts (home baristas, specialty cafe regulars): 76% purchase intent but only 0.5 million adults, 1% of adults 18-64",
+    "target": "SEG2 Commuters",
+    "avoided": true
+  },
+  "traceability": {
+    "score": 0.8823529411764706,
+    "claims": 34,
+    "traced": 30,
+    "unquoted": 6,
+    "items": [
+      {
+        "quote": "They are the largest group, with 11.4M adults (22% of adults 18-64) and 34% purchase intent.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Specialty coffee enthusiasts show 76% intent but number 0.5M, students show 41% at 2.6M, and office workers 27% at 8.9M.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "The German chilled RTD coffee category was worth 610 million euros in 2024 and grew about 7% per year from 2021 to 2024; plant-based products hold 14% of it [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "23% of adults bought chilled RTD coffee in the last 3 months [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "By channel, supermarkets and discounters account for 54% of sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other 9% [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The document calls Germany Europe's largest RTD coffee market and oat drinks its fastest-growing plant-based drink category [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The only German chilled RTD price point is Emmi Caffè Latte Macchiato at 2.99 euros per 230 ml cup [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "One German retailer lists the Macchiato 230 ml at 2.99 euros (13.00 euros per litre), with multi-buy discounts down to 2.70 euros [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "An Austrian retailer lists it at 1.99 euros [5], so prices vary a lot by retailer.",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Starbucks Caffè Latte Eiskaffee 220 ml is listed in REWE's online shop; no price was visible [6].",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Oatly's German site lists Barista Iced Flat White and Iced Cappuccino in 235 ml cartocans, but the Flat White page says it is only available in Switzerland [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "One example is Aldi Nord's Moreno 'Typ Eiskaffee mit Milch', 275 g can, at 1.59 euros.",
+        "refs": [
+          "8"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Direct concept match: nitro cold brew coffee (70%) with oat drink, vegan, no added sugar.",
+        "refs": [
+          "9",
+          "10"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Described as the first brand in Germany to offer ready-to-drink cold brew on the chilled shelf, as a lifestyle drink [11].",
+        "refs": [
+          "11"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "A price around 2.50 euros: the survey measured interest at about that price [13]",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG1 | Specialty coffee enthusiasts | 0.5M adults, 1% of adults 18-64 [13]",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG3 | Students | 2.6M adults, 5% of adults 18-64 [13]",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG4 | Office workers | 8.9M adults, 17% of adults 18-64 [13]",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "They make up 81% of Nordbrew's Danish Instagram community [13].",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Purchase intent is 76%, the highest of all groups [13].",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Adults who buy coffee on the go at least weekly; purchase intent is 34% [13].",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Students aged 18-64 in the Getränkepanel survey; purchase intent is 41% [13].",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Adults who drink coffee at their desk; purchase intent is 27%, the lowest of the four groups [13].",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The 3% value share goal equals about 18.3 million euros, derived from the 2024 category size [2, 1].",
+        "refs": [
+          "2",
+          "1"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "In a 2024 Danish taste test by the company (300 participants), 52% preferred Nordbrew to the leading canned iced coffee with milk, 18% had no preference, 30% preferred the competitor; 22% found the Original variant too bitter.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Commuters are the best fit once size, interest and accessibility are read together.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Online and other channels are only 9% of category sales [1]",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Commuters buy where the category sells: petrol stations and convenience stores 24%, train-station and airport kiosks 13%, supermarkets and discounters 54% [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "plant-based products already hold 14% of a category worth 610M euros that grew about 7% a year [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Commuter intent is 34%, ahead of office workers (27%) and below students (41%) [13].",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Private labels of the large discounters | Lower-priced own brands that entered the category in 2022 [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Emmi Caffè Latte | Category leader, sold in most supermarkets and petrol stations; milk-based and sweetened, in a recyclable cup [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Strong brand with wide distribution and sweetened milk coffee [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Oatly Iced Coffee | Oat-based; per the document it has smaller distribution, mainly organic shops and supermarkets in large cities [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 0.9827586206896551,
+    "checked": 58,
+    "matched": 57,
+    "not_found": 1,
+    "unverifiable": 1,
+    "items": [
+      {
+        "figure": "11.4M",
+        "quote": "They are the largest group, with 11.4M adults (22% of adults 18-64) and 34% purchase intent.",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "They are the largest group, with 11.4M adults (22% of adults 18-64) and 34% purchase intent.",
+        "status": "document"
+      },
+      {
+        "figure": "34%",
+        "quote": "They are the largest group, with 11.4M adults (22% of adults 18-64) and 34% purchase intent.",
+        "status": "document"
+      },
+      {
+        "figure": "76%",
+        "quote": "Specialty coffee enthusiasts show 76% intent but number 0.5M, students show 41% at 2.6M, and office workers 27% at 8.9M.",
+        "status": "document"
+      },
+      {
+        "figure": "0.5M",
+        "quote": "Specialty coffee enthusiasts show 76% intent but number 0.5M, students show 41% at 2.6M, and office workers 27% at 8.9M.",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "Specialty coffee enthusiasts show 76% intent but number 0.5M, students show 41% at 2.6M, and office workers 27% at 8.9M.",
+        "status": "document"
+      },
+      {
+        "figure": "2.6M",
+        "quote": "Specialty coffee enthusiasts show 76% intent but number 0.5M, students show 41% at 2.6M, and office workers 27% at 8.9M.",
+        "status": "document"
+      },
+      {
+        "figure": "27%",
+        "quote": "Specialty coffee enthusiasts show 76% intent but number 0.5M, students show 41% at 2.6M, and office workers 27% at 8.9M.",
+        "status": "document"
+      },
+      {
+        "figure": "8.9M",
+        "quote": "Specialty coffee enthusiasts show 76% intent but number 0.5M, students show 41% at 2.6M, and office workers 27% at 8.9M.",
+        "status": "document"
+      },
+      {
+        "figure": "610 million euros",
+        "quote": "The German chilled RTD coffee category was worth 610 million euros in 2024 and grew about 7% per year from 2021 to 2024; plant-based products hold 14% of it [1].",
+        "status": "document"
+      },
+      {
+        "figure": "7%",
+        "quote": "The German chilled RTD coffee category was worth 610 million euros in 2024 and grew about 7% per year from 2021 to 2024; plant-based products hold 14% of it [1].",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "The German chilled RTD coffee category was worth 610 million euros in 2024 and grew about 7% per year from 2021 to 2024; plant-based products hold 14% of it [1].",
+        "status": "document"
+      },
+      {
+        "figure": "23%",
+        "quote": "23% of adults bought chilled RTD coffee in the last 3 months [1].",
+        "status": "document"
+      },
+      {
+        "figure": "54%",
+        "quote": "By channel, supermarkets and discounters account for 54% of sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other 9% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "24%",
+        "quote": "By channel, supermarkets and discounters account for 54% of sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other 9% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "13%",
+        "quote": "By channel, supermarkets and discounters account for 54% of sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other 9% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "By channel, supermarkets and discounters account for 54% of sales, petrol stations and convenience stores 24%, train-station and airport kiosks 13%, and online and other 9% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "2.99 euros",
+        "quote": "The only German chilled RTD price point is Emmi Caffè Latte Macchiato at 2.99 euros per 230 ml cup [3].",
+        "status": "source"
+      },
+      {
+        "figure": "230 ml",
+        "quote": "The only German chilled RTD price point is Emmi Caffè Latte Macchiato at 2.99 euros per 230 ml cup [3].",
+        "status": "source"
+      },
+      {
+        "figure": "230 ml",
+        "quote": "One German retailer lists the Macchiato 230 ml at 2.99 euros (13.00 euros per litre), with multi-buy discounts down to 2.70 euros [3].",
+        "status": "source"
+      },
+      {
+        "figure": "2.99 euros",
+        "quote": "One German retailer lists the Macchiato 230 ml at 2.99 euros (13.00 euros per litre), with multi-buy discounts down to 2.70 euros [3].",
+        "status": "source"
+      },
+      {
+        "figure": "13.00 euros per litre",
+        "quote": "One German retailer lists the Macchiato 230 ml at 2.99 euros (13.00 euros per litre), with multi-buy discounts down to 2.70 euros [3].",
+        "status": "document"
+      },
+      {
+        "figure": "2.70 euros",
+        "quote": "One German retailer lists the Macchiato 230 ml at 2.99 euros (13.00 euros per litre), with multi-buy discounts down to 2.70 euros [3].",
+        "status": "source"
+      },
+      {
+        "figure": "1.99 euros",
+        "quote": "An Austrian retailer lists it at 1.99 euros [5], so prices vary a lot by retailer.",
+        "status": "source"
+      },
+      {
+        "figure": "220 ml",
+        "quote": "Starbucks Caffè Latte Eiskaffee 220 ml is listed in REWE's online shop; no price was visible [6].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "235 ml",
+        "quote": "Oatly's German site lists Barista Iced Flat White and Iced Cappuccino in 235 ml cartocans, but the Flat White page says it is only available in Switzerland [7].",
+        "status": "source"
+      },
+      {
+        "figure": "275 g",
+        "quote": "One example is Aldi Nord's Moreno 'Typ Eiskaffee mit Milch', 275 g can, at 1.59 euros.",
+        "status": "source"
+      },
+      {
+        "figure": "1.59 euros",
+        "quote": "One example is Aldi Nord's Moreno 'Typ Eiskaffee mit Milch', 275 g can, at 1.59 euros.",
+        "status": "source"
+      },
+      {
+        "figure": "70%",
+        "quote": "Direct concept match: nitro cold brew coffee (70%) with oat drink, vegan, no added sugar.",
+        "status": "document"
+      },
+      {
+        "figure": "2.50 euros",
+        "quote": "A price around 2.50 euros: the survey measured interest at about that price [13]",
+        "status": "document"
+      },
+      {
+        "figure": "0.5M adults",
+        "quote": "SEG1 | Specialty coffee enthusiasts | 0.5M adults, 1% of adults 18-64 [13]",
+        "status": "document"
+      },
+      {
+        "figure": "1%",
+        "quote": "SEG1 | Specialty coffee enthusiasts | 0.5M adults, 1% of adults 18-64 [13]",
+        "status": "document"
+      },
+      {
+        "figure": "2.6M adults",
+        "quote": "SEG3 | Students | 2.6M adults, 5% of adults 18-64 [13]",
+        "status": "document"
+      },
+      {
+        "figure": "5%",
+        "quote": "SEG3 | Students | 2.6M adults, 5% of adults 18-64 [13]",
+        "status": "document"
+      },
+      {
+        "figure": "8.9M adults",
+        "quote": "SEG4 | Office workers | 8.9M adults, 17% of adults 18-64 [13]",
+        "status": "document"
+      },
+      {
+        "figure": "17%",
+        "quote": "SEG4 | Office workers | 8.9M adults, 17% of adults 18-64 [13]",
+        "status": "document"
+      },
+      {
+        "figure": "81%",
+        "quote": "They make up 81% of Nordbrew's Danish Instagram community [13].",
+        "status": "document"
+      },
+      {
+        "figure": "76%",
+        "quote": "Purchase intent is 76%, the highest of all groups [13].",
+        "status": "document"
+      },
+      {
+        "figure": "34%",
+        "quote": "Adults who buy coffee on the go at least weekly; purchase intent is 34% [13].",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "Students aged 18-64 in the Getränkepanel survey; purchase intent is 41% [13].",
+        "status": "document"
+      },
+      {
+        "figure": "27%",
+        "quote": "Adults who drink coffee at their desk; purchase intent is 27%, the lowest of the four groups [13].",
+        "status": "document"
+      },
+      {
+        "figure": "3%",
+        "quote": "The 3% value share goal equals about 18.3 million euros, derived from the 2024 category size [2, 1].",
+        "status": "document"
+      },
+      {
+        "figure": "18.3 million euros",
+        "quote": "The 3% value share goal equals about 18.3 million euros, derived from the 2024 category size [2, 1].",
+        "status": "not found"
+      },
+      {
+        "figure": "300 participants",
+        "quote": "In a 2024 Danish taste test by the company (300 participants), 52% preferred Nordbrew to the leading canned iced coffee with milk, 18% had no preference, 30% preferred the competitor; 22% found the Original variant too bitter.",
+        "status": "document"
+      },
+      {
+        "figure": "52%",
+        "quote": "In a 2024 Danish taste test by the company (300 participants), 52% preferred Nordbrew to the leading canned iced coffee with milk, 18% had no preference, 30% preferred the competitor; 22% found the Original variant too bitter.",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "In a 2024 Danish taste test by the company (300 participants), 52% preferred Nordbrew to the leading canned iced coffee with milk, 18% had no preference, 30% preferred the competitor; 22% found the Original variant too bitter.",
+        "status": "document"
+      },
+      {
+        "figure": "30%",
+        "quote": "In a 2024 Danish taste test by the company (300 participants), 52% preferred Nordbrew to the leading canned iced coffee with milk, 18% had no preference, 30% preferred the competitor; 22% found the Original variant too bitter.",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "In a 2024 Danish taste test by the company (300 participants), 52% preferred Nordbrew to the leading canned iced coffee with milk, 18% had no preference, 30% preferred the competitor; 22% found the Original variant too bitter.",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "Online and other channels are only 9% of category sales [1]",
+        "status": "document"
+      },
+      {
+        "figure": "24%",
+        "quote": "Commuters buy where the category sells: petrol stations and convenience stores 24%, train-station and airport kiosks 13%, supermarkets and discounters 54% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "13%",
+        "quote": "Commuters buy where the category sells: petrol stations and convenience stores 24%, train-station and airport kiosks 13%, supermarkets and discounters 54% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "54%",
+        "quote": "Commuters buy where the category sells: petrol stations and convenience stores 24%, train-station and airport kiosks 13%, supermarkets and discounters 54% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "plant-based products already hold 14% of a category worth 610M euros that grew about 7% a year [1].",
+        "status": "document"
+      },
+      {
+        "figure": "610M euros",
+        "quote": "plant-based products already hold 14% of a category worth 610M euros that grew about 7% a year [1].",
+        "status": "document"
+      },
+      {
+        "figure": "7%",
+        "quote": "plant-based products already hold 14% of a category worth 610M euros that grew about 7% a year [1].",
+        "status": "document"
+      },
+      {
+        "figure": "34%",
+        "quote": "Commuter intent is 34%, ahead of office workers (27%) and below students (41%) [13].",
+        "status": "document"
+      },
+      {
+        "figure": "27%",
+        "quote": "Commuter intent is 34%, ahead of office workers (27%) and below students (41%) [13].",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "Commuter intent is 34%, ahead of office workers (27%) and below students (41%) [13].",
+        "status": "document"
+      },
+      {
+        "figure": "2022",
+        "quote": "Private labels of the large discounters | Lower-priced own brands that entered the category in 2022 [4].",
+        "status": "document"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: Company document, section 4 (Market context)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: Company document, section 3 (Why Germany, and launch goals)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "https://www.combi.de/emmi_caff%C3%A8_latte_macchiato_4503060403.html",
+      "kind": "web",
+      "url": "https://www.combi.de/emmi_caff%C3%A8_latte_macchiato_4503060403.html",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "Document: Company document, section 6 (Competitors)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "https://shop.billa.at/produkte/emmi-caffe-latte-macchiato-00436600",
+      "kind": "web",
+      "url": "https://shop.billa.at/produkte/emmi-caffe-latte-macchiato-00436600",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "https://www.rewe.de/shop/p/starbucks-caff-latte-eiskaffee-220ml/965239",
+      "kind": "web",
+      "url": "https://www.rewe.de/shop/p/starbucks-caff-latte-eiskaffee-220ml/965239",
+      "status": "unreadable",
+      "detail": "HTTP 403",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "https://www.oatly.com/de-de/products/oat-drink/oat-drink-barista-iced-flat-white-235ml",
+      "kind": "web",
+      "url": "https://www.oatly.com/de-de/products/oat-drink/oat-drink-barista-iced-flat-white-235ml",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "https://supermarktcheck.de/aldi-nord/sortiment/eiskaffee-loeslich",
+      "kind": "web",
+      "url": "https://supermarktcheck.de/aldi-nord/sortiment/eiskaffee-loeslich",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "9",
+      "reference": "https://coffrigo.de/products/coffrigo-cold-brew-kaffee-oatmilk-latte",
+      "kind": "web",
+      "url": "https://coffrigo.de/products/coffrigo-cold-brew-kaffee-oatmilk-latte",
+      "status": "unreadable",
+      "detail": "HTTP 429",
+      "valid": true
+    },
+    {
+      "number": "10",
+      "reference": "https://www.honest-rare.de/en/coffrigo-oat-milk-latte-cold-brew-coffee-24-pack",
+      "kind": "web",
+      "url": "https://www.honest-rare.de/en/coffrigo-oat-milk-latte-cold-brew-coffee-24-pack",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "11",
+      "reference": "https://www.about-drinks.com/moevenpick-holt-mit-cold-brew-coffee-begehrtes-trendgetraenk-ins-kuehlregal",
+      "kind": "web",
+      "url": "https://www.about-drinks.com/moevenpick-holt-mit-cold-brew-coffee-begehrtes-trendgetraenk-ins-kuehlregal",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "12",
+      "reference": "Document: Company document, section 2 (The product: Nordbrew Oat Cold Brew)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "13",
+      "reference": "Document: Company document, section 5 (Consumer groups)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 5,
+      "reason": "The plan chooses commuters (SEG2) on the basis of the segment table: 11.4M adults vs 0.5M enthusiasts, plus intent times size, and it ties the choice to the 3,500-point and 3% value share goals. Channels (petrol stations, convenience, kiosks, supermarkets) match the stated commuter purchase locations and the category channel split, and the pricing rationale explains the 2.49 euro hold against the only German price point."
+    },
+    "campaign_vs_strategy": {
+      "score": 4,
+      "reason": "Messages consistently speak to commuters with the positioning (no added sugar, vegan, organic, 18-hour cold brew) and use only the strategy's channels. Minor gap: the supermarket message (\"Cold Brew aus Aarhus\") is more about origin than the commuter pause, and the social channel's #MeinNordbrewMoment is a commute message but is generic about the target's on-the-go need."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 61665,
+      "output_tokens": 9487,
+      "total_tokens": 71152
+    }
+  },
+  "judge_runs": [
+    {
+      "traceability": 0.8823529411764706,
+      "faithfulness": 0.9827586206896551,
+      "coherence_strategy": 5,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    },
+    {
+      "traceability": 0.875,
+      "faithfulness": 0.9803921568627451,
+      "coherence_strategy": 5,
+      "coherence_campaign": 5,
+      "trap_avoided": true
+    },
+    {
+      "traceability": 0.8333333333333334,
+      "faithfulness": 0.9824561403508771,
+      "coherence_strategy": 5,
+      "coherence_campaign": 5,
+      "trap_avoided": true
+    }
+  ],
+  "judge_mean": {
+    "traceability": 0.863562091503268,
+    "faithfulness": 0.9818689726344259,
+    "coherence_strategy": 5.0,
+    "coherence_campaign": 4.666666666666667,
+    "trap_avoided": true
+  }
+}

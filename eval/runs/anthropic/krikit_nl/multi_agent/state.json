@@ -1,0 +1,426 @@
+{
+  "document_text": "# Krikit – Company and Product Brief\n\nLaunch of Krikit insect-protein dog food in the Netherlands. Internal document for the launch planning team. All companies, people and figures in this document are fictional and used for evaluation only.\n\n## 1. Company overview\n\nKrikit GmbH is an Austrian pet food company founded in 2020 in Graz by Lena Huber, a veterinarian, and Tobias Gruber, a food engineer. It makes dog food with protein from black soldier fly larvae, farmed in Austria on food industry by-products.\n\nIn 2024 Krikit had 19 employees and a turnover of 3.4 million euros, 90% in Austria and 10% in Germany. Its products are sold in about 650 pet shops and veterinary clinics and through its own online shop, which accounts for 35% of sales.\n\n## 2. The product: Krikit Adult\n\nKrikit Adult is a complete dry food for adult dogs.\n\n- 30% protein, 60% of it from insect larvae; no chicken, beef or grain.\n- Suitable for most dogs with food sensitivities to common proteins (veterinary feedback, no clinical trial).\n- Carbon footprint about 60% lower than a beef-based dry food, according to a 2024 life cycle study commissioned by the company.\n- Bags of 1.5 kg and 7 kg.\n- Price in Austria: 14.90 euros for 1.5 kg, 54.90 euros for 7 kg.\n\nIn a feeding test run by the company in Austria in 2024 (120 dogs, 6 weeks), 83% of dogs ate the food readily from the first day, and 76% of owners said they would buy it again.\n\n## 3. Why the Netherlands, and launch goals\n\nThe Netherlands has one of the highest shares of dog owners who pay attention to sustainability in Europe, and insect protein is already known to Dutch consumers.\n\nGoals for the Dutch launch, approved by the board in March 2025:\n\n- Reach 1.5 million euros of sales in the Netherlands in the second year.\n- Be listed in at least 300 pet shops and veterinary clinics in the first year.\n- Reach 4,000 online subscription customers by the end of the second year.\n\nThe launch is planned for May 2026.\n\n## 4. Market context\n\nFigures from the report \"Pet food in the Netherlands 2025\" by PetMarket Benelux and from the Dutch Pet Owner Survey 2025 (both fictional sources for this evaluation).\n\n| Indicator | Value | Source |\n|---|---|---|\n| Dog food market in the Netherlands (2024) | 640 million euros | PetMarket Benelux 2025 |\n| Premium dry dog food share | 31% | PetMarket Benelux 2025 |\n| Growth of alternative-protein dog food 2022-2024 | +22% per year | PetMarket Benelux 2025 |\n| Households with at least one dog | 1.6 million | Dutch Pet Owner Survey 2025 |\n\nSales by channel (2024): supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18%.\n\n## 5. Dog owner groups\n\nThe Dutch Pet Owner Survey 2025 measured interest in \"a complete dry dog food made with insect protein, at a premium price\" among dog-owning households.\n\n| Group | Households | Share of dog-owning households | Purchase intent |\n|---|---|---|---|\n| Owners of dogs with food sensitivities | 0.29 million | 18% | 39% |\n| Sustainability-minded owners already buying premium food | 0.38 million | 24% | 33% |\n| Owners buying mainly in supermarkets on price | 0.71 million | 44% | 6% |\n| First-time owners (dog for less than 2 years) | 0.22 million | 14% | 21% |\n\nOwners of dogs with food sensitivities mostly buy on the advice of their vet. Sustainability-minded owners buy in pet shop chains and online.\n\n## 6. Competitors\n\n- **Yarrah**: Dutch organic pet food brand, sold in supermarkets and organic shops.\n- **Hill's Prescription Diet and Royal Canin Veterinary**: hypoallergenic veterinary foods, sold through vets.\n- **Other insect-based brands**: at least two small brands, sold online.\n- **Premium brands of pet shop chains**: own brands of the two largest chains.\n\nNo detailed price comparison has been carried out.\n\n## 7. Distribution and marketing\n\nKrikit is negotiating with one of the two largest Dutch pet shop chains (about 150 stores) and with a distributor that supplies veterinary clinics. The online shop will ship to the Netherlands from launch. The marketing budget for the first year is 350,000 euros.\n\n## 8. Open points\n\n- Target group: vets or sustainability-minded owners first.\n- Positioning and pricing for the Netherlands.\n- Launch campaign concept and channel plan.",
+  "brief": {
+    "company_name": "Krikit GmbH",
+    "company_description": "Austrian pet food company founded in 2020 in Graz by Lena Huber (a veterinarian) and Tobias Gruber (a food engineer). It makes dog food with protein from black soldier fly larvae, farmed in Austria on food industry by-products. In 2024 it had 19 employees and a turnover of 3.4 million euros (90% Austria, 10% Germany). Its products are sold in about 650 pet shops and veterinary clinics and through its own online shop, which accounts for 35% of sales.",
+    "product_name": "Krikit Adult",
+    "product_description": "A complete dry dog food for adult dogs with 30% protein, 60% of it from insect larvae; no chicken, beef or grain. Suitable for most dogs with food sensitivities to common proteins (veterinary feedback, no clinical trial). Carbon footprint about 60% lower than a beef-based dry food, according to a 2024 life cycle study commissioned by the company. Available in bags of 1.5 kg and 7 kg. In a company feeding test in Austria in 2024 (120 dogs, 6 weeks), 83% of dogs ate the food readily from the first day and 76% of owners said they would buy it again.",
+    "target_country": "Netherlands",
+    "price_hint": null,
+    "known_competitors": [
+      "Yarrah",
+      "Hill's Prescription Diet",
+      "Royal Canin Veterinary"
+    ],
+    "stated_goals": [
+      "Reach 1.5 million euros of sales in the Netherlands in the second year",
+      "Be listed in at least 300 pet shops and veterinary clinics in the first year",
+      "Reach 4,000 online subscription customers by the end of the second year"
+    ],
+    "missing_info": [
+      "Product price for the Netherlands: not stated (only Austrian prices are given) and pricing is listed as an open point; needed for the pricing strategy",
+      "Target customer group: undecided between vets (owners of dogs with food sensitivities) and sustainability-minded owners first; needed to focus messaging and channels",
+      "Positioning for the Netherlands: not decided; needed to differentiate from competitors",
+      "Competitor prices: no detailed price comparison has been carried out; needed to set price and positioning",
+      "Names of the other insect-based brands and of the pet shop chains' premium own brands: not given; needed for the competitor analysis",
+      "Sales channels: negotiations with a large pet shop chain and a veterinary distributor are not concluded, and the channel plan is still open; needed to plan distribution and the 300-outlet listing goal",
+      "Launch campaign concept: not defined; needed for the marketing plan and allocation of the first-year budget"
+    ]
+  },
+  "analysis": {
+    "market_overview": "The Dutch dog food market was worth 640 million euros in 2024, and premium dry food is 31% of it [S3]. Alternative-protein dog food grew 22% a year in 2022-2024 [S3]. There are 1.6 million households with at least one dog [S3]. Sales by channel in 2024: supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [S3]. The document says Dutch dog owners pay close attention to sustainability and that insect protein is already known to Dutch consumers [S2]. Web research found several insect dog food brands already on sale in the Netherlands (Bugs for Pets, Ofrieda, Seberus) [S15][S16][S17]. In the \"hypoallergenic\" space, Royal Canin Veterinary Hypoallergenic 7 kg retails at about 57-78 euros depending on shop and variant [S6][S7][S8]. Krikit Adult costs 14.90 euros for 1.5 kg and 54.90 euros for 7 kg in Austria, and no Dutch price has been set [S1]. The market figures come from the document and were not verified on the web.",
+    "competitors": [
+      {
+        "name": "Yarrah",
+        "positioning": "Dutch organic pet food brand (based in Harderwijk), sold in supermarkets and organic shops [S5]. Its range includes organic Sensitive and grain-free dog foods, and its site offers a subscription option. Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [S11].",
+        "price_level": "unknown",
+        "source_ids": [
+          "S5",
+          "S11",
+          "S12"
+        ]
+      },
+      {
+        "name": "Hill's Prescription Diet",
+        "positioning": "Hypoallergenic veterinary food sold through vets [S5]. The z/d line is presented by Hill's as a clinical nutrition 'clinically proven' to help avoid adverse food reactions in dogs with food allergies or intolerances [S10]. No Dutch price was found.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S5",
+          "S10"
+        ]
+      },
+      {
+        "name": "Royal Canin Veterinary",
+        "positioning": "Hypoallergenic veterinary food sold through vets [S5] and also listed by online retailers. The Hypoallergenic 7 kg bag is listed at 77.57 euros (bol.com) [S6], 66.49 euros (Brekz) [S7] and 57.50 euros for the Moderate Calorie variant (hondenkattenapotheek.nl) [S8]. Zooplus.nl shows a total of 78.98 euros, but the pack size is unclear [S9].",
+        "price_level": "unknown",
+        "source_ids": [
+          "S5",
+          "S6",
+          "S7",
+          "S8",
+          "S9"
+        ]
+      },
+      {
+        "name": "Yora",
+        "positioning": "Insect-protein dry dog food (Adult All Breed, Adult Small Breed, Puppy) sold on Belgian shops' Dutch-language pages. Adult Small Breed is listed from 17.95 euros [S13]. An insect dog food range starts from 27.95 euros at food4pets.be [S14]. These are Belgian prices, and Dutch availability was not confirmed.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S13",
+          "S14"
+        ]
+      },
+      {
+        "name": "Bugs for Pets",
+        "positioning": "Dutch brand presenting itself as the Netherlands' most sustainable dog food. It sells hypoallergenic insect-based food for dogs with itching, skin problems or a sensitive stomach. This is the same claim and customer group as Krikit's food-sensitivity segment [S15]. No price found.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S15"
+        ]
+      },
+      {
+        "name": "Ofrieda",
+        "positioning": "Sells insect-based dry and wet dog food, presented as sustainable and hypoallergenic [S16]. No price found.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S16"
+        ]
+      },
+      {
+        "name": "Seberus Dried Insects",
+        "positioning": "Grain-free insect-based dog food for adult dogs. Brekz.nl lists it in its sustainable dog food category and says it suits dogs with grain intolerance or allergy [S17]. No price found.",
+        "price_level": "unknown",
+        "source_ids": [
+          "S17"
+        ]
+      }
+    ],
+    "customer_needs": [
+      "Food that suits dogs with food sensitivities, usually chosen on the advice of the vet [S4]",
+      "Hypoallergenic food for dogs with itching, skin problems or a sensitive stomach [S15]",
+      "Grain-free food for dogs with grain intolerance or allergy [S17]",
+      "Sustainable dog food with a lower environmental impact, including insect protein as an alternative to meat [S4][S16][S17]",
+      "Premium-quality dry food: premium dry food is 31% of the Dutch dog food market [S3]",
+      "Purchase through pet shop chains and online for sustainability-minded owners, and through the vet for owners of dogs with sensitivities [S4]",
+      "Subscription ordering is offered by the organic brand Yarrah, which points to a need for convenient repeat purchase [S12]",
+      "Low price for supermarket-focused owners, only 6% of whom are interested in a premium insect food [S4]"
+    ],
+    "segments": [
+      {
+        "segment_id": "SEG1",
+        "label": "Owners of dogs with food sensitivities",
+        "description": "Dog owners whose dogs have food sensitivities. They mostly buy on the advice of their vet. 39% say they would buy a complete dry dog food made with insect protein at a premium price [S4]. Competition: veterinary diets (Hill's, Royal Canin) and the hypoallergenic insect brand Bugs for Pets [S5][S15].",
+        "needs": [
+          "Food that suits dogs with sensitivities to common proteins",
+          "Vet advice and recommendation",
+          "Hypoallergenic claim backed by credible evidence"
+        ],
+        "estimated_size": "0.29 million households, 18% of dog-owning households, S4",
+        "source_ids": [
+          "S4",
+          "S5",
+          "S15"
+        ]
+      },
+      {
+        "segment_id": "SEG2",
+        "label": "Sustainability-minded premium buyers",
+        "description": "Owners who already buy premium food and care about sustainability. They buy in pet shop chains and online. 33% say they would buy an insect-protein premium dry food [S4].",
+        "needs": [
+          "Lower environmental impact",
+          "Premium quality",
+          "Availability in pet shop chains and online"
+        ],
+        "estimated_size": "0.38 million households, 24% of dog-owning households, S4",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "segment_id": "SEG3",
+        "label": "First-time dog owners",
+        "description": "Owners who have had their dog for less than 2 years. 21% say they would buy an insect-protein premium dry food [S4].",
+        "needs": [
+          "Guidance on choosing food",
+          "Trusted, easy-to-understand products"
+        ],
+        "estimated_size": "0.22 million households, 14% of dog-owning households, S4",
+        "source_ids": [
+          "S4"
+        ]
+      },
+      {
+        "segment_id": "SEG4",
+        "label": "Price-driven supermarket buyers",
+        "description": "Owners who buy mainly in supermarkets on price. Only 6% say they would buy an insect-protein premium dry food [S4]. This is the largest group but a weak fit for a premium product.",
+        "needs": [
+          "Low price",
+          "Easy purchase in supermarkets"
+        ],
+        "estimated_size": "0.71 million households, 44% of dog-owning households, S4",
+        "source_ids": [
+          "S4"
+        ]
+      }
+    ],
+    "data_quality_notes": [
+      "No Dutch price exists for Krikit Adult. Only the Austrian prices are known: 14.90 euros for 1.5 kg and 54.90 euros for 7 kg (about 9.93 and 7.84 euros per kg, my arithmetic).",
+      "Competitor price_level is set to 'unknown' for every brand. No source gives a market-wide price benchmark, and no systematic Dutch shelf-price comparison was carried out.",
+      "Royal Canin 7 kg prices vary by retailer and variant (about 57.50 to 77.57 euros). The Zooplus.nl snippet gives 24.49 euros (12.25 euros per kg) and a total of 78.98 euros without a clear pack size.",
+      "No Dutch price was found for Hill's Prescription Diet. Only US prices turned up, and they were not used.",
+      "Yarrah prices come from one online retailer (azPets) and span many pack sizes. Parent-company information came from a weak company-data page, which was not used.",
+      "Yora prices come from Belgian retailers, not Dutch ones. Whether Yora is sold in the Netherlands was not confirmed, and the 1.5 kg price of the adult product was not clearly stated.",
+      "No prices were found for Bugs for Pets, Ofrieda or Seberus. Their positioning comes only from short search snippets.",
+      "The document says there are at least two small insect brands sold online and does not name them. The web research names Bugs for Pets, Ofrieda, Seberus and Yora, but I could not confirm that these are the brands the document means.",
+      "The names and prices of the premium own brands of the two largest pet shop chains were not found. Pets Place and zooplus were looked at, but their own brands were not identified, so no own-brand competitor is listed. I could not confirm which chains are the two largest or which one Krikit is negotiating with.",
+      "The market figures (640 million euros, 31% premium share, 22% growth, 1.6 million households, channel shares) and the segment sizes and purchase intents come from the document's fictional sources (PetMarket Benelux 2025, Dutch Pet Owner Survey 2025). They were not verified on the web.",
+      "Purchase intent was measured for 'a complete dry dog food made with insect protein, at a premium price'. It is stated intent, not actual purchases, and the premium price level was not defined.",
+      "Krikit's own evidence is weak. The feeding test (120 dogs, 6 weeks, 83% ate readily from day one, 76% would buy again) was run by the company. The food-sensitivity suitability rests on veterinary feedback with no clinical trial. The 60% lower carbon footprint comes from a study the company commissioned. Hill's presents its z/d product as 'clinically proven', which Krikit cannot match [S1][S10].",
+      "The document's statement that insect protein is already known to Dutch consumers is consistent with the existing Dutch insect brands, but no consumer awareness data was found to prove it.",
+      "The 'Yarrah offers subscriptions' point comes from the Yarrah homepage snippet. It is used only as an indication of the need for convenient repeat purchase, not as market evidence.",
+      "No research was done on Dutch labelling or regulation for insect pet food, or on whether Dutch vets recommend insect-based diets."
+    ],
+    "sources": [
+      {
+        "id": "S1",
+        "kind": "document",
+        "reference": "Company document, section 2 (The product: Krikit Adult)"
+      },
+      {
+        "id": "S2",
+        "kind": "document",
+        "reference": "Company document, section 3 (Why the Netherlands, and launch goals)"
+      },
+      {
+        "id": "S3",
+        "kind": "document",
+        "reference": "Company document, section 4 (Market context)"
+      },
+      {
+        "id": "S4",
+        "kind": "document",
+        "reference": "Company document, section 5 (Dog owner groups)"
+      },
+      {
+        "id": "S5",
+        "kind": "document",
+        "reference": "Company document, section 6 (Competitors)"
+      },
+      {
+        "id": "S6",
+        "kind": "web",
+        "reference": "https://www.bol.com/nl/nl/f/royal-canin-veterinary-diet-dog-hypoallergenic-hondenvoer-kg/9300000138778388"
+      },
+      {
+        "id": "S7",
+        "kind": "web",
+        "reference": "https://www.brekz.nl/royal-canin-veterinary-diet-hondenvoer/royal-canin-hypoallergeen-hondenvoer.html"
+      },
+      {
+        "id": "S8",
+        "kind": "web",
+        "reference": "https://www.hondenkattenapotheek.nl/hond-dieetvoer/huid-allergie/royal-canin-hypoallergenic/royal-canin-hypoallergenic-moderate-calorie-hondbr-1-x-7-kg"
+      },
+      {
+        "id": "S9",
+        "kind": "web",
+        "reference": "https://www.zooplus.nl/shop/honden/hondenvoer_droog/royal_canin_veterinary_diet/allergieen_en_intoleranties/314478"
+      },
+      {
+        "id": "S10",
+        "kind": "web",
+        "reference": "https://www.hillspet.com/dog-food/prescription-diet-zd-food-sensitivities-dry"
+      },
+      {
+        "id": "S11",
+        "kind": "web",
+        "reference": "https://azpets.nl/hond/hondenvoer/hondenvoer-merken/yarrah-hondenvoer"
+      },
+      {
+        "id": "S12",
+        "kind": "web",
+        "reference": "https://www.yarrah.com/en"
+      },
+      {
+        "id": "S13",
+        "kind": "web",
+        "reference": "https://catsendogs.be/cd_nl/yora-hondenbrokken-adult-all-breed-insect"
+      },
+      {
+        "id": "S14",
+        "kind": "web",
+        "reference": "https://food4pets.be/en/dog/protein-source/insect"
+      },
+      {
+        "id": "S15",
+        "kind": "web",
+        "reference": "https://www.bugsforpets.nl"
+      },
+      {
+        "id": "S16",
+        "kind": "web",
+        "reference": "https://ofrieda.com/nl/blogs/hond/insecten-hondenvoer"
+      },
+      {
+        "id": "S17",
+        "kind": "web",
+        "reference": "https://www.brekz.nl/duurzaam-hondenvoer"
+      }
+    ]
+  },
+  "strategy": {
+    "target_segment_id": "SEG2",
+    "target_description": "Dutch dog owners who already buy premium dry food and care about sustainability. They buy in pet shop chains and online. This is about 0.38 million households, 24% of dog-owning households [S4].",
+    "positioning_statement": "For sustainability-minded Dutch owners who buy premium dry food, Krikit Adult is the premium dry dog food made from Austrian-farmed insect larvae. It has no chicken, beef or grain, and a lower carbon footprint than beef-based dry food according to a 2024 life cycle study commissioned by the company. It is the sustainable choice that does not ask owners to give up premium quality. It is not a veterinary diet, so it does not compete with Hill's or Royal Canin on clinical claims. Unlike the generic \"sustainable\" and \"organic\" offer of Yarrah and the Dutch insect brands, it comes from a company founded by a veterinarian and a food engineer.",
+    "value_proposition": "A premium complete dry dog food with 30% protein, 60% of it from insect larvae. Owners lower the environmental impact of feeding their dog without compromising on quality, and the dog accepts it readily (83% of dogs in the company's Austrian feeding test ate it from day one).",
+    "pricing_direction": "No Dutch price exists yet, and the analysis gives no price for Yarrah, Bugs for Pets, Ofrieda, Seberus or Hill's. The only Dutch price references are Royal Canin Hypoallergenic 7 kg at about 57.50-77.57 euros [S6][S7][S8], and that is a vet diet, not the direct competitor for this segment. Recommended direction: premium-level pricing, with no discounting against supermarket or vet-diet prices. Use the Austrian prices (14.90 euros for 1.5 kg, 54.90 euros for 7 kg [S1]) only as a starting hypothesis. Before fixing the Dutch price, run a shelf-price check of the insect brands and Yarrah in pet shop chains and online. Then set the price at or slightly above the insect competitors, justified by the sustainability and brand story. Offer a subscription discount to support the online subscription goal. The size of that discount is still to be decided.",
+    "channels": [
+      "Pet shop chains",
+      "Independent pet shops",
+      "Own online shop with subscription",
+      "Online pet retailers",
+      "Instagram"
+    ],
+    "rationale": "SEG2 is chosen because it combines the largest premium-intent pool with the best access for the channels Krikit is building. Using the analysis figures (my arithmetic, stated intent only): SEG2 is 0.38 million households with 33% intent, about 0.125 million households [S4]. SEG1 is 0.29 million with 39%, about 0.113 million [S4]. SEG3 is 0.22 million with 21%, about 0.046 million [S4]. SEG4 is 0.71 million but only 6%, about 0.043 million, and it is a weak fit for a premium product [S4]. SEG1 shows the highest intent but is smaller. It is also the hardest to win. Competition is strongest there: vet diets from Hill's, which presents its z/d line as \"clinically proven\" [S10], and Royal Canin [S5][S6]. Bugs for Pets already makes the same hypoallergenic insect claim for the same customers [S15]. Krikit's suitability claim rests only on veterinary feedback with no clinical trial [S1], and the vet distributor negotiation is not concluded [brief]. So the hypoallergenic or food-sensitivity claim is not used as a lead message. SEG2 buys where Krikit is going: pet shop chains hold 29% of Dutch sales and online 18% [S3]. This fits the goals of 300 outlets and 4,000 online subscribers. The need for convenient repeat purchase, which Yarrah's subscription suggests [S12], supports the subscription focus. The market also supports the choice: premium dry food is 31% of the Dutch market, alternative protein grew 22% a year in 2022-2024 [S3], and Dutch owners are said to care about sustainability [S2]. Risks and assumptions: (1) insect competitors are already sold in the Netherlands [S15][S16][S17], so the difference has to come from brand, quality and availability. Their prices are unknown. (2) The carbon claim comes from a company-commissioned study and must be attributed to it; the comparison is with beef-based dry food only [S1]. (3) The feeding-test results are company data from Austria and should be described as such, not as proof of effect. (4) The 1.5 million euro goal cannot be checked against segment size because there is no Dutch price. Even with SEG2 at about 0.125 million intent households, reaching it will depend on price and on a listing in a large chain. This is an assumption to review once the price is set. (5) Purchase intent is stated, not actual, and the \"premium price\" in the survey was not defined [S4]. SEG1 can be addressed later, through vets, once credible evidence exists.",
+    "supporting_source_ids": [
+      "S1",
+      "S2",
+      "S3",
+      "S4",
+      "S5",
+      "S6",
+      "S7",
+      "S8",
+      "S10",
+      "S12",
+      "S15",
+      "S16",
+      "S17"
+    ]
+  },
+  "campaign": {
+    "concept": "Krikit Adult shows that a lighter footprint and premium quality belong in the same bowl. The campaign, \"De premium keuze met een lichtere voetafdruk\", presents insect larvae farmed in Austria as a quality ingredient. It does not present them as a sacrifice or a gimmick. The story is told with the same calm confidence in every channel. The product facts come first (30% protein, 60% of it from insect larvae, no chicken, beef or grain), followed by the company-commissioned carbon study and the founders, a veterinarian and a food engineer. The result is a sustainable choice that does not ask owners to give up premium quality.",
+    "tagline": "Premium voeding, lichtere voetafdruk.",
+    "key_messages": [
+      {
+        "channel": "Pet shop chains",
+        "headline": "Premium brokken. Lichtere voetafdruk.",
+        "body": "Krikit Adult: compleet droogvoer voor volwassen honden met 30% eiwit, waarvan 60% uit insectenlarven. Zonder kip, rund of graan. Volgens een levenscyclusanalyse uit 2024, uitgevoerd in opdracht van Krikit, is de CO₂-voetafdruk ongeveer 60% lager dan die van droogvoer op basis van rundvlees. Verkrijgbaar in 1,5 kg en 7 kg."
+      },
+      {
+        "channel": "Independent pet shops",
+        "headline": "Bedacht door een dierenarts en een voedingsingenieur",
+        "body": "Krikit Adult komt van Lena Huber (dierenarts) en Tobias Gruber (voedingsmiddelentechnoloog) uit Graz. De larven worden in Oostenrijk gekweekt op bijproducten uit de voedingsindustrie. Het resultaat is premium droogvoer met 30% eiwit, zonder kip, rund of graan. Vraag ons gerust naar het verhaal achter het voer."
+      },
+      {
+        "channel": "Own online shop with subscription",
+        "headline": "Eén keer kiezen. Elke keer in huis.",
+        "body": "Stel je Krikit Adult-abonnement in en ontvang het premium droogvoer op het moment dat jij kiest, in 1,5 kg of 7 kg. 30% eiwit, 60% daarvan uit insectenlarven, zonder kip, rund of graan. Met abonneervoordeel, en je past of stopt je abonnement wanneer je wilt."
+      },
+      {
+        "channel": "Online pet retailers",
+        "headline": "Krikit Adult: premium droogvoer met insectenlarven",
+        "body": "Compleet voer voor volwassen honden. 30% eiwit, waarvan 60% uit insectenlarven uit Oostenrijkse kweek. Zonder kip, rund of graan. Volgens een levenscyclusanalyse uit 2024 in opdracht van Krikit is de CO₂-voetafdruk ongeveer 60% lager dan die van droogvoer op basis van rundvlees. In de voedertest van het bedrijf in Oostenrijk (120 honden, 6 weken) at 83% het voer vanaf de eerste dag goed."
+      },
+      {
+        "channel": "Instagram",
+        "headline": "Premium kwaliteit hoeft de planeet niet zwaarder te belasten.",
+        "body": "Dit is Krikit Adult: 30% eiwit, 60% daarvan uit insectenlarven, zonder kip, rund of graan. Gemaakt door een dierenarts en een voedingsingenieur. In de voedertest van Krikit in Oostenrijk at 83% van de honden het vanaf dag één goed. Benieuwd? Ontdek het in de winkel bij jou in de buurt of online. #KrikitAdult #PremiumMetEenLichtereVoetafdruk"
+      }
+    ],
+    "content_ideas": [
+      "Instagram Reels series 'Van larve tot kom': a short, factual look at the Austrian farm, the by-product feedstock and the team of Lena Huber and Tobias Gruber, with Dutch subtitles.",
+      "Instagram carousel explaining the carbon figure: what the 2024 life cycle study commissioned by Krikit compared (beef-based dry food only) and what it did not.",
+      "Instagram collaboration with Dutch dog owners and small dog-lifestyle creators who show the first-bowl moment with their own dogs. Each post is labelled as a collaboration.",
+      "Shelf-talker and floor display for pet shop chains in Dutch, showing '30% eiwit, 60% uit insectenlarven, zonder kip, rund of graan', the carbon claim with its source, and a QR code to the subscription page.",
+      "Starter kit for independent pet shops: counter card, a short leaflet about the founders and the Austrian farm, and a talking-points sheet for staff.",
+      "Landing page and onboarding emails for the own online shop, built around the subscription: choose bag size, choose delivery interval, pause or stop at any time.",
+      "Enhanced product pages for online pet retailers with a hero image, the key facts, a study-source note and a short 'Wat zit erin?' explainer.",
+      "Launch-month sampling: small trial bags offered in participating pet shops and with online orders, with a QR code that leads to the subscription page."
+    ],
+    "visual_direction": "Clean, warm and confident premium look. This is not 'eco-crunchy' and not clinical. Palette: deep forest green and warm off-white as the base, with an accent in soft amber or honey that nods to the larvae and the Austrian origin. Imagery: natural daylight photography of real dogs at home and outdoors, close-ups of the kibble in a bowl, and honest, calm shots of the Austrian farm and the founders at work. No cartoon insects and no shock imagery. Typography: a modern sans-serif with generous white space and bold numbers for the key facts (30% eiwit, 60% insectenlarven). Packaging cues: matte bag with a large clear 'zonder kip, rund of graan' badge, bag size (1.5 kg and 7 kg) clearly visible, a small 'Gekweekt in Oostenrijk' mark, and a footnote with the source of the carbon claim. Shelf and online materials use the same colours and fact badges so the product is recognisable in every channel."
+  },
+  "validations": [
+    {
+      "stage": "analysis",
+      "passed": true,
+      "issues": [
+        {
+          "severity": "warning",
+          "check": "judge.source_quality",
+          "message": "Yora is listed as a Dutch-market competitor, but its only sources are Belgian shops (S13, S14). It is not confirmed that Yora is sold in the Netherlands. Either confirm Dutch availability or mark Yora as a possible competitor only. Do not use the Belgian prices (17.95 and 27.95 euros) as Dutch price evidence. Evidence: analysis.competitors[Yora].positioning = \"These are Belgian prices, and Dutch availability was not confirmed.\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.source_quality",
+          "message": "This claim comes from hillspet.com (S10), the US site of Hill's. It is used as the evidence of what Hill's offers in the Netherlands. The Dutch product range and claims may differ. Check the Dutch Hill's site or label the claim as US-sourced. The data_quality_notes say only that US prices were not used, not that the claim is from the US site. Evidence: analysis.competitors[Hill's Prescription Diet].positioning = \"The z/d line is presented by Hill's as a clinical nutrition 'clinically proven' to help avoid adverse food reactions\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.source_quality",
+          "message": "The positioning of the three direct insect competitors (Bugs for Pets, Ofrieda, Seberus) rests on the brands' own marketing pages, blog posts or a retailer category page (S15-S17). The data_quality_notes admit they come from short snippets. The analysis then draws a strong conclusion from them, that these brands compete in the same segment with the same claim. Soften that conclusion or add a better source. Evidence: analysis.competitors[Bugs for Pets].positioning = \"This is the same claim and customer group as Krikit's food-sensitivity segment [S15].\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.unsupported_claims",
+          "message": "The cited sources do not obviously support the Harderwijk location. S5 (the document) only says 'Dutch organic pet food brand', and the Yarrah price listing is from a retailer. The data_quality_notes say the parent-company information came from a weak page that was not used. Cite a source for the location or remove it. Evidence: analysis.competitors[Yarrah].positioning = \"Dutch organic pet food brand (based in Harderwijk)\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.gaps_reported",
+          "message": "Royal Canin has a Dutch price range of 57.50 to 77.57 euros for 7 kg, and Yarrah has several Dutch listings, yet price_level is 'unknown' for both. The strategy has no price benchmark to compare Krikit's 54.90 euros per 7 kg against. Set a price level (for example high for Royal Canin 7 kg) with the caveat, and explain in data_quality_notes why the retailer prices were not used. Evidence: analysis.competitors[Royal Canin Veterinary].price_level = \"\"price_level\": \"unknown\"\""
+        }
+      ]
+    },
+    {
+      "stage": "strategy",
+      "passed": true,
+      "issues": [
+        {
+          "severity": "warning",
+          "check": "judge.pricing_vs_competitors",
+          "message": "This is inaccurate. The analysis lists Yarrah prices (Sensitive Adult 10 kg 96.70 euros, grain-free from 24.75 euros for 2 kg [S11]) and Belgian Yora insect prices (from 17.95 euros [S13], and from 27.95 euros [S14]). The strategy ignores them and uses only Royal Canin as a price reference. Use the Yarrah and Yora figures as indicative references, with their caveats (one retailer, Belgian prices), and compare them with the Austrian 7.84 euros/kg. Evidence: strategy.pricing_direction = \"the analysis gives no price for Yarrah, Bugs for Pets, Ofrieda, Seberus or Hill's\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.pricing_vs_competitors",
+          "message": "The strategy admits that insect competitor prices are unknown, yet it already commits to pricing at or above them. This is a guess. Phrase it as a hypothesis conditional on the shelf-price check, or leave the position open until prices are known. Evidence: strategy.pricing_direction = \"Then set the price at or slightly above the insect competitors\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.differentiation",
+          "message": "The only point of difference from Yarrah and the Dutch insect brands is the founders' background. That is a weak differentiator, and it is not a need of the target segment (lower environmental impact, premium quality). Insect-based, grain-free and sustainable are already offered by Bugs for Pets, Ofrieda and Seberus. Build the difference on something more concrete: the Austrian by-product farming, a 60% lower footprint stated with its source, or availability in the chain. Evidence: strategy.positioning_statement = \"it comes from a company founded by a veterinarian and a food engineer\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.distinct_channels",
+          "message": "Pet shop chains and independent pet shops would carry the same message to the same segment. The analysis says SEG2 buys in chains and online, not in independents. Instagram is a media channel, not a sales channel. Own online shop and online retailers also overlap. Merge or differentiate these channels, and state their role (sales vs. awareness) for SEG2. Evidence: strategy.channels = \"Independent pet shops\""
+        }
+      ]
+    },
+    {
+      "stage": "campaign",
+      "passed": true,
+      "issues": [
+        {
+          "severity": "warning",
+          "check": "judge.speaks_to_target",
+          "message": "The target segment (SEG2) needs lower environmental impact first. This message, and the own-online-shop one, never mention sustainability or the lighter footprint. They lean on founder credentials and ingredient facts. Add the footprint angle, with the carbon claim attributed to the study, so every message addresses the sustainability need. Evidence: campaign.key_messages[Independent pet shops].body = \"Het resultaat is premium droogvoer met 30% eiwit, zonder kip, rund of graan.\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.channel_fit",
+          "message": "Krikit staff will not be in independent shops, so shoppers cannot 'ask us'. The line also does not match the shop's own staff, who sell the product. Rewrite it to point to the leaflet, counter card or QR code, or to the shop assistant. The pet-shop-chain and online-retailer messages are also close to identical (same facts and carbon sentence), so differentiate them more by channel. Evidence: campaign.key_messages[Independent pet shops].body = \"Vraag ons gerust naar het verhaal achter het voer.\""
+        },
+        {
+          "severity": "warning",
+          "check": "judge.language",
+          "message": "The founder's role is called 'voedingsingenieur' in the other messages and 'voedingsmiddelentechnoloog' here. Use one consistent Dutch term across all copy. Evidence: campaign.key_messages[Independent pet shops].body = \"Tobias Gruber (voedingsmiddelentechnoloog)\""
+        }
+      ]
+    }
+  ],
+  "strategy_revisions": 0,
+  "campaign_revisions": 0,
+  "human_feedback": null
+}

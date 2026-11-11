@@ -1,0 +1,25 @@
+{
+  "system": "baseline",
+  "document": "eval/cases/fakturo_invoicing_app_it.md",
+  "provider": "anthropic",
+  "model": "anthropic:claude-sonnet-5-5",
+  "status": "done",
+  "error": null,
+  "tokens": {
+    "claude-sonnet-5-5": {
+      "input_tokens": 1931,
+      "output_tokens": 9498,
+      "total_tokens": 11429,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0,
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_token_details": {
+        "reasoning": 2589
+      }
+    }
+  },
+  "seconds": 69.4
+}

@@ -1,0 +1,834 @@
+{
+  "system": "baseline",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 1931,
+        "output_tokens": 9498,
+        "total_tokens": 11429
+      }
+    },
+    "total_tokens": 11429,
+    "seconds": 69.4
+  },
+  "trap": {
+    "applies": false,
+    "segment": null,
+    "target": "Flat-rate freelancers who do not yet use an invoicing app (Segment A)",
+    "avoided": null
+  },
+  "traceability": {
+    "score": 0.8918918918918919,
+    "claims": 37,
+    "traced": 33,
+    "unquoted": 3,
+    "items": [
+      {
+        "quote": "Kasa Software, a Polish company with 38,000 paying customers in Poland [1], will launch **Fakturo** in Italy in January 2027, at the start of the tax year [3].",
+        "refs": [
+          "1",
+          "3"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "The year-1 marketing budget is 600,000 euros [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The board's goals are 12,000 paying customers in 24 months, monthly cancellations below 3%, and at least 3 professional-association partnerships in year 1 [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Target:** flat-rate freelancers who do not yet use an invoicing app (1.06 million people, 23% purchase intent, the highest of any group) [5]. 58% of them say they \"do not understand how much tax they will owe\" [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "keep 9 euros per month and push the 90-euro annual plan (7.50 euros per month), which sits close to the 7.20-euro average price paid today [2][4].",
+        "refs": [
+          "2",
+          "4"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "The F24 payment feature, requested by 41% of beta users, is not available yet [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Monthly churn in Poland is 4%, above the Italian target of under 3% [1][3].",
+        "refs": [
+          "1",
+          "3"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Beta retention was 68% after 3 months [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Kasa Software sp. z o.o., Kraków, founded 2016 by two former tax consultants. It builds invoicing and bookkeeping apps for freelancers and very small businesses. 64 employees, 38,000 paying customers in Poland, 7.8 million euros turnover in 2024, monthly subscription model, 4% monthly cancellations [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Beta (2025, 250 users): 68% active after 3 months, rating 4.4/5. 41% asked for F24 tax-instalment payment, which is not yet available [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Italy has **3.4 million** freelancers with a VAT number. **1.9 million** of them are in the flat-rate regime [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "**44%** of flat-rate freelancers already use an invoicing app, so about 56% (1.06 million) do not [4][5].",
+        "refs": [
+          "4",
+          "5"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "The average monthly price paid for an invoicing app is **7.20 euros**.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "| **Fatture in Cloud** | Market leader with broad features for small businesses [6] | 4 to 30 euros per month [6] |",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **Other freelance apps** | Smaller apps focused on the flat-rate regime [6] | 5 to 12 euros per month [6] |",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **Agenzia delle Entrate free tool** | Basic invoicing, no tax estimate [6] | Free [6] |",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **Accountant-provided software** | Often bundled in the accountant's fee [6] | Often \"free\" to the user, included in the fee [6] |",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **A. Flat-rate freelancers, no app yet** | 1.06 million [5] | 23% [5] | about 244,000 | Understand taxes (58%), compliance, simplicity, replacing free tools or accountant dependence [5] |",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **B. Flat-rate freelancers with an app** | 0.84 million [5] | 9% [5] | about 76,000 | Switching reason needed, such as a better tax estimate. They already pay about 7.20 euros on average [4] |",
+        "refs": [
+          "5",
+          "4"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "| **C. Ordinary-regime freelancers (with an accountant)** | 1.5 million [5] | 6% [5] | 90,000 | Accountant-led workflow. Fakturo's tax estimate targets the flat-rate regime, so the fit is weak [2] |",
+        "refs": [
+          "5",
+          "2"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "| **D. Craft businesses with one owner (*artigiani*)** | 0.9 million [5] | 11% [5] | about 99,000 | Not described in the document. Regime and needs to be researched |",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "58% of non-app users do not understand how much tax they will owe [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The four customer groups add up to 4.3 million, more than the 3.4 million total [4][5].",
+        "refs": [
+          "4",
+          "5"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Lead with the annual plan at 90 euros (7.50 euros per month, about 17% below the monthly price). It is close to the 7.20-euro market average [4]",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "At 3% monthly churn the average customer lifetime is about 33 months, or about 300 euros of revenue.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "At 4% churn it is about 25 months, or about 225 euros.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "If 600,000 euros brought in half of the 12,000 target (6,000 customers), CAC would be about 100 euros, or roughly 11 months of revenue before costs [3][7].",
+        "refs": [
+          "3",
+          "7"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Sales are online only (website, App Store, Google Play), and talks are under way with two associations (designers, IT consultants) [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Monthly churn in Poland is 4%",
+        "refs": [
+          "1",
+          "3"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "E-invoicing became mandatory for flat-rate freelancers in 2024.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Retention. 68% active after 3 months in the beta equates to roughly 12% monthly drop-off if constant (own calculation from [2]).",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Fakturo's 9 euros is 25% above that (own calculation from [2][4]).",
+        "refs": [
+          "2",
+          "4"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Mandatory e-invoicing for flat-rate freelancers since 2024 created a group of people who now need a tool they never used before [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Non-users mostly rely on free tax-agency tools or on their accountant [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "It equals about 1.1% of the primary segment and about 4.9% of its intent-weighted pool (own calculation from [5]).",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Segment A has the highest intent (23%) and the clearest unmet need (58% do not understand their taxes) [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The accountant is influential for non-app users [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 0.8108108108108109,
+    "checked": 74,
+    "matched": 60,
+    "not_found": 14,
+    "unverifiable": 0,
+    "items": [
+      {
+        "figure": "38,000",
+        "quote": "Kasa Software, a Polish company with 38,000 paying customers in Poland [1], will launch **Fakturo** in Italy in January 2027, at the start of the tax year [3].",
+        "status": "document"
+      },
+      {
+        "figure": "600,000 euros",
+        "quote": "The year-1 marketing budget is 600,000 euros [7].",
+        "status": "document"
+      },
+      {
+        "figure": "12,000",
+        "quote": "The board's goals are 12,000 paying customers in 24 months, monthly cancellations below 3%, and at least 3 professional-association partnerships in year 1 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "24 months",
+        "quote": "The board's goals are 12,000 paying customers in 24 months, monthly cancellations below 3%, and at least 3 professional-association partnerships in year 1 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "3%",
+        "quote": "The board's goals are 12,000 paying customers in 24 months, monthly cancellations below 3%, and at least 3 professional-association partnerships in year 1 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "3",
+        "quote": "The board's goals are 12,000 paying customers in 24 months, monthly cancellations below 3%, and at least 3 professional-association partnerships in year 1 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "1.06 million",
+        "quote": "Target:** flat-rate freelancers who do not yet use an invoicing app (1.06 million people, 23% purchase intent, the highest of any group) [5]. 58% of them say they \"do not understand how much tax they will owe\" [5].",
+        "status": "document"
+      },
+      {
+        "figure": "23%",
+        "quote": "Target:** flat-rate freelancers who do not yet use an invoicing app (1.06 million people, 23% purchase intent, the highest of any group) [5]. 58% of them say they \"do not understand how much tax they will owe\" [5].",
+        "status": "document"
+      },
+      {
+        "figure": "58%",
+        "quote": "Target:** flat-rate freelancers who do not yet use an invoicing app (1.06 million people, 23% purchase intent, the highest of any group) [5]. 58% of them say they \"do not understand how much tax they will owe\" [5].",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros",
+        "quote": "keep 9 euros per month and push the 90-euro annual plan (7.50 euros per month), which sits close to the 7.20-euro average price paid today [2][4].",
+        "status": "document"
+      },
+      {
+        "figure": "90-euro",
+        "quote": "keep 9 euros per month and push the 90-euro annual plan (7.50 euros per month), which sits close to the 7.20-euro average price paid today [2][4].",
+        "status": "document"
+      },
+      {
+        "figure": "7.50 euros",
+        "quote": "keep 9 euros per month and push the 90-euro annual plan (7.50 euros per month), which sits close to the 7.20-euro average price paid today [2][4].",
+        "status": "not found"
+      },
+      {
+        "figure": "7.20-euro",
+        "quote": "keep 9 euros per month and push the 90-euro annual plan (7.50 euros per month), which sits close to the 7.20-euro average price paid today [2][4].",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "The F24 payment feature, requested by 41% of beta users, is not available yet [2].",
+        "status": "document"
+      },
+      {
+        "figure": "4%",
+        "quote": "Monthly churn in Poland is 4%, above the Italian target of under 3% [1][3].",
+        "status": "document"
+      },
+      {
+        "figure": "3%",
+        "quote": "Monthly churn in Poland is 4%, above the Italian target of under 3% [1][3].",
+        "status": "document"
+      },
+      {
+        "figure": "68%",
+        "quote": "Beta retention was 68% after 3 months [2].",
+        "status": "document"
+      },
+      {
+        "figure": "3 months",
+        "quote": "Beta retention was 68% after 3 months [2].",
+        "status": "document"
+      },
+      {
+        "figure": "38,000",
+        "quote": "Kasa Software sp. z o.o., Kraków, founded 2016 by two former tax consultants. It builds invoicing and bookkeeping apps for freelancers and very small businesses. 64 employees, 38,000 paying customers in Poland, 7.8 million euros turnover in 2024, monthly subscription model, 4% monthly cancellations [1].",
+        "status": "document"
+      },
+      {
+        "figure": "7.8 million euros",
+        "quote": "Kasa Software sp. z o.o., Kraków, founded 2016 by two former tax consultants. It builds invoicing and bookkeeping apps for freelancers and very small businesses. 64 employees, 38,000 paying customers in Poland, 7.8 million euros turnover in 2024, monthly subscription model, 4% monthly cancellations [1].",
+        "status": "document"
+      },
+      {
+        "figure": "4%",
+        "quote": "Kasa Software sp. z o.o., Kraków, founded 2016 by two former tax consultants. It builds invoicing and bookkeeping apps for freelancers and very small businesses. 64 employees, 38,000 paying customers in Poland, 7.8 million euros turnover in 2024, monthly subscription model, 4% monthly cancellations [1].",
+        "status": "document"
+      },
+      {
+        "figure": "250 users",
+        "quote": "Beta (2025, 250 users): 68% active after 3 months, rating 4.4/5. 41% asked for F24 tax-instalment payment, which is not yet available [2].",
+        "status": "document"
+      },
+      {
+        "figure": "68%",
+        "quote": "Beta (2025, 250 users): 68% active after 3 months, rating 4.4/5. 41% asked for F24 tax-instalment payment, which is not yet available [2].",
+        "status": "document"
+      },
+      {
+        "figure": "4.4/5",
+        "quote": "Beta (2025, 250 users): 68% active after 3 months, rating 4.4/5. 41% asked for F24 tax-instalment payment, which is not yet available [2].",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "Beta (2025, 250 users): 68% active after 3 months, rating 4.4/5. 41% asked for F24 tax-instalment payment, which is not yet available [2].",
+        "status": "document"
+      },
+      {
+        "figure": "3.4 million",
+        "quote": "Italy has **3.4 million** freelancers with a VAT number. **1.9 million** of them are in the flat-rate regime [4].",
+        "status": "document"
+      },
+      {
+        "figure": "1.9 million",
+        "quote": "Italy has **3.4 million** freelancers with a VAT number. **1.9 million** of them are in the flat-rate regime [4].",
+        "status": "document"
+      },
+      {
+        "figure": "44%",
+        "quote": "**44%** of flat-rate freelancers already use an invoicing app, so about 56% (1.06 million) do not [4][5].",
+        "status": "document"
+      },
+      {
+        "figure": "56%",
+        "quote": "**44%** of flat-rate freelancers already use an invoicing app, so about 56% (1.06 million) do not [4][5].",
+        "status": "not found"
+      },
+      {
+        "figure": "1.06 million",
+        "quote": "**44%** of flat-rate freelancers already use an invoicing app, so about 56% (1.06 million) do not [4][5].",
+        "status": "document"
+      },
+      {
+        "figure": "7.20 euros",
+        "quote": "The average monthly price paid for an invoicing app is **7.20 euros**.",
+        "status": "document"
+      },
+      {
+        "figure": "4 to 30 euros per month",
+        "quote": "| **Fatture in Cloud** | Market leader with broad features for small businesses [6] | 4 to 30 euros per month [6] |",
+        "status": "document"
+      },
+      {
+        "figure": "5 to 12 euros per month",
+        "quote": "| **Other freelance apps** | Smaller apps focused on the flat-rate regime [6] | 5 to 12 euros per month [6] |",
+        "status": "document"
+      },
+      {
+        "figure": "1.06 million",
+        "quote": "| **A. Flat-rate freelancers, no app yet** | 1.06 million [5] | 23% [5] | about 244,000 | Understand taxes (58%), compliance, simplicity, replacing free tools or accountant dependence [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "23%",
+        "quote": "| **A. Flat-rate freelancers, no app yet** | 1.06 million [5] | 23% [5] | about 244,000 | Understand taxes (58%), compliance, simplicity, replacing free tools or accountant dependence [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "58%",
+        "quote": "| **A. Flat-rate freelancers, no app yet** | 1.06 million [5] | 23% [5] | about 244,000 | Understand taxes (58%), compliance, simplicity, replacing free tools or accountant dependence [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "0.84 million",
+        "quote": "| **B. Flat-rate freelancers with an app** | 0.84 million [5] | 9% [5] | about 76,000 | Switching reason needed, such as a better tax estimate. They already pay about 7.20 euros on average [4] |",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "| **B. Flat-rate freelancers with an app** | 0.84 million [5] | 9% [5] | about 76,000 | Switching reason needed, such as a better tax estimate. They already pay about 7.20 euros on average [4] |",
+        "status": "document"
+      },
+      {
+        "figure": "7.20 euros",
+        "quote": "| **B. Flat-rate freelancers with an app** | 0.84 million [5] | 9% [5] | about 76,000 | Switching reason needed, such as a better tax estimate. They already pay about 7.20 euros on average [4] |",
+        "status": "document"
+      },
+      {
+        "figure": "1.5 million",
+        "quote": "| **C. Ordinary-regime freelancers (with an accountant)** | 1.5 million [5] | 6% [5] | 90,000 | Accountant-led workflow. Fakturo's tax estimate targets the flat-rate regime, so the fit is weak [2] |",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "| **C. Ordinary-regime freelancers (with an accountant)** | 1.5 million [5] | 6% [5] | 90,000 | Accountant-led workflow. Fakturo's tax estimate targets the flat-rate regime, so the fit is weak [2] |",
+        "status": "document"
+      },
+      {
+        "figure": "90,000",
+        "quote": "| **C. Ordinary-regime freelancers (with an accountant)** | 1.5 million [5] | 6% [5] | 90,000 | Accountant-led workflow. Fakturo's tax estimate targets the flat-rate regime, so the fit is weak [2] |",
+        "status": "document"
+      },
+      {
+        "figure": "0.9 million",
+        "quote": "| **D. Craft businesses with one owner (*artigiani*)** | 0.9 million [5] | 11% [5] | about 99,000 | Not described in the document. Regime and needs to be researched |",
+        "status": "document"
+      },
+      {
+        "figure": "11%",
+        "quote": "| **D. Craft businesses with one owner (*artigiani*)** | 0.9 million [5] | 11% [5] | about 99,000 | Not described in the document. Regime and needs to be researched |",
+        "status": "document"
+      },
+      {
+        "figure": "99,000",
+        "quote": "| **D. Craft businesses with one owner (*artigiani*)** | 0.9 million [5] | 11% [5] | about 99,000 | Not described in the document. Regime and needs to be researched |",
+        "status": "not found"
+      },
+      {
+        "figure": "58%",
+        "quote": "58% of non-app users do not understand how much tax they will owe [5].",
+        "status": "document"
+      },
+      {
+        "figure": "4.3 million",
+        "quote": "The four customer groups add up to 4.3 million, more than the 3.4 million total [4][5].",
+        "status": "not found"
+      },
+      {
+        "figure": "3.4 million",
+        "quote": "The four customer groups add up to 4.3 million, more than the 3.4 million total [4][5].",
+        "status": "document"
+      },
+      {
+        "figure": "90 euros",
+        "quote": "Lead with the annual plan at 90 euros (7.50 euros per month, about 17% below the monthly price). It is close to the 7.20-euro market average [4]",
+        "status": "document"
+      },
+      {
+        "figure": "7.50 euros",
+        "quote": "Lead with the annual plan at 90 euros (7.50 euros per month, about 17% below the monthly price). It is close to the 7.20-euro market average [4]",
+        "status": "not found"
+      },
+      {
+        "figure": "17%",
+        "quote": "Lead with the annual plan at 90 euros (7.50 euros per month, about 17% below the monthly price). It is close to the 7.20-euro market average [4]",
+        "status": "not found"
+      },
+      {
+        "figure": "7.20-euro",
+        "quote": "Lead with the annual plan at 90 euros (7.50 euros per month, about 17% below the monthly price). It is close to the 7.20-euro market average [4]",
+        "status": "document"
+      },
+      {
+        "figure": "3%",
+        "quote": "At 3% monthly churn the average customer lifetime is about 33 months, or about 300 euros of revenue.",
+        "status": "document"
+      },
+      {
+        "figure": "33 months",
+        "quote": "At 3% monthly churn the average customer lifetime is about 33 months, or about 300 euros of revenue.",
+        "status": "not found"
+      },
+      {
+        "figure": "300 euros",
+        "quote": "At 3% monthly churn the average customer lifetime is about 33 months, or about 300 euros of revenue.",
+        "status": "not found"
+      },
+      {
+        "figure": "4%",
+        "quote": "At 4% churn it is about 25 months, or about 225 euros.",
+        "status": "document"
+      },
+      {
+        "figure": "25 months",
+        "quote": "At 4% churn it is about 25 months, or about 225 euros.",
+        "status": "not found"
+      },
+      {
+        "figure": "225 euros",
+        "quote": "At 4% churn it is about 25 months, or about 225 euros.",
+        "status": "not found"
+      },
+      {
+        "figure": "600,000 euros",
+        "quote": "If 600,000 euros brought in half of the 12,000 target (6,000 customers), CAC would be about 100 euros, or roughly 11 months of revenue before costs [3][7].",
+        "status": "document"
+      },
+      {
+        "figure": "12,000",
+        "quote": "If 600,000 euros brought in half of the 12,000 target (6,000 customers), CAC would be about 100 euros, or roughly 11 months of revenue before costs [3][7].",
+        "status": "document"
+      },
+      {
+        "figure": "6,000",
+        "quote": "If 600,000 euros brought in half of the 12,000 target (6,000 customers), CAC would be about 100 euros, or roughly 11 months of revenue before costs [3][7].",
+        "status": "document"
+      },
+      {
+        "figure": "100 euros",
+        "quote": "If 600,000 euros brought in half of the 12,000 target (6,000 customers), CAC would be about 100 euros, or roughly 11 months of revenue before costs [3][7].",
+        "status": "not found"
+      },
+      {
+        "figure": "11 months",
+        "quote": "If 600,000 euros brought in half of the 12,000 target (6,000 customers), CAC would be about 100 euros, or roughly 11 months of revenue before costs [3][7].",
+        "status": "document"
+      },
+      {
+        "figure": "two",
+        "quote": "Sales are online only (website, App Store, Google Play), and talks are under way with two associations (designers, IT consultants) [7].",
+        "status": "no number"
+      },
+      {
+        "figure": "4%",
+        "quote": "Monthly churn in Poland is 4%",
+        "status": "document"
+      },
+      {
+        "figure": "2024",
+        "quote": "E-invoicing became mandatory for flat-rate freelancers in 2024.",
+        "status": "document"
+      },
+      {
+        "figure": "68%",
+        "quote": "Retention. 68% active after 3 months in the beta equates to roughly 12% monthly drop-off if constant (own calculation from [2]).",
+        "status": "document"
+      },
+      {
+        "figure": "12%",
+        "quote": "Retention. 68% active after 3 months in the beta equates to roughly 12% monthly drop-off if constant (own calculation from [2]).",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros",
+        "quote": "Fakturo's 9 euros is 25% above that (own calculation from [2][4]).",
+        "status": "document"
+      },
+      {
+        "figure": "25%",
+        "quote": "Fakturo's 9 euros is 25% above that (own calculation from [2][4]).",
+        "status": "not found"
+      },
+      {
+        "figure": "2024",
+        "quote": "Mandatory e-invoicing for flat-rate freelancers since 2024 created a group of people who now need a tool they never used before [3].",
+        "status": "document"
+      },
+      {
+        "figure": "1.1%",
+        "quote": "It equals about 1.1% of the primary segment and about 4.9% of its intent-weighted pool (own calculation from [5]).",
+        "status": "not found"
+      },
+      {
+        "figure": "4.9%",
+        "quote": "It equals about 1.1% of the primary segment and about 4.9% of its intent-weighted pool (own calculation from [5]).",
+        "status": "not found"
+      },
+      {
+        "figure": "23%",
+        "quote": "Segment A has the highest intent (23%) and the clearest unmet need (58% do not understand their taxes) [5].",
+        "status": "document"
+      },
+      {
+        "figure": "58%",
+        "quote": "Segment A has the highest intent (23%) and the clearest unmet need (58% do not understand their taxes) [5].",
+        "status": "document"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: fakturo_invoicing_app_it.md, 1. Company overview",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: fakturo_invoicing_app_it.md, 2. The product: Fakturo",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "Document: fakturo_invoicing_app_it.md, 3. Why Italy, and launch goals",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "Document: fakturo_invoicing_app_it.md, 4. Market context",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "Document: fakturo_invoicing_app_it.md, 5. Customer groups",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "Document: fakturo_invoicing_app_it.md, 6. Competitors",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "Document: fakturo_invoicing_app_it.md, 7. Distribution and marketing",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "Document: fakturo_invoicing_app_it.md, 8. Open points",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 4,
+      "reason": "Target (Segment A, 1.06M at 23% intent, the highest pool-weighted intent) and positioning around the tax estimate follow from the analysis, with 58% \"do not understand taxes\" as the stated need. Pricing and channels are explained, but the segment D pool (about 99,000) is nearly equal to B and the D test is only loosely justified, and the plan calls the 9-euro price 25% above the market average without explaining the tension with the lower average price."
+    },
+    "campaign_vs_strategy": {
+      "score": 4,
+      "reason": "Messages consistently target flat-rate freelancers and feature the tax estimate, and channels stay within the online-only search, social, content, association and accountant set. One gap: the \"Accountants and partners\" message and the association message go to audiences that are secondary in the strategy, and the \"Hai fatturato 3.000 €\" social message is generic about tax rather than tied to the positioning of clarity against the leader."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 51987,
+      "output_tokens": 9821,
+      "total_tokens": 61808
+    }
+  },
+  "judge_runs": [
+    {
+      "traceability": 0.8918918918918919,
+      "faithfulness": 0.8108108108108109,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    },
+    {
+      "traceability": 0.8125,
+      "faithfulness": 0.8181818181818182,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    },
+    {
+      "traceability": 0.8484848484848485,
+      "faithfulness": 0.7936507936507936,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    }
+  ],
+  "judge_mean": {
+    "traceability": 0.8509589134589134,
+    "faithfulness": 0.8075478075478076,
+    "coherence_strategy": 4.0,
+    "coherence_campaign": 4.0,
+    "trap_avoided": null
+  }
+}

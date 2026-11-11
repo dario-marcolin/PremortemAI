@@ -2,5 +2,21 @@
   "demo_fr": {
     "X": "multi_agent",
     "Y": "baseline"
+  },
+  "nordbrew_de": {
+    "X": "multi_agent",
+    "Y": "baseline"
+  },
+  "lumora_es": {
+    "X": "multi_agent",
+    "Y": "baseline"
+  },
+  "fakturo_it": {
+    "Y": "multi_agent",
+    "X": "baseline"
+  },
+  "krikit_nl": {
+    "X": "multi_agent",
+    "Y": "baseline"
   }
 }

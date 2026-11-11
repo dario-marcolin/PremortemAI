@@ -1,0 +1,804 @@
+{
+  "system": "multi_agent",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 92244,
+        "output_tokens": 23117,
+        "total_tokens": 115361
+      },
+      "claude-opus-5-5": {
+        "input_tokens": 7786,
+        "output_tokens": 1976,
+        "total_tokens": 9762
+      }
+    },
+    "total_tokens": 125123,
+    "seconds": 182.8
+  },
+  "trap": {
+    "applies": false,
+    "segment": null,
+    "target": "SEG2 Sustainability-minded premium buyers",
+    "avoided": null
+  },
+  "traceability": {
+    "score": 0.8125,
+    "claims": 32,
+    "traced": 26,
+    "unquoted": 5,
+    "items": [
+      {
+        "quote": "This segment has 0.38 million households with 33% stated purchase intent, about 0.125 million households.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Owners of dogs with food sensitivities number about 0.113 million intent households",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Carbon footprint about 60% lower than a beef-based dry food, according to a 2024 life cycle study commissioned by the company.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "In a company feeding test in Austria in 2024 (120 dogs, 6 weeks), 83% of dogs ate the food readily from the first day and 76% of owners said they would buy it again.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Its products are sold in about 650 pet shops and veterinary clinics and through its own online shop, which accounts for 35% of sales.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and premium dry food is 31% of it [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Alternative-protein dog food grew 22% a year in 2022-2024 [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "There are 1.6 million households with at least one dog [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Sales by channel in 2024: supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Royal Canin Veterinary Hypoallergenic 7 kg retails at about 57-78 euros depending on shop and variant [6][7][8].",
+        "refs": [
+          "6",
+          "7",
+          "8"
+        ],
+        "valid_refs": 3,
+        "traced": true
+      },
+      {
+        "quote": "Krikit Adult costs 14.90 euros for 1.5 kg and 54.90 euros for 7 kg in Austria, and no Dutch price has been set [9].",
+        "refs": [
+          "9"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Sustainable dog food with a lower environmental impact, including insect protein as an alternative to meat [17][4][5]",
+        "refs": [
+          "17",
+          "4",
+          "5"
+        ],
+        "valid_refs": 3,
+        "traced": true
+      },
+      {
+        "quote": "The Hypoallergenic 7 kg bag is listed at 77.57 euros (bol.com) [6], 66.49 euros (Brekz) [7] and 57.50 euros for the Moderate Calorie variant (hondenkattenapotheek.nl) [8].",
+        "refs": [
+          "6",
+          "7",
+          "8"
+        ],
+        "valid_refs": 3,
+        "traced": true
+      },
+      {
+        "quote": "Zooplus.nl shows a total of 78.98 euros, but the pack size is unclear [14].",
+        "refs": [
+          "14"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [11].",
+        "refs": [
+          "11"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Adult Small Breed is listed from 17.95 euros [15].",
+        "refs": [
+          "15"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "An insect dog food range starts from 27.95 euros at food4pets.be [16].",
+        "refs": [
+          "16"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| SEG1 | Owners of dogs with food sensitivities | 0.29 million households, 18% of dog-owning households [17] |",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **→ SEG2** | Sustainability-minded premium buyers | 0.38 million households, 24% of dog-owning households [17] |",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| SEG3 | First-time dog owners | 0.22 million households, 14% of dog-owning households [17] |",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| SEG4 | Price-driven supermarket buyers | 0.71 million households, 44% of dog-owning households [17] |",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "39% say they would buy a complete dry dog food made with insect protein at a premium price [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "33% say they would buy an insect-protein premium dry food [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "21% say they would buy an insect-protein premium dry food [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Only 6% say they would buy an insect-protein premium dry food [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG3 is 0.22 million with 21%, about 0.046 million [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG4 is 0.71 million but only 6%, about 0.043 million, and it is a weak fit for a premium product [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "pet shop chains hold 29% of Dutch sales and online 18% [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and premium dry food is 31% of it",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The document says Dutch dog owners pay close attention to sustainability and that insect protein is already known to Dutch consumers [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Web research found several insect dog food brands already on sale in the Netherlands (Bugs for Pets, Ofrieda, Seberus) [3][4][5].",
+        "refs": [
+          "3",
+          "4",
+          "5"
+        ],
+        "valid_refs": 3,
+        "traced": true
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 0.9074074074074074,
+    "checked": 54,
+    "matched": 49,
+    "not_found": 5,
+    "unverifiable": 7,
+    "items": [
+      {
+        "figure": "0.38 million",
+        "quote": "This segment has 0.38 million households with 33% stated purchase intent, about 0.125 million households.",
+        "status": "document"
+      },
+      {
+        "figure": "33%",
+        "quote": "This segment has 0.38 million households with 33% stated purchase intent, about 0.125 million households.",
+        "status": "document"
+      },
+      {
+        "figure": "0.125 million",
+        "quote": "This segment has 0.38 million households with 33% stated purchase intent, about 0.125 million households.",
+        "status": "not found"
+      },
+      {
+        "figure": "0.113 million",
+        "quote": "Owners of dogs with food sensitivities number about 0.113 million intent households",
+        "status": "not found"
+      },
+      {
+        "figure": "60%",
+        "quote": "Carbon footprint about 60% lower than a beef-based dry food, according to a 2024 life cycle study commissioned by the company.",
+        "status": "document"
+      },
+      {
+        "figure": "120 dogs",
+        "quote": "In a company feeding test in Austria in 2024 (120 dogs, 6 weeks), 83% of dogs ate the food readily from the first day and 76% of owners said they would buy it again.",
+        "status": "document"
+      },
+      {
+        "figure": "6 weeks",
+        "quote": "In a company feeding test in Austria in 2024 (120 dogs, 6 weeks), 83% of dogs ate the food readily from the first day and 76% of owners said they would buy it again.",
+        "status": "document"
+      },
+      {
+        "figure": "83%",
+        "quote": "In a company feeding test in Austria in 2024 (120 dogs, 6 weeks), 83% of dogs ate the food readily from the first day and 76% of owners said they would buy it again.",
+        "status": "document"
+      },
+      {
+        "figure": "76%",
+        "quote": "In a company feeding test in Austria in 2024 (120 dogs, 6 weeks), 83% of dogs ate the food readily from the first day and 76% of owners said they would buy it again.",
+        "status": "document"
+      },
+      {
+        "figure": "650",
+        "quote": "Its products are sold in about 650 pet shops and veterinary clinics and through its own online shop, which accounts for 35% of sales.",
+        "status": "document"
+      },
+      {
+        "figure": "35%",
+        "quote": "Its products are sold in about 650 pet shops and veterinary clinics and through its own online shop, which accounts for 35% of sales.",
+        "status": "document"
+      },
+      {
+        "figure": "640 million euros",
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and premium dry food is 31% of it [1].",
+        "status": "document"
+      },
+      {
+        "figure": "31%",
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and premium dry food is 31% of it [1].",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "Alternative-protein dog food grew 22% a year in 2022-2024 [1].",
+        "status": "document"
+      },
+      {
+        "figure": "1.6 million",
+        "quote": "There are 1.6 million households with at least one dog [1].",
+        "status": "document"
+      },
+      {
+        "figure": "38%",
+        "quote": "Sales by channel in 2024: supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "29%",
+        "quote": "Sales by channel in 2024: supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "15%",
+        "quote": "Sales by channel in 2024: supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "Sales by channel in 2024: supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "7 kg",
+        "quote": "Royal Canin Veterinary Hypoallergenic 7 kg retails at about 57-78 euros depending on shop and variant [6][7][8].",
+        "status": "document"
+      },
+      {
+        "figure": "57-78 euros",
+        "quote": "Royal Canin Veterinary Hypoallergenic 7 kg retails at about 57-78 euros depending on shop and variant [6][7][8].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "14.90 euros",
+        "quote": "Krikit Adult costs 14.90 euros for 1.5 kg and 54.90 euros for 7 kg in Austria, and no Dutch price has been set [9].",
+        "status": "document"
+      },
+      {
+        "figure": "1.5 kg",
+        "quote": "Krikit Adult costs 14.90 euros for 1.5 kg and 54.90 euros for 7 kg in Austria, and no Dutch price has been set [9].",
+        "status": "document"
+      },
+      {
+        "figure": "54.90 euros",
+        "quote": "Krikit Adult costs 14.90 euros for 1.5 kg and 54.90 euros for 7 kg in Austria, and no Dutch price has been set [9].",
+        "status": "document"
+      },
+      {
+        "figure": "7 kg",
+        "quote": "Krikit Adult costs 14.90 euros for 1.5 kg and 54.90 euros for 7 kg in Austria, and no Dutch price has been set [9].",
+        "status": "document"
+      },
+      {
+        "figure": "640 million euros",
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024",
+        "status": "document"
+      },
+      {
+        "figure": "77.57 euros",
+        "quote": "The Hypoallergenic 7 kg bag is listed at 77.57 euros (bol.com) [6], 66.49 euros (Brekz) [7] and 57.50 euros for the Moderate Calorie variant (hondenkattenapotheek.nl) [8].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "66.49 euros",
+        "quote": "The Hypoallergenic 7 kg bag is listed at 77.57 euros (bol.com) [6], 66.49 euros (Brekz) [7] and 57.50 euros for the Moderate Calorie variant (hondenkattenapotheek.nl) [8].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "57.50 euros",
+        "quote": "The Hypoallergenic 7 kg bag is listed at 77.57 euros (bol.com) [6], 66.49 euros (Brekz) [7] and 57.50 euros for the Moderate Calorie variant (hondenkattenapotheek.nl) [8].",
+        "status": "source"
+      },
+      {
+        "figure": "78.98 euros",
+        "quote": "Zooplus.nl shows a total of 78.98 euros, but the pack size is unclear [14].",
+        "status": "not found"
+      },
+      {
+        "figure": "10 kg",
+        "quote": "Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [11].",
+        "status": "document"
+      },
+      {
+        "figure": "96.70 euros",
+        "quote": "Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [11].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "10 kg",
+        "quote": "Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [11].",
+        "status": "document"
+      },
+      {
+        "figure": "81.57 euros",
+        "quote": "Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [11].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "95.85",
+        "quote": "Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [11].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "24.75 euros",
+        "quote": "Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [11].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "2 kg",
+        "quote": "Online listings: Sensitive Adult 10 kg 96.70 euros, Senior 10 kg 81.57 euros (reduced from 95.85), grain-free from 24.75 euros for 2 kg [11].",
+        "status": "document"
+      },
+      {
+        "figure": "17.95 euros",
+        "quote": "Adult Small Breed is listed from 17.95 euros [15].",
+        "status": "source"
+      },
+      {
+        "figure": "27.95 euros",
+        "quote": "An insect dog food range starts from 27.95 euros at food4pets.be [16].",
+        "status": "source"
+      },
+      {
+        "figure": "0.29 million households",
+        "quote": "| SEG1 | Owners of dogs with food sensitivities | 0.29 million households, 18% of dog-owning households [17] |",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "| SEG1 | Owners of dogs with food sensitivities | 0.29 million households, 18% of dog-owning households [17] |",
+        "status": "document"
+      },
+      {
+        "figure": "0.38 million households",
+        "quote": "| **→ SEG2** | Sustainability-minded premium buyers | 0.38 million households, 24% of dog-owning households [17] |",
+        "status": "document"
+      },
+      {
+        "figure": "24%",
+        "quote": "| **→ SEG2** | Sustainability-minded premium buyers | 0.38 million households, 24% of dog-owning households [17] |",
+        "status": "document"
+      },
+      {
+        "figure": "0.22 million households",
+        "quote": "| SEG3 | First-time dog owners | 0.22 million households, 14% of dog-owning households [17] |",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "| SEG3 | First-time dog owners | 0.22 million households, 14% of dog-owning households [17] |",
+        "status": "document"
+      },
+      {
+        "figure": "0.71 million households",
+        "quote": "| SEG4 | Price-driven supermarket buyers | 0.71 million households, 44% of dog-owning households [17] |",
+        "status": "document"
+      },
+      {
+        "figure": "44%",
+        "quote": "| SEG4 | Price-driven supermarket buyers | 0.71 million households, 44% of dog-owning households [17] |",
+        "status": "document"
+      },
+      {
+        "figure": "39%",
+        "quote": "39% say they would buy a complete dry dog food made with insect protein at a premium price [17].",
+        "status": "document"
+      },
+      {
+        "figure": "33%",
+        "quote": "33% say they would buy an insect-protein premium dry food [17].",
+        "status": "document"
+      },
+      {
+        "figure": "21%",
+        "quote": "21% say they would buy an insect-protein premium dry food [17].",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "Only 6% say they would buy an insect-protein premium dry food [17].",
+        "status": "document"
+      },
+      {
+        "figure": "0.22 million",
+        "quote": "SEG3 is 0.22 million with 21%, about 0.046 million [17].",
+        "status": "document"
+      },
+      {
+        "figure": "21%",
+        "quote": "SEG3 is 0.22 million with 21%, about 0.046 million [17].",
+        "status": "document"
+      },
+      {
+        "figure": "0.046 million",
+        "quote": "SEG3 is 0.22 million with 21%, about 0.046 million [17].",
+        "status": "not found"
+      },
+      {
+        "figure": "0.71 million",
+        "quote": "SEG4 is 0.71 million but only 6%, about 0.043 million, and it is a weak fit for a premium product [17].",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "SEG4 is 0.71 million but only 6%, about 0.043 million, and it is a weak fit for a premium product [17].",
+        "status": "document"
+      },
+      {
+        "figure": "0.043 million",
+        "quote": "SEG4 is 0.71 million but only 6%, about 0.043 million, and it is a weak fit for a premium product [17].",
+        "status": "not found"
+      },
+      {
+        "figure": "29%",
+        "quote": "pet shop chains hold 29% of Dutch sales and online 18% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "pet shop chains hold 29% of Dutch sales and online 18% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "640 million euros",
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and premium dry food is 31% of it",
+        "status": "document"
+      },
+      {
+        "figure": "31%",
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and premium dry food is 31% of it",
+        "status": "document"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: Company document, section 4 (Market context)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: Company document, section 3 (Why the Netherlands, and launch goals)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "https://www.bugsforpets.nl",
+      "kind": "web",
+      "url": "https://www.bugsforpets.nl",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "https://ofrieda.com/nl/blogs/hond/insecten-hondenvoer",
+      "kind": "web",
+      "url": "https://ofrieda.com/nl/blogs/hond/insecten-hondenvoer",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "https://www.brekz.nl/duurzaam-hondenvoer",
+      "kind": "web",
+      "url": "https://www.brekz.nl/duurzaam-hondenvoer",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "https://www.bol.com/nl/nl/f/royal-canin-veterinary-diet-dog-hypoallergenic-hondenvoer-kg/9300000138778388",
+      "kind": "web",
+      "url": "https://www.bol.com/nl/nl/f/royal-canin-veterinary-diet-dog-hypoallergenic-hondenvoer-kg/9300000138778388",
+      "status": "unreadable",
+      "detail": "HTTP 403",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "https://www.brekz.nl/royal-canin-veterinary-diet-hondenvoer/royal-canin-hypoallergeen-hondenvoer.html",
+      "kind": "web",
+      "url": "https://www.brekz.nl/royal-canin-veterinary-diet-hondenvoer/royal-canin-hypoallergeen-hondenvoer.html",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "https://www.hondenkattenapotheek.nl/hond-dieetvoer/huid-allergie/royal-canin-hypoallergenic/royal-canin-hypoallergenic-moderate-calorie-hondbr-1-x-7-kg",
+      "kind": "web",
+      "url": "https://www.hondenkattenapotheek.nl/hond-dieetvoer/huid-allergie/royal-canin-hypoallergenic/royal-canin-hypoallergenic-moderate-calorie-hondbr-1-x-7-kg",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "9",
+      "reference": "Document: Company document, section 2 (The product: Krikit Adult)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "10",
+      "reference": "Document: Company document, section 6 (Competitors)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "11",
+      "reference": "https://azpets.nl/hond/hondenvoer/hondenvoer-merken/yarrah-hondenvoer",
+      "kind": "web",
+      "url": "https://azpets.nl/hond/hondenvoer/hondenvoer-merken/yarrah-hondenvoer",
+      "status": "unreadable",
+      "detail": "HTTP 503",
+      "valid": true
+    },
+    {
+      "number": "12",
+      "reference": "https://www.yarrah.com/en",
+      "kind": "web",
+      "url": "https://www.yarrah.com/en",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "13",
+      "reference": "https://www.hillspet.com/dog-food/prescription-diet-zd-food-sensitivities-dry",
+      "kind": "web",
+      "url": "https://www.hillspet.com/dog-food/prescription-diet-zd-food-sensitivities-dry",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "14",
+      "reference": "https://www.zooplus.nl/shop/honden/hondenvoer_droog/royal_canin_veterinary_diet/allergieen_en_intoleranties/314478",
+      "kind": "web",
+      "url": "https://www.zooplus.nl/shop/honden/hondenvoer_droog/royal_canin_veterinary_diet/allergieen_en_intoleranties/314478",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "15",
+      "reference": "https://catsendogs.be/cd_nl/yora-hondenbrokken-adult-all-breed-insect",
+      "kind": "web",
+      "url": "https://catsendogs.be/cd_nl/yora-hondenbrokken-adult-all-breed-insect",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "16",
+      "reference": "https://food4pets.be/en/dog/protein-source/insect",
+      "kind": "web",
+      "url": "https://food4pets.be/en/dog/protein-source/insect",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "17",
+      "reference": "Document: Company document, section 5 (Dog owner groups)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 4,
+      "reason": "The target SEG2 is chosen with a size-and-intent comparison across all four segments (0.125M vs 0.113M vs 0.046M vs 0.043M intent households), and the exclusion of SEG1 is justified by competition and unsupported claims. Channels follow the analysis (pet shop chains 29%, online 18%). The gap is the pricing direction: it is reasoned from the lack of Dutch benchmarks, but the \"premium, at or slightly above insect competitors\" stance is not supported by any competitor price data, and the subscription discount size is left open."
+    },
+    "campaign_vs_strategy": {
+      "score": 3,
+      "reason": "Most messages speak to sustainability-minded premium owners and reflect the positioning, with no hypoallergenic claims. However, the online retailer message cites the 83% feeding-test result and the Instagram post repeats it, which the strategy itself said should not be a lead message and should be described as company data. The \"Independent pet shops\" message leans on the founders' veterinary background, which is acceptable but edges toward the vet-diet space the strategy rejected. The Instagram channel is in the strategy, so channel use is consistent."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 63822,
+      "output_tokens": 8919,
+      "total_tokens": 72741
+    }
+  },
+  "judge_runs": [
+    {
+      "traceability": 0.8125,
+      "faithfulness": 0.9074074074074074,
+      "coherence_strategy": 4,
+      "coherence_campaign": 3,
+      "trap_avoided": null
+    },
+    {
+      "traceability": 0.7931034482758621,
+      "faithfulness": 0.9333333333333333,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    },
+    {
+      "traceability": 0.8064516129032258,
+      "faithfulness": 0.9038461538461539,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    }
+  ],
+  "judge_mean": {
+    "traceability": 0.8040183537263627,
+    "faithfulness": 0.9148622981956316,
+    "coherence_strategy": 4.0,
+    "coherence_campaign": 3.6666666666666665,
+    "trap_avoided": null
+  }
+}

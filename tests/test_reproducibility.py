@@ -31,8 +31,10 @@ def test_example_runs_are_complete_and_portable(name, provider):
     assert state["strategy"]["target_segment_id"]
 
 
-def test_example_runs_hold_no_keys_and_no_local_paths():
-    for path in EXAMPLES.rglob("*"):
+def test_committed_runs_hold_no_keys_and_no_local_paths():
+    eval_dir = REPO_ROOT / "eval"
+    files = [*EXAMPLES.rglob("*"), *(eval_dir / "runs").rglob("*"), eval_dir / "results.json", eval_dir / "report.md"]
+    for path in files:
         if path.is_file():
             assert not SECRET.search(path.read_text()), path
 

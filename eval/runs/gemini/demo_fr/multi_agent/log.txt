@@ -1,0 +1,20 @@
+    7.7s  extract_brief      node     Verdo Foods S.r.l., Proteo Crisps (France), 6 missing info
+   11.6s  analyst            search   Barebells protein crisps snacks France price
+   13.9s  analyst            results  5 results
+   16.5s  analyst            search   Gerble biscuits proteinet prix France supermarche
+   18.3s  analyst            results  5 results
+   21.6s  analyst            search   protein chips chips proteines france supermarket prix
+   23.4s  analyst            results  5 results
+   34.5s  analyst            node     3 competitors, 4 segments, 5 sources
+   37.0s  validate_analysis  node     passed, 0 blocking, 0 warnings
+   43.1s  strategist         node     target SEG2, channels Supermarkets and hypermarkets, Specialised sport and organic shops, Online, Gyms and vending, Instagram (revisions: 0)
+   47.4s  validate_strategy  node     passed, 0 blocking, 1 warnings
+   47.4s  human_approval     pause    waiting for approval of target SEG2
+   47.4s  human_approval     node     approved
+   54.3s  creative           node     "Le croustillant végétal riche en protéines pour vos pauses sportives.", 5 messages (revisions: 0)
+   57.7s  validate_campaign  node     FAILED, 1 blocking, 0 warnings
+   63.6s  creative           node     "Le croustillant végétal riche en protéines pour vos pauses sportives.", 5 messages (revisions: 1)
+   67.7s  validate_campaign  node     FAILED, 1 blocking, 0 warnings
+   73.7s  creative           node     "Le croustillant végétal riche en protéines pour vos pauses sportives.", 5 messages (revisions: 2)
+   78.8s  validate_campaign  node     passed, 0 blocking, 0 warnings
+  103.2s  blueprint          node     blueprint.md written

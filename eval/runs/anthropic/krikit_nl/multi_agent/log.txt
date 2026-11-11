@@ -1,0 +1,24 @@
+   10.4s  extract_brief      node     Krikit GmbH, Krikit Adult (Netherlands), 7 missing info
+   14.1s  analyst            search   Yarrah hondenbrokken prijs 1,5 kg insect
+   14.1s  analyst            search   Hill's Prescription Diet z/d hondenvoer prijs 7 kg
+   14.1s  analyst            search   Royal Canin Veterinary Hypoallergenic hondenvoer prijs 7 kg
+   14.1s  analyst            search   insectenhondenvoer merken Nederland brokken (Insecta, Entomo Farms, Beyond Insects, Tasty Insect)
+   14.1s  analyst            search   Pets Place Zooplus Pets Premium eigen merk hondenbrokken prijs Nederland
+   17.1s  analyst            results  5 results
+   17.2s  analyst            results  5 results
+   17.2s  analyst            results  5 results
+   17.2s  analyst            results  5 results
+   17.2s  analyst            results  5 results
+   19.2s  analyst            search   Yora hondenbrokken adult insect 1,5 kg prijs
+   19.2s  analyst            search   insectenvoer hond Nederland markt duurzaam hondenvoer insecten consumenten
+   20.6s  analyst            results  5 results
+   20.6s  analyst            results  5 results
+   82.8s  analyst            node     7 competitors, 4 segments, 17 sources
+   96.8s  validate_analysis  node     passed, 0 blocking, 5 warnings
+  117.2s  strategist         node     target SEG2, channels Pet shop chains, Independent pet shops, Own online shop with subscription, Online pet retailers, Instagram (revisions: 0)
+  130.4s  validate_strategy  node     passed, 0 blocking, 4 warnings
+  130.4s  human_approval     pause    waiting for approval of target SEG2
+  130.4s  human_approval     node     approved
+  155.4s  creative           node     "Premium voeding, lichtere voetafdruk.", 5 messages (revisions: 0)
+  165.6s  validate_campaign  node     passed, 0 blocking, 3 warnings
+  182.8s  blueprint          node     blueprint.md written

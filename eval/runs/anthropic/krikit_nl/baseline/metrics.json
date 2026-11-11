@@ -1,0 +1,640 @@
+{
+  "system": "baseline",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 2021,
+        "output_tokens": 11727,
+        "total_tokens": 13748
+      }
+    },
+    "total_tokens": 13748,
+    "seconds": 89.9
+  },
+  "trap": {
+    "applies": false,
+    "segment": null,
+    "target": "Sustainability-minded owners who already buy premium food",
+    "avoided": null
+  },
+  "traceability": {
+    "score": 0.8823529411764706,
+    "claims": 34,
+    "traced": 30,
+    "unquoted": 3,
+    "items": [
+      {
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and alternative-protein dog food grew 22% a year from 2022 to 2024 [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The Dutch dog food market was worth **640 million euros in 2024**. Premium dry dog food has a **31% share** [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "**Alternative-protein dog food grew 22% a year** between 2022 and 2024 [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "There are **1.6 million households with at least one dog** [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Channel split (2024): supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Sold in about 650 pet shops and vets plus its own online shop (35% of sales) [1]",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Negotiating with one of the two largest pet shop chains (about 150 stores) and a vet-clinic distributor.",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Yarrah is the closest sustainability-minded competitor but is anchored in supermarkets and organic shops [6].",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "**Owners with sensitive dogs:** a trusted vet recommendation, a novel protein without common allergens, and proof it works [2][5].",
+        "refs": [
+          "2",
+          "5"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "| **Owners of dogs with food sensitivities** | 0.29 million | 18% | 39% | ~113,000 | Gentle, novel-protein food. Mostly buy on vet advice [5] |",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **Sustainability-minded owners already buying premium food** | 0.38 million | 24% | 33% | ~125,000 | Environmental credentials and premium quality. Buy in pet shop chains and online [5] |",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **Supermarket buyers, price-driven** | 0.71 million | 44% | 6% | ~43,000 | Low price [5] |",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "| **First-time owners (dog under 2 years)** | 0.22 million | 14% | 21% | ~46,000 | Guidance and simplicity (inferred). Krikit Adult is for adult dogs [2], so many may have puppies (my inference) |",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The two top segments account for about 73% of intent-weighted households (238,000 of 327,000) and 42% of dog households [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Their intent is moderate",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "The Austrian price (9.93 euros/kg in the 1.5 kg bag, 7.84 euros/kg in the 7 kg bag) is the reference point [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Austria: 14.90 euros (1.5 kg), 54.90 euros (7 kg) [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Carbon footprint about 60% lower than beef-based dry food (2024 life cycle study commissioned by the company).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Company feeding test in Austria, 2024: 120 dogs, 6 weeks. 83% ate readily from day one, and 76% of owners would buy again [2]",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The Dutch price is not yet set and should be fixed only after a price benchmark.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Yarrah; Hill's Prescription Diet and Royal Canin Veterinary; at least two small online insect brands; own premium brands of the two largest pet shop chains [6]",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The document contains no price data [6].",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Premium dry dog food has a **31% share** [4]. The document does not say whether this share is by value or volume, so I assume value.",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Dutch owners are highly sustainability-minded and know insect protein [3]",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The first-year marketing budget is 350,000 euros [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The channels Krikit can realistically use (chains, independents and vets, online) account for **62% of the market**, about 397 million euros (calculation from [4]).",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The 1.5 million euro goal equals about **0.23%** of the total market (calculation from [3][4]).",
+        "refs": [
+          "3",
+          "4"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "The supermarket segment is the biggest but least interested, so it is excluded from the launch.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Supermarkets (38% of the market [4]) are excluded.",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Vet diets own the \"sensitive dog\" need with clinical credibility Krikit lacks [2][6].",
+        "refs": [
+          "2",
+          "6"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Insect-specialist rivals are online-only, which gives Krikit an advantage if it secures physical distribution [6][7].",
+        "refs": [
+          "6",
+          "7"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "They buy in pet shop chains and online [5], which are the two channels Krikit can open first [7].",
+        "refs": [
+          "5",
+          "7"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Sustainability messaging rests on a documented study, but it is company-commissioned, so transparency is essential [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "This is the highest-intent segment [5]",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 0.8292682926829268,
+    "checked": 41,
+    "matched": 34,
+    "not_found": 7,
+    "unverifiable": 0,
+    "items": [
+      {
+        "figure": "640 million euros",
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and alternative-protein dog food grew 22% a year from 2022 to 2024 [4].",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "The Dutch dog food market was worth 640 million euros in 2024, and alternative-protein dog food grew 22% a year from 2022 to 2024 [4].",
+        "status": "document"
+      },
+      {
+        "figure": "640 million euros",
+        "quote": "The Dutch dog food market was worth **640 million euros in 2024**. Premium dry dog food has a **31% share** [4].",
+        "status": "document"
+      },
+      {
+        "figure": "31%",
+        "quote": "The Dutch dog food market was worth **640 million euros in 2024**. Premium dry dog food has a **31% share** [4].",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "**Alternative-protein dog food grew 22% a year** between 2022 and 2024 [4].",
+        "status": "document"
+      },
+      {
+        "figure": "1.6 million",
+        "quote": "There are **1.6 million households with at least one dog** [4].",
+        "status": "document"
+      },
+      {
+        "figure": "38%",
+        "quote": "Channel split (2024): supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [4].",
+        "status": "document"
+      },
+      {
+        "figure": "29%",
+        "quote": "Channel split (2024): supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [4].",
+        "status": "document"
+      },
+      {
+        "figure": "15%",
+        "quote": "Channel split (2024): supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [4].",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "Channel split (2024): supermarkets 38%, pet shop chains 29%, independent pet shops and vets 15%, online 18% [4].",
+        "status": "document"
+      },
+      {
+        "figure": "650",
+        "quote": "Sold in about 650 pet shops and vets plus its own online shop (35% of sales) [1]",
+        "status": "document"
+      },
+      {
+        "figure": "35%",
+        "quote": "Sold in about 650 pet shops and vets plus its own online shop (35% of sales) [1]",
+        "status": "document"
+      },
+      {
+        "figure": "150",
+        "quote": "Negotiating with one of the two largest pet shop chains (about 150 stores) and a vet-clinic distributor.",
+        "status": "document"
+      },
+      {
+        "figure": "0.29 million",
+        "quote": "| **Owners of dogs with food sensitivities** | 0.29 million | 18% | 39% | ~113,000 | Gentle, novel-protein food. Mostly buy on vet advice [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "| **Owners of dogs with food sensitivities** | 0.29 million | 18% | 39% | ~113,000 | Gentle, novel-protein food. Mostly buy on vet advice [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "39%",
+        "quote": "| **Owners of dogs with food sensitivities** | 0.29 million | 18% | 39% | ~113,000 | Gentle, novel-protein food. Mostly buy on vet advice [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "0.38 million",
+        "quote": "| **Sustainability-minded owners already buying premium food** | 0.38 million | 24% | 33% | ~125,000 | Environmental credentials and premium quality. Buy in pet shop chains and online [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "24%",
+        "quote": "| **Sustainability-minded owners already buying premium food** | 0.38 million | 24% | 33% | ~125,000 | Environmental credentials and premium quality. Buy in pet shop chains and online [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "33%",
+        "quote": "| **Sustainability-minded owners already buying premium food** | 0.38 million | 24% | 33% | ~125,000 | Environmental credentials and premium quality. Buy in pet shop chains and online [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "0.71 million",
+        "quote": "| **Supermarket buyers, price-driven** | 0.71 million | 44% | 6% | ~43,000 | Low price [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "44%",
+        "quote": "| **Supermarket buyers, price-driven** | 0.71 million | 44% | 6% | ~43,000 | Low price [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "| **Supermarket buyers, price-driven** | 0.71 million | 44% | 6% | ~43,000 | Low price [5] |",
+        "status": "document"
+      },
+      {
+        "figure": "0.22 million",
+        "quote": "| **First-time owners (dog under 2 years)** | 0.22 million | 14% | 21% | ~46,000 | Guidance and simplicity (inferred). Krikit Adult is for adult dogs [2], so many may have puppies (my inference) |",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "| **First-time owners (dog under 2 years)** | 0.22 million | 14% | 21% | ~46,000 | Guidance and simplicity (inferred). Krikit Adult is for adult dogs [2], so many may have puppies (my inference) |",
+        "status": "document"
+      },
+      {
+        "figure": "21%",
+        "quote": "| **First-time owners (dog under 2 years)** | 0.22 million | 14% | 21% | ~46,000 | Guidance and simplicity (inferred). Krikit Adult is for adult dogs [2], so many may have puppies (my inference) |",
+        "status": "document"
+      },
+      {
+        "figure": "73%",
+        "quote": "The two top segments account for about 73% of intent-weighted households (238,000 of 327,000) and 42% of dog households [5].",
+        "status": "not found"
+      },
+      {
+        "figure": "42%",
+        "quote": "The two top segments account for about 73% of intent-weighted households (238,000 of 327,000) and 42% of dog households [5].",
+        "status": "not found"
+      },
+      {
+        "figure": "9.93 euros/kg",
+        "quote": "The Austrian price (9.93 euros/kg in the 1.5 kg bag, 7.84 euros/kg in the 7 kg bag) is the reference point [2].",
+        "status": "not found"
+      },
+      {
+        "figure": "7.84 euros/kg",
+        "quote": "The Austrian price (9.93 euros/kg in the 1.5 kg bag, 7.84 euros/kg in the 7 kg bag) is the reference point [2].",
+        "status": "not found"
+      },
+      {
+        "figure": "14.90 euros",
+        "quote": "Austria: 14.90 euros (1.5 kg), 54.90 euros (7 kg) [2].",
+        "status": "document"
+      },
+      {
+        "figure": "54.90 euros",
+        "quote": "Austria: 14.90 euros (1.5 kg), 54.90 euros (7 kg) [2].",
+        "status": "document"
+      },
+      {
+        "figure": "60%",
+        "quote": "Carbon footprint about 60% lower than beef-based dry food (2024 life cycle study commissioned by the company).",
+        "status": "document"
+      },
+      {
+        "figure": "120 dogs",
+        "quote": "Company feeding test in Austria, 2024: 120 dogs, 6 weeks. 83% ate readily from day one, and 76% of owners would buy again [2]",
+        "status": "document"
+      },
+      {
+        "figure": "83%",
+        "quote": "Company feeding test in Austria, 2024: 120 dogs, 6 weeks. 83% ate readily from day one, and 76% of owners would buy again [2]",
+        "status": "document"
+      },
+      {
+        "figure": "76%",
+        "quote": "Company feeding test in Austria, 2024: 120 dogs, 6 weeks. 83% ate readily from day one, and 76% of owners would buy again [2]",
+        "status": "document"
+      },
+      {
+        "figure": "at least two",
+        "quote": "Yarrah; Hill's Prescription Diet and Royal Canin Veterinary; at least two small online insect brands; own premium brands of the two largest pet shop chains [6]",
+        "status": "no number"
+      },
+      {
+        "figure": "31%",
+        "quote": "Premium dry dog food has a **31% share** [4]. The document does not say whether this share is by value or volume, so I assume value.",
+        "status": "document"
+      },
+      {
+        "figure": "350,000 euros",
+        "quote": "The first-year marketing budget is 350,000 euros [7].",
+        "status": "document"
+      },
+      {
+        "figure": "62%",
+        "quote": "The channels Krikit can realistically use (chains, independents and vets, online) account for **62% of the market**, about 397 million euros (calculation from [4]).",
+        "status": "not found"
+      },
+      {
+        "figure": "397 million euros",
+        "quote": "The channels Krikit can realistically use (chains, independents and vets, online) account for **62% of the market**, about 397 million euros (calculation from [4]).",
+        "status": "not found"
+      },
+      {
+        "figure": "0.23%",
+        "quote": "The 1.5 million euro goal equals about **0.23%** of the total market (calculation from [3][4]).",
+        "status": "not found"
+      },
+      {
+        "figure": "38%",
+        "quote": "Supermarkets (38% of the market [4]) are excluded.",
+        "status": "document"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: krikit_insect_dogfood_nl.md, 1. Company overview",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: krikit_insect_dogfood_nl.md, 2. The product: Krikit Adult",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "Document: krikit_insect_dogfood_nl.md, 3. Why the Netherlands, and launch goals",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "Document: krikit_insect_dogfood_nl.md, 4. Market context (PetMarket Benelux, \"Pet food in the Netherlands 2025\", and Dutch Pet Owner Survey 2025, both identified as fictional)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "Document: krikit_insect_dogfood_nl.md, 5. Dog owner groups (Dutch Pet Owner Survey 2025)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "Document: krikit_insect_dogfood_nl.md, 6. Competitors",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "Document: krikit_insect_dogfood_nl.md, 7. Distribution and marketing",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "Document: krikit_insect_dogfood_nl.md, 8. Open points",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 4,
+      "reason": "The primary target (sustainability-minded premium owners, 0.38M households, 33% intent, ~125,000 intent-weighted) is derived from the segment table, and channels (chains, online, vets) follow from the buying-behaviour data and the goals. One gap: the 5–10% subscription discount and the price direction are only loosely tied to the analysis, since no price benchmark exists, and the plan admits this."
+    },
+    "campaign_vs_strategy": {
+      "score": 4,
+      "reason": "The channel messages (pet shop chain, online, vets, social, PR) reflect the sustainability-plus-dog-benefit positioning and use only the strategy's channels, with the required LCA qualifier. The vet message addresses the secondary sensitive-dog segment, which is a planned secondary track, and the content ideas are somewhat generic in places."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 56730,
+      "output_tokens": 7564,
+      "total_tokens": 64294
+    }
+  },
+  "judge_runs": [
+    {
+      "traceability": 0.8823529411764706,
+      "faithfulness": 0.8292682926829268,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    },
+    {
+      "traceability": 0.95,
+      "faithfulness": 1.0,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    },
+    {
+      "traceability": 0.9545454545454546,
+      "faithfulness": 0.7777777777777778,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    }
+  ],
+  "judge_mean": {
+    "traceability": 0.9289661319073085,
+    "faithfulness": 0.8690153568202348,
+    "coherence_strategy": 4.0,
+    "coherence_campaign": 4.0,
+    "trap_avoided": null
+  }
+}

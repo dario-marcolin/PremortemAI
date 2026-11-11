@@ -133,7 +133,7 @@ def _with_spread(metrics: dict, key: str, fmt) -> str:
     """The score, with the (min-max) of the repeated judge runs when they differ."""
     value = fmt(scores(metrics)[key])
     low_high = spread(metrics).get(key)
-    if low_high and low_high[0] != low_high[1]:
+    if low_high and fmt(low_high[0]) != fmt(low_high[1]):  # not when the runs differ only after rounding
         value += f" ({fmt(low_high[0])}–{fmt(low_high[1])})"
     return value
 

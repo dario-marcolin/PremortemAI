@@ -1,0 +1,69 @@
+{
+  "document": "data/demo/demo_company.pdf",
+  "provider": "gemini",
+  "base_url": null,
+  "models": {
+    "brief": "google_genai:gemini-3.5-flash-lite",
+    "analyst": "google_genai:gemini-3.5-flash-lite",
+    "strategist": "google_genai:gemini-3.5-flash-lite",
+    "creative": "google_genai:gemini-3.5-flash-lite",
+    "validator": "google_genai:gemini-3.5-flash-lite",
+    "blueprint": "google_genai:gemini-3.6-flash"
+  },
+  "eval_judge": "google_genai:gemini-3.5-flash-lite",
+  "status": "done",
+  "error": null,
+  "decisions": [
+    {
+      "approved": true,
+      "target_segment_id": "SEG2",
+      "unresolved": false
+    }
+  ],
+  "strategy_revisions": 0,
+  "campaign_revisions": 2,
+  "validations": [
+    {
+      "stage": "analysis",
+      "passed": true
+    },
+    {
+      "stage": "strategy",
+      "passed": true
+    },
+    {
+      "stage": "campaign",
+      "passed": false
+    },
+    {
+      "stage": "campaign",
+      "passed": false
+    },
+    {
+      "stage": "campaign",
+      "passed": true
+    }
+  ],
+  "tokens": {
+    "gemini-3.5-flash-lite": {
+      "total_tokens": 65360,
+      "input_tokens": 60283,
+      "input_token_details": {
+        "cache_read": 3892
+      },
+      "output_tokens": 5077
+    },
+    "gemini-3.6-flash": {
+      "input_tokens": 2850,
+      "output_tokens": 1725,
+      "total_tokens": 4575,
+      "input_token_details": {
+        "cache_read": 0
+      },
+      "output_token_details": {
+        "reasoning": 1522
+      }
+    }
+  },
+  "seconds": 103.2
+}

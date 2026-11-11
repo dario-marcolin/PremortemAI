@@ -1,0 +1,24 @@
+    8.2s  extract_brief      node     Kasa Software sp. z o.o., Fakturo (Italy), 5 missing info
+   10.9s  analyst            search   Fatture in Cloud prezzi piani abbonamento regime forfettario
+   11.0s  analyst            search   app fatturazione elettronica forfettari prezzo mensile Fattura24 Fatture in Cloud Aruba Qonto confronto
+   11.0s  analyst            search   fatturazione elettronica regime forfettari obbligo 2024 Agenzia delle Entrate servizio gratuito
+   11.0s  analyst            search   partite IVA forfettari Italia numero 2024 Osservatorio MEF
+   13.5s  analyst            results  5 results
+   13.5s  analyst            results  5 results
+   13.5s  analyst            results  5 results
+   13.5s  analyst            results  5 results
+   16.8s  analyst            search   Fiscozen forfettari prezzo abbonamento commercialista online partita IVA
+   16.8s  analyst            search   forfettari app calcolo tasse imposta sostitutiva stima F24 pagamento app fatturazione
+   16.8s  analyst            search   forfettari quanti si affidano al commercialista indagine freelance Italia strumenti gestione partita IVA
+   19.6s  analyst            results  5 results
+   19.7s  analyst            results  5 results
+   19.7s  analyst            results  5 results
+   77.6s  analyst            node     8 competitors, 4 segments, 18 sources
+   94.1s  validate_analysis  node     passed, 0 blocking, 2 warnings
+  111.2s  strategist         node     target SEG1, channels Professional associations, Accountant referrals, Search ads and SEO content, Instagram and LinkedIn, Free-trial onboarding emails (revisions: 0)
+  124.0s  validate_strategy  node     passed, 0 blocking, 2 warnings
+  124.0s  human_approval     pause    waiting for approval of target SEG1
+  124.0s  human_approval     node     approved
+  141.3s  creative           node     "Ogni fattura ti mostra le tasse.", 5 messages (revisions: 0)
+  149.1s  validate_campaign  node     passed, 0 blocking, 1 warnings
+  163.2s  blueprint          node     blueprint.md written

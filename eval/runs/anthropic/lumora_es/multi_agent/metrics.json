@@ -1,0 +1,777 @@
+{
+  "system": "multi_agent",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 88085,
+        "output_tokens": 21381,
+        "total_tokens": 109466
+      },
+      "claude-opus-5-5": {
+        "input_tokens": 7927,
+        "output_tokens": 2520,
+        "total_tokens": 10447
+      }
+    },
+    "total_tokens": 119913,
+    "seconds": 177.8
+  },
+  "trap": {
+    "applies": false,
+    "segment": null,
+    "target": "SEG1 Adults with difficulty waking in winter",
+    "avoided": null
+  },
+  "traceability": {
+    "score": 0.5454545454545454,
+    "claims": 33,
+    "traced": 18,
+    "unquoted": 7,
+    "items": [
+      {
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "The Spanish wake-up light market was worth 21 million euros in 2024, grew about 9% per year in 2022-2024, and the average price is 74 euros [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "In 2024 sales went mainly through online marketplaces (46%), then electronics chains (31%), department stores (14%) and other channels (9%) [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "38% of adults say they have difficulty waking up in winter [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Cheap unbranded imports start at 25 euros and often have poor reviews [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Price is the main barrier: 46% of adults not interested in the product say 90 euros is too much [6].",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Claridade already ships online to Spain (about 1,900 units in 2024, no marketing) and has a 450,000-euro marketing budget for 18 months [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Lumora's intended price of 89 to 99 euros is above the 74-euro average [5][1].",
+        "refs": [
+          "5",
+          "1"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Philips Wake-up Light (HF3531, HF3520/SmartSleep, HF3651/Somneo) | Market leader, sold in all electronics chains and the reference brand in Spanish review articles; several models. HF3531: 300 lux, 7 natural sounds, FM radio, USB phone charging, no app or WiFi control, described as bulky.",
+        "refs": [
+          "2",
+          "9",
+          "3",
+          "4",
+          "10",
+          "11",
+          "12",
+          "13"
+        ],
+        "valid_refs": 8,
+        "traced": true
+      },
+      {
+        "quote": "Lumie (Bodyclock range) | British brand specialised in wake-up and light-therapy lamps; premium models, mainly online, with a presence on Amazon.es. Models include Rise 100 (fixed 30 min sunrise, beep alarm only), Glow 150 (20-45 min sunrise, 10 sounds) and Shine 300 (15-90 min sunrise, 14 sounds, FM radio).",
+        "refs": [
+          "2",
+          "9",
+          "3",
+          "4",
+          "14",
+          "15",
+          "11",
+          "16"
+        ],
+        "valid_refs": 8,
+        "traced": true
+      },
+      {
+        "quote": "HF3520 is called best value for money and HF3651 the most complete. Reported as medically certified.",
+        "refs": [
+          "2",
+          "9",
+          "3",
+          "4",
+          "10",
+          "11",
+          "12",
+          "13"
+        ],
+        "valid_refs": 8,
+        "traced": true
+      },
+      {
+        "quote": "Smartia | Named 'Smartia 2025', the cheapest entry option for trying light-based waking without spending much.",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Philips is priced higher on the indicative web prices (about 142 euros for the HF3520, 167 euros or more for the HF3531).",
+        "refs": [
+          "2",
+          "13"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "No reliable Spanish price exists for Lumie (only a weak Rise 100 figure of about 115 euros).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Claridade already ships to Spain online (about 1,900 units in 2024 without marketing) and has a 450,000-euro budget over 18 months [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG1 is chosen because it is the only segment large enough for the 40,000-unit goal [8]. It has 11.4 million adults and a 24% purchase intent at about 90 euros [6].",
+        "refs": [
+          "8",
+          "6"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "SEG2, shift workers, has the highest intent (29%) but only 2.1 million adults",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "SEG3, parents, has 5.3 million adults and 17% intent",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "SEG4, students, has 1.2 million adults, 12% intent",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Spanish review articles treat Philips models as the reference [3][4].",
+        "refs": [
+          "3",
+          "4"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Lumie has no Spanish price except Rise 100 at about 115 euros in one YouTube video (weak).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Philips is the market leader, sold in all electronics chains.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Lumie is a premium British brand sold mainly online.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Reviewers found the cheaper models easy to use but limited in brightness options.",
+        "refs": [
+          "16"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The 'medically certified' claim for Philips and Lumie comes from one article.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Be listed in at least 600 stores, including one national electronics chain",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Reach a 4.3 rating or higher on Amazon Spain within the first year",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Somneo HF3651 from 229.99 euros",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "It already ships online orders to Spain (about 1,900 units in 2024 without marketing).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "In a company home test in Portugal in 2024 (180 participants, 4 weeks, no control group), 64% said they woke up \"more easily\" than with their usual alarm and 71% kept using the lamp after the test.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Blonbar | Wake-up lamp listed in a Spanish ranking as 'best design'.",
+        "refs": [
+          "9"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Winter mornings in western Spain stay dark until about 8:30.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "The document's market figures (IberiaTech Insights 2025, Panel Hogar 2025) are described as fictional",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 0.9285714285714286,
+    "checked": 56,
+    "matched": 52,
+    "not_found": 4,
+    "unverifiable": 0,
+    "items": [
+      {
+        "figure": "11.4 million",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "24%",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "90 euros",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "2.1 million",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "29%",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "5.3 million",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "17%",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "1.2 million",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "12%",
+        "quote": "It is the only segment large enough for the 40,000-unit goal: 11.4 million adults with 24% purchase intent at about 90 euros, against 2.1 million shift workers (29%), 5.3 million parents (17%) and 1.2 million students (12%).",
+        "status": "document"
+      },
+      {
+        "figure": "21 million euros",
+        "quote": "The Spanish wake-up light market was worth 21 million euros in 2024, grew about 9% per year in 2022-2024, and the average price is 74 euros [1].",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "The Spanish wake-up light market was worth 21 million euros in 2024, grew about 9% per year in 2022-2024, and the average price is 74 euros [1].",
+        "status": "document"
+      },
+      {
+        "figure": "74 euros",
+        "quote": "The Spanish wake-up light market was worth 21 million euros in 2024, grew about 9% per year in 2022-2024, and the average price is 74 euros [1].",
+        "status": "document"
+      },
+      {
+        "figure": "46%",
+        "quote": "In 2024 sales went mainly through online marketplaces (46%), then electronics chains (31%), department stores (14%) and other channels (9%) [1].",
+        "status": "document"
+      },
+      {
+        "figure": "31%",
+        "quote": "In 2024 sales went mainly through online marketplaces (46%), then electronics chains (31%), department stores (14%) and other channels (9%) [1].",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "In 2024 sales went mainly through online marketplaces (46%), then electronics chains (31%), department stores (14%) and other channels (9%) [1].",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "In 2024 sales went mainly through online marketplaces (46%), then electronics chains (31%), department stores (14%) and other channels (9%) [1].",
+        "status": "document"
+      },
+      {
+        "figure": "38%",
+        "quote": "38% of adults say they have difficulty waking up in winter [1].",
+        "status": "document"
+      },
+      {
+        "figure": "25 euros",
+        "quote": "Cheap unbranded imports start at 25 euros and often have poor reviews [2].",
+        "status": "document"
+      },
+      {
+        "figure": "46%",
+        "quote": "Price is the main barrier: 46% of adults not interested in the product say 90 euros is too much [6].",
+        "status": "document"
+      },
+      {
+        "figure": "90 euros",
+        "quote": "Price is the main barrier: 46% of adults not interested in the product say 90 euros is too much [6].",
+        "status": "document"
+      },
+      {
+        "figure": "1,900 units",
+        "quote": "Claridade already ships online to Spain (about 1,900 units in 2024, no marketing) and has a 450,000-euro marketing budget for 18 months [7].",
+        "status": "document"
+      },
+      {
+        "figure": "450,000 euros",
+        "quote": "Claridade already ships online to Spain (about 1,900 units in 2024, no marketing) and has a 450,000-euro marketing budget for 18 months [7].",
+        "status": "document"
+      },
+      {
+        "figure": "89 to 99 euros",
+        "quote": "Lumora's intended price of 89 to 99 euros is above the 74-euro average [5][1].",
+        "status": "document"
+      },
+      {
+        "figure": "74-euro",
+        "quote": "Lumora's intended price of 89 to 99 euros is above the 74-euro average [5][1].",
+        "status": "document"
+      },
+      {
+        "figure": "300 lux",
+        "quote": "Philips Wake-up Light (HF3531, HF3520/SmartSleep, HF3651/Somneo) | Market leader, sold in all electronics chains and the reference brand in Spanish review articles; several models. HF3531: 300 lux, 7 natural sounds, FM radio, USB phone charging, no app or WiFi control, described as bulky.",
+        "status": "document"
+      },
+      {
+        "figure": "7 natural sounds",
+        "quote": "Philips Wake-up Light (HF3531, HF3520/SmartSleep, HF3651/Somneo) | Market leader, sold in all electronics chains and the reference brand in Spanish review articles; several models. HF3531: 300 lux, 7 natural sounds, FM radio, USB phone charging, no app or WiFi control, described as bulky.",
+        "status": "document"
+      },
+      {
+        "figure": "30 min",
+        "quote": "Lumie (Bodyclock range) | British brand specialised in wake-up and light-therapy lamps; premium models, mainly online, with a presence on Amazon.es. Models include Rise 100 (fixed 30 min sunrise, beep alarm only), Glow 150 (20-45 min sunrise, 10 sounds) and Shine 300 (15-90 min sunrise, 14 sounds, FM radio).",
+        "status": "document"
+      },
+      {
+        "figure": "20-45 min",
+        "quote": "Lumie (Bodyclock range) | British brand specialised in wake-up and light-therapy lamps; premium models, mainly online, with a presence on Amazon.es. Models include Rise 100 (fixed 30 min sunrise, beep alarm only), Glow 150 (20-45 min sunrise, 10 sounds) and Shine 300 (15-90 min sunrise, 14 sounds, FM radio).",
+        "status": "source"
+      },
+      {
+        "figure": "10 sounds",
+        "quote": "Lumie (Bodyclock range) | British brand specialised in wake-up and light-therapy lamps; premium models, mainly online, with a presence on Amazon.es. Models include Rise 100 (fixed 30 min sunrise, beep alarm only), Glow 150 (20-45 min sunrise, 10 sounds) and Shine 300 (15-90 min sunrise, 14 sounds, FM radio).",
+        "status": "document"
+      },
+      {
+        "figure": "15-90 min",
+        "quote": "Lumie (Bodyclock range) | British brand specialised in wake-up and light-therapy lamps; premium models, mainly online, with a presence on Amazon.es. Models include Rise 100 (fixed 30 min sunrise, beep alarm only), Glow 150 (20-45 min sunrise, 10 sounds) and Shine 300 (15-90 min sunrise, 14 sounds, FM radio).",
+        "status": "source"
+      },
+      {
+        "figure": "14 sounds",
+        "quote": "Lumie (Bodyclock range) | British brand specialised in wake-up and light-therapy lamps; premium models, mainly online, with a presence on Amazon.es. Models include Rise 100 (fixed 30 min sunrise, beep alarm only), Glow 150 (20-45 min sunrise, 10 sounds) and Shine 300 (15-90 min sunrise, 14 sounds, FM radio).",
+        "status": "document"
+      },
+      {
+        "figure": "142 euros",
+        "quote": "Philips is priced higher on the indicative web prices (about 142 euros for the HF3520, 167 euros or more for the HF3531).",
+        "status": "not found"
+      },
+      {
+        "figure": "167 euros",
+        "quote": "Philips is priced higher on the indicative web prices (about 142 euros for the HF3520, 167 euros or more for the HF3531).",
+        "status": "source"
+      },
+      {
+        "figure": "115 euros",
+        "quote": "No reliable Spanish price exists for Lumie (only a weak Rise 100 figure of about 115 euros).",
+        "status": "not found"
+      },
+      {
+        "figure": "1,900 units",
+        "quote": "Claridade already ships to Spain online (about 1,900 units in 2024 without marketing) and has a 450,000-euro budget over 18 months [7].",
+        "status": "document"
+      },
+      {
+        "figure": "450,000 euros",
+        "quote": "Claridade already ships to Spain online (about 1,900 units in 2024 without marketing) and has a 450,000-euro budget over 18 months [7].",
+        "status": "document"
+      },
+      {
+        "figure": "40,000 units",
+        "quote": "SEG1 is chosen because it is the only segment large enough for the 40,000-unit goal [8]. It has 11.4 million adults and a 24% purchase intent at about 90 euros [6].",
+        "status": "document"
+      },
+      {
+        "figure": "11.4 million",
+        "quote": "SEG1 is chosen because it is the only segment large enough for the 40,000-unit goal [8]. It has 11.4 million adults and a 24% purchase intent at about 90 euros [6].",
+        "status": "document"
+      },
+      {
+        "figure": "24%",
+        "quote": "SEG1 is chosen because it is the only segment large enough for the 40,000-unit goal [8]. It has 11.4 million adults and a 24% purchase intent at about 90 euros [6].",
+        "status": "document"
+      },
+      {
+        "figure": "90 euros",
+        "quote": "SEG1 is chosen because it is the only segment large enough for the 40,000-unit goal [8]. It has 11.4 million adults and a 24% purchase intent at about 90 euros [6].",
+        "status": "document"
+      },
+      {
+        "figure": "29%",
+        "quote": "SEG2, shift workers, has the highest intent (29%) but only 2.1 million adults",
+        "status": "document"
+      },
+      {
+        "figure": "2.1 million",
+        "quote": "SEG2, shift workers, has the highest intent (29%) but only 2.1 million adults",
+        "status": "document"
+      },
+      {
+        "figure": "5.3 million",
+        "quote": "SEG3, parents, has 5.3 million adults and 17% intent",
+        "status": "document"
+      },
+      {
+        "figure": "17%",
+        "quote": "SEG3, parents, has 5.3 million adults and 17% intent",
+        "status": "document"
+      },
+      {
+        "figure": "1.2 million",
+        "quote": "SEG4, students, has 1.2 million adults, 12% intent",
+        "status": "document"
+      },
+      {
+        "figure": "12%",
+        "quote": "SEG4, students, has 1.2 million adults, 12% intent",
+        "status": "document"
+      },
+      {
+        "figure": "115 euros",
+        "quote": "Lumie has no Spanish price except Rise 100 at about 115 euros in one YouTube video (weak).",
+        "status": "not found"
+      },
+      {
+        "figure": "600 stores",
+        "quote": "Be listed in at least 600 stores, including one national electronics chain",
+        "status": "document"
+      },
+      {
+        "figure": "4.3",
+        "quote": "Reach a 4.3 rating or higher on Amazon Spain within the first year",
+        "status": "document"
+      },
+      {
+        "figure": "229.99 euros",
+        "quote": "Somneo HF3651 from 229.99 euros",
+        "status": "not found"
+      },
+      {
+        "figure": "1,900 units",
+        "quote": "It already ships online orders to Spain (about 1,900 units in 2024 without marketing).",
+        "status": "document"
+      },
+      {
+        "figure": "180 participants",
+        "quote": "In a company home test in Portugal in 2024 (180 participants, 4 weeks, no control group), 64% said they woke up \"more easily\" than with their usual alarm and 71% kept using the lamp after the test.",
+        "status": "document"
+      },
+      {
+        "figure": "4 weeks",
+        "quote": "In a company home test in Portugal in 2024 (180 participants, 4 weeks, no control group), 64% said they woke up \"more easily\" than with their usual alarm and 71% kept using the lamp after the test.",
+        "status": "document"
+      },
+      {
+        "figure": "64%",
+        "quote": "In a company home test in Portugal in 2024 (180 participants, 4 weeks, no control group), 64% said they woke up \"more easily\" than with their usual alarm and 71% kept using the lamp after the test.",
+        "status": "document"
+      },
+      {
+        "figure": "71%",
+        "quote": "In a company home test in Portugal in 2024 (180 participants, 4 weeks, no control group), 64% said they woke up \"more easily\" than with their usual alarm and 71% kept using the lamp after the test.",
+        "status": "document"
+      },
+      {
+        "figure": "8:30",
+        "quote": "Winter mornings in western Spain stay dark until about 8:30.",
+        "status": "document"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: Company document, section 4 (Market context)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: Company document, section 6 (Competitors)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "https://www.elindependiente.com/de-tiendas/2025/12/21/despertador-solar",
+      "kind": "web",
+      "url": "https://www.elindependiente.com/de-tiendas/2025/12/21/despertador-solar",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "https://lacasasibarita.es/descanso/despertadores-solares",
+      "kind": "web",
+      "url": "https://lacasasibarita.es/descanso/despertadores-solares",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "Document: Company document, section 2 (The product: Lumora)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "Document: Company document, section 5 (Consumer groups)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "Document: Company document, section 7 (Distribution and marketing)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "Document: Company document, section 3 (Why Spain, and launch goals)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "9",
+      "reference": "https://www.menshealth.com/es/tecnologia/g63735822/mejores-despertadores-luz-simulan-amanecer",
+      "kind": "web",
+      "url": "https://www.menshealth.com/es/tecnologia/g63735822/mejores-despertadores-luz-simulan-amanecer",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "10",
+      "reference": "https://www.idealo.es/lista/118156156/wake-up-light.html",
+      "kind": "web",
+      "url": "https://www.idealo.es/lista/118156156/wake-up-light.html",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "11",
+      "reference": "https://www.youtube.com/watch?v=a1nLWM1MyY0",
+      "kind": "web",
+      "url": "https://www.youtube.com/watch?v=a1nLWM1MyY0",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "12",
+      "reference": "https://www.philips.es/c-p/HF3519_01/smartsleep-wake-up-light",
+      "kind": "web",
+      "url": "https://www.philips.es/c-p/HF3519_01/smartsleep-wake-up-light",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "13",
+      "reference": "https://www.amazon.es/Philips-Wake-Up-Light-HF3531/dp/B01J9WQP76",
+      "kind": "web",
+      "url": "https://www.amazon.es/Philips-Wake-Up-Light-HF3531/dp/B01J9WQP76",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "14",
+      "reference": "https://www.lumie.com/collections/wake-up-lights",
+      "kind": "web",
+      "url": "https://www.lumie.com/collections/wake-up-lights",
+      "status": "unreadable",
+      "detail": "HTTP 429",
+      "valid": true
+    },
+    {
+      "number": "15",
+      "reference": "https://www.amazon.es/despertador-amanecer-Iluminaci%C3%B3n-Lumie/s?k=despertador+amanecer&rh=n%3A3564289031%2Cp_4%3ALumie",
+      "kind": "web",
+      "url": "https://www.amazon.es/despertador-amanecer-Iluminaci%C3%B3n-Lumie/s?k=despertador+amanecer&rh=n%3A3564289031%2Cp_4%3ALumie",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "16",
+      "reference": "https://optimizeyourbiology.com/lumie-bodyclocks-review",
+      "kind": "web",
+      "url": "https://optimizeyourbiology.com/lumie-bodyclocks-review",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 4,
+      "reason": "SEG1 is chosen because it is the only segment large enough for the 40,000-unit goal (11.4M adults at 24% intent, versus 2.1M shift workers at 29% and 5.3M parents at 17%), and the plan compares segments with their figures. Pricing at 89 euros is justified by the 74-euro average and the 46% price barrier, and channels follow the 2024 channel shares. The one gap is that the \"below Philips\" positioning rests on indicative web prices the plan itself flags as conflicting with the document, and the Lumie price is missing."
+    },
+    "campaign_vs_strategy": {
+      "score": 4,
+      "reason": "Every channel message targets winter-morning waking, uses the positioning's features (30-minute sunrise, 300 lux, sunset mode, 8 sounds, FM, app or buttons, 2-year warranty) and avoids medical or comparative claims, at the 89-euro price. The channels match the strategy, but the campaign has no message for shift workers or parents and the secondary-segment messages the strategy mentions are only in content ideas, so one channel-level message is generic."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 62052,
+      "output_tokens": 9525,
+      "total_tokens": 71577
+    }
+  },
+  "judge_runs": [
+    {
+      "traceability": 0.5454545454545454,
+      "faithfulness": 0.9285714285714286,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    },
+    {
+      "traceability": 0.6296296296296297,
+      "faithfulness": 0.88,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    },
+    {
+      "traceability": 0.6206896551724138,
+      "faithfulness": 0.8305084745762712,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": null
+    }
+  ],
+  "judge_mean": {
+    "traceability": 0.5985912767521963,
+    "faithfulness": 0.8796933010492333,
+    "coherence_strategy": 4.0,
+    "coherence_campaign": 4.0,
+    "trap_avoided": null
+  }
+}

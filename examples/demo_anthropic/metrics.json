@@ -1,0 +1,745 @@
+{
+  "system": "multi_agent",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 119389,
+        "output_tokens": 20443,
+        "total_tokens": 139832
+      },
+      "claude-opus-5-5": {
+        "input_tokens": 7454,
+        "output_tokens": 1034,
+        "total_tokens": 8488
+      }
+    },
+    "total_tokens": 148320,
+    "seconds": 158.2
+  },
+  "trap": {
+    "applies": true,
+    "segment": "Vegans and strict vegetarians: 72% purchase intent but only 1.3 million adults, 2.5% of adults 18-64",
+    "target": "SEG2 Weekly sport practitioners",
+    "avoided": true
+  },
+  "traceability": {
+    "score": 0.7666666666666667,
+    "claims": 30,
+    "traced": 23,
+    "unquoted": 4,
+    "items": [
+      {
+        "quote": "They are the largest group: 17.5M adults (34% of adults aged 18-64), with 41% purchase intent for a similar concept.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Vegans show higher intent (72%) but number only 1.3M.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Office workers (9.0M, 38%) overlap with sport practitioners, and parents have the lowest intent (22%).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "France's savoury snack market was worth 2.9 billion euros in 2024, and the protein snack category 480 million euros [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The protein category grew 11% per year from 2021 to 2024, and plant-based products are 18% of it [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "27% of French adults bought a protein snack in the last three months [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Supermarkets and hypermarkets make up 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "A blog says high-protein food revenue grew more than five-fold between 2020 and 2024, with premium prices 20% to 100% above standard products.",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Barebells | Protein bars and snacks with a sport-oriented image, strong in gyms and supermarkets [4]. Bars with 16-20 g of protein and no added sugar [5].",
+        "refs": [
+          "4",
+          "5"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Chickpea products exist at Carrefour, such as chickpea crisps for kids, with about 12% of calories from protein, so not a protein positioning [10].",
+        "refs": [
+          "10"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Protein chips sold in French sports-nutrition online shops, in 6 x 50 g boxes at 12.90 euros [11].",
+        "refs": [
+          "11"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Lentil-based protein chips (65 g, Extra Spicy) distributed through the Ankorstore wholesale marketplace [12].",
+        "refs": [
+          "12"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Protein snacks that fit regular physical activity: 71% of French people exercise regularly, per a blog [3]",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Supermarkets and hypermarkets make up 68% of protein snack sales",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "A sports-nutrition survey finds the most regular consumers of sports nutrition products are the most regular sports practitioners (51%), but its sample is unclear [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The few protein-crisp prices found (Inlead, around 2.15 euros per 50 g bag, my arithmetic)",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "An unbranded 30 g protein crisp at 2.25 euros was found on a diet e-shop",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Entered the protein snack category in 2023 with lower prices [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The company calls France the fastest-growing protein snack market in Southern Europe, and sees Nutri-Score, which was created in France, as a shelf argument [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Great taste is the most important attribute of a protein snack, even among regular users; value, relevance and taste are the main barriers in protein bars [13]",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Texture was the most appreciated attribute of Proteo Crisps in Italian blind tests, while a quarter of participants found Smoked Paprika too strong, so flavour intensity matters [14]",
+        "refs": [
+          "14"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "1.3M adults, 2.5% of adults aged 18-64 [16]",
+        "refs": [
+          "16"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "7.1M adults, 14% of adults aged 18-64 [16]",
+        "refs": [
+          "16"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The most enthusiastic group, with 72% purchase intent for a high-protein plant-based crisp concept; the most active group on social media [16].",
+        "refs": [
+          "16"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Gyms and vending are 6% of protein snack sales and specialised sport shops are part of a 17% channel with organic shops [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG1 (vegans) has the highest intent (72%) but only 1.3M adults, about 0.9M intenders, and plant-based is only 18% of the category [1][16].",
+        "refs": [
+          "1",
+          "16"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "SEG3 (office workers, 9.0M, 38%) is half the size and overlaps with SEG2 [16].",
+        "refs": [
+          "16"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG4 (parents, 7.1M) has the lowest intent, 22% [16].",
+        "refs": [
+          "16"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The analysts' own arithmetic, not in any source: plant-based protein snacks at 18% of 480M euros is about 86M euros, and a 2% value share is about 9.6M euros.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "A GFI Europe item on French plant-based sales (+20.5% over two years) was seen only as a headline and is not used.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 0.8653846153846154,
+    "checked": 52,
+    "matched": 45,
+    "not_found": 7,
+    "unverifiable": 1,
+    "items": [
+      {
+        "figure": "17.5M adults",
+        "quote": "They are the largest group: 17.5M adults (34% of adults aged 18-64), with 41% purchase intent for a similar concept.",
+        "status": "document"
+      },
+      {
+        "figure": "34%",
+        "quote": "They are the largest group: 17.5M adults (34% of adults aged 18-64), with 41% purchase intent for a similar concept.",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "They are the largest group: 17.5M adults (34% of adults aged 18-64), with 41% purchase intent for a similar concept.",
+        "status": "document"
+      },
+      {
+        "figure": "72%",
+        "quote": "Vegans show higher intent (72%) but number only 1.3M.",
+        "status": "document"
+      },
+      {
+        "figure": "1.3M",
+        "quote": "Vegans show higher intent (72%) but number only 1.3M.",
+        "status": "document"
+      },
+      {
+        "figure": "9.0M",
+        "quote": "Office workers (9.0M, 38%) overlap with sport practitioners, and parents have the lowest intent (22%).",
+        "status": "document"
+      },
+      {
+        "figure": "38%",
+        "quote": "Office workers (9.0M, 38%) overlap with sport practitioners, and parents have the lowest intent (22%).",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "Office workers (9.0M, 38%) overlap with sport practitioners, and parents have the lowest intent (22%).",
+        "status": "document"
+      },
+      {
+        "figure": "2.9 billion euros",
+        "quote": "France's savoury snack market was worth 2.9 billion euros in 2024, and the protein snack category 480 million euros [1].",
+        "status": "document"
+      },
+      {
+        "figure": "480 million euros",
+        "quote": "France's savoury snack market was worth 2.9 billion euros in 2024, and the protein snack category 480 million euros [1].",
+        "status": "document"
+      },
+      {
+        "figure": "11%",
+        "quote": "The protein category grew 11% per year from 2021 to 2024, and plant-based products are 18% of it [1].",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "The protein category grew 11% per year from 2021 to 2024, and plant-based products are 18% of it [1].",
+        "status": "document"
+      },
+      {
+        "figure": "27%",
+        "quote": "27% of French adults bought a protein snack in the last three months [1].",
+        "status": "document"
+      },
+      {
+        "figure": "68%",
+        "quote": "Supermarkets and hypermarkets make up 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "17%",
+        "quote": "Supermarkets and hypermarkets make up 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "Supermarkets and hypermarkets make up 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "Supermarkets and hypermarkets make up 68% of protein snack sales, specialised sport and organic shops 17%, online 9%, and gyms and vending 6% [1].",
+        "status": "document"
+      },
+      {
+        "figure": "20%",
+        "quote": "A blog says high-protein food revenue grew more than five-fold between 2020 and 2024, with premium prices 20% to 100% above standard products.",
+        "status": "source"
+      },
+      {
+        "figure": "100%",
+        "quote": "A blog says high-protein food revenue grew more than five-fold between 2020 and 2024, with premium prices 20% to 100% above standard products.",
+        "status": "source"
+      },
+      {
+        "figure": "16-20 g",
+        "quote": "Barebells | Protein bars and snacks with a sport-oriented image, strong in gyms and supermarkets [4]. Bars with 16-20 g of protein and no added sugar [5].",
+        "status": "unverifiable"
+      },
+      {
+        "figure": "12%",
+        "quote": "Chickpea products exist at Carrefour, such as chickpea crisps for kids, with about 12% of calories from protein, so not a protein positioning [10].",
+        "status": "source"
+      },
+      {
+        "figure": "6 x 50 g",
+        "quote": "Protein chips sold in French sports-nutrition online shops, in 6 x 50 g boxes at 12.90 euros [11].",
+        "status": "source"
+      },
+      {
+        "figure": "12.90 euros",
+        "quote": "Protein chips sold in French sports-nutrition online shops, in 6 x 50 g boxes at 12.90 euros [11].",
+        "status": "source"
+      },
+      {
+        "figure": "65 g",
+        "quote": "Lentil-based protein chips (65 g, Extra Spicy) distributed through the Ankorstore wholesale marketplace [12].",
+        "status": "source"
+      },
+      {
+        "figure": "71%",
+        "quote": "Protein snacks that fit regular physical activity: 71% of French people exercise regularly, per a blog [3]",
+        "status": "source"
+      },
+      {
+        "figure": "68%",
+        "quote": "Supermarkets and hypermarkets make up 68% of protein snack sales",
+        "status": "document"
+      },
+      {
+        "figure": "51%",
+        "quote": "A sports-nutrition survey finds the most regular consumers of sports nutrition products are the most regular sports practitioners (51%), but its sample is unclear [17].",
+        "status": "document"
+      },
+      {
+        "figure": "2.15 euros",
+        "quote": "The few protein-crisp prices found (Inlead, around 2.15 euros per 50 g bag, my arithmetic)",
+        "status": "not found"
+      },
+      {
+        "figure": "50 g",
+        "quote": "The few protein-crisp prices found (Inlead, around 2.15 euros per 50 g bag, my arithmetic)",
+        "status": "not found"
+      },
+      {
+        "figure": "30 g",
+        "quote": "An unbranded 30 g protein crisp at 2.25 euros was found on a diet e-shop",
+        "status": "document"
+      },
+      {
+        "figure": "2.25 euros",
+        "quote": "An unbranded 30 g protein crisp at 2.25 euros was found on a diet e-shop",
+        "status": "not found"
+      },
+      {
+        "figure": "2023",
+        "quote": "Entered the protein snack category in 2023 with lower prices [4].",
+        "status": "document"
+      },
+      {
+        "figure": "a quarter",
+        "quote": "Texture was the most appreciated attribute of Proteo Crisps in Italian blind tests, while a quarter of participants found Smoked Paprika too strong, so flavour intensity matters [14]",
+        "status": "no number"
+      },
+      {
+        "figure": "1.3M adults",
+        "quote": "1.3M adults, 2.5% of adults aged 18-64 [16]",
+        "status": "document"
+      },
+      {
+        "figure": "2.5%",
+        "quote": "1.3M adults, 2.5% of adults aged 18-64 [16]",
+        "status": "document"
+      },
+      {
+        "figure": "7.1M adults",
+        "quote": "7.1M adults, 14% of adults aged 18-64 [16]",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "7.1M adults, 14% of adults aged 18-64 [16]",
+        "status": "document"
+      },
+      {
+        "figure": "72%",
+        "quote": "The most enthusiastic group, with 72% purchase intent for a high-protein plant-based crisp concept; the most active group on social media [16].",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "Gyms and vending are 6% of protein snack sales and specialised sport shops are part of a 17% channel with organic shops [1].",
+        "status": "document"
+      },
+      {
+        "figure": "17%",
+        "quote": "Gyms and vending are 6% of protein snack sales and specialised sport shops are part of a 17% channel with organic shops [1].",
+        "status": "document"
+      },
+      {
+        "figure": "72%",
+        "quote": "SEG1 (vegans) has the highest intent (72%) but only 1.3M adults, about 0.9M intenders, and plant-based is only 18% of the category [1][16].",
+        "status": "document"
+      },
+      {
+        "figure": "1.3M adults",
+        "quote": "SEG1 (vegans) has the highest intent (72%) but only 1.3M adults, about 0.9M intenders, and plant-based is only 18% of the category [1][16].",
+        "status": "document"
+      },
+      {
+        "figure": "0.9M",
+        "quote": "SEG1 (vegans) has the highest intent (72%) but only 1.3M adults, about 0.9M intenders, and plant-based is only 18% of the category [1][16].",
+        "status": "not found"
+      },
+      {
+        "figure": "18%",
+        "quote": "SEG1 (vegans) has the highest intent (72%) but only 1.3M adults, about 0.9M intenders, and plant-based is only 18% of the category [1][16].",
+        "status": "document"
+      },
+      {
+        "figure": "9.0M",
+        "quote": "SEG3 (office workers, 9.0M, 38%) is half the size and overlaps with SEG2 [16].",
+        "status": "document"
+      },
+      {
+        "figure": "38%",
+        "quote": "SEG3 (office workers, 9.0M, 38%) is half the size and overlaps with SEG2 [16].",
+        "status": "document"
+      },
+      {
+        "figure": "7.1M",
+        "quote": "SEG4 (parents, 7.1M) has the lowest intent, 22% [16].",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "SEG4 (parents, 7.1M) has the lowest intent, 22% [16].",
+        "status": "document"
+      },
+      {
+        "figure": "480M euros",
+        "quote": "The analysts' own arithmetic, not in any source: plant-based protein snacks at 18% of 480M euros is about 86M euros, and a 2% value share is about 9.6M euros.",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "The analysts' own arithmetic, not in any source: plant-based protein snacks at 18% of 480M euros is about 86M euros, and a 2% value share is about 9.6M euros.",
+        "status": "document"
+      },
+      {
+        "figure": "86M euros",
+        "quote": "The analysts' own arithmetic, not in any source: plant-based protein snacks at 18% of 480M euros is about 86M euros, and a 2% value share is about 9.6M euros.",
+        "status": "not found"
+      },
+      {
+        "figure": "2%",
+        "quote": "The analysts' own arithmetic, not in any source: plant-based protein snacks at 18% of 480M euros is about 86M euros, and a 2% value share is about 9.6M euros.",
+        "status": "document"
+      },
+      {
+        "figure": "9.6M euros",
+        "quote": "The analysts' own arithmetic, not in any source: plant-based protein snacks at 18% of 480M euros is about 86M euros, and a 2% value share is about 9.6M euros.",
+        "status": "not found"
+      },
+      {
+        "figure": "20.5%",
+        "quote": "A GFI Europe item on French plant-based sales (+20.5% over two years) was seen only as a headline and is not used.",
+        "status": "not found"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: Company document, section 4 (Market context)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: Company document, section 3 (Why France, and launch goals)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "https://www.intotheminds.com/blog/marche-aliments-hyperproteines",
+      "kind": "web",
+      "url": "https://www.intotheminds.com/blog/marche-aliments-hyperproteines",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "Document: Company document, section 6 (Competitive landscape)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "https://shop.barebells.com/collections/protein-bars",
+      "kind": "web",
+      "url": "https://shop.barebells.com/collections/protein-bars",
+      "status": "unreadable",
+      "detail": "HTTP 429",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "https://www.facebook.com/carrefour/videos/on-savait-pas-quune-barre-prot%C3%A9in%C3%A9e-pouvait-%C3%AAtre-aussi-bonne-barebellsfrance-ell/2496272340799895",
+      "kind": "web",
+      "url": "https://www.facebook.com/carrefour/videos/on-savait-pas-quune-barre-prot%C3%A9in%C3%A9e-pouvait-%C3%AAtre-aussi-bonne-barebellsfrance-ell/2496272340799895",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "https://www.idealo.fr/prix/201051736/barebells-protein-bar-12-x-55-g.html",
+      "kind": "web",
+      "url": "https://www.idealo.fr/prix/201051736/barebells-protein-bar-12-x-55-g.html",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "https://www.auchan.fr/gerble-barres-de-cereales-cacao-noisette/pr-C1832958",
+      "kind": "web",
+      "url": "https://www.auchan.fr/gerble-barres-de-cereales-cacao-noisette/pr-C1832958",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "9",
+      "reference": "https://lafamilleatable.com/en/products/p-biscuit-gouter-pepites-chocolat-gerble-3251490307002",
+      "kind": "web",
+      "url": "https://lafamilleatable.com/en/products/p-biscuit-gouter-pepites-chocolat-gerble-3251490307002",
+      "status": "unreadable",
+      "detail": "HTTP 429",
+      "valid": true
+    },
+    {
+      "number": "10",
+      "reference": "https://www.eatbetter.app/fr/aliment/chips-de-pois-chiches-carrefour-kids",
+      "kind": "web",
+      "url": "https://www.eatbetter.app/fr/aliment/chips-de-pois-chiches-carrefour-kids",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "11",
+      "reference": "https://www.nutrisport-performances.com/484-chips-proteinees",
+      "kind": "web",
+      "url": "https://www.nutrisport-performances.com/484-chips-proteinees",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "12",
+      "reference": "https://fr.ankorstore.com/brand/gams-protein-53241/gams-protein-chips-proteinees-extra-spicy-65gr-6901397",
+      "kind": "web",
+      "url": "https://fr.ankorstore.com/brand/gams-protein-53241/gams-protein-chips-proteinees-extra-spicy-65gr-6901397",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "13",
+      "reference": "https://www.glanbia.com/news/healthy-snacking-trends-2024",
+      "kind": "web",
+      "url": "https://www.glanbia.com/news/healthy-snacking-trends-2024",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "14",
+      "reference": "Document: Company document, section 2 (The product: Proteo Crisps)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "15",
+      "reference": "https://www.foodwatch.org/fr/actualites/enquete-10-produits-proteines-ultra-transformes",
+      "kind": "web",
+      "url": "https://www.foodwatch.org/fr/actualites/enquete-10-produits-proteines-ultra-transformes",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "16",
+      "reference": "Document: Company document, section 5 (Consumer groups)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "17",
+      "reference": "https://www.nutex.fr/wp-content/uploads/2024/08/CP-Nutrition-Sportive-NUTEX-.pdf",
+      "kind": "web",
+      "url": "https://www.nutex.fr/wp-content/uploads/2024/08/CP-Nutrition-Sportive-NUTEX-.pdf",
+      "status": "unreadable",
+      "detail": "application/pdf",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 4,
+      "reason": "The target SEG2 (17.5M adults, 41% intent) is justified from the segment figures, and the rationale explicitly rejects vegans (1.3M, 72%) and parents (22%) on size and intent. Channels follow the market shares, and claims are filtered by the analysis. The gap is pricing: the price direction is set without competitor prices, though the plan explains why and sets a shelf-price audit first."
+    },
+    "campaign_vs_strategy": {
+      "score": 4,
+      "reason": "The messages speak to sport practitioners (gym \"Après l'effort\", 15 g protein, Sea Salt and Rosemary led) and reflect the positioning of a real crisp with protein versus bar-like snacks. Channels match the strategy (supermarkets, gyms, sport and organic shops, Instagram, own online shop). The minor gap is that the online shop message and the Instagram post are not explicitly tied to sport practitioners, and vegan messaging appears only as a secondary benefit, as the strategy specifies."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 62733,
+      "output_tokens": 9302,
+      "total_tokens": 72035
+    }
+  },
+  "judge_runs": [
+    {
+      "traceability": 0.7666666666666667,
+      "faithfulness": 0.8653846153846154,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    },
+    {
+      "traceability": 0.71875,
+      "faithfulness": 0.8823529411764706,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    },
+    {
+      "traceability": 0.7586206896551724,
+      "faithfulness": 0.926829268292683,
+      "coherence_strategy": 4,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    }
+  ],
+  "judge_mean": {
+    "traceability": 0.7480124521072797,
+    "faithfulness": 0.8915222749512562,
+    "coherence_strategy": 4.0,
+    "coherence_campaign": 4.0,
+    "trap_avoided": true
+  }
+}

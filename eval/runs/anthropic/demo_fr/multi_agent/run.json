@@ -1,0 +1,70 @@
+{
+  "document": "data/demo/demo_company.pdf",
+  "provider": "anthropic",
+  "base_url": null,
+  "models": {
+    "brief": "anthropic:claude-sonnet-5-5",
+    "analyst": "anthropic:claude-sonnet-5-5",
+    "strategist": "anthropic:claude-sonnet-5-5",
+    "creative": "anthropic:claude-sonnet-5-5",
+    "validator": "anthropic:claude-sonnet-5-5",
+    "blueprint": "anthropic:claude-opus-5-5"
+  },
+  "eval_judge": "anthropic:claude-haiku-5-5",
+  "status": "done",
+  "error": null,
+  "decisions": [
+    {
+      "approved": true,
+      "target_segment_id": "SEG2",
+      "unresolved": false
+    }
+  ],
+  "strategy_revisions": 0,
+  "campaign_revisions": 0,
+  "validations": [
+    {
+      "stage": "analysis",
+      "passed": true
+    },
+    {
+      "stage": "strategy",
+      "passed": true
+    },
+    {
+      "stage": "campaign",
+      "passed": true
+    }
+  ],
+  "tokens": {
+    "claude-sonnet-5-5": {
+      "input_tokens": 124974,
+      "total_tokens": 146094,
+      "input_token_details": {
+        "cache_creation": 0,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_read": 11362,
+        "ephemeral_5m_input_tokens": 5681
+      },
+      "output_tokens": 21120,
+      "output_token_details": {
+        "reasoning": 7476
+      }
+    },
+    "claude-opus-5-5": {
+      "input_tokens": 7342,
+      "output_tokens": 2005,
+      "total_tokens": 9347,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0,
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_token_details": {
+        "reasoning": 1682
+      }
+    }
+  },
+  "seconds": 175.4
+}

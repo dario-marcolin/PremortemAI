@@ -1,0 +1,25 @@
+{
+  "system": "baseline",
+  "document": "eval/cases/lumora_sunrise_lamp_es.md",
+  "provider": "anthropic",
+  "model": "anthropic:claude-sonnet-5-5",
+  "status": "done",
+  "error": null,
+  "tokens": {
+    "claude-sonnet-5-5": {
+      "input_tokens": 1961,
+      "output_tokens": 12131,
+      "total_tokens": 14092,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0,
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_token_details": {
+        "reasoning": 5237
+      }
+    }
+  },
+  "seconds": 92.5
+}

@@ -1,0 +1,24 @@
+    7.4s  extract_brief      node     Claridade Lda, Lumora (Spain), 7 missing info
+   10.0s  analyst            search   Philips Wake-up Light despertador luz precio España
+   10.1s  analyst            search   Lumie despertador luz amanecer precio España Bodyclock
+   10.1s  analyst            search   despertador luz amanecer marcas España Xiaomi Hatch Beurer Medisana
+   10.1s  analyst            search   mercado despertadores luz simulador amanecer España ventas
+   12.2s  analyst            results  5 results
+   12.2s  analyst            results  5 results
+   12.2s  analyst            results  5 results
+   12.2s  analyst            results  5 results
+   14.7s  analyst            search   Mejores despertadores solares 2026 Philips HF3520 Lumie Bodyclock Shine 300 precio €
+   14.7s  analyst            search   Lumie Bodyclock Glow 150 amazon.es precio opiniones
+   14.7s  analyst            search   trabajadores por turnos España sueño despertar luz horario de invierno amanece tarde Galicia
+   16.8s  analyst            results  5 results
+   16.8s  analyst            results  5 results
+   16.8s  analyst            results  5 results
+   82.9s  analyst            node     5 competitors, 4 segments, 16 sources
+   95.2s  validate_analysis  node     passed, 0 blocking, 2 warnings
+  118.0s  strategist         node     target SEG1, channels Amazon.es, National electronics chain, Department stores, Own online shop, Product review media (revisions: 0)
+  127.5s  validate_strategy  node     passed, 0 blocking, 2 warnings
+  127.6s  human_approval     pause    waiting for approval of target SEG1
+  127.6s  human_approval     node     approved
+  150.0s  creative           node     "Amaneceres suaves para mañanas oscuras.", 6 messages (revisions: 0)
+  158.0s  validate_campaign  node     passed, 0 blocking, 0 warnings
+  177.8s  blueprint          node     blueprint.md written

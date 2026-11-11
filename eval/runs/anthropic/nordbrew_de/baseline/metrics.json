@@ -1,0 +1,763 @@
+{
+  "system": "baseline",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 2398,
+        "output_tokens": 12880,
+        "total_tokens": 15278
+      }
+    },
+    "total_tokens": 15278,
+    "seconds": 95.5
+  },
+  "trap": {
+    "applies": true,
+    "segment": "Specialty coffee enthusiasts (home baristas, specialty cafe regulars): 76% purchase intent but only 0.5 million adults, 1% of adults 18-64",
+    "target": "Commuters who buy coffee on the go at least weekly (Hamburg, Berlin, Rhine-Ruhr)",
+    "avoided": true
+  },
+  "traceability": {
+    "score": 0.875,
+    "claims": 40,
+    "traced": 35,
+    "unquoted": 0,
+    "items": [
+      {
+        "quote": "The product is a vegan, organic cold brew with oat drink in a 250 ml can, priced at 2.49 euros before deposit [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The board's goals are a 3% value share of the chilled RTD coffee category within 24 months, 3,500 points of sale in year one, and 30% of company turnover from Germany by end of 2027 [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Roughly 11.4 million adults, with 34% purchase intent, give about 3.9 million interested people (my calculation from [5]).",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "They have the highest intent (76%) but are only 1% of adults [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The Danish Instagram community is 81% enthusiasts [5]",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "22% of Danish testers found Original too bitter [2]",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The 1.2 million euro first-year budget [7]",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The German chilled RTD coffee category was worth 610 M€ in 2024 and grew about 7% per year in 2021–2024. The plant-based share is 14% [4]",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "23% of adults bought chilled RTD coffee in the last three months [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Sales by channel in 2024: supermarkets and discounters 54%, petrol stations and convenience 24%, train-station and airport kiosks 13%, online and other 9% [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Germany is described as Europe's largest RTD coffee market, and oat drinks as the fastest-growing plant-based drink category there [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Kaffeekontor Nord ApS, Danish specialty coffee roaster, founded 2017 in Aarhus by Signe Holm and Jonas Lund. 41 employees, 2024 turnover 9.6 M€ (70% Denmark, 30% Sweden).",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "About 1,800 points of sale plus an online shop (12% of sales).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Raised 6 M€ in 2025 for the German RTD launch [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Launched in Denmark in 2023 and now 38% of company turnover [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "110 mg caffeine per can, 2.1 g sugar per 100 ml (no added sugar).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Recyclable aluminium can, 0.25 € German deposit.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Competitor prices and pack sizes: no price comparison has been done [6].",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "the only taste test is Danish (300 participants) [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Discounter private labels | Entered the category in 2022 [6]",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Students | 2.6 M | 5% | 41% | ~1.1 M",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Office workers (coffee at the desk) | 8.9 M | 17% | 27% | ~2.4 M",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Specialty coffee enthusiasts | 0.5 M | 1% | 76% | ~0.38 M",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Commuters (on-the-go coffee at least weekly) | 11.4 M | 22% | 34% | ~3.9 M",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Candidate segments among German adults aged 18–64 (about 52 million) [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Plant-based sub-category is 14% of the category [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Oatly is the closest product competitor but has limited distribution.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Emmi Caffè Latte | Category leader, in most supermarkets and petrol stations. Milk-based, sweetened [6]",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Oatly Iced Coffee | Oat-based, smaller distribution, mainly organic shops and big-city supermarkets [6]",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Discounter private labels | Entered the category in 2022 [6] | Lower than brands (stated, no figures) [6]",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "petrol stations, kiosks and supermarkets [4][5]",
+        "refs": [
+          "4",
+          "5"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Petrol stations and supermarkets together carry 78% of sales (calculation from [4]).",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The channel mix matches: petrol stations, kiosks and supermarkets carry 91% of category sales [4]",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The 3% share goal is ambitious. It equals about 18.3 million euros of retail value on the 2024 category (calculation from [3][4]).",
+        "refs": [
+          "3",
+          "4"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Distribution is not secured: one wholesaler is still being negotiated and the kiosk pilot is only under discussion [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Push the pilot with the ~400-kiosk chain [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Ships to Germany from launch [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Nordbrew is about 1.00 € per 100 ml, calculated from [2]",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Roughly 11.4 million adults",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Oat-based, smaller distribution",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 0.8620689655172413,
+    "checked": 58,
+    "matched": 50,
+    "not_found": 8,
+    "unverifiable": 0,
+    "items": [
+      {
+        "figure": "250 ml",
+        "quote": "The product is a vegan, organic cold brew with oat drink in a 250 ml can, priced at 2.49 euros before deposit [2].",
+        "status": "document"
+      },
+      {
+        "figure": "2.49 euros",
+        "quote": "The product is a vegan, organic cold brew with oat drink in a 250 ml can, priced at 2.49 euros before deposit [2].",
+        "status": "document"
+      },
+      {
+        "figure": "3%",
+        "quote": "The board's goals are a 3% value share of the chilled RTD coffee category within 24 months, 3,500 points of sale in year one, and 30% of company turnover from Germany by end of 2027 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "3,500",
+        "quote": "The board's goals are a 3% value share of the chilled RTD coffee category within 24 months, 3,500 points of sale in year one, and 30% of company turnover from Germany by end of 2027 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "30%",
+        "quote": "The board's goals are a 3% value share of the chilled RTD coffee category within 24 months, 3,500 points of sale in year one, and 30% of company turnover from Germany by end of 2027 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "11.4 million",
+        "quote": "Roughly 11.4 million adults, with 34% purchase intent, give about 3.9 million interested people (my calculation from [5]).",
+        "status": "document"
+      },
+      {
+        "figure": "34%",
+        "quote": "Roughly 11.4 million adults, with 34% purchase intent, give about 3.9 million interested people (my calculation from [5]).",
+        "status": "document"
+      },
+      {
+        "figure": "3.9 million",
+        "quote": "Roughly 11.4 million adults, with 34% purchase intent, give about 3.9 million interested people (my calculation from [5]).",
+        "status": "not found"
+      },
+      {
+        "figure": "76%",
+        "quote": "They have the highest intent (76%) but are only 1% of adults [5].",
+        "status": "document"
+      },
+      {
+        "figure": "1%",
+        "quote": "They have the highest intent (76%) but are only 1% of adults [5].",
+        "status": "document"
+      },
+      {
+        "figure": "81%",
+        "quote": "The Danish Instagram community is 81% enthusiasts [5]",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "22% of Danish testers found Original too bitter [2]",
+        "status": "document"
+      },
+      {
+        "figure": "1.2 million euro",
+        "quote": "The 1.2 million euro first-year budget [7]",
+        "status": "document"
+      },
+      {
+        "figure": "610 M€",
+        "quote": "The German chilled RTD coffee category was worth 610 M€ in 2024 and grew about 7% per year in 2021–2024. The plant-based share is 14% [4]",
+        "status": "document"
+      },
+      {
+        "figure": "7%",
+        "quote": "The German chilled RTD coffee category was worth 610 M€ in 2024 and grew about 7% per year in 2021–2024. The plant-based share is 14% [4]",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "The German chilled RTD coffee category was worth 610 M€ in 2024 and grew about 7% per year in 2021–2024. The plant-based share is 14% [4]",
+        "status": "document"
+      },
+      {
+        "figure": "23%",
+        "quote": "23% of adults bought chilled RTD coffee in the last three months [4].",
+        "status": "document"
+      },
+      {
+        "figure": "54%",
+        "quote": "Sales by channel in 2024: supermarkets and discounters 54%, petrol stations and convenience 24%, train-station and airport kiosks 13%, online and other 9% [4].",
+        "status": "document"
+      },
+      {
+        "figure": "24%",
+        "quote": "Sales by channel in 2024: supermarkets and discounters 54%, petrol stations and convenience 24%, train-station and airport kiosks 13%, online and other 9% [4].",
+        "status": "document"
+      },
+      {
+        "figure": "13%",
+        "quote": "Sales by channel in 2024: supermarkets and discounters 54%, petrol stations and convenience 24%, train-station and airport kiosks 13%, online and other 9% [4].",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "Sales by channel in 2024: supermarkets and discounters 54%, petrol stations and convenience 24%, train-station and airport kiosks 13%, online and other 9% [4].",
+        "status": "document"
+      },
+      {
+        "figure": "41 employees",
+        "quote": "Kaffeekontor Nord ApS, Danish specialty coffee roaster, founded 2017 in Aarhus by Signe Holm and Jonas Lund. 41 employees, 2024 turnover 9.6 M€ (70% Denmark, 30% Sweden).",
+        "status": "document"
+      },
+      {
+        "figure": "9.6 M€",
+        "quote": "Kaffeekontor Nord ApS, Danish specialty coffee roaster, founded 2017 in Aarhus by Signe Holm and Jonas Lund. 41 employees, 2024 turnover 9.6 M€ (70% Denmark, 30% Sweden).",
+        "status": "document"
+      },
+      {
+        "figure": "70%",
+        "quote": "Kaffeekontor Nord ApS, Danish specialty coffee roaster, founded 2017 in Aarhus by Signe Holm and Jonas Lund. 41 employees, 2024 turnover 9.6 M€ (70% Denmark, 30% Sweden).",
+        "status": "document"
+      },
+      {
+        "figure": "30%",
+        "quote": "Kaffeekontor Nord ApS, Danish specialty coffee roaster, founded 2017 in Aarhus by Signe Holm and Jonas Lund. 41 employees, 2024 turnover 9.6 M€ (70% Denmark, 30% Sweden).",
+        "status": "document"
+      },
+      {
+        "figure": "1,800",
+        "quote": "About 1,800 points of sale plus an online shop (12% of sales).",
+        "status": "document"
+      },
+      {
+        "figure": "12%",
+        "quote": "About 1,800 points of sale plus an online shop (12% of sales).",
+        "status": "document"
+      },
+      {
+        "figure": "6 M€",
+        "quote": "Raised 6 M€ in 2025 for the German RTD launch [1].",
+        "status": "document"
+      },
+      {
+        "figure": "38%",
+        "quote": "Launched in Denmark in 2023 and now 38% of company turnover [2].",
+        "status": "document"
+      },
+      {
+        "figure": "110 mg",
+        "quote": "110 mg caffeine per can, 2.1 g sugar per 100 ml (no added sugar).",
+        "status": "document"
+      },
+      {
+        "figure": "2.1 g",
+        "quote": "110 mg caffeine per can, 2.1 g sugar per 100 ml (no added sugar).",
+        "status": "document"
+      },
+      {
+        "figure": "0.25 €",
+        "quote": "Recyclable aluminium can, 0.25 € German deposit.",
+        "status": "document"
+      },
+      {
+        "figure": "300",
+        "quote": "the only taste test is Danish (300 participants) [2].",
+        "status": "document"
+      },
+      {
+        "figure": "2022",
+        "quote": "Discounter private labels | Entered the category in 2022 [6]",
+        "status": "document"
+      },
+      {
+        "figure": "2.6 M",
+        "quote": "Students | 2.6 M | 5% | 41% | ~1.1 M",
+        "status": "document"
+      },
+      {
+        "figure": "5%",
+        "quote": "Students | 2.6 M | 5% | 41% | ~1.1 M",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "Students | 2.6 M | 5% | 41% | ~1.1 M",
+        "status": "document"
+      },
+      {
+        "figure": "1.1 M",
+        "quote": "Students | 2.6 M | 5% | 41% | ~1.1 M",
+        "status": "not found"
+      },
+      {
+        "figure": "8.9 M",
+        "quote": "Office workers (coffee at the desk) | 8.9 M | 17% | 27% | ~2.4 M",
+        "status": "document"
+      },
+      {
+        "figure": "17%",
+        "quote": "Office workers (coffee at the desk) | 8.9 M | 17% | 27% | ~2.4 M",
+        "status": "document"
+      },
+      {
+        "figure": "27%",
+        "quote": "Office workers (coffee at the desk) | 8.9 M | 17% | 27% | ~2.4 M",
+        "status": "document"
+      },
+      {
+        "figure": "2.4 M",
+        "quote": "Office workers (coffee at the desk) | 8.9 M | 17% | 27% | ~2.4 M",
+        "status": "not found"
+      },
+      {
+        "figure": "0.5 M",
+        "quote": "Specialty coffee enthusiasts | 0.5 M | 1% | 76% | ~0.38 M",
+        "status": "document"
+      },
+      {
+        "figure": "1%",
+        "quote": "Specialty coffee enthusiasts | 0.5 M | 1% | 76% | ~0.38 M",
+        "status": "document"
+      },
+      {
+        "figure": "76%",
+        "quote": "Specialty coffee enthusiasts | 0.5 M | 1% | 76% | ~0.38 M",
+        "status": "document"
+      },
+      {
+        "figure": "0.38 M",
+        "quote": "Specialty coffee enthusiasts | 0.5 M | 1% | 76% | ~0.38 M",
+        "status": "not found"
+      },
+      {
+        "figure": "11.4 M",
+        "quote": "Commuters (on-the-go coffee at least weekly) | 11.4 M | 22% | 34% | ~3.9 M",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "Commuters (on-the-go coffee at least weekly) | 11.4 M | 22% | 34% | ~3.9 M",
+        "status": "document"
+      },
+      {
+        "figure": "34%",
+        "quote": "Commuters (on-the-go coffee at least weekly) | 11.4 M | 22% | 34% | ~3.9 M",
+        "status": "document"
+      },
+      {
+        "figure": "3.9 M",
+        "quote": "Commuters (on-the-go coffee at least weekly) | 11.4 M | 22% | 34% | ~3.9 M",
+        "status": "not found"
+      },
+      {
+        "figure": "52 million",
+        "quote": "Candidate segments among German adults aged 18–64 (about 52 million) [5].",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "Plant-based sub-category is 14% of the category [4].",
+        "status": "document"
+      },
+      {
+        "figure": "78%",
+        "quote": "Petrol stations and supermarkets together carry 78% of sales (calculation from [4]).",
+        "status": "not found"
+      },
+      {
+        "figure": "91%",
+        "quote": "The channel mix matches: petrol stations, kiosks and supermarkets carry 91% of category sales [4]",
+        "status": "not found"
+      },
+      {
+        "figure": "18.3 million euros",
+        "quote": "The 3% share goal is ambitious. It equals about 18.3 million euros of retail value on the 2024 category (calculation from [3][4]).",
+        "status": "not found"
+      },
+      {
+        "figure": "400",
+        "quote": "Push the pilot with the ~400-kiosk chain [7].",
+        "status": "document"
+      },
+      {
+        "figure": "1.00 €",
+        "quote": "Nordbrew is about 1.00 € per 100 ml, calculated from [2]",
+        "status": "document"
+      },
+      {
+        "figure": "11.4 million",
+        "quote": "Roughly 11.4 million adults",
+        "status": "document"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: nordbrew_cold_brew_de.md, 1. Company overview",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: nordbrew_cold_brew_de.md, 2. The product: Nordbrew Oat Cold Brew",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "Document: nordbrew_cold_brew_de.md, 3. Why Germany, and launch goals",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "Document: nordbrew_cold_brew_de.md, 4. Market context (BevData Research 2025; Getränkepanel 2025)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "Document: nordbrew_cold_brew_de.md, 5. Consumer groups (Getränkepanel 2025)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "Document: nordbrew_cold_brew_de.md, 6. Competitors",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "Document: nordbrew_cold_brew_de.md, 7. Distribution and marketing",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "Document: nordbrew_cold_brew_de.md, 8. Open points",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 5,
+      "reason": "The plan selects commuters because they have about 3.9 million interested adults versus about 0.38 million for enthusiasts, and it explicitly reasons from the segment figures and the 3% share goal. Channels (petrol stations, kiosks, supermarkets) follow the 2024 channel split and the commuter buying places, and the Vanilla decision is tied to the 22% bitterness finding. Enthusiasts are kept as a secondary seeding audience, consistent with their 1% size."
+    },
+    "campaign_vs_strategy": {
+      "score": 4,
+      "reason": "The \"18 Stunden Vorsprung\" concept, the kiosk, transit-hub and in-store messages all speak to commuters and reflect the low-sugar, 18-hour cold brew positioning and the stated channels. The online/specialty message addresses enthusiasts as a secondary audience, which is allowed, but the wholesaler and kiosk channels are only partly secured and the \"Dein Vorsprung\" and \"Probier den Vorsprung\" lines are mostly generic on value proposition."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 53427,
+      "output_tokens": 9288,
+      "total_tokens": 62715
+    }
+  },
+  "judge_runs": [
+    {
+      "traceability": 0.875,
+      "faithfulness": 0.8620689655172413,
+      "coherence_strategy": 5,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    },
+    {
+      "traceability": 0.9714285714285714,
+      "faithfulness": 0.8548387096774194,
+      "coherence_strategy": 5,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    },
+    {
+      "traceability": 0.9714285714285714,
+      "faithfulness": 0.8793103448275862,
+      "coherence_strategy": 5,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    }
+  ],
+  "judge_mean": {
+    "traceability": 0.9392857142857144,
+    "faithfulness": 0.8654060066740823,
+    "coherence_strategy": 5.0,
+    "coherence_campaign": 4.0,
+    "trap_avoided": true
+  }
+}

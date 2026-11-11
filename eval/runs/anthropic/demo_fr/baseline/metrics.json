@@ -1,0 +1,776 @@
+{
+  "system": "baseline",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 2915,
+        "output_tokens": 7419,
+        "total_tokens": 10334
+      }
+    },
+    "total_tokens": 10334,
+    "seconds": 54.1
+  },
+  "trap": {
+    "applies": true,
+    "segment": "Vegans and strict vegetarians: 72% purchase intent but only 1.3 million adults, 2.5% of adults 18-64",
+    "target": "Weekly sport practitioners",
+    "avoided": true
+  },
+  "traceability": {
+    "score": 0.8378378378378378,
+    "claims": 37,
+    "traced": 31,
+    "unquoted": 0,
+    "items": [
+      {
+        "quote": "The French protein snack category is worth 480 million euros and grew 11% per year in 2021-2024. Plant-based products are 18% of it [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "At 17.5 million adults and 41% purchase intent, they are the largest pool [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "They are the most enthusiastic group (72% intent) but number only 1.3 million [5].",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "There are 9.0 million of them with 38% intent, or about 3.4 million adults (own calculation from [5]).",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "supermarkets first, since they carry 68% of category sales [4]",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "texture was the most appreciated attribute in Italian blind tests. 47% preferred Proteo to the leading conventional potato crisps, 21% tied and 32% preferred the potato crisps [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "a quarter of participants found Smoked Paprika too strong [2]",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The savoury snack market in France was 2.9 billion euros in 2024.",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The protein snack category was 480 million euros, growing +11% per year in 2021-2024 [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Plant-based products are 18% of protein snacks, and 27% of French adults bought a protein snack in the last 3 months [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Supermarkets and hypermarkets: 68%",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Sport and organic shops: 17%",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Online: 9%",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Gyms and vending: 6%",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Verdo sees France as the second largest savoury snack market in Europe and the fastest growing market for protein snacks in Southern Europe [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "French consumers know Nutri-Score, which was created in France, so Verdo sees Nutri-Score A as a shelf argument [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Supermarket private labels | Entered protein snacks in 2023 [6] | Lower than brands [6]",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Vegans and strict vegetarians | 1.3 M | 2.5% | 72% | ~0.94 M",
+        "refs": [
+          "2",
+          "5"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Weekly sport practitioners | 17.5 M | 34% | 41% | ~7.2 M",
+        "refs": [
+          "5",
+          "6"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Health-conscious office workers | 9.0 M | 18% | 38% | ~3.4 M",
+        "refs": [
+          "3",
+          "5"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Parents of school-age children | 7.1 M | 14% | 22% | ~1.6 M",
+        "refs": [
+          "5"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Segment sizes refer to adults aged 18-64 in France (about 51 million).",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Verdo already sells through a selection of gyms in Italy [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "It is 9% of the category [4] and 9% of Verdo's Italian sales [1]",
+        "refs": [
+          "4",
+          "1"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Verdo reached about 2,300 in Italy after several years [1][3].",
+        "refs": [
+          "1",
+          "3"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Plant near Bologna at 55% capacity, able to supply France without new investment [7].",
+        "refs": [
+          "7"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "2% of the 2024 category is about 9.6 M€ at retail value. That is about 11% of the 86 M€ plant-based sub-segment (18% of 480 M€) [4].",
+        "refs": [
+          "4"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Competitors named | Barebells, Gerble, supermarket private labels [6].",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Barebells | Protein bars and snacks, strong in gyms and supermarkets, sport-oriented image [6]",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Gerble | French health and wellness brand, widely available in supermarkets, some protein products [6]",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Proteo Crisps, launched in Italy in 2022 and 61% of turnover [2].",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Made from chickpea flour and pea protein, with 15 g protein per 40 g bag, six ingredients, no palm oil and no additives.",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Verdo Foods S.r.l., Bologna, founded 2020. It makes legume-based savoury snacks. 28 employees and 4.2 M€ turnover in 2024, almost all in Italy.",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "A national food distributor for supermarkets (two candidates in negotiation)",
+        "refs": [
+          "7",
+          "8"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Stated goals (board, June 2025) | (1) 2% value share of the French protein snack category within 24 months. (2) At least 1,500 points of sale in year 1. (3) 25% of company turnover from France by end 2027. (4) Break-even on the French operation in year 3 [3].",
+        "refs": [
+          "3"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "If the category keeps growing 11% per year, it reaches about 730 M€ by early 2028, and 2% is about 14.6 M€.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Nutri-Score A (Sea Salt, Rosemary) and B (Smoked Paprika).",
+        "refs": [
+          "2"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 0.8524590163934426,
+    "checked": 61,
+    "matched": 52,
+    "not_found": 9,
+    "unverifiable": 0,
+    "items": [
+      {
+        "figure": "480 million euros",
+        "quote": "The French protein snack category is worth 480 million euros and grew 11% per year in 2021-2024. Plant-based products are 18% of it [4].",
+        "status": "document"
+      },
+      {
+        "figure": "11%",
+        "quote": "The French protein snack category is worth 480 million euros and grew 11% per year in 2021-2024. Plant-based products are 18% of it [4].",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "The French protein snack category is worth 480 million euros and grew 11% per year in 2021-2024. Plant-based products are 18% of it [4].",
+        "status": "document"
+      },
+      {
+        "figure": "17.5 million",
+        "quote": "At 17.5 million adults and 41% purchase intent, they are the largest pool [5].",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "At 17.5 million adults and 41% purchase intent, they are the largest pool [5].",
+        "status": "document"
+      },
+      {
+        "figure": "72%",
+        "quote": "They are the most enthusiastic group (72% intent) but number only 1.3 million [5].",
+        "status": "document"
+      },
+      {
+        "figure": "1.3 million",
+        "quote": "They are the most enthusiastic group (72% intent) but number only 1.3 million [5].",
+        "status": "document"
+      },
+      {
+        "figure": "9.0 million",
+        "quote": "There are 9.0 million of them with 38% intent, or about 3.4 million adults (own calculation from [5]).",
+        "status": "document"
+      },
+      {
+        "figure": "38%",
+        "quote": "There are 9.0 million of them with 38% intent, or about 3.4 million adults (own calculation from [5]).",
+        "status": "document"
+      },
+      {
+        "figure": "3.4 million",
+        "quote": "There are 9.0 million of them with 38% intent, or about 3.4 million adults (own calculation from [5]).",
+        "status": "not found"
+      },
+      {
+        "figure": "68%",
+        "quote": "supermarkets first, since they carry 68% of category sales [4]",
+        "status": "document"
+      },
+      {
+        "figure": "47%",
+        "quote": "texture was the most appreciated attribute in Italian blind tests. 47% preferred Proteo to the leading conventional potato crisps, 21% tied and 32% preferred the potato crisps [2].",
+        "status": "document"
+      },
+      {
+        "figure": "21%",
+        "quote": "texture was the most appreciated attribute in Italian blind tests. 47% preferred Proteo to the leading conventional potato crisps, 21% tied and 32% preferred the potato crisps [2].",
+        "status": "document"
+      },
+      {
+        "figure": "32%",
+        "quote": "texture was the most appreciated attribute in Italian blind tests. 47% preferred Proteo to the leading conventional potato crisps, 21% tied and 32% preferred the potato crisps [2].",
+        "status": "document"
+      },
+      {
+        "figure": "a quarter",
+        "quote": "a quarter of participants found Smoked Paprika too strong [2]",
+        "status": "no number"
+      },
+      {
+        "figure": "2.9 billion euros",
+        "quote": "The savoury snack market in France was 2.9 billion euros in 2024.",
+        "status": "document"
+      },
+      {
+        "figure": "480 million euros",
+        "quote": "The protein snack category was 480 million euros, growing +11% per year in 2021-2024 [4].",
+        "status": "document"
+      },
+      {
+        "figure": "11%",
+        "quote": "The protein snack category was 480 million euros, growing +11% per year in 2021-2024 [4].",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "Plant-based products are 18% of protein snacks, and 27% of French adults bought a protein snack in the last 3 months [4].",
+        "status": "document"
+      },
+      {
+        "figure": "27%",
+        "quote": "Plant-based products are 18% of protein snacks, and 27% of French adults bought a protein snack in the last 3 months [4].",
+        "status": "document"
+      },
+      {
+        "figure": "68%",
+        "quote": "Supermarkets and hypermarkets: 68%",
+        "status": "document"
+      },
+      {
+        "figure": "17%",
+        "quote": "Sport and organic shops: 17%",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "Online: 9%",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "Gyms and vending: 6%",
+        "status": "document"
+      },
+      {
+        "figure": "second largest",
+        "quote": "Verdo sees France as the second largest savoury snack market in Europe and the fastest growing market for protein snacks in Southern Europe [3].",
+        "status": "no number"
+      },
+      {
+        "figure": "fastest growing",
+        "quote": "Verdo sees France as the second largest savoury snack market in Europe and the fastest growing market for protein snacks in Southern Europe [3].",
+        "status": "no number"
+      },
+      {
+        "figure": "2023",
+        "quote": "Supermarket private labels | Entered protein snacks in 2023 [6] | Lower than brands [6]",
+        "status": "document"
+      },
+      {
+        "figure": "1.3 M",
+        "quote": "Vegans and strict vegetarians | 1.3 M | 2.5% | 72% | ~0.94 M",
+        "status": "document"
+      },
+      {
+        "figure": "2.5%",
+        "quote": "Vegans and strict vegetarians | 1.3 M | 2.5% | 72% | ~0.94 M",
+        "status": "document"
+      },
+      {
+        "figure": "72%",
+        "quote": "Vegans and strict vegetarians | 1.3 M | 2.5% | 72% | ~0.94 M",
+        "status": "document"
+      },
+      {
+        "figure": "0.94 M",
+        "quote": "Vegans and strict vegetarians | 1.3 M | 2.5% | 72% | ~0.94 M",
+        "status": "not found"
+      },
+      {
+        "figure": "17.5 M",
+        "quote": "Weekly sport practitioners | 17.5 M | 34% | 41% | ~7.2 M",
+        "status": "document"
+      },
+      {
+        "figure": "34%",
+        "quote": "Weekly sport practitioners | 17.5 M | 34% | 41% | ~7.2 M",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "Weekly sport practitioners | 17.5 M | 34% | 41% | ~7.2 M",
+        "status": "document"
+      },
+      {
+        "figure": "7.2 M",
+        "quote": "Weekly sport practitioners | 17.5 M | 34% | 41% | ~7.2 M",
+        "status": "not found"
+      },
+      {
+        "figure": "9.0 M",
+        "quote": "Health-conscious office workers | 9.0 M | 18% | 38% | ~3.4 M",
+        "status": "document"
+      },
+      {
+        "figure": "18%",
+        "quote": "Health-conscious office workers | 9.0 M | 18% | 38% | ~3.4 M",
+        "status": "document"
+      },
+      {
+        "figure": "38%",
+        "quote": "Health-conscious office workers | 9.0 M | 18% | 38% | ~3.4 M",
+        "status": "document"
+      },
+      {
+        "figure": "3.4 M",
+        "quote": "Health-conscious office workers | 9.0 M | 18% | 38% | ~3.4 M",
+        "status": "not found"
+      },
+      {
+        "figure": "7.1 M",
+        "quote": "Parents of school-age children | 7.1 M | 14% | 22% | ~1.6 M",
+        "status": "document"
+      },
+      {
+        "figure": "14%",
+        "quote": "Parents of school-age children | 7.1 M | 14% | 22% | ~1.6 M",
+        "status": "document"
+      },
+      {
+        "figure": "22%",
+        "quote": "Parents of school-age children | 7.1 M | 14% | 22% | ~1.6 M",
+        "status": "document"
+      },
+      {
+        "figure": "1.6 M",
+        "quote": "Parents of school-age children | 7.1 M | 14% | 22% | ~1.6 M",
+        "status": "not found"
+      },
+      {
+        "figure": "51 million",
+        "quote": "Segment sizes refer to adults aged 18-64 in France (about 51 million).",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "It is 9% of the category [4] and 9% of Verdo's Italian sales [1]",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "It is 9% of the category [4] and 9% of Verdo's Italian sales [1]",
+        "status": "document"
+      },
+      {
+        "figure": "2,300",
+        "quote": "Verdo reached about 2,300 in Italy after several years [1][3].",
+        "status": "document"
+      },
+      {
+        "figure": "55%",
+        "quote": "Plant near Bologna at 55% capacity, able to supply France without new investment [7].",
+        "status": "document"
+      },
+      {
+        "figure": "9.6 M€",
+        "quote": "2% of the 2024 category is about 9.6 M€ at retail value. That is about 11% of the 86 M€ plant-based sub-segment (18% of 480 M€) [4].",
+        "status": "not found"
+      },
+      {
+        "figure": "86 M€",
+        "quote": "2% of the 2024 category is about 9.6 M€ at retail value. That is about 11% of the 86 M€ plant-based sub-segment (18% of 480 M€) [4].",
+        "status": "not found"
+      },
+      {
+        "figure": "18%",
+        "quote": "2% of the 2024 category is about 9.6 M€ at retail value. That is about 11% of the 86 M€ plant-based sub-segment (18% of 480 M€) [4].",
+        "status": "document"
+      },
+      {
+        "figure": "480 M€",
+        "quote": "2% of the 2024 category is about 9.6 M€ at retail value. That is about 11% of the 86 M€ plant-based sub-segment (18% of 480 M€) [4].",
+        "status": "document"
+      },
+      {
+        "figure": "61%",
+        "quote": "Proteo Crisps, launched in Italy in 2022 and 61% of turnover [2].",
+        "status": "document"
+      },
+      {
+        "figure": "15 g",
+        "quote": "Made from chickpea flour and pea protein, with 15 g protein per 40 g bag, six ingredients, no palm oil and no additives.",
+        "status": "document"
+      },
+      {
+        "figure": "40 g",
+        "quote": "Made from chickpea flour and pea protein, with 15 g protein per 40 g bag, six ingredients, no palm oil and no additives.",
+        "status": "document"
+      },
+      {
+        "figure": "28 employees",
+        "quote": "Verdo Foods S.r.l., Bologna, founded 2020. It makes legume-based savoury snacks. 28 employees and 4.2 M€ turnover in 2024, almost all in Italy.",
+        "status": "document"
+      },
+      {
+        "figure": "4.2 M€",
+        "quote": "Verdo Foods S.r.l., Bologna, founded 2020. It makes legume-based savoury snacks. 28 employees and 4.2 M€ turnover in 2024, almost all in Italy.",
+        "status": "document"
+      },
+      {
+        "figure": "two",
+        "quote": "A national food distributor for supermarkets (two candidates in negotiation)",
+        "status": "no number"
+      },
+      {
+        "figure": "2%",
+        "quote": "Stated goals (board, June 2025) | (1) 2% value share of the French protein snack category within 24 months. (2) At least 1,500 points of sale in year 1. (3) 25% of company turnover from France by end 2027. (4) Break-even on the French operation in year 3 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "1,500",
+        "quote": "Stated goals (board, June 2025) | (1) 2% value share of the French protein snack category within 24 months. (2) At least 1,500 points of sale in year 1. (3) 25% of company turnover from France by end 2027. (4) Break-even on the French operation in year 3 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "25%",
+        "quote": "Stated goals (board, June 2025) | (1) 2% value share of the French protein snack category within 24 months. (2) At least 1,500 points of sale in year 1. (3) 25% of company turnover from France by end 2027. (4) Break-even on the French operation in year 3 [3].",
+        "status": "document"
+      },
+      {
+        "figure": "11%",
+        "quote": "If the category keeps growing 11% per year, it reaches about 730 M€ by early 2028, and 2% is about 14.6 M€.",
+        "status": "document"
+      },
+      {
+        "figure": "730 M€",
+        "quote": "If the category keeps growing 11% per year, it reaches about 730 M€ by early 2028, and 2% is about 14.6 M€.",
+        "status": "not found"
+      },
+      {
+        "figure": "2%",
+        "quote": "If the category keeps growing 11% per year, it reaches about 730 M€ by early 2028, and 2% is about 14.6 M€.",
+        "status": "document"
+      },
+      {
+        "figure": "14.6 M€",
+        "quote": "If the category keeps growing 11% per year, it reaches about 730 M€ by early 2028, and 2% is about 14.6 M€.",
+        "status": "not found"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: demo_company.pdf, 1. Company overview",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: demo_company.pdf, 2. The product: Proteo Crisps",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "Document: demo_company.pdf, 3. Why France, and launch goals",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "Document: demo_company.pdf, 4. Market context (NutriMarket Insights 2025; France Snack Panel 2024, fictional sources per the document)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "Document: demo_company.pdf, 5. Consumer groups (France Snack Panel 2024)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "Document: demo_company.pdf, 6. Competitive landscape",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "Document: demo_company.pdf, 7. Production and distribution",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "Document: demo_company.pdf, 8. Open points",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 5,
+      "reason": "The primary target (weekly sport practitioners) follows from the segment figures: largest group (17.5 M, 34%) with 41% intent and the largest intent-weighted pool (~7.2 M), versus vegans at ~0.94 M. Channels follow the category channel split (supermarkets 68%, sport/organic 17%, gyms 6%, online 9%), and vegans are explicitly kept as advocates, with the mission cited. Pricing is left as a direction pending a competitor study, which is consistent with the document's missing data."
+    },
+    "campaign_vs_strategy": {
+      "score": 4,
+      "reason": "Messages largely address sport practitioners, office workers and shoppers, reflect the crunch-plus-protein positioning, and use only strategy channels (supermarket POS, gyms, sport and organic shops, online, social, office). One minor gap is that the organic-shop message speaks to ingredients rather than the sport or office core, and the social \"vegan and sport micro-influencers\" element blends in the advocate group."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 46221,
+      "output_tokens": 8476,
+      "total_tokens": 54697
+    }
+  },
+  "judge_runs": [
+    {
+      "traceability": 0.8378378378378378,
+      "faithfulness": 0.8524590163934426,
+      "coherence_strategy": 5,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    },
+    {
+      "traceability": 0.8055555555555556,
+      "faithfulness": 0.9148936170212766,
+      "coherence_strategy": 5,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    },
+    {
+      "traceability": 0.7741935483870968,
+      "faithfulness": 0.9565217391304348,
+      "coherence_strategy": 5,
+      "coherence_campaign": 4,
+      "trap_avoided": true
+    }
+  ],
+  "judge_mean": {
+    "traceability": 0.80586231392683,
+    "faithfulness": 0.9079581241817181,
+    "coherence_strategy": 5.0,
+    "coherence_campaign": 4.0,
+    "trap_avoided": true
+  }
+}

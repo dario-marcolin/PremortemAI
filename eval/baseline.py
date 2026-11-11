@@ -19,6 +19,7 @@ from langchain_core.messages import HumanMessage, SystemMessage
 
 from premortem.config import RunSettings
 from premortem.ingestion.parser import parse_document
+from premortem.runner import portable_path
 from premortem.llm import get_llm
 
 PROMPT = Path(__file__).parent / "prompts" / "baseline.md"
@@ -48,7 +49,7 @@ def run_baseline(document: str | Path, out_dir: str | Path, settings: RunSetting
     (out_dir / "log.txt").write_text(log.rstrip() + "\n")
     run = {
         "system": "baseline",
-        "document": str(document.resolve()),
+        "document": portable_path(document),
         "provider": settings.provider,
         "model": settings.model("strategist"),
         "status": status,
