@@ -1,30 +1,37 @@
-# Achromatic ledger style (design-taste-frontend skill, seed 1984085540): ink chrome on an
-# off-white ground, near-black primary, the one hue (#1d5fbf) only on the running step.
+# Framed sheet style (design-taste-frontend skill, app style `framed-sheet`, seed 1693962366).
+# The top bar and the sidebar share one tinted frame; the work sits on a white sheet.
+# One brand hue, raspberry (#c8175d): the logo, the primary action, the step that waits for you
+# and the main data element. Everything else is ink and grey. The full token set is in ui/theme.css.
 [theme]
 base = "light"
-primaryColor = "#141414"
-backgroundColor = "#f8f8f8"
-secondaryBackgroundColor = "#eeeeee"
-textColor = "#0a0a0a"
-borderColor = "#e6e6e6"
+primaryColor = "#c8175d"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f5f4f6"
+textColor = "#17151a"
+borderColor = "#e6e4e9"
 showWidgetBorder = true
-linkColor = "#1d5fbf"
-blueColor = "#1d5fbf"
-greenColor = "#2e7d32"
+linkColor = "#a3124b"
+blueColor = "#2f5fb3"
+greenColor = "#1a7046"
 redColor = "#c4242a"
-font = "Geist:https://fonts.googleapis.com/css2?family=Geist:wght@400;500;700&display=swap"
-codeFont = "Geist Mono:https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap"
+orangeColor = "#a15c07"
+violetColor = "#5f5b63"
+grayColor = "#5f5b63"
+font = "IBM Plex Sans:https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+codeFont = "IBM Plex Mono:https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap"
 baseFontSize = 14
-headingFontSizes = ["24px", "16px", "14px", "14px", "14px", "14px"]
-headingFontWeights = [600, 500, 500, 500, 500, 500]
+headingFontSizes = ["22px", "16px", "14px", "14px", "14px", "14px"]
+headingFontWeights = [600, 600, 600, 500, 500, 500]
 baseRadius = "6px"
-showSidebarBorder = true
+showSidebarBorder = false
 
 [theme.sidebar]
-backgroundColor = "#f8f8f8"
+backgroundColor = "#f5f4f6"
+secondaryBackgroundColor = "#ecebee"
 
 [client]
 toolbarMode = "minimal"
+showSidebarNavigation = false
 
 [browser]
 gatherUsageStats = false

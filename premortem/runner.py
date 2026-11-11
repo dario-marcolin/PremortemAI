@@ -10,7 +10,9 @@ the Streamlit UI across reruns, the evaluation approves automatically.
     run.answer({"approved": True})      # then advance() again
 
 Each run writes outputs/<run_id>/: log.txt as it goes, then blueprint.md (written by the
-graph's last node), state.json and run.json when the run ends or fails.
+graph's last node), state.json, run.json, searches.json (each web search of the Analyst with its
+results, for the citation cards of the UI) and rounds.json (every version of the analysis, the
+strategy and the campaign, for the "What changed" view) when the run ends or fails.
 
 The run's settings (provider, keys, models) travel in config["configurable"]["settings"]. LangGraph
 copies only plain str/int/float/bool configurable values into checkpoint metadata, so the settings
@@ -96,6 +98,27 @@ def _results(message: ToolMessage) -> tuple[str, Kind]:
     return (f"{len(results)} results" if isinstance(results, list) else str(results)[:200]), "results"
 
 
+def searches_of(update: dict) -> tuple[list[dict], dict[str, list[dict]]]:
+    """The web searches started in one Analyst update (id, query) and the results returned (by call id)."""
+    calls, results = [], {}
+    for values in update.values():
+        for message in (values or {}).get("messages", []) if isinstance(values, dict) else []:
+            for call in getattr(message, "tool_calls", []):
+                calls.append({"id": call.get("id"), "query": call["args"].get("query", "")})
+            if isinstance(message, ToolMessage):
+                try:
+                    found = json.loads(message.content)
+                except (TypeError, ValueError):
+                    found = []
+                results[message.tool_call_id] = [
+                    {"title": r.get("title", ""), "url": r["url"], "snippet": r.get("snippet", "")}
+                    for r in found if isinstance(r, dict) and r.get("url")] if isinstance(found, list) else []
+    return calls, results
+
+
+ROUND_FIELDS = ("analysis", "strategy", "campaign")
+
+
 def describe(namespace: tuple, update: dict) -> list[tuple[str, str, Kind]]:
     """The log lines of one stream update: (node, text, kind)."""
     lines = []
@@ -135,6 +158,7 @@ class Run:
         self.dir = config.OUTPUT_DIR / self.run_id
         self.log: list[LogLine] = []
         self.decisions: list[dict] = []
+        self.searches: list[dict] = []  # {"query", "results", "round"}: the Analyst round that ran it
         self.seconds = 0.0
         self.error: str | None = None
         with warnings.catch_warnings(record=True) as caught:
@@ -188,6 +212,8 @@ class Run:
         elapsed = lambda: self.seconds + perf_counter() - start  # noqa: E731
         try:
             for namespace, update in self.app.stream(command, self.cfg, stream_mode="updates", subgraphs=True):
+                if namespace:
+                    self._record_searches(update)
                 for node, text, kind in describe(namespace, update):
                     yield self._add(node, text, kind, elapsed())
         except Exception as e:  # the UI and the evaluation go on; the CLI exits
@@ -209,9 +235,35 @@ class Run:
                                "unresolved": payload["unresolved"]})
         self._input = Command(resume=answer)
 
+    def _record_searches(self, update: dict) -> None:
+        calls, results = searches_of(update)
+        analyst_round = sum(1 for l in self.log if l.node == "analyst" and l.kind == "node") + 1
+        for call in calls:
+            self.searches.append({"id": call["id"], "query": call["query"], "results": [], "round": analyst_round})
+        for search in self.searches:
+            if search["id"] in results:
+                search["results"] = results[search["id"]]
+
+    def rounds(self) -> dict[str, list[dict]]:
+        """Every distinct version of the analysis, the strategy and the campaign, oldest first, from
+        the checkpoint history: a validator revision or a human rejection adds a round."""
+        rounds: dict[str, list[dict]] = {name: [] for name in ROUND_FIELDS}
+        for snapshot in reversed(list(self.app.get_state_history(self.cfg))):
+            for name in ROUND_FIELDS:
+                value = snapshot.values.get(name)
+                if value is None:
+                    continue
+                dumped = value.model_dump(mode="json")
+                if not rounds[name] or rounds[name][-1] != dumped:
+                    rounds[name].append(dumped)
+        return rounds
+
     def save(self) -> Path:
-        """Write state.json and run.json next to blueprint.md and log.txt."""
+        """Write state.json, run.json, searches.json and rounds.json next to blueprint.md and log.txt."""
         self.dir.mkdir(parents=True, exist_ok=True)
+        (self.dir / "searches.json").write_text(json.dumps(
+            [{k: v for k, v in s.items() if k != "id"} for s in self.searches], indent=2, ensure_ascii=False))
+        (self.dir / "rounds.json").write_text(json.dumps(self.rounds(), indent=2, ensure_ascii=False))
         state = TypeAdapter(LaunchState).dump_python(self.state, mode="json")
         (self.dir / "state.json").write_text(json.dumps(state, indent=2, ensure_ascii=False))
         run = {

@@ -45,7 +45,12 @@ def test_run_logs_every_node_pauses_and_writes_its_files(monkeypatch, document, 
     assert all(b.seconds >= a.seconds for a, b in zip(lines, lines[1:]))
 
     files = {p.name for p in (output_dir / "r1").iterdir()}
-    assert files == {"blueprint.md", "state.json", "run.json", "log.txt"}
+    assert files == {"blueprint.md", "state.json", "run.json", "log.txt", "searches.json", "rounds.json"}
+    searches = json.loads((output_dir / "r1" / "searches.json").read_text())
+    assert [s["query"] for s in searches] == ["coffee Italy"] and searches[0]["round"] == 1
+    assert len(searches[0]["results"]) == sum(s.kind == "web" for s in STATE["analysis"].sources)
+    rounds = json.loads((output_dir / "r1" / "rounds.json").read_text())
+    assert [len(rounds[k]) for k in ("analysis", "strategy", "campaign")] == [1, 1, 1]
     record = json.loads((output_dir / "r1" / "run.json").read_text())
     assert record["status"] == "done" and record["error"] is None
     assert record["decisions"] == [{"approved": True, "target_segment_id": STATE["strategy"].target_segment_id,

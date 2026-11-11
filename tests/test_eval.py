@@ -273,7 +273,7 @@ def test_run_case_and_report(monkeypatch, document, output_dir):
             "trap": "Students: 1% of adults"}
     entry = run_case(case, output_dir / "eval_test", SETTINGS)
     assert {p.name for p in (output_dir / "eval_test" / "fake" / "multi_agent").iterdir()} == {
-        "blueprint.md", "state.json", "run.json", "log.txt", "metrics.json"}
+        "blueprint.md", "state.json", "run.json", "log.txt", "metrics.json", "searches.json", "rounds.json"}
     assert entry["baseline"]["metrics"]["traceability"]["score"] == 1.0
 
     results = {"updated": "2026-11-04T10:00:00", "model": "m", "judge_model": "j", "cases": {"fake": entry}}

@@ -190,6 +190,8 @@ def _check_same_provider(models: dict[str, str]) -> None:
 # --- Pipeline limits ---------------------------------------------------------------------------
 
 MAX_REVISIONS = 2
+# Public app: web searches each visitor may run on our Tavily key per browser session (roadmap 15.9)
+SEARCHES_PER_SESSION = 80
 MAX_SEARCH_RESULTS = 5
 ANALYST_RECURSION_LIMIT = 15
 DOC_TOKEN_BUDGET = 60_000
