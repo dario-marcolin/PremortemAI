@@ -148,7 +148,7 @@ Risk: on 25 Oct Haiku was unstable as a judge (`docs/devlog/2026-10-25.md`). Mit
 |---|---|---|
 | 13.1 | `app.py` | A missing Tavily key no longer disables the run button (warning only). |
 | 13.2 | `scripts/check_setup.py` | Checks the Python version, the keys, `check_model` on the chosen provider and one Tavily search. Prints what works and what is missing. |
-| 13.3 | `examples/` | Complete saved runs **committed to the repo** (`blueprint.md`, `state.json`, `run.json`, `log.txt`): the demo document with `anthropic`, and with `gemini`. Phase 14 adds the evaluation runs under `eval/runs/`. |
+| 13.3 | `examples/` | Complete saved runs **committed to the repo** (`blueprint.md`, `state.json`, `run.json`, `log.txt`): the demo document with `anthropic`, and with `gemini`. Their `metrics.json` (scored by the same judge, Haiku, with the baseline) is added in 14.2, so the Evaluation tab works on a saved run. Phase 14 adds the evaluation runs under `eval/runs/`. |
 | 13.4 | `README.md` | Install `uv` (one command). Clone → `uv sync` → `.env` → `check_setup` → run. How to get a free Gemini key. Supported providers and the custom route. The two modes: where to set `PREMORTEM_MODE` (`.env` locally, *Settings → Secrets* on Streamlit Cloud) and that unset means `public`. Cost of one run and of a full evaluation, in tokens. Why the outputs change between runs: Claude 5 rejects the temperature, so the procedure is reproducible but the exact text is not. Link to this roadmap. |
 | 13.5 | `requirements.txt` | Generated with `uv export`, for anyone who uses `pip`. |
 | 13.6 | repo | Remove the `.archify/` build folders from git and add them to `.gitignore`. |
@@ -165,8 +165,9 @@ This is the short version of the evaluation. The report covers only 1 case of 5 
 | # | Task |
 |---|---|
 | 14.1 | Re-run all 5 cases with the Phase 12 models: `uv run python -m eval.run_eval`. Run the cases one by one with `--cases` so that a failure costs only one case. Commit the runs to `eval/runs/`. |
-| 14.2 | **Free preset run**: the demo document with `gemini`, scored with the same metrics. It shows the quality gap of free models with numbers. |
+| 14.2 | **Free preset run**: the demo document with `gemini`, scored with the same metrics. It shows the quality gap of free models with numbers. Score `examples/demo_anthropic` and `examples/demo_gemini` with the Haiku judge (anthropic preset) and the baseline, and commit their `metrics.json` and `baseline/`. |
 | 14.3 | Blind rating of all pairs (`eval/rating/`), then `eval/findings.md` (5 to 10 lines, including where the baseline wins), then `--report-only`. |
+| 14.4 | `eval/results.json` holds everything the evaluation page of the UI (15.3 D2) shows: the models of both systems and the judge, the 3 judge runs per plan (mean and spread), the `gemini` run of 14.2, and the blind ratings. The UI reads this file only; it never re-runs the evaluation. |
 
 Rule from the devlog: every claim of an advantage needs a case and a metric that can show it. Report ties and losses as they are.
 
@@ -233,7 +234,7 @@ If this slips, keep the single strategy review: the timeline still shows a page 
 | **A. Setup** (first screen) | **Key field:** paste a key and the provider is detected and shown (e.g. "Google Gemini · free tier"). A menu to change the provider, including "Custom (OpenAI-compatible)" with base URL and model fields. One line on what the choice means (e.g. Gemini free: slower, lower quality, data may be used by Google). "Check key" shows the result of each of the three checks. Under it, the model used by each role. **In `local` mode:** "Using the key from .env (Anthropic)", nothing to enter. **Tavily status:** "Web search provided by the team · 25 searches left in this session". **Document:** upload, or one of the sample documents with a one-line description each. **Review setting:** which steps pause for review. A strip shows the steps the run will take. |
 | **B. Run workspace** | Left: the timeline. Centre: the view of the selected step. The review panel appears under the step that waits for review, and the timeline jumps to it. At the bottom of the timeline: time, tokens, current action, and a **Stop** button. |
 | **C. Blueprint reader** | The final document in a reading layout: table of contents on the side, hover citations, a Sources list with anchors, downloads (Markdown, PDF). |
-| **D. Evaluation** | Today's tab, redesigned: metric tiles compared with the baseline, and expandable lists of claims, figures and sources. |
+| **D. Evaluation** | Two views, both read from files, so they need no key and no API call. **D1, this run** (a tab of the run): today's tab, redesigned: metric tiles compared with the baseline, and expandable lists of claims, figures and sources. A saved run shows its committed `metrics.json`. **D2, evaluation results** (a page in the top bar): the Phase 14 results, read from `eval/results.json` and `eval/findings.md`: the research question, the averages of both systems, a table per case with a link to each case's saved run, the free preset (`gemini`) against `anthropic` on the demo, the blind ratings, the findings with the cases where the baseline wins, and the judge's spread (mean of 3 Haiku runs, shown next to traceability). |
 | **E. Saved runs** | Cards of the committed runs (demo with `anthropic`, demo with `gemini`, the eval cases), each with document, provider, date and chosen target. A card opens screens B to D read-only, with no API call. |
 | **F. How it works** | The architecture map (`docs/architecture.html`, updated) and one paragraph per agent. |
 
@@ -311,6 +312,7 @@ Watch without helping, note where they hesitate, and fix the top three problems.
 | Timeline with a page per agent | Bubble chart of the segments | PDF export with a print stylesheet |
 | Hover citations | Blueprint reader with a table of contents | Tablet layout |
 | Saved runs | "How it works" screen | |
+| Evaluation of this run (D1), also on saved runs | Evaluation results page (D2) | |
 | Error states for key, rate limit and quota | Usability check | |
 | Deployment | | |
 
@@ -319,7 +321,8 @@ Watch without helping, note where they hesitate, and fix the top three problems.
 1. browse a saved run with no key;
 2. run the demo document with their own key, from any supported provider, and our Tavily key;
 3. open each agent's result, send a reviewed step back and see what changed;
-4. hover over any citation and see its source.
+4. hover over any citation and see its source;
+5. read the evaluation of a run and the Phase 14 results, with no key.
 
 One person outside the team has done the four tasks of 15.10 without help.
 

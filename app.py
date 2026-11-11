@@ -453,9 +453,9 @@ with st.sidebar:
         show_check(settings)
     if key_error:
         st.error(key_error)
-    elif not settings.tavily_api_key:
-        key_error = "Missing TAVILY_API_KEY (in .env locally, in the Secrets online)."
-        st.error(key_error)
+    elif not settings.tavily_api_key:  # the run still works, from the document only
+        st.warning("Web search unavailable (no TAVILY_API_KEY in .env locally, in the Secrets online): "
+                   "the agents will work from the document only.")
     st.button("Run the pipeline", type="primary", width="stretch", on_click=start_run, args=(upload, saved, settings),
               disabled=bool(key_error) or (upload is None and saved is None))
     if st.session_state.get("start_error"):

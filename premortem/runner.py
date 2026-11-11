@@ -114,6 +114,16 @@ def describe(namespace: tuple, update: dict) -> list[tuple[str, str, Kind]]:
     return lines
 
 
+REPO_ROOT = config.OUTPUT_DIR.parent
+
+
+def portable_path(path: Path) -> str:
+    """Relative to the repo when the file is inside it (e.g. data/demo/demo_company.pdf), so a saved
+    run works in any clone and does not record the local home folder; otherwise the file name only."""
+    path = path.resolve()
+    return str(path.relative_to(REPO_ROOT)) if path.is_relative_to(REPO_ROOT) else path.name
+
+
 class Run:
     def __init__(self, document: str | Path, run_id: str | None = None, settings: RunSettings | None = None):
         """Parse the document (raises DocumentParseError) and prepare the graph; nothing runs yet.
@@ -205,7 +215,7 @@ class Run:
         state = TypeAdapter(LaunchState).dump_python(self.state, mode="json")
         (self.dir / "state.json").write_text(json.dumps(state, indent=2, ensure_ascii=False))
         run = {
-            "document": str(self.document.resolve()),
+            "document": portable_path(self.document),
             **self.settings.to_record(),  # provider and the model of each role, never the keys
             "status": self.status,
             "error": self.error,

@@ -1,0 +1,30 @@
+    6.6s  extract_brief      node     Verdo Foods S.r.l., Proteo Crisps (France), 5 missing info
+    8.6s  analyst            search   Barebells barre protéinée prix France supermarché
+    8.6s  analyst            search   Gerblé snack protéiné prix
+    8.6s  analyst            search   chips protéinées France marques supermarché prix
+    8.6s  analyst            search   marché snacking protéiné France croissance 2024
+   10.7s  analyst            results  5 results
+   10.7s  analyst            results  5 results
+   10.7s  analyst            results  5 results
+   10.7s  analyst            results  5 results
+   14.2s  analyst            search   Barebells Protein Crisps France prix sachet
+   14.2s  analyst            search   Gerblé Protéiné barre prix Carrefour Auchan
+   14.2s  analyst            search   chips pois chiches protéinées marque distributeur Carrefour Leclerc prix 100g
+   14.2s  analyst            search   sportifs hebdomadaires France protéines consommation snacks enquête consommateurs produits protéinés
+   16.1s  analyst            results  5 results
+   16.1s  analyst            results  5 results
+   16.1s  analyst            results  5 results
+   16.1s  analyst            results  5 results
+   19.6s  analyst            search   Barebells barre protéinée 55g prix unité Carrefour
+   19.6s  analyst            search   Glanbia étude snacks sains protéines France consommateurs plant-based
+   21.0s  analyst            results  5 results
+   21.1s  analyst            results  5 results
+   78.3s  analyst            node     5 competitors, 4 segments, 17 sources
+   89.9s  validate_analysis  node     passed, 0 blocking, 5 warnings
+  108.6s  strategist         node     target SEG2, channels Supermarkets, Gyms, Sport and organic shops, Instagram, Own online shop (revisions: 0)
+  121.5s  validate_strategy  node     passed, 0 blocking, 3 warnings
+  121.5s  human_approval     pause    waiting for approval of target SEG2
+  121.5s  human_approval     node     approved
+  136.2s  creative           node     "Le vrai croustillant. Protéiné.", 6 messages (revisions: 0)
+  149.2s  validate_campaign  node     passed, 0 blocking, 3 warnings
+  158.2s  blueprint          node     blueprint.md written

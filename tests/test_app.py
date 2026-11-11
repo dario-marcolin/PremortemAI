@@ -146,3 +146,12 @@ def test_evaluation_error_keeps_the_result(app, monkeypatch):
     assert any("judge unavailable" in e.value for e in app.error)
     assert "Blueprint" in [t.label for t in app.tabs]
     assert not app.exception
+
+
+def test_missing_tavily_key_is_a_warning_and_the_run_stays_possible(monkeypatch):
+    monkeypatch.delenv("TAVILY_API_KEY")
+    at = AppTest.from_file(APP, default_timeout=TIMEOUT).run()
+    at.sidebar.selectbox[0].select_index(0).run()  # a saved document
+    assert not at.error
+    assert "Web search unavailable" in at.sidebar.warning[0].value
+    assert not button(at, "Run the pipeline").disabled

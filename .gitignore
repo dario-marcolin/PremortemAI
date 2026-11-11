@@ -4,3 +4,6 @@ __pycache__/
 .venv/
 .DS_Store
 .taste-skill/
+.archify/
+.pytest_cache/
+.ruff_cache/
