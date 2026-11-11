@@ -9,7 +9,7 @@ sends a stage back for revision.
 import re
 
 from langchain_core.messages import HumanMessage, SystemMessage
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 
 from premortem.llm import get_llm, invoke_structured, is_anthropic
 from premortem.prompts import load_prompt
@@ -152,7 +152,8 @@ def judge(stage: Stage, state: LaunchState) -> list[ValidationIssue]:
     llm = get_llm("validator").with_structured_output(JudgeVerdict)
     try:
         verdict = invoke_structured(llm, [SystemMessage(load_prompt("judge")), _prompt(stage, sections)])
-    except RuntimeError as e:
-        # The rules already ran: a missing verdict is reported, it does not stop the run
-        return [ValidationIssue(severity="warning", check="judge.no_verdict", message=f"The judge did not run: {e}.")]
+    except (RuntimeError, ValidationError) as e:
+        # The rules already ran: a missing or malformed verdict is reported, it does not stop the run
+        return [ValidationIssue(severity="warning", check="judge.no_verdict",
+                                message=f"The judge did not run: {str(e).splitlines()[0]}.")]
     return to_validation_issues(stage, verdict, sections)

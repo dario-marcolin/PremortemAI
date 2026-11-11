@@ -100,13 +100,22 @@ def is_anthropic(role: ModelRole, settings: RunSettings | None = None) -> bool:
 
 
 def invoke_structured(llm, messages, attempts: int = 2):
-    """Invoke a with_structured_output model, retrying when it returns None.
+    """Invoke a with_structured_output model, retrying when it returns None or an invalid object.
 
-    The model returns None when it answers in prose instead of calling the schema tool.
-    Retry once, then raise, so no node ever writes None into the state.
+    The model returns None when it answers in prose instead of calling the schema tool, and
+    raises a pydantic ValidationError when it leaves out a required field (e.g. the Validator
+    on nordbrew_de, 11 Nov: four issues without `severity`). Retry once, then raise, so no node
+    ever writes None or a partial object into the state.
     """
-    for _ in range(attempts):
-        result = llm.invoke(messages)
+    from pydantic import ValidationError
+
+    for attempt in range(attempts):
+        try:
+            result = llm.invoke(messages)
+        except ValidationError:
+            if attempt == attempts - 1:
+                raise
+            continue
         if result is not None:
             return result
     raise RuntimeError(f"The model returned no structured output after {attempts} attempts")

@@ -132,3 +132,40 @@ def test_missing_verdict_is_a_warning(monkeypatch, state):
     result = validator_module.make_validator("strategy")(state)["validations"][0]
     assert fake.calls == 2 and result.passed
     assert [i.check for i in result.issues] == ["judge.no_verdict"]
+
+
+def test_a_malformed_verdict_is_retried_then_reported(monkeypatch):
+    """nordbrew_de, 11 Nov: the Validator left out `severity`; the run must not stop."""
+    from pydantic import ValidationError
+
+    from premortem.llm import invoke_structured
+    from premortem.validation import judge as judge_module
+
+    def bad():
+        try:
+            judge_module.JudgeIssue.model_validate({"check": "x", "message": "m", "field": "f", "quote": "q"})
+        except ValidationError as e:
+            return e
+
+    calls = []
+
+    class Flaky:
+        def __init__(self, fails):
+            self.fails = fails
+
+        def with_structured_output(self, _schema):
+            return self
+
+        def invoke(self, _messages):
+            calls.append(1)
+            if len(calls) <= self.fails:
+                raise bad()
+            return judge_module.JudgeVerdict(issues=[])
+
+    assert invoke_structured(Flaky(1), []) == judge_module.JudgeVerdict(issues=[]) and len(calls) == 2
+    calls.clear()
+    monkeypatch.setattr(judge_module, "get_llm", lambda *_a, **_k: Flaky(5))
+    monkeypatch.setattr(judge_module, "judge_sections", lambda *_a: {"brief": "b"})
+    monkeypatch.setattr(judge_module, "_prompt", lambda *_a: "p")
+    issues = judge_module.judge("analysis", {})
+    assert [i.check for i in issues] == ["judge.no_verdict"] and issues[0].severity == "warning"
