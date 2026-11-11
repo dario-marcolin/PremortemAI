@@ -303,3 +303,6 @@ button[kind="secondary"], [data-testid="stBaseButton-secondary"] { font-weight: 
 [class*="st-key-chip_"] button { border: 1px solid var(--control); border-radius: 999px; padding: 3px 12px; min-height: 30px; }
 [class*="st-key-chip_"] button p { font-size: 13px; }
 [class*="st-key-chip_"] button:hover { border-color: var(--brand); color: var(--brand-ink); background: var(--brand-tint); }
+
+/* Streamlit's link icon next to every heading (a #section anchor): not useful here, and it reads as "copy" */
+[data-testid="stHeaderActionElements"], [data-testid="stHeadingWithActionElements"] a[href^="#"] { display: none !important; }
