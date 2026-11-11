@@ -13,6 +13,7 @@ from ui.view import ROOT, RunView
 COMMITTED = [
     (ROOT / "examples" / "demo_anthropic", "Demo document · Anthropic preset"),
     (ROOT / "examples" / "demo_gemini", "Demo document · Gemini free preset"),
+    (ROOT / "examples" / "fakturo_anthropic", "Fakturo · Anthropic preset · strategy sent back twice"),
 ]
 
 
@@ -72,7 +73,7 @@ def page() -> None:
     html_block('<h1 style="margin:0 0 6px;padding:0">Saved runs</h1>'
                '<p class="pm-sub">Finished runs committed to the repository. They open read-only, with no key and no API call: '
                'every agent page, the blueprint and the evaluation.</p>')
-    st.subheader("Demo document")
+    st.subheader("Example runs")
     grid(demo_runs(), "demo")
     st.subheader("Evaluation cases")
     grid(case_runs(), "cases")

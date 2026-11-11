@@ -1,0 +1,90 @@
+{
+  "document": "eval/cases/fakturo_invoicing_app_it.md",
+  "provider": "anthropic",
+  "base_url": null,
+  "models": {
+    "brief": "anthropic:claude-sonnet-5-5",
+    "analyst": "anthropic:claude-sonnet-5-5",
+    "strategist": "anthropic:claude-sonnet-5-5",
+    "creative": "anthropic:claude-sonnet-5-5",
+    "validator": "anthropic:claude-sonnet-5-5",
+    "blueprint": "anthropic:claude-opus-5-5"
+  },
+  "eval_judge": "anthropic:claude-haiku-5-5",
+  "status": "done",
+  "error": null,
+  "decisions": [
+    {
+      "approved": false,
+      "feedback": "Target a bigger segment.",
+      "target_segment_id": "SEG1",
+      "unresolved": false
+    },
+    {
+      "approved": false,
+      "feedback": "Cheaper positioning.",
+      "target_segment_id": "SEG3",
+      "unresolved": false
+    },
+    {
+      "approved": true,
+      "target_segment_id": "SEG1",
+      "unresolved": false
+    }
+  ],
+  "strategy_revisions": 0,
+  "campaign_revisions": 0,
+  "validations": [
+    {
+      "stage": "analysis",
+      "passed": true
+    },
+    {
+      "stage": "strategy",
+      "passed": true
+    },
+    {
+      "stage": "strategy",
+      "passed": true
+    },
+    {
+      "stage": "strategy",
+      "passed": true
+    },
+    {
+      "stage": "campaign",
+      "passed": true
+    }
+  ],
+  "tokens": {
+    "claude-sonnet-5-5": {
+      "input_tokens": 138917,
+      "total_tokens": 172969,
+      "output_token_details": {
+        "reasoning": 13488
+      },
+      "output_tokens": 34052,
+      "input_token_details": {
+        "ephemeral_5m_input_tokens": 4474,
+        "cache_read": 17896,
+        "ephemeral_1h_input_tokens": 0,
+        "cache_creation": 0
+      }
+    },
+    "claude-opus-5-5": {
+      "input_tokens": 7898,
+      "output_tokens": 2039,
+      "total_tokens": 9937,
+      "input_token_details": {
+        "cache_read": 0,
+        "cache_creation": 0,
+        "ephemeral_5m_input_tokens": 0,
+        "ephemeral_1h_input_tokens": 0
+      },
+      "output_token_details": {
+        "reasoning": 1704
+      }
+    }
+  },
+  "seconds": 269.9
+}

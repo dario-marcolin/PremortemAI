@@ -229,3 +229,11 @@ def test_the_blueprint_pdf_has_every_section():
 
     pdf = blueprint_pdf((ROOT / "examples" / "demo_anthropic" / "blueprint.md").read_text())
     assert pdf.startswith(b"%PDF") and len(pdf) > 20_000
+
+
+def test_each_round_names_the_feedback_that_asked_for_it():
+    from ui.steps.common import reason_for_round
+
+    view = RunView.from_dir(ROOT / "examples" / "fakturo_anthropic")  # sent back twice, then approved
+    assert "Target a bigger segment" in reason_for_round(view, "strategy", 2)
+    assert "Cheaper positioning" in reason_for_round(view, "strategy", 3)

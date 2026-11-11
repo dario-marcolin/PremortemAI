@@ -1,0 +1,32 @@
+   10.3s  extract_brief      node     Kasa Software sp. z o.o., Fakturo (Italy), 4 missing info
+   13.3s  analyst            search   Fatture in Cloud prezzi piani abbonamento mensile
+   13.3s  analyst            search   app fatturazione elettronica regime forfettario prezzo al mese Aruba Fattura24 Fatture in Cloud confronto
+   13.3s  analyst            search   fatturazione elettronica forfettari obbligo 2024 numero forfettari Italia
+   13.3s  analyst            search   Agenzia delle Entrate fatture e corrispettivi servizio gratuito fatturazione elettronica forfettari app
+   16.7s  analyst            results  5 results
+   16.7s  analyst            results  5 results
+   16.7s  analyst            results  5 results
+   16.7s  analyst            results  5 results
+   20.3s  analyst            search   Fiscozen forfettari prezzo abbonamento commercialista online partita IVA
+   20.3s  analyst            search   app forfettari calcolo tasse imposta sostitutiva stima F24 fatturazione elettronica app
+   20.3s  analyst            search   partite IVA forfettari in Italia numero 2024 Ministero Economia e Finanze osservatorio
+   22.1s  analyst            results  5 results
+   22.1s  analyst            results  5 results
+   22.1s  analyst            results  5 results
+   87.2s  analyst            node     9 competitors, 4 segments, 17 sources
+  102.5s  validate_analysis  node     passed, 0 blocking, 4 warnings
+  125.4s  strategist         node     target SEG1, channels Professional associations, Accountants (commercialisti), Search ads and SEO content, LinkedIn and Instagram, Free 30-day trial with in-app referral (revisions: 0)
+  138.7s  validate_strategy  node     passed, 0 blocking, 4 warnings
+  138.7s  human_approval     pause    waiting for approval of target SEG1
+  138.7s  human_approval     node     rejected: Target a bigger segment.
+  164.0s  strategist         node     target SEG3, channels Accountants (commercialisti), Professional associations, Search ads and SEO content, LinkedIn (revisions: 0)
+  175.4s  validate_strategy  node     passed, 0 blocking, 2 warnings
+  175.4s  human_approval     pause    waiting for approval of target SEG3
+  175.5s  human_approval     node     rejected: Cheaper positioning.
+  205.4s  strategist         node     target SEG1, channels Search ads and SEO content, Price-comparison and review sites, Accountants (commercialisti), Professional associations (revisions: 0)
+  218.2s  validate_strategy  node     passed, 0 blocking, 2 warnings
+  218.2s  human_approval     pause    waiting for approval of target SEG1
+  218.2s  human_approval     node     approved
+  242.0s  creative           node     "Fatture in regola, tasse chiare, prezzo giusto.", 6 messages (revisions: 0)
+  252.1s  validate_campaign  node     passed, 0 blocking, 1 warnings
+  269.9s  blueprint          node     blueprint.md written

@@ -1,0 +1,716 @@
+{
+  "system": "multi_agent",
+  "status": "done",
+  "error": null,
+  "cost": {
+    "tokens": {
+      "claude-sonnet-5-5": {
+        "input_tokens": 138917,
+        "output_tokens": 34052,
+        "total_tokens": 172969
+      },
+      "claude-opus-5-5": {
+        "input_tokens": 7898,
+        "output_tokens": 2039,
+        "total_tokens": 9937
+      }
+    },
+    "total_tokens": 182906,
+    "seconds": 269.9
+  },
+  "trap": {
+    "applies": false,
+    "segment": null,
+    "target": "SEG1 Flat-rate freelancers without an app",
+    "avoided": null
+  },
+  "traceability": {
+    "score": 0.8125,
+    "claims": 32,
+    "traced": 26,
+    "unquoted": 5,
+    "items": [
+      {
+        "quote": "They number 1.06M, with 23% purchase intent at 9 euros per month, the highest of four groups.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Ordinary-regime freelancers number 1.5M but show 6%.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Its single, stable price sits below the 7.20-euro market average and Fatture in Cloud's 8 euros after year one.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Italy has 3.4 million freelancers with a VAT number, of which 1.9 million are in the flat-rate regime (regime forfettario) [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "44% of flat-rate freelancers already use an invoicing app, and the average price paid is 7.20 euros per month [1].",
+        "refs": [
+          "1"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "E-invoicing via the SdI became mandatory for all flat-rate freelancers on 1 January 2024, whatever their revenue [2, 3].",
+        "refs": [
+          "2",
+          "3"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "New flat-rate registrations are steady: 233,511 in 2024 [4] and 242,529 in 2025, 48.5% of new VAT numbers and +3.9% on 2024 [5].",
+        "refs": [
+          "4",
+          "5"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "Fatture in Cloud is the leader, with a flat-rate offer at 4 euros per month in the first year (48 euros + VAT), rising to 8 euros per month (96 euros + VAT) afterwards [6].",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Other apps start at about 1 to 5 euros per month [7, 8, 9].",
+        "refs": [
+          "7",
+          "8",
+          "9"
+        ],
+        "valid_refs": 3,
+        "traced": true
+      },
+      {
+        "quote": "Fiscozen sells an online accountant service from 49.90 euros per month [11].",
+        "refs": [
+          "11"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "58% of flat-rate freelancers without an invoicing app say they do not understand it [17]",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "41% of the 250 beta users asked for it [14]",
+        "refs": [
+          "14"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Fakturo's planned price is 9 euros per month or 90 euros per year [14].",
+        "refs": [
+          "14"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Tested in 2025 with 250 beta users in Italy: 68% still active after 3 months, average rating 4.4 out of 5.",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Fiscozen | Online accountant subscription for flat-rate freelancers. It includes a dedicated accountant, unlimited e-invoices, expense management and F24 handling. It is an alternative for people who want tax handled for them. Flat-rate plan from 49.90 euros per month or 499 euros per year.",
+        "refs": [
+          "11"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Aruba Fatturazione Elettronica | Easy to use and pitched at flat-rate freelancers. It has a very low entry price (1 euro + VAT for the first 3 months). The full package costs 134.60 euros + VAT per year at renewal.",
+        "refs": [
+          "7",
+          "8"
+        ],
+        "valid_refs": 2,
+        "traced": true
+      },
+      {
+        "quote": "FatturaElettronica APP | E-invoicing app for freelancers and flat-rate users, with a flat-rate offer at 4.99 euros per month and a 1-month trial.",
+        "refs": [
+          "9"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Fatture in Cloud is the leader, with a flat-rate offer at 4 euros per month in the first year",
+        "refs": [
+          "6"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG1 Flat-rate freelancers without an app | 1.06M freelancers [17]",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG2 Flat-rate freelancers already using an app | 0.84M freelancers [17]",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG3 Ordinary-regime freelancers with an accountant | 1.5M freelancers [17]",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "SEG4 Single-owner craft businesses (artigiani) | 0.9M businesses [17]",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Purchase intent is 9% at 9 euros per month [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Purchase intent is 6% at 9 euros per month, the lowest of the four groups [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Purchase intent is 11% at 9 euros per month [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Purchase intent is 23% at 9 euros per month [17].",
+        "refs": [
+          "17"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Tasse Forfettario | Independent, unofficial app that calculates substitute tax and social contributions for the flat-rate regime and shows amounts and due dates.",
+        "refs": [
+          "13"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Fakturo's planned price is 9 euros per month or 90 euros per year [14].",
+        "refs": [
+          "14"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "The Agenzia delle Entrate offers free tools [10].",
+        "refs": [
+          "10"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Fattura24 | E-invoicing app for professionals, with simplified management and a 30-day trial.",
+        "refs": [
+          "8"
+        ],
+        "valid_refs": 1,
+        "traced": true
+      },
+      {
+        "quote": "Fatture in Cloud's 8 euros after year one",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      },
+      {
+        "quote": "Intent was measured for the 9 euros price only",
+        "refs": [],
+        "valid_refs": 0,
+        "traced": false
+      }
+    ]
+  },
+  "faithfulness": {
+    "score": 1.0,
+    "checked": 50,
+    "matched": 50,
+    "not_found": 0,
+    "unverifiable": 0,
+    "items": [
+      {
+        "figure": "1.06M",
+        "quote": "They number 1.06M, with 23% purchase intent at 9 euros per month, the highest of four groups.",
+        "status": "document"
+      },
+      {
+        "figure": "23%",
+        "quote": "They number 1.06M, with 23% purchase intent at 9 euros per month, the highest of four groups.",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros per month",
+        "quote": "They number 1.06M, with 23% purchase intent at 9 euros per month, the highest of four groups.",
+        "status": "document"
+      },
+      {
+        "figure": "1.5M",
+        "quote": "Ordinary-regime freelancers number 1.5M but show 6%.",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "Ordinary-regime freelancers number 1.5M but show 6%.",
+        "status": "document"
+      },
+      {
+        "figure": "7.20-euro",
+        "quote": "Its single, stable price sits below the 7.20-euro market average and Fatture in Cloud's 8 euros after year one.",
+        "status": "document"
+      },
+      {
+        "figure": "8 euros",
+        "quote": "Its single, stable price sits below the 7.20-euro market average and Fatture in Cloud's 8 euros after year one.",
+        "status": "document"
+      },
+      {
+        "figure": "3.4 million",
+        "quote": "Italy has 3.4 million freelancers with a VAT number, of which 1.9 million are in the flat-rate regime (regime forfettario) [1].",
+        "status": "document"
+      },
+      {
+        "figure": "1.9 million",
+        "quote": "Italy has 3.4 million freelancers with a VAT number, of which 1.9 million are in the flat-rate regime (regime forfettario) [1].",
+        "status": "document"
+      },
+      {
+        "figure": "44%",
+        "quote": "44% of flat-rate freelancers already use an invoicing app, and the average price paid is 7.20 euros per month [1].",
+        "status": "document"
+      },
+      {
+        "figure": "7.20 euros per month",
+        "quote": "44% of flat-rate freelancers already use an invoicing app, and the average price paid is 7.20 euros per month [1].",
+        "status": "document"
+      },
+      {
+        "figure": "233,511",
+        "quote": "New flat-rate registrations are steady: 233,511 in 2024 [4] and 242,529 in 2025, 48.5% of new VAT numbers and +3.9% on 2024 [5].",
+        "status": "source"
+      },
+      {
+        "figure": "242,529",
+        "quote": "New flat-rate registrations are steady: 233,511 in 2024 [4] and 242,529 in 2025, 48.5% of new VAT numbers and +3.9% on 2024 [5].",
+        "status": "source"
+      },
+      {
+        "figure": "48.5%",
+        "quote": "New flat-rate registrations are steady: 233,511 in 2024 [4] and 242,529 in 2025, 48.5% of new VAT numbers and +3.9% on 2024 [5].",
+        "status": "source"
+      },
+      {
+        "figure": "+3.9%",
+        "quote": "New flat-rate registrations are steady: 233,511 in 2024 [4] and 242,529 in 2025, 48.5% of new VAT numbers and +3.9% on 2024 [5].",
+        "status": "source"
+      },
+      {
+        "figure": "4 euros per month",
+        "quote": "Fatture in Cloud is the leader, with a flat-rate offer at 4 euros per month in the first year (48 euros + VAT), rising to 8 euros per month (96 euros + VAT) afterwards [6].",
+        "status": "document"
+      },
+      {
+        "figure": "48 euros",
+        "quote": "Fatture in Cloud is the leader, with a flat-rate offer at 4 euros per month in the first year (48 euros + VAT), rising to 8 euros per month (96 euros + VAT) afterwards [6].",
+        "status": "source"
+      },
+      {
+        "figure": "8 euros per month",
+        "quote": "Fatture in Cloud is the leader, with a flat-rate offer at 4 euros per month in the first year (48 euros + VAT), rising to 8 euros per month (96 euros + VAT) afterwards [6].",
+        "status": "document"
+      },
+      {
+        "figure": "96 euros",
+        "quote": "Fatture in Cloud is the leader, with a flat-rate offer at 4 euros per month in the first year (48 euros + VAT), rising to 8 euros per month (96 euros + VAT) afterwards [6].",
+        "status": "source"
+      },
+      {
+        "figure": "1 to 5 euros per month",
+        "quote": "Other apps start at about 1 to 5 euros per month [7, 8, 9].",
+        "status": "document"
+      },
+      {
+        "figure": "49.90 euros per month",
+        "quote": "Fiscozen sells an online accountant service from 49.90 euros per month [11].",
+        "status": "source"
+      },
+      {
+        "figure": "58%",
+        "quote": "58% of flat-rate freelancers without an invoicing app say they do not understand it [17]",
+        "status": "document"
+      },
+      {
+        "figure": "41%",
+        "quote": "41% of the 250 beta users asked for it [14]",
+        "status": "document"
+      },
+      {
+        "figure": "250",
+        "quote": "41% of the 250 beta users asked for it [14]",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros per month",
+        "quote": "Fakturo's planned price is 9 euros per month or 90 euros per year [14].",
+        "status": "document"
+      },
+      {
+        "figure": "90 euros per year",
+        "quote": "Fakturo's planned price is 9 euros per month or 90 euros per year [14].",
+        "status": "document"
+      },
+      {
+        "figure": "250",
+        "quote": "Tested in 2025 with 250 beta users in Italy: 68% still active after 3 months, average rating 4.4 out of 5.",
+        "status": "document"
+      },
+      {
+        "figure": "68%",
+        "quote": "Tested in 2025 with 250 beta users in Italy: 68% still active after 3 months, average rating 4.4 out of 5.",
+        "status": "document"
+      },
+      {
+        "figure": "4.4 out of 5",
+        "quote": "Tested in 2025 with 250 beta users in Italy: 68% still active after 3 months, average rating 4.4 out of 5.",
+        "status": "document"
+      },
+      {
+        "figure": "49.90 euros per month",
+        "quote": "Fiscozen | Online accountant subscription for flat-rate freelancers. It includes a dedicated accountant, unlimited e-invoices, expense management and F24 handling. It is an alternative for people who want tax handled for them. Flat-rate plan from 49.90 euros per month or 499 euros per year.",
+        "status": "source"
+      },
+      {
+        "figure": "499 euros per year",
+        "quote": "Fiscozen | Online accountant subscription for flat-rate freelancers. It includes a dedicated accountant, unlimited e-invoices, expense management and F24 handling. It is an alternative for people who want tax handled for them. Flat-rate plan from 49.90 euros per month or 499 euros per year.",
+        "status": "source"
+      },
+      {
+        "figure": "1 euro",
+        "quote": "Aruba Fatturazione Elettronica | Easy to use and pitched at flat-rate freelancers. It has a very low entry price (1 euro + VAT for the first 3 months). The full package costs 134.60 euros + VAT per year at renewal.",
+        "status": "document"
+      },
+      {
+        "figure": "3 months",
+        "quote": "Aruba Fatturazione Elettronica | Easy to use and pitched at flat-rate freelancers. It has a very low entry price (1 euro + VAT for the first 3 months). The full package costs 134.60 euros + VAT per year at renewal.",
+        "status": "document"
+      },
+      {
+        "figure": "134.60 euros",
+        "quote": "Aruba Fatturazione Elettronica | Easy to use and pitched at flat-rate freelancers. It has a very low entry price (1 euro + VAT for the first 3 months). The full package costs 134.60 euros + VAT per year at renewal.",
+        "status": "source"
+      },
+      {
+        "figure": "4.99 euros per month",
+        "quote": "FatturaElettronica APP | E-invoicing app for freelancers and flat-rate users, with a flat-rate offer at 4.99 euros per month and a 1-month trial.",
+        "status": "source"
+      },
+      {
+        "figure": "1.06M",
+        "quote": "SEG1 Flat-rate freelancers without an app | 1.06M freelancers [17]",
+        "status": "document"
+      },
+      {
+        "figure": "0.84M",
+        "quote": "SEG2 Flat-rate freelancers already using an app | 0.84M freelancers [17]",
+        "status": "document"
+      },
+      {
+        "figure": "1.5M",
+        "quote": "SEG3 Ordinary-regime freelancers with an accountant | 1.5M freelancers [17]",
+        "status": "document"
+      },
+      {
+        "figure": "0.9M",
+        "quote": "SEG4 Single-owner craft businesses (artigiani) | 0.9M businesses [17]",
+        "status": "document"
+      },
+      {
+        "figure": "9%",
+        "quote": "Purchase intent is 9% at 9 euros per month [17].",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros per month",
+        "quote": "Purchase intent is 9% at 9 euros per month [17].",
+        "status": "document"
+      },
+      {
+        "figure": "6%",
+        "quote": "Purchase intent is 6% at 9 euros per month, the lowest of the four groups [17].",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros per month",
+        "quote": "Purchase intent is 6% at 9 euros per month, the lowest of the four groups [17].",
+        "status": "document"
+      },
+      {
+        "figure": "11%",
+        "quote": "Purchase intent is 11% at 9 euros per month [17].",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros per month",
+        "quote": "Purchase intent is 11% at 9 euros per month [17].",
+        "status": "document"
+      },
+      {
+        "figure": "23%",
+        "quote": "Purchase intent is 23% at 9 euros per month [17].",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros per month",
+        "quote": "Purchase intent is 23% at 9 euros per month [17].",
+        "status": "document"
+      },
+      {
+        "figure": "30-day",
+        "quote": "Fattura24 | E-invoicing app for professionals, with simplified management and a 30-day trial.",
+        "status": "document"
+      },
+      {
+        "figure": "8 euros",
+        "quote": "Fatture in Cloud's 8 euros after year one",
+        "status": "document"
+      },
+      {
+        "figure": "9 euros",
+        "quote": "Intent was measured for the 9 euros price only",
+        "status": "document"
+      }
+    ]
+  },
+  "sources": [
+    {
+      "number": "1",
+      "reference": "Document: Company document, section 4 (Market context)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "2",
+      "reference": "Document: Company document, section 3 (Why Italy, and launch goals)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "3",
+      "reference": "https://biblus.acca.it/fatturazione-elettronica-forfettari",
+      "kind": "web",
+      "url": "https://biblus.acca.it/fatturazione-elettronica-forfettari",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "4",
+      "reference": "https://www.finanze.gov.it/it/archivi/notizie/dettaglio-notizie/Osservatorio-sulle-partite-IVA-sintesi-dei-dati-anno-2024",
+      "kind": "web",
+      "url": "https://www.finanze.gov.it/it/archivi/notizie/dettaglio-notizie/Osservatorio-sulle-partite-IVA-sintesi-dei-dati-anno-2024",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "5",
+      "reference": "https://www.finanze.gov.it/it/archivi/notizie/dettaglio-notizie/Osservatorio-sulle-partite-IVA-sintesi-dei-dati-anno-2025-00001",
+      "kind": "web",
+      "url": "https://www.finanze.gov.it/it/archivi/notizie/dettaglio-notizie/Osservatorio-sulle-partite-IVA-sintesi-dei-dati-anno-2025-00001",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "6",
+      "reference": "https://www.fattureincloud.it/costo",
+      "kind": "web",
+      "url": "https://www.fattureincloud.it/costo",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "7",
+      "reference": "https://www.softwaresemplice.it/blog/aruba-fatture-in-cloud-prezzi-a-confronto/1203",
+      "kind": "web",
+      "url": "https://www.softwaresemplice.it/blog/aruba-fatture-in-cloud-prezzi-a-confronto/1203",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "8",
+      "reference": "https://www.shopify.com/it/blog/app-fatturazione-elettronica",
+      "kind": "web",
+      "url": "https://www.shopify.com/it/blog/app-fatturazione-elettronica",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "9",
+      "reference": "https://qonto.com/it/blog/gestione-aziendale/fatturazione/programmi-per-fatturazione-elettronica",
+      "kind": "web",
+      "url": "https://qonto.com/it/blog/gestione-aziendale/fatturazione/programmi-per-fatturazione-elettronica",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "10",
+      "reference": "https://www.agenziaentrate.gov.it/portale/aree-tematiche/fatturazione-elettronica/guida-fatturazione-elettronica/i-servizi-dell-agenzia-fe/sw-stand-alone-e-app",
+      "kind": "web",
+      "url": "https://www.agenziaentrate.gov.it/portale/aree-tematiche/fatturazione-elettronica/guida-fatturazione-elettronica/i-servizi-dell-agenzia-fe/sw-stand-alone-e-app",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "11",
+      "reference": "https://www.fiscozen.it/faq",
+      "kind": "web",
+      "url": "https://www.fiscozen.it/faq",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "12",
+      "reference": "https://www.forfettapp.it",
+      "kind": "web",
+      "url": "https://www.forfettapp.it",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "13",
+      "reference": "https://apps.apple.com/it/app/tasse-forfettario/id1547429639",
+      "kind": "web",
+      "url": "https://apps.apple.com/it/app/tasse-forfettario/id1547429639",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "14",
+      "reference": "Document: Company document, section 2 (The product: Fakturo)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "15",
+      "reference": "Document: Company document, section 6 (Competitors)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "16",
+      "reference": "https://www.promarketer.it/tool/azienda/fatture-in-cloud/fatture-in-cloud-prezzi",
+      "kind": "web",
+      "url": "https://www.promarketer.it/tool/azienda/fatture-in-cloud/fatture-in-cloud-prezzi",
+      "status": "ok",
+      "detail": "",
+      "valid": true
+    },
+    {
+      "number": "17",
+      "reference": "Document: Company document, section 5 (Customer groups)",
+      "kind": "document",
+      "url": null,
+      "status": "document",
+      "detail": "",
+      "valid": true
+    }
+  ],
+  "coherence": {
+    "strategy_vs_analysis": {
+      "score": 4,
+      "reason": "The target SEG1 (1.06M, 23% intent, the highest of the four groups) and the tax-estimate positioning follow from the analysis, and the 58% \"do not understand tax\" figure supports the value proposition. Price is set below 7.20 and Fatture in Cloud's post-promotion 8 euros, with the untested risk acknowledged. The gap is that the channel choice is only partly argued (no channel figures) and the 5-7 euro range is recommended despite intent being measured only at 9 euros, which the plan itself flags."
+    },
+    "campaign_vs_strategy": {
+      "score": 5,
+      "reason": "Every campaign message speaks to flat-rate freelancers without an app and carries the tax-estimate, SdI and stable-price positioning, with no F24 claim or uniqueness claim. Channels used (search/SEO, price-comparison and review sites, accountants, professional associations) match the strategy exactly, and the accountant message keeps the accountant in the workflow as the strategy requires."
+    }
+  },
+  "judge_model": "anthropic:claude-haiku-5-5",
+  "eval_tokens": {
+    "claude-haiku-5-5": {
+      "input_tokens": 21223,
+      "output_tokens": 3310,
+      "total_tokens": 24533
+    }
+  }
+}

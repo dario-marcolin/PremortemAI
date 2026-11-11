@@ -114,11 +114,12 @@ def reason_for_round(view: RunView, key: str, chosen: int) -> str:
         rejected = [d for d in view.decisions() if not d.get("approved")]
         stage_runs = view.validations_of("strategy")
         # A rejection comes after the strategy was shown to you; count the reviews before this round
-        if rejected and chosen - 1 <= len(stage_runs):
-            previous = stage_runs[chosen - 2] if chosen - 2 < len(stage_runs) else None
-            if previous is not None and previous.passed:
-                feedback = rejected[0].get("feedback")
-                return f"You sent it back{': ‘' + feedback + '’' if feedback else ''}."
+        # A round that follows a passed validation was asked for by you: the n-th such round answers
+        # the n-th rejection
+        human = [r for r in range(2, chosen + 1) if r - 2 < len(stage_runs) and stage_runs[r - 2].passed]
+        if rejected and human and human[-1] == chosen and len(human) <= len(rejected):
+            feedback = (rejected[len(human) - 1].get("feedback") or "").strip().rstrip(".")
+            return f"You sent it back{': ‘' + feedback + '’' if feedback else ''}."
     stage_runs = view.validations_of(key)
     if 0 <= chosen - 2 < len(stage_runs) and not stage_runs[chosen - 2].passed:
         n = len(stage_runs[chosen - 2].blocking_issues)

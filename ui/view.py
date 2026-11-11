@@ -147,6 +147,10 @@ class RunView:
         m = re.match(r"(\d{8})_(\d{6})", self.run_id)
         if m:
             return datetime.strptime(m.group(1), "%Y%m%d").strftime("%-d %b %Y")
+        # A committed run has no date in its folder name: the blueprint records it ("generated on 2026-11-11")
+        m = re.search(r"generated on (\d{4}-\d{2}-\d{2})", self.blueprint_md)
+        if m:
+            return datetime.strptime(m.group(1), "%Y-%m-%d").strftime("%-d %b %Y")
         path = self.dir / "run.json"
         return datetime.fromtimestamp(path.stat().st_mtime).strftime("%-d %b %Y") if path.exists() else ""
 
