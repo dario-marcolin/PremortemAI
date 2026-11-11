@@ -7,7 +7,7 @@ import pytest
 from premortem import graph
 from premortem.ingestion.parser import DocumentParseError
 from premortem.runner import PIPELINE, Run
-from tests.graph_fakes import STATE, FakeModel, install
+from tests.graph_fakes import SETTINGS, STATE, FakeModel, install
 
 
 @pytest.fixture
@@ -28,7 +28,7 @@ def run_to_end(run: Run, answers: list[dict]) -> list:
 
 def test_run_logs_every_node_pauses_and_writes_its_files(monkeypatch, document, output_dir):
     install(monkeypatch, FakeModel())
-    run = Run(document, run_id="r1")
+    run = Run(document, settings=SETTINGS, run_id="r1")
     assert run.status == "running"
 
     lines = list(run.advance())
@@ -55,7 +55,7 @@ def test_run_logs_every_node_pauses_and_writes_its_files(monkeypatch, document, 
 
 def test_rejection_is_logged_with_its_feedback(monkeypatch, document):
     install(monkeypatch, FakeModel())
-    run = Run(document)
+    run = Run(document, settings=SETTINGS)
     lines = run_to_end(run, [{"approved": False, "feedback": "Target students"}, {"approved": True}])
     assert run.status == "done"
     assert [l.text for l in lines if l.node == "human_approval" and l.kind == "node"] == [
@@ -75,7 +75,7 @@ def test_failed_node_is_logged_saved_and_can_be_retried(monkeypatch, document, o
         return real(state)
 
     monkeypatch.setattr(graph, "strategist", flaky)
-    run = Run(document, run_id="r2")
+    run = Run(document, settings=SETTINGS, run_id="r2")
     lines = list(run.advance())
 
     assert run.status == "failed" and run.error == "RuntimeError: rate limited"
@@ -92,11 +92,11 @@ def test_failed_node_is_logged_saved_and_can_be_retried(monkeypatch, document, o
 def test_answer_outside_the_pause_is_refused(monkeypatch, document):
     install(monkeypatch, FakeModel())
     with pytest.raises(RuntimeError):
-        Run(document).answer({"approved": True})
+        Run(document, settings=SETTINGS).answer({"approved": True})
 
 
 def test_unsupported_document_is_refused_before_the_run(tmp_path):
     path = tmp_path / "notes.xlsx"
     path.write_text("x")
     with pytest.raises(DocumentParseError):
-        Run(path)
+        Run(path, settings=SETTINGS)

@@ -30,6 +30,7 @@ from eval import rating  # noqa: E402
 from eval.baseline import run_baseline  # noqa: E402
 from eval.metrics import EVAL_DIR, evaluate, load_cases, scores  # noqa: E402
 from premortem import config  # noqa: E402
+from premortem.config import RunSettings  # noqa: E402
 from premortem.ingestion.parser import parse_document  # noqa: E402
 from premortem.runner import Run  # noqa: E402
 
@@ -39,9 +40,9 @@ FINDINGS = EVAL_DIR / "findings.md"
 SYSTEMS = {"multi_agent": "Multi-agent", "baseline": "Single prompt"}
 
 
-def run_multi_agent(document: Path, run_id: str) -> Path:
+def run_multi_agent(document: Path, run_id: str, settings: RunSettings) -> Path:
     """The full pipeline, approving every strategy. A failure is recorded in run.json."""
-    run = Run(document, run_id=run_id)
+    run = Run(document, run_id=run_id, settings=settings)
     while True:
         for line in run.advance():
             print(f"    {line}")
@@ -50,7 +51,7 @@ def run_multi_agent(document: Path, run_id: str) -> Path:
         run.answer({"approved": True})
 
 
-def run_case(case: dict, out_root: Path, fetch: bool = True) -> dict:
+def run_case(case: dict, out_root: Path, settings: RunSettings, fetch: bool = True) -> dict:
     document = ROOT / case["document"]
     document_text = parse_document(document)
     entry = {"case": case}
@@ -58,12 +59,12 @@ def run_case(case: dict, out_root: Path, fetch: bool = True) -> dict:
         print(f"  {SYSTEMS[system]}")
         out_dir = out_root / case["id"] / system
         if system == "multi_agent":
-            out_dir = run_multi_agent(document, str(out_dir.relative_to(config.OUTPUT_DIR)))
+            out_dir = run_multi_agent(document, str(out_dir.relative_to(config.OUTPUT_DIR)), settings)
         else:
-            run_baseline(document, out_dir)
+            run_baseline(document, out_dir, settings)
         print("    evaluating")
         try:
-            metrics = evaluate(out_dir, document_text, case.get("trap"), fetch=fetch)
+            metrics = evaluate(out_dir, document_text, case.get("trap"), fetch=fetch, settings=settings)
         except Exception as e:  # the other systems and cases still run; --cases redoes this one
             metrics = {"system": system, "error": f"evaluation failed: {type(e).__name__}: {e}"}
         entry[system] = {"dir": _rel(out_dir), "metrics": metrics}
@@ -234,7 +235,8 @@ def main() -> None:
 
     results = json.loads(RESULTS.read_text()) if RESULTS.exists() else {"cases": {}}
     if not args.report_only:
-        if not config.LLM_API_KEY or not config.TAVILY_API_KEY:
+        settings = RunSettings.from_env(mode="local")  # the evaluation is a local tool
+        if not settings.llm_api_key or not settings.tavily_api_key:
             sys.exit("LLM_API_KEY and TAVILY_API_KEY must be set in .env")
         cases = load_cases()
         unknown = set(args.cases or []) - {c["id"] for c in cases}
@@ -245,8 +247,11 @@ def main() -> None:
             if args.cases and case["id"] not in args.cases:
                 continue
             print(f"\n{case['id']} ({case['document']})")
-            results["cases"][case["id"]] = run_case(case, out_root, fetch=not args.no_fetch)
-            results.update(updated=datetime.now().isoformat(), model=config.LLM_MODEL, judge_model=config.JUDGE_MODEL)
+            results["cases"][case["id"]] = run_case(case, out_root, settings, fetch=not args.no_fetch)
+            # "model" is the agents' model (the baseline uses it too); "models" has every role
+            results.update(updated=datetime.now().isoformat(), provider=settings.provider,
+                           model=settings.model("strategist"), models=settings.models,
+                           judge_model=settings.eval_judge)
             RESULTS.write_text(json.dumps(results, indent=2, ensure_ascii=False))  # saved after each case
         order = [c["id"] for c in cases]
         results["cases"] = dict(sorted(results["cases"].items(), key=lambda kv: order.index(kv[0])))

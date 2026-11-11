@@ -24,7 +24,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from premortem import config  # noqa: E402
+from premortem.config import RunSettings  # noqa: E402
 from premortem.ingestion.parser import DocumentParseError  # noqa: E402
 from premortem.runner import LogLine, Run  # noqa: E402
 
@@ -75,11 +75,12 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        run = Run(args.doc)
+        run = Run(args.doc, settings=RunSettings.from_env(mode="local"))  # the CLI is a local tool
     except DocumentParseError as e:
         print(f"Error: {e}")
         return 1
-    print(f"Run {run.run_id}\nAgents: {config.LLM_MODEL}, judge: {config.JUDGE_MODEL}\n")
+    models = ", ".join(f"{role} {model}" for role, model in run.settings.models.items())
+    print(f"Run {run.run_id}\nProvider: {run.settings.provider}. Models: {models}\n")
     for line in run.log:  # parser warnings
         print_line(line)
 

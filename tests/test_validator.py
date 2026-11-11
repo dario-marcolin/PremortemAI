@@ -38,7 +38,7 @@ class FakeJudge:
 
 def install(monkeypatch, *issues):
     fake = FakeJudge(JudgeVerdict(issues=list(issues)))
-    monkeypatch.setattr(judge_module, "get_llm", lambda temperature=None, model=None: fake)
+    monkeypatch.setattr(judge_module, "get_llm", lambda *_a, **_k: fake)
     return fake
 
 

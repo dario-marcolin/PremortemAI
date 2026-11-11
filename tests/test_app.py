@@ -5,24 +5,32 @@ from pathlib import Path
 import pytest
 from streamlit.testing.v1 import AppTest
 
-from premortem import config
 from premortem.runner import Run
-from tests.graph_fakes import STATE, FakeModel, install
+from tests.graph_fakes import SETTINGS, STATE, FakeModel, install
 
 APP = str(Path(__file__).resolve().parent.parent / "app.py")
 TIMEOUT = 30
 
 
+@pytest.fixture(autouse=True)
+def env(monkeypatch):
+    """Our demo setup by default (local mode, keys in .env); tests of public mode change it."""
+    for name in ("LLM_PROVIDER", "LLM_MODEL", "LLM_BASE_URL", "LLM_JUDGE_MODEL"):
+        monkeypatch.delenv(name, raising=False)
+    monkeypatch.setenv("PREMORTEM_MODE", "local")
+    monkeypatch.setenv("LLM_API_KEY", "sk-ant-ours")
+    monkeypatch.setenv("TAVILY_API_KEY", "tvly-ours")
+
+
 @pytest.fixture
 def app(monkeypatch, tmp_path):
     install(monkeypatch, FakeModel())
-    monkeypatch.setattr(config, "LLM_API_KEY", "test-key")
     document = tmp_path / "company.md"
     document.write_text(STATE["document_text"])
     at = AppTest.from_file(APP, default_timeout=TIMEOUT)
     at.run()
     # The upload widget cannot be driven by AppTest: start the run the way the Run button does
-    at.session_state.run = Run(document, run_id="ui")
+    at.session_state.run = Run(document, run_id="ui", settings=SETTINGS)
     return at
 
 
@@ -30,20 +38,39 @@ def button(at: AppTest, label: str):
     return next(b for b in at.button if b.label == label)
 
 
-def test_empty_screen_asks_for_a_document(monkeypatch):
-    monkeypatch.setattr(config, "LLM_API_KEY", "test-key")
-    monkeypatch.setattr(config, "TAVILY_API_KEY", "test-key")
+def test_empty_screen_asks_for_a_document():
     at = AppTest.from_file(APP, default_timeout=TIMEOUT).run()
     assert at.title[0].value == "New launch run"
     assert button(at, "Run the pipeline").disabled  # no document yet
     assert not at.error
+    assert any("Using the key from .env" in c.value for c in at.sidebar.caption)
 
 
 def test_missing_api_key_is_shown_and_blocks_the_run(monkeypatch):
-    monkeypatch.setattr(config, "LLM_API_KEY", None)
+    monkeypatch.delenv("LLM_API_KEY")
     at = AppTest.from_file(APP, default_timeout=TIMEOUT).run()
     assert "LLM_API_KEY" in at.error[0].value
     assert button(at, "Run the pipeline").disabled
+
+
+@pytest.mark.parametrize("mode", ["public", None])
+def test_public_mode_asks_for_a_key_and_ignores_ours(monkeypatch, mode):
+    if mode:
+        monkeypatch.setenv("PREMORTEM_MODE", mode)
+    else:
+        monkeypatch.delenv("PREMORTEM_MODE")  # unset = public
+    at = AppTest.from_file(APP, default_timeout=TIMEOUT).run()
+    assert "Paste an LLM API key" in at.error[0].value  # LLM_API_KEY in the environment is not used
+    assert button(at, "Run the pipeline").disabled
+
+
+def test_public_mode_detects_the_provider_from_the_key(monkeypatch):
+    monkeypatch.setenv("PREMORTEM_MODE", "public")
+    at = AppTest.from_file(APP, default_timeout=TIMEOUT).run()
+    at.text_input(key="llm_key").input("AIza-visitor").run()
+    assert at.sidebar.selectbox[1].value == "gemini"
+    assert not at.error
+    assert any("google_genai:" in c.value for c in at.sidebar.caption)
 
 
 def test_run_pauses_for_approval_then_shows_the_blueprint(app):

@@ -1,4 +1,4 @@
-"""Baseline for the evaluation: the same model and the same document, one single prompt.
+"""Baseline for the evaluation: the agents' model and the same document, one single prompt.
 
 No tools, no validator, no human approval: one call asks for the full launch plan with
 the same outline as the Launch Blueprint (eval/prompts/baseline.md). The output is saved
@@ -17,23 +17,25 @@ from time import perf_counter
 from langchain_core.callbacks import UsageMetadataCallbackHandler
 from langchain_core.messages import HumanMessage, SystemMessage
 
-from premortem import config
+from premortem.config import RunSettings
 from premortem.ingestion.parser import parse_document
 from premortem.llm import get_llm
 
 PROMPT = Path(__file__).parent / "prompts" / "baseline.md"
 
 
-def run_baseline(document: str | Path, out_dir: str | Path) -> Path:
-    """Write the baseline plan and its run record to out_dir. A failed call is recorded, not raised."""
+def run_baseline(document: str | Path, out_dir: str | Path, settings: RunSettings | None = None) -> Path:
+    """Write the baseline plan and its run record to out_dir. A failed call is recorded, not raised.
+    The model is the agents' model of the same settings, for a fair comparison."""
     document, out_dir = Path(document), Path(out_dir)
+    settings = settings or RunSettings.from_env()
     out_dir.mkdir(parents=True, exist_ok=True)
     usage = UsageMetadataCallbackHandler()
     start = perf_counter()
     status, error, log = "done", None, ""
     try:
         text = parse_document(document)
-        response = get_llm().invoke(
+        response = get_llm("strategist", settings).invoke(
             [SystemMessage(PROMPT.read_text()),
              HumanMessage(f'<document name="{document.name}">\n{text}\n</document>\n\nWrite the launch plan.')],
             config={"callbacks": [usage]},
@@ -47,7 +49,8 @@ def run_baseline(document: str | Path, out_dir: str | Path) -> Path:
     run = {
         "system": "baseline",
         "document": str(document.resolve()),
-        "model": config.LLM_MODEL,
+        "provider": settings.provider,
+        "model": settings.model("strategist"),
         "status": status,
         "error": error,
         "tokens": {model: dict(u) for model, u in usage.usage_metadata.items()},

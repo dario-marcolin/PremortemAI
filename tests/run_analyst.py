@@ -24,7 +24,8 @@ sys.path.insert(0, str(ROOT))
 
 from langchain_core.callbacks import get_usage_metadata_callback  # noqa: E402
 
-from premortem import config  # noqa: E402
+from premortem.config import RunSettings  # noqa: E402
+from premortem.llm import using_settings  # noqa: E402
 from premortem.agents.analyst import build_analyst, research_log  # noqa: E402
 from premortem.ingestion.brief_extractor import extract_brief  # noqa: E402
 from premortem.ingestion.parser import parse_document  # noqa: E402
@@ -41,7 +42,7 @@ def main() -> int:
 
     start = time.perf_counter()
     with get_usage_metadata_callback() as usage:
-        print(f"[1/2] Parsing {doc.name} and extracting the brief with {config.LLM_MODEL}")
+        print(f"[1/2] Parsing {doc.name} and extracting the brief with {SETTINGS.model('analyst')}")
         text = parse_document(doc)
         brief = extract_brief(text)
 
@@ -67,7 +68,7 @@ def main() -> int:
     (run_dir / "research_log.md").write_text(research_log(messages))
     run_info = {
         "document": str(doc),
-        "model": config.LLM_MODEL,
+        "model": SETTINGS.model('analyst'),
         "searches": queries,
         "tool_rounds": sum(1 for m in messages if getattr(m, "tool_calls", None)),
         "competitors": len(analysis.competitors),
@@ -86,5 +87,9 @@ def main() -> int:
     return 0
 
 
+# A local script: keys and models from .env, as one run would get them
+SETTINGS = RunSettings.from_env(mode="local")
+
 if __name__ == "__main__":
-    sys.exit(main())
+    with using_settings(SETTINGS):
+        sys.exit(main())

@@ -20,7 +20,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from premortem import config  # noqa: E402
+from premortem.config import RunSettings  # noqa: E402
+from premortem.llm import using_settings  # noqa: E402
 from premortem.agents.validator import make_validator  # noqa: E402
 from premortem.ingestion.parser import parse_document  # noqa: E402
 from premortem.schemas import Analysis, Campaign, CompanyBrief, Strategy  # noqa: E402
@@ -55,7 +56,7 @@ def main() -> int:
     parser.add_argument("--repeats", type=int, default=2, help="Runs per case (default: 2)")
     args = parser.parse_args()
 
-    print(f"Judge model: {config.JUDGE_MODEL}, temperature: {config.JUDGE_TEMPERATURE}")
+    print(f"Judge model: {SETTINGS.model('validator')}, temperature: {SETTINGS.judge_temperature}")
     results = {}
     for name, stage, state in cases():
         results[name] = []
@@ -75,5 +76,9 @@ def main() -> int:
     return 0
 
 
+# A local script: keys and models from .env, as one run would get them
+SETTINGS = RunSettings.from_env(mode="local")
+
 if __name__ == "__main__":
-    sys.exit(main())
+    with using_settings(SETTINGS):
+        sys.exit(main())

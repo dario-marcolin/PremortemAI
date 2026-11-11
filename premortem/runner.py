@@ -4,13 +4,17 @@ A Run keeps the compiled graph, its thread and the run record (decisions, tokens
 so it can pause at the human approval and be resumed later: the CLI asks with input(),
 the Streamlit UI across reruns, the evaluation approves automatically.
 
-    run = Run("data/demo/demo_company.pdf")
+    run = Run("data/demo/demo_company.pdf", settings=RunSettings.from_env())
     for line in run.advance():          # until the approval pause, the end or an error
         print(line)
     run.answer({"approved": True})      # then advance() again
 
 Each run writes outputs/<run_id>/: log.txt as it goes, then blueprint.md (written by the
 graph's last node), state.json and run.json when the run ends or fails.
+
+The run's settings (provider, keys, models) travel in config["configurable"]["settings"]. LangGraph
+copies only plain str/int/float/bool configurable values into checkpoint metadata, so the settings
+object, and the keys inside it, are never checkpointed; run.json records RunSettings.to_record().
 """
 
 import json
@@ -28,6 +32,7 @@ from langgraph.types import Command
 from pydantic import TypeAdapter
 
 from premortem import config
+from premortem.config import RunSettings
 from premortem.graph import build_graph, initial_state
 from premortem.ingestion.parser import parse_document
 from premortem.state import LaunchState
@@ -78,12 +83,17 @@ def summary(node: str, update: dict) -> str:
     return ""
 
 
-def _results(message: ToolMessage) -> str:
+def _results(message: ToolMessage) -> tuple[str, Kind]:
+    """A search result as one log line: the count, or the error the tool returned (a warning)."""
+    if message.status == "error":
+        return str(message.content)[:200], "warning"
     try:
         results = json.loads(message.content)
     except (TypeError, ValueError):
-        return str(message.content)[:200]
-    return f"{len(results)} results" if isinstance(results, list) else str(results)[:200]
+        return str(message.content)[:200], "results"
+    if isinstance(results, list) and results and all(isinstance(r, dict) and "error" in r for r in results):
+        return results[0]["error"][:200], "warning"
+    return (f"{len(results)} results" if isinstance(results, list) else str(results)[:200]), "results"
 
 
 def describe(namespace: tuple, update: dict) -> list[tuple[str, str, Kind]]:
@@ -98,15 +108,18 @@ def describe(namespace: tuple, update: dict) -> list[tuple[str, str, Kind]]:
                 for call in getattr(message, "tool_calls", []):
                     lines.append(("analyst", call["args"].get("query", ""), "search"))
                 if isinstance(message, ToolMessage):
-                    lines.append(("analyst", _results(message), "results" if message.status != "error" else "warning"))
+                    lines.append(("analyst", *_results(message)))
         else:
             lines.append((node, summary(node, values or {}), "node"))
     return lines
 
 
 class Run:
-    def __init__(self, document: str | Path, run_id: str | None = None):
-        """Parse the document (raises DocumentParseError) and prepare the graph; nothing runs yet."""
+    def __init__(self, document: str | Path, run_id: str | None = None, settings: RunSettings | None = None):
+        """Parse the document (raises DocumentParseError) and prepare the graph; nothing runs yet.
+
+        settings=None reads them from the environment (the CLI, the evaluation, `local` mode)."""
+        self.settings = settings or RunSettings.from_env()
         self.document = Path(document)
         self.run_id = run_id or f"{datetime.now():%Y%m%d_%H%M%S}_{self.document.stem}"
         self.dir = config.OUTPUT_DIR / self.run_id
@@ -119,11 +132,14 @@ class Run:
             self.document_text = parse_document(self.document)
         for w in caught:
             self._add("parse", str(w.message), "warning")
+        if not self.settings.tavily_api_key:
+            self._add("analyst", "No Tavily key: web search is off, the analysis uses the document only.", "warning")
 
         self.app = build_graph()
         self.usage = UsageMetadataCallbackHandler()
         # The thread_id is the run_id: the blueprint node writes to outputs/<thread_id>/
-        self.cfg = {"configurable": {"thread_id": self.run_id}, "recursion_limit": RECURSION_LIMIT,
+        self.cfg = {"configurable": {"thread_id": self.run_id, "settings": self.settings},
+                    "recursion_limit": RECURSION_LIMIT,
                     "callbacks": [self.usage]}
         # What the next advance() sends: the initial state, a resume Command, or None to
         # continue from the last checkpoint (after an error, or a stream cut short by the UI)
@@ -190,8 +206,7 @@ class Run:
         (self.dir / "state.json").write_text(json.dumps(state, indent=2, ensure_ascii=False))
         run = {
             "document": str(self.document.resolve()),
-            "model": config.LLM_MODEL,
-            "judge_model": config.JUDGE_MODEL,
+            **self.settings.to_record(),  # provider and the model of each role, never the keys
             "status": self.status,
             "error": self.error,
             "decisions": self.decisions,

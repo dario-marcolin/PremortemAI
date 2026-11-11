@@ -43,7 +43,7 @@ def _tool_rounds(messages: list[BaseMessage]) -> int:
 
 
 def analyst_llm(state: AnalystState) -> dict:
-    llm = get_llm().bind_tools(get_analyst_tools())
+    llm = get_llm("analyst").bind_tools(get_analyst_tools())
     messages = state.get("messages", [])
     response = llm.invoke([SystemMessage(load_prompt("analyst")), _context(state), *messages])
     return {"messages": [response]}
@@ -193,7 +193,7 @@ def normalize_sources(analysis: Analysis, allowed_urls: set[str]) -> Analysis:
 
 
 def analyst_report(state: AnalystState) -> dict:
-    llm = get_llm().with_structured_output(Analysis)
+    llm = get_llm("analyst").with_structured_output(Analysis)
     messages = state.get("messages", [])
     analysis = invoke_structured(
         llm,

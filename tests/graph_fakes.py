@@ -19,7 +19,7 @@ from pydantic import TypeAdapter
 from eval import baseline as baseline_module
 from eval import metrics
 from eval.metrics import Claim, Claims, CoherenceVerdict, Page
-from premortem import config
+from premortem.config import RunSettings
 from premortem.agents import analyst, creative, strategist
 from premortem.graph import build_graph, initial_state
 from premortem.ingestion import brief_extractor
@@ -31,6 +31,8 @@ from premortem.validation import judge as judge_module
 from premortem.validation.judge import JudgeIssue, JudgeVerdict
 
 SUMMARY = "Launch the product for SEG1 in Italy."
+# Every fake run uses these settings: the keys are fake, get_llm and the Tavily client are replaced
+SETTINGS = RunSettings.preset("anthropic", "sk-ant-test", tavily_api_key="tvly-test")
 FIXTURE = Path(__file__).parent / "fixtures" / "dummy_state.json"
 STATE = TypeAdapter(LaunchState).validate_python(json.loads(FIXTURE.read_text()))
 # Blocking issues the quote check accepts: the quotes are real values of the fixture
@@ -125,8 +127,7 @@ def install(monkeypatch, model: FakeModel) -> FakeModel:
     # The web sources of the fixture are returned by the search, so the Analyst keeps them
     results = [{"title": s.id, "url": s.reference, "content": "snippet"}
                for s in STATE["analysis"].sources if s.kind == "web"]
-    monkeypatch.setattr(config, "TAVILY_API_KEY", "test-key")
-    monkeypatch.setattr(ws, "_client", lambda: type("C", (), {"invoke": lambda _s, _i: {"results": results}})())
+    monkeypatch.setattr(ws, "_client", lambda _key: type("C", (), {"invoke": lambda _s, _i: {"results": results}})())
     return model
 
 
@@ -138,7 +139,7 @@ def run_graph(answers: list[dict] | None = None):
     """
     answers = list(answers or [])
     app = build_graph()
-    cfg = {"configurable": {"thread_id": "test"}, "recursion_limit": 100}
+    cfg = {"configurable": {"thread_id": "test", "settings": SETTINGS}, "recursion_limit": 100}
     payloads, nodes = [], []
     command = initial_state(STATE["document_text"])
     while True:

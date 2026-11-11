@@ -17,7 +17,7 @@ def strategist(state: LaunchState) -> dict:
         f"<analysis>\n{state['analysis'].model_dump_json(indent=2)}\n</analysis>\n\n"
         + (revision or "Write the launch strategy.")
     )
-    llm = get_llm().with_structured_output(Strategy)
+    llm = get_llm("strategist").with_structured_output(Strategy)
     strategy = invoke_structured(llm, [SystemMessage(load_prompt("strategist")), HumanMessage(content)])
     # Only revisions that answer blocking issues count toward MAX_REVISIONS. The feedback
     # stays in the state (human_approval resets the counter and clears it on approval),

@@ -11,8 +11,7 @@ import re
 from langchain_core.messages import HumanMessage, SystemMessage
 from pydantic import BaseModel, Field
 
-from premortem import config
-from premortem.llm import get_llm, invoke_structured
+from premortem.llm import get_llm, invoke_structured, is_anthropic
 from premortem.prompts import load_prompt
 from premortem.schemas import Severity, Stage, ValidationIssue
 from premortem.state import LaunchState
@@ -141,7 +140,7 @@ def _prompt(stage: Stage, sections: dict[str, BaseModel | str]) -> HumanMessage:
     shared = {tag: sections[tag] for tag in ("brief", "document") if tag in sections}
     rest = {tag: value for tag, value in sections.items() if tag not in shared}
     prefix = {"type": "text", "text": _render(shared)}
-    if config.JUDGE_MODEL.removeprefix("anthropic:").startswith("claude"):
+    if is_anthropic("validator"):
         prefix["cache_control"] = {"type": "ephemeral"}
     return HumanMessage(
         [prefix, {"type": "text", "text": f"{_render(rest)}\n\nValidate the {stage} with the {stage} rubric."}]
@@ -150,7 +149,7 @@ def _prompt(stage: Stage, sections: dict[str, BaseModel | str]) -> HumanMessage:
 
 def judge(stage: Stage, state: LaunchState) -> list[ValidationIssue]:
     sections = judge_sections(stage, state)
-    llm = get_llm(temperature=config.JUDGE_TEMPERATURE, model=config.JUDGE_MODEL).with_structured_output(JudgeVerdict)
+    llm = get_llm("validator").with_structured_output(JudgeVerdict)
     try:
         verdict = invoke_structured(llm, [SystemMessage(load_prompt("judge")), _prompt(stage, sections)])
     except RuntimeError as e:

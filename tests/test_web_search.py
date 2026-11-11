@@ -1,7 +1,11 @@
 import pytest
 
 from premortem import config
+from premortem.config import RunSettings
+from premortem.llm import using_settings
 from premortem.tools import web_search as ws
+
+SETTINGS = RunSettings.preset("anthropic", "sk-ant-test", tavily_api_key="tvly-test")
 
 
 class FakeClient:
@@ -16,16 +20,15 @@ class FakeClient:
 
 @pytest.fixture
 def fake_client(monkeypatch):
-    monkeypatch.setattr(config, "TAVILY_API_KEY", "test-key")
-
     def install(response):
-        monkeypatch.setattr(ws, "_client", lambda: FakeClient(response))
+        monkeypatch.setattr(ws, "_client", lambda _key: FakeClient(response))
 
     return install
 
 
-def search(query="plant-based snacks market France"):
-    return ws.web_search.invoke({"query": query})
+def search(query="plant-based snacks market France", settings=SETTINGS):
+    with using_settings(settings):
+        return ws.web_search.invoke({"query": query})
 
 
 def test_results_are_compact(fake_client):
@@ -55,12 +58,27 @@ def test_errors_are_returned_as_data(fake_client, response):
     assert len(out) == 1 and "error" in out[0]
 
 
-def test_missing_api_key(monkeypatch):
-    monkeypatch.setattr(config, "TAVILY_API_KEY", None)
-    assert "TAVILY_API_KEY" in search()[0]["error"]
+def test_missing_api_key_is_a_warning_not_a_crash():
+    no_tavily = RunSettings.preset("anthropic", "sk-ant-test")
+    assert search(settings=no_tavily) == [{"error": ws.NO_KEY}]
 
 
-@pytest.mark.skipif(not config.TAVILY_API_KEY, reason="needs TAVILY_API_KEY")
+def test_outside_a_run_there_is_no_key():
+    assert ws.web_search.invoke({"query": "x"}) == [{"error": ws.NO_KEY}]
+
+
+def test_each_search_uses_the_key_of_its_own_run(monkeypatch):
+    seen = []
+    monkeypatch.setattr(ws, "_client", lambda key: seen.append(key) or FakeClient({"results": []}))
+    search(settings=RunSettings.preset("anthropic", "a", tavily_api_key="tvly-A"))
+    search(settings=RunSettings.preset("anthropic", "b", tavily_api_key="tvly-B"))
+    assert seen == ["tvly-A", "tvly-B"]
+
+
+LIVE = RunSettings.from_env(mode="public")  # only Tavily is read here
+
+
+@pytest.mark.skipif(not LIVE.tavily_api_key, reason="needs TAVILY_API_KEY")
 def test_live_search():
-    out = search()
+    out = search(settings=LIVE)
     assert out and all(r["url"].startswith("http") for r in out)

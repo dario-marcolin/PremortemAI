@@ -27,7 +27,8 @@ sys.path.insert(0, str(ROOT))
 
 from langchain_core.callbacks import get_usage_metadata_callback  # noqa: E402
 
-from premortem import config  # noqa: E402
+from premortem.config import RunSettings  # noqa: E402
+from premortem.llm import using_settings  # noqa: E402
 from premortem.agents.creative import creative  # noqa: E402
 from premortem.agents.strategist import strategist  # noqa: E402
 from premortem.ingestion.brief_extractor import extract_brief  # noqa: E402
@@ -78,7 +79,7 @@ def main() -> int:
         state = {"brief": brief, "analysis": analysis, "strategy": None, "campaign": None, "validations": [],
                  "strategy_revisions": 0, "campaign_revisions": 0, "human_feedback": None}
 
-        print(f"[2/3] Strategist ({config.LLM_MODEL})")
+        print(f"[2/3] Strategist ({SETTINGS.model('strategist')})")
         state.update(strategist(state))
         first_strategy = state["strategy"]
         print(f"      target: {first_strategy.target_segment_id}, channels: {first_strategy.channels}")
@@ -100,7 +101,7 @@ def main() -> int:
     (run_dir / "campaign.json").write_text(state["campaign"].model_dump_json(indent=2))
     run_info = {
         "analysis_dir": str(analysis_dir.relative_to(ROOT)),
-        "model": config.LLM_MODEL,
+        "model": SETTINGS.model('strategist'),
         "feedback": args.feedback,
         "strategy_revisions": state["strategy_revisions"],
         "checks": checks(analysis, state["strategy"], state["campaign"]),
@@ -118,5 +119,9 @@ def main() -> int:
     return 0
 
 
+# A local script: keys and models from .env, as one run would get them
+SETTINGS = RunSettings.from_env(mode="local")
+
 if __name__ == "__main__":
-    sys.exit(main())
+    with using_settings(SETTINGS):
+        sys.exit(main())

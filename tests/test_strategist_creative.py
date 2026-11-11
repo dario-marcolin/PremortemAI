@@ -44,7 +44,7 @@ def blocking(stage):
 
 def run(monkeypatch, module, node, state, output):
     llm = FakeLLM(output)
-    monkeypatch.setattr(module, "get_llm", lambda: llm)
+    monkeypatch.setattr(module, "get_llm", lambda *_a, **_k: llm)
     return node(state), llm.prompt
 
 

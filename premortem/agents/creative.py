@@ -20,7 +20,7 @@ def creative(state: LaunchState) -> dict:
         "</target_segment>\n\n"
         + (revision or "Write the launch campaign.")
     )
-    llm = get_llm().with_structured_output(Campaign)
+    llm = get_llm("creative").with_structured_output(Campaign)
     campaign = invoke_structured(llm, [SystemMessage(load_prompt("creative")), HumanMessage(content)])
     revisions = state.get("campaign_revisions", 0)
     return {"campaign": campaign, "campaign_revisions": revisions + 1 if revision else revisions}

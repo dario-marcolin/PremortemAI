@@ -19,8 +19,10 @@ import streamlit as st
 
 from eval.baseline import run_baseline
 from eval.metrics import evaluate, find_case, load_metrics, scores
-from premortem import config
+from premortem.config import RunSettings, current_mode
 from premortem.ingestion.parser import ALLOWED_EXTENSIONS, DocumentParseError
+from premortem.llm import check_model
+from premortem.providers import PRESETS, detect_provider
 from premortem.output.blueprint import validation_log
 from premortem.runner import PIPELINE, LogLine, Run
 
@@ -73,12 +75,53 @@ def saved_documents() -> list[Path]:
     return sorted(p for d in SAVED_DIRS if d.is_dir() for p in d.iterdir() if p.suffix.lower() in ALLOWED_EXTENSIONS)
 
 
-def missing_keys() -> list[str]:
-    return [name for name, value in (("LLM_API_KEY", config.LLM_API_KEY), ("TAVILY_API_KEY", config.TAVILY_API_KEY))
-            if not value]
+CUSTOM = "custom"
 
 
-def start_run(upload, saved: Path | None) -> None:
+def key_settings() -> tuple[RunSettings | None, str | None]:
+    """The settings of the next run, and an error to show instead when they cannot be built.
+
+    `local` mode: keys and models from .env (our demo). `public` (the default): the visitor pastes
+    a key, kept only in st.session_state. Phase 15 turns this into the full setup screen."""
+    if current_mode() == "local":
+        settings = RunSettings.from_env(mode="local")
+        st.caption(f"Using the key from .env ({PRESETS[settings.provider].label if settings.provider in PRESETS else settings.provider})")
+        return settings, None if settings.llm_api_key else "Missing in .env: LLM_API_KEY."
+
+    tavily = RunSettings.from_env(mode="public").tavily_api_key  # ours, from the Secrets
+    key = st.text_input("LLM API key", type="password", key="llm_key",
+                        help="Kept in this browser session only: never written to disk or to the run files.")
+    options = [*PRESETS, CUSTOM]
+    guess = detect_provider(key)
+    provider = st.selectbox("Provider", options, index=options.index(guess) if guess else 0,
+                            key=f"provider_{guess}", format_func=lambda p: PRESETS[p].label if p in PRESETS
+                            else "Custom (OpenAI-compatible)")
+    if provider == CUSTOM:
+        base_url = st.text_input("Base URL", placeholder="https://…/v1", key="custom_url")
+        model = st.text_input("Model", key="custom_model")
+        big = st.text_input("Bigger model for the blueprint summary (optional)", key="custom_big")
+    else:
+        st.caption(PRESETS[provider].note)
+    if not key.strip():
+        return None, "Paste an LLM API key to run the pipeline."
+    try:
+        if provider == CUSTOM:
+            return RunSettings.custom(base_url, key, model, big or None, tavily_api_key=tavily), None
+        return RunSettings.preset(provider, key, tavily_api_key=tavily), None
+    except ValueError as e:
+        return None, str(e)
+
+
+def show_check(settings: RunSettings) -> None:
+    """ "Check key": a plain call, a tool call and a structured output, each with its result."""
+    if st.button("Check key", width="stretch"):
+        with st.spinner("Checking the model…"):
+            st.session_state.key_check = check_model(settings)
+    for check in st.session_state.get("key_check") or []:
+        (st.success if check.ok else st.error)(f"{check.name}: {check.message}")
+
+
+def start_run(upload, saved: Path | None, settings: RunSettings) -> None:
     st.session_state.start_error = st.session_state.eval_error = None
     if upload is not None:
         # The parser takes a path: keep the original name, so the run id names the document
@@ -87,7 +130,7 @@ def start_run(upload, saved: Path | None) -> None:
     else:
         path = saved
     try:
-        st.session_state.run = Run(path)
+        st.session_state.run = Run(path, settings=settings)
     except DocumentParseError as e:
         st.session_state.start_error = str(e)
 
@@ -114,8 +157,8 @@ def run_evaluation(run: Run, system: str) -> None:
     out_dir = run.dir if system == "multi_agent" else run.dir / "baseline"
     try:
         if system == "baseline":
-            run_baseline(run.document, out_dir)
-        evaluate(out_dir, run.document_text, case and case.get("trap"))
+            run_baseline(run.document, out_dir, run.settings)
+        evaluate(out_dir, run.document_text, case and case.get("trap"), settings=run.settings)
     except Exception as e:  # the result stays on screen; the tab shows the error
         st.session_state.eval_error = f"{type(e).__name__}: {e}"
 
@@ -374,7 +417,7 @@ def evaluation_tab(run: Run) -> None:
             evaluation_details(b)
             plan = (run.dir / "baseline" / "blueprint.md").read_text()
             st.markdown(re.sub(r"^#", "##", plan, flags=re.M))
-    st.caption(f"Judge: {config.JUDGE_MODEL}, rubric in eval/prompts/coherence.md; references and figures are "
+    st.caption(f"Judge: {run.settings.eval_judge}, rubric in eval/prompts/coherence.md; references and figures are "
                f"checked in code. Saved to outputs/{run.run_id}/metrics.json.")
 
 
@@ -405,16 +448,22 @@ with st.sidebar:
     docs = saved_documents()
     saved = st.selectbox("Or a saved document", docs, index=None, placeholder="data/demo, eval/cases",
                          format_func=lambda p: str(p.relative_to(ROOT)), disabled=upload is not None)
-    missing = missing_keys()
-    if missing:
-        st.error(f"Missing in .env: {', '.join(missing)}. Copy .env.example to .env and fill it in.")
-    st.button("Run the pipeline", type="primary", width="stretch", on_click=start_run, args=(upload, saved),
-              disabled=bool(missing) or (upload is None and saved is None))
+    settings, key_error = key_settings()
+    if settings is not None and current_mode() == "public":
+        show_check(settings)
+    if key_error:
+        st.error(key_error)
+    elif not settings.tavily_api_key:
+        key_error = "Missing TAVILY_API_KEY (in .env locally, in the Secrets online)."
+        st.error(key_error)
+    st.button("Run the pipeline", type="primary", width="stretch", on_click=start_run, args=(upload, saved, settings),
+              disabled=bool(key_error) or (upload is None and saved is None))
     if st.session_state.get("start_error"):
         st.error(st.session_state.start_error)
     st.toggle("Evaluate the result", value=True, key="auto_eval",
               help="When the run ends, score the blueprint (Phase 10 metrics). Two calls to the judge model.")
-    st.caption(f"Agents: {config.LLM_MODEL}  \nJudge: {config.JUDGE_MODEL}")
+    if settings is not None:
+        st.caption("  \n".join(f"{role.capitalize()}: {model}" for role, model in settings.models.items()))
 
 run: Run | None = st.session_state.get("run")
 if run is None:

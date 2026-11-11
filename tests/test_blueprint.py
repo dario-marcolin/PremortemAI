@@ -88,12 +88,12 @@ def test_summary_is_written_by_the_llm(monkeypatch, state):
 
 def test_source_ids_are_stripped_from_the_summary(monkeypatch, state):
     reply = AIMessage(f"{SUMMARY} [S1, S2]")
-    monkeypatch.setattr(blueprint, "get_llm", lambda: type("M", (), {"invoke": lambda _s, _m: reply})())
+    monkeypatch.setattr(blueprint, "get_llm", lambda *_a, **_k: type("M", (), {"invoke": lambda _s, _m: reply})())
     assert f"\n{SUMMARY}\n" in render_blueprint(state)
 
 
 def test_summary_failure_does_not_lose_the_blueprint(monkeypatch, state):
-    def fail():
+    def fail(*_a, **_k):
         raise RuntimeError("API down")
     monkeypatch.setattr(blueprint, "get_llm", fail)
     md = render_blueprint(state)

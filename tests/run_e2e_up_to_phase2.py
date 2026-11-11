@@ -22,7 +22,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
-from premortem import config  # noqa: E402
+from premortem.config import RunSettings  # noqa: E402
+from premortem.llm import using_settings  # noqa: E402
 from premortem.ingestion.brief_extractor import extract_brief  # noqa: E402
 from premortem.ingestion.parser import DocumentParseError, estimate_tokens, parse_document  # noqa: E402
 
@@ -48,7 +49,7 @@ def main() -> int:
         print(f"      Warning: {w.message}")
     print(f"      {len(text)} characters, about {estimate_tokens(text)} tokens")
 
-    print(f"[2/2] Extracting the brief with {config.LLM_MODEL}")
+    print(f"[2/2] Extracting the brief with {SETTINGS.model('brief')}")
     start = time.perf_counter()
     brief = extract_brief(text)
     duration = round(time.perf_counter() - start, 1)
@@ -60,7 +61,7 @@ def main() -> int:
     (run_dir / "brief.json").write_text(brief.model_dump_json(indent=2))
     run_info = {
         "document": str(doc),
-        "model": config.LLM_MODEL,
+        "model": SETTINGS.model('brief'),
         "estimated_tokens": estimate_tokens(text),
         "extraction_seconds": duration,
         "parser_warnings": [str(w.message) for w in caught],
@@ -74,5 +75,9 @@ def main() -> int:
     return 0
 
 
+# A local script: keys and models from .env, as one run would get them
+SETTINGS = RunSettings.from_env(mode="local")
+
 if __name__ == "__main__":
-    sys.exit(main())
+    with using_settings(SETTINGS):
+        sys.exit(main())

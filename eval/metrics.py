@@ -35,7 +35,7 @@ from langchain_core.callbacks import UsageMetadataCallbackHandler
 from langchain_core.messages import HumanMessage, SystemMessage
 from pydantic import BaseModel, Field, ValidationError
 
-from premortem import config
+from premortem.config import RunSettings
 from premortem.llm import get_llm, invoke_structured
 
 EVAL_DIR = Path(__file__).resolve().parent
@@ -262,9 +262,10 @@ class CoherenceVerdict(BaseModel):
         default=None, description="True if the primary target is the trap segment; null if no trap segment is given.")
 
 
-def _judge(schema, prompt: str, content: str, usage: UsageMetadataCallbackHandler, attempts: int = 2):
-    """One structured judge call, retried once when the answer does not fit the schema."""
-    llm = get_llm(temperature=config.JUDGE_TEMPERATURE, model=config.JUDGE_MODEL).with_structured_output(schema)
+def _judge(schema, prompt: str, content: str, usage: UsageMetadataCallbackHandler, settings: RunSettings,
+           attempts: int = 2):
+    """One structured call to the evaluation judge, retried once when the answer does not fit the schema."""
+    llm = get_llm("eval_judge", settings).with_structured_output(schema)
     messages = [SystemMessage((PROMPTS / f"{prompt}.md").read_text()), HumanMessage(content)]
     for attempt in range(attempts):
         try:
@@ -274,16 +275,16 @@ def _judge(schema, prompt: str, content: str, usage: UsageMetadataCallbackHandle
                 raise
 
 
-def extract_claims(plan: str, usage: UsageMetadataCallbackHandler) -> list[Claim]:
-    return _judge(Claims, "claims", f"<plan>\n{plan}\n</plan>\n\nExtract the factual claims.", usage).claims
+def extract_claims(plan: str, usage: UsageMetadataCallbackHandler, settings: RunSettings) -> list[Claim]:
+    return _judge(Claims, "claims", f"<plan>\n{plan}\n</plan>\n\nExtract the factual claims.", usage, settings).claims
 
 
 def judge_coherence(document_text: str, plan: str, trap: str | None,
-                    usage: UsageMetadataCallbackHandler) -> CoherenceVerdict:
+                    usage: UsageMetadataCallbackHandler, settings: RunSettings) -> CoherenceVerdict:
     trap_block = f"<trap_segment>\n{trap}\n</trap_segment>\n\n" if trap else ""
     content = (f"<document>\n{document_text}\n</document>\n\n<plan>\n{plan}\n</plan>\n\n{trap_block}"
                "Evaluate the plan with the rubric.")
-    return _judge(CoherenceVerdict, "coherence", content, usage)
+    return _judge(CoherenceVerdict, "coherence", content, usage, settings)
 
 
 # ── metrics ─────────────────────────────────────────────────────────────────────────────
@@ -340,9 +341,12 @@ def cost(run: dict) -> dict:
             "seconds": run.get("seconds")}
 
 
-def evaluate(out_dir: str | Path, document_text: str, trap: str | None = None, fetch: bool = True) -> dict:
-    """Score the plan in out_dir and write out_dir/metrics.json. trap: the case's trap segment, if any."""
+def evaluate(out_dir: str | Path, document_text: str, trap: str | None = None, fetch: bool = True,
+             settings: RunSettings | None = None) -> dict:
+    """Score the plan in out_dir and write out_dir/metrics.json. trap: the case's trap segment, if any.
+    settings=None reads them from the environment; the judge is settings.eval_judge."""
     out_dir = Path(out_dir)
+    settings = settings or RunSettings.from_env()
     run = json.loads((out_dir / "run.json").read_text())
     path = out_dir / "blueprint.md"
     metrics = {"system": run.get("system", "multi_agent"), "status": run.get("status"),
@@ -353,19 +357,20 @@ def evaluate(out_dir: str | Path, document_text: str, trap: str | None = None, f
         markdown = path.read_text()
         plan, sources = plan_text(markdown), parse_sources(markdown)
         usage = UsageMetadataCallbackHandler()
-        claims = extract_claims(plan, usage)
+        claims = extract_claims(plan, usage, settings)
         pages = fetch_pages([s["url"] for s in sources.values() if s["kind"] == "web"], fetch)
         metrics["traceability"], metrics["faithfulness"] = check_claims(claims, plan, sources, document_text, pages)
         metrics["sources"] = [{"number": n, **s, "status": pages[s["url"]].status if s["url"] else s["kind"],
                                "detail": pages[s["url"]].detail if s["url"] else "",
                                "valid": s["kind"] == "document" or (s["kind"] == "web" and pages[s["url"]].valid)}
                               for n, s in sources.items()]
-        verdict = judge_coherence(document_text, plan, trap, usage)
+        verdict = judge_coherence(document_text, plan, trap, usage, settings)
         metrics["coherence"] = {
             "strategy_vs_analysis": {"score": verdict.strategy_vs_analysis, "reason": verdict.strategy_reason},
             "campaign_vs_strategy": {"score": verdict.campaign_vs_strategy, "reason": verdict.campaign_reason}}
         metrics["trap"].update(target=verdict.target,
                                avoided=None if not trap or verdict.targets_trap is None else not verdict.targets_trap)
+        metrics["judge_model"] = settings.eval_judge
         metrics["eval_tokens"] = cost({"tokens": {m: dict(u) for m, u in usage.usage_metadata.items()}})["tokens"]
     (out_dir / "metrics.json").write_text(json.dumps(metrics, indent=2, ensure_ascii=False))
     return metrics

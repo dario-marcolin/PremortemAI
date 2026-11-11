@@ -21,6 +21,8 @@ sys.path.insert(0, str(ROOT))
 from pydantic import TypeAdapter  # noqa: E402
 
 from premortem import config  # noqa: E402
+from premortem.config import RunSettings  # noqa: E402
+from premortem.llm import using_settings  # noqa: E402
 from premortem.output.blueprint import save_blueprint  # noqa: E402
 from premortem.state import LaunchState  # noqa: E402
 
@@ -45,5 +47,9 @@ def main() -> int:
     return 0
 
 
+# A local script: keys and models from .env, as one run would get them
+SETTINGS = RunSettings.from_env(mode="local")
+
 if __name__ == "__main__":
-    sys.exit(main())
+    with using_settings(SETTINGS):
+        sys.exit(main())

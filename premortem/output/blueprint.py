@@ -14,6 +14,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from langchain_core.messages import HumanMessage, SystemMessage
 
 from premortem import config
+from premortem.config import RunSettings
 from premortem.agents.analyst import SOURCE_ID
 from premortem.agents.revision import blocking_issues
 from premortem.llm import get_llm
@@ -111,17 +112,19 @@ def _summary_input(state: LaunchState) -> str:
     )
 
 
-def write_executive_summary(state: LaunchState) -> str:
+def write_executive_summary(state: LaunchState, settings: RunSettings | None = None) -> str:
+    """The blueprint role: the big model of the preset, one call per run."""
     try:
-        response = get_llm().invoke([SystemMessage(load_prompt("executive_summary")), HumanMessage(_summary_input(state))])
+        response = get_llm("blueprint", settings).invoke([SystemMessage(load_prompt("executive_summary")), HumanMessage(_summary_input(state))])
     except Exception as e:  # the rest of the blueprint is still worth saving
         return f"*The executive summary could not be written: {e}*"
     # Source ids are not allowed in the summary: strip any that slip through
     return re.sub(r"\s*\[S\d+(?:,\s*S\d+)*\]", "", response.text).strip()
 
 
-def render_blueprint(state: LaunchState, summary: str | None = None) -> str:
-    """The blueprint as Markdown. summary=None asks the LLM for the executive summary."""
+def render_blueprint(state: LaunchState, summary: str | None = None, settings: RunSettings | None = None) -> str:
+    """The blueprint as Markdown. summary=None asks the LLM for the executive summary
+    (settings=None: the settings of the current run, inside the graph)."""
     references = References(state["analysis"].sources)
     env = Environment(
         loader=FileSystemLoader(TEMPLATES), trim_blocks=True, lstrip_blocks=True,
@@ -135,7 +138,7 @@ def render_blueprint(state: LaunchState, summary: str | None = None) -> str:
         target=state["analysis"].find_segment(state["strategy"].target_segment_id),
         campaign=state["campaign"],
         strategy_revisions=state.get("strategy_revisions", 0),
-        summary=write_executive_summary(state) if summary is None else summary,
+        summary=write_executive_summary(state, settings) if summary is None else summary,
         open_issues=open_issues(state),
         log=validation_log(state),
         max_revisions=config.MAX_REVISIONS,
@@ -144,8 +147,9 @@ def render_blueprint(state: LaunchState, summary: str | None = None) -> str:
     )
 
 
-def save_blueprint(state: LaunchState, path: str | Path, summary: str | None = None) -> Path:
+def save_blueprint(state: LaunchState, path: str | Path, summary: str | None = None,
+                   settings: RunSettings | None = None) -> Path:
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(render_blueprint(state, summary))
+    path.write_text(render_blueprint(state, summary, settings))
     return path

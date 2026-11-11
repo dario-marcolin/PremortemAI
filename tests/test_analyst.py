@@ -3,7 +3,7 @@ import json
 import pytest
 from langchain_core.messages import AIMessage, ToolMessage
 
-from premortem import config
+from tests.graph_fakes import SETTINGS
 from premortem.agents import analyst
 from premortem.schemas import Analysis, CompanyBrief, Competitor, MarketSegment, Source
 from premortem.tools import web_search as ws
@@ -58,14 +58,14 @@ def search_turn(i):
 
 @pytest.fixture
 def fake_search(monkeypatch):
-    monkeypatch.setattr(config, "TAVILY_API_KEY", "test-key")
     response = {"results": [{"title": "Report", "url": URL, "content": "480M euros"}]}
-    monkeypatch.setattr(ws, "_client", lambda: type("C", (), {"invoke": lambda _s, _i: response})())
+    monkeypatch.setattr(ws, "_client", lambda _key: type("C", (), {"invoke": lambda _s, _i: response})())
 
 
 def run(monkeypatch, llm):
-    monkeypatch.setattr(analyst, "get_llm", lambda: llm)
-    return analyst.build_analyst().invoke({"brief": BRIEF, "document_text": "Doc text", "messages": []})
+    monkeypatch.setattr(analyst, "get_llm", lambda *_a, **_k: llm)
+    return analyst.build_analyst().invoke({"brief": BRIEF, "document_text": "Doc text", "messages": []},
+                                          {"configurable": {"settings": SETTINGS}})
 
 
 def test_subgraph_searches_then_reports(monkeypatch, fake_search):

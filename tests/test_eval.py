@@ -13,7 +13,7 @@ from eval.metrics import (Claim, Page, check_claims, evaluate, fetch_page, figur
                           locate, markers, parse_sources, plan_text, scores, text_values)
 from eval.run_eval import ROOT, render_report, run_case
 from premortem.runner import Run
-from tests.graph_fakes import BASELINE_CLAIM, STATE, FakeModel, install
+from tests.graph_fakes import SETTINGS, BASELINE_CLAIM, STATE, FakeModel, install
 
 PLAN = """# Launch Blueprint: Crisps
 
@@ -194,7 +194,7 @@ def test_baseline_writes_a_run_folder(monkeypatch, document, tmp_path):
 def test_baseline_failure_is_recorded(monkeypatch, document, tmp_path):
     from eval import baseline
 
-    monkeypatch.setattr(baseline, "get_llm", lambda: (_ for _ in ()).throw(RuntimeError("no key")))
+    monkeypatch.setattr(baseline, "get_llm", lambda *_a, **_k: (_ for _ in ()).throw(RuntimeError("no key")))
     out = run_baseline(document, tmp_path / "baseline")
     record = json.loads((out / "run.json").read_text())
     assert record["status"] == "failed" and "no key" in record["error"]
@@ -204,7 +204,7 @@ def test_baseline_failure_is_recorded(monkeypatch, document, tmp_path):
 
 def test_evaluate_scores_both_systems_the_same_way(monkeypatch, document, tmp_path):
     model = install(monkeypatch, FakeModel())
-    run = Run(document, run_id="ma")
+    run = Run(document, settings=SETTINGS, run_id="ma")
     list(run.advance())
     run.answer({"approved": True})
     list(run.advance())
@@ -271,7 +271,7 @@ def test_run_case_and_report(monkeypatch, document, output_dir):
     install(monkeypatch, FakeModel())
     case = {"id": "fake", "document": str(document), "category": "Coffee", "country": "Italy",
             "trap": "Students: 1% of adults"}
-    entry = run_case(case, output_dir / "eval_test")
+    entry = run_case(case, output_dir / "eval_test", SETTINGS)
     assert {p.name for p in (output_dir / "eval_test" / "fake" / "multi_agent").iterdir()} == {
         "blueprint.md", "state.json", "run.json", "log.txt", "metrics.json"}
     assert entry["baseline"]["metrics"]["traceability"]["score"] == 1.0
@@ -294,9 +294,9 @@ def test_failed_run_is_reported(monkeypatch, document, output_dir):
     install(monkeypatch, FakeModel())
     from eval import baseline
 
-    monkeypatch.setattr(baseline, "get_llm", lambda: (_ for _ in ()).throw(RuntimeError("rate limited")))
+    monkeypatch.setattr(baseline, "get_llm", lambda *_a, **_k: (_ for _ in ()).throw(RuntimeError("rate limited")))
     case = {"id": "fake", "document": str(document), "category": "Coffee", "country": "Italy", "trap": None}
-    entry = run_case(case, output_dir / "eval_test")
+    entry = run_case(case, output_dir / "eval_test", SETTINGS)
     report = render_report({"updated": "2026-11-04T10:00:00", "model": "m", "judge_model": "j",
                             "cases": {"fake": entry}})
     assert "| fake | Single prompt | failed: RuntimeError: rate limited |" in report
@@ -309,7 +309,7 @@ def test_evaluation_error_does_not_stop_the_case(monkeypatch, document, output_d
     install(monkeypatch, FakeModel())
     monkeypatch.setattr(metrics, "extract_claims", lambda *_a: (_ for _ in ()).throw(RuntimeError("judge down")))
     case = {"id": "fake", "document": str(document), "category": "Coffee", "country": "Italy", "trap": None}
-    entry = run_case(case, output_dir / "eval_test")
+    entry = run_case(case, output_dir / "eval_test", SETTINGS)
     assert [entry[s]["metrics"]["error"] for s in ("multi_agent", "baseline")] == [
         "evaluation failed: RuntimeError: judge down"] * 2
     assert "| fake | Multi-agent | failed: evaluation failed" in render_report(

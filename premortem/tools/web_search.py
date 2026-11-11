@@ -1,18 +1,28 @@
-"""Tavily web search, exposed as a LangChain tool for the Analyst."""
+"""Tavily web search, exposed as a LangChain tool for the Analyst.
 
-from functools import lru_cache
+The Tavily key comes from the settings of the current run (config["configurable"]["settings"]),
+and the client is built per call: no cached global, so two runs never share a client.
+"""
 
 from langchain_core.tools import tool
 from langchain_tavily import TavilySearch
 
 from premortem import config
+from premortem.llm import current_settings
 
 SNIPPET_CHARS = 500  # compact results: the LLM never sees full pages
+NO_KEY = "No Tavily key: web search is unavailable, the analysis uses the document only."
 
 
-@lru_cache(maxsize=1)
-def _client() -> TavilySearch:
-    return TavilySearch(max_results=config.MAX_SEARCH_RESULTS, tavily_api_key=config.TAVILY_API_KEY)
+def _client(api_key: str) -> TavilySearch:
+    return TavilySearch(max_results=config.MAX_SEARCH_RESULTS, tavily_api_key=api_key)
+
+
+def _tavily_key() -> str | None:
+    try:
+        return current_settings().tavily_api_key
+    except RuntimeError:  # called outside a run
+        return None
 
 
 @tool
@@ -24,10 +34,11 @@ def web_search(query: str) -> list[dict]:
     target country, e.g. "protein crisps brands France".
     Returns up to 5 results with title, url and snippet; cite the url as the source.
     Returns [{"error": ...}] if the search fails or finds nothing: rephrase and retry."""
-    if not config.TAVILY_API_KEY:
-        return [{"error": "TAVILY_API_KEY is not set: web search is unavailable."}]
+    api_key = _tavily_key()
+    if not api_key:
+        return [{"error": NO_KEY}]
     try:
-        response = _client().invoke({"query": query})
+        response = _client(api_key).invoke({"query": query})
     except Exception as e:  # errors go back to the LLM as data, so it can retry
         return [{"error": f"Search failed: {e}"}]
     if not isinstance(response, dict):
