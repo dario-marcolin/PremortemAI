@@ -15,8 +15,11 @@ from fpdf.enums import TableBordersLayout
 from fpdf.fonts import FontFace
 from markdown_it import MarkdownIt
 
+from premortem.output.blueprint import TARGET_CELL, current_target_marker
+
 FONTS = Path(__file__).parent / "fonts"
 INK, MUTED, BRAND, RULE = (23, 21, 26), (95, 91, 99), (200, 23, 93), (220, 218, 224)
+TARGET_FILL = (252, 240, 245)  # the brand at about 6% on white: the target segment's row
 MD = MarkdownIt("commonmark", {"html": False}).enable("table")
 BODY, LEAD = 9.5, 4.9  # pt, line height in mm
 # Characters outside the font (emoji in campaign copy): dropped from the PDF only
@@ -102,7 +105,8 @@ def _table(pdf: BlueprintPDF, rows: list[list[str]], header: bool) -> None:
                    headings_style=FontFace(family="Plex", emphasis=None, size_pt=8, color=MUTED),
                    padding=(1.6, 2, 1.6, 0), markdown=True) as table:
         for row in rows:
-            r = table.row()
+            target = bool(row) and bool(TARGET_CELL.match((row[0] or "").strip()))
+            r = table.row(style=FontFace(fill_color=TARGET_FILL) if target else None)
             for cell in row:
                 r.cell(cell or "")
     pdf.ln(3)
@@ -130,6 +134,7 @@ def _paragraph(pdf: BlueprintPDF, text: str, indent: float = 0, bullet: str | No
 
 
 def blueprint_pdf(markdown: str) -> bytes:
+    markdown = current_target_marker(markdown)
     match = re.match(r"# (.*)", markdown)
     title = match.group(1).strip() if match else "Launch Blueprint"
     pdf = BlueprintPDF(title)

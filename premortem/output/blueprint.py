@@ -17,7 +17,7 @@ from premortem import config
 from premortem.config import RunSettings
 from premortem.agents.analyst import SOURCE_ID
 from premortem.agents.revision import blocking_issues
-from premortem.llm import get_llm
+from premortem.llm import current_settings, get_llm
 from premortem.prompts import load_prompt
 from premortem.schemas import Analysis, Source, Stage, ValidationIssue
 from premortem.state import LaunchState
@@ -122,6 +122,40 @@ def write_executive_summary(state: LaunchState, settings: RunSettings | None = N
     return re.sub(r"\s*\[S\d+(?:,\s*S\d+)*\]", "", response.text).strip()
 
 
+# The target segment's row: its id in bold. Blueprints written before Nov 2026 put an arrow before it
+# ("**→ SEG2**") and a note about the arrow; the screen and the PDF read both and draw the new look.
+TARGET_CELL = re.compile(r"^\*\*(?:→ )?(SEG\w+)\*\*$")
+TARGET_NOTE = "The highlighted row, in bold, is the target segment chosen in the strategy."
+OLD_TARGET_NOTE = "→ marks the target segment chosen in the strategy."
+
+
+def current_target_marker(markdown: str) -> str:
+    """A blueprint with the old arrow marker, in the current form (a no-op on a current blueprint)."""
+    return re.sub(r"^\| \*\*→ (SEG\w+)\*\* \|", r"| **\1** |", markdown, flags=re.M).replace(OLD_TARGET_NOTE, TARGET_NOTE)
+
+MODELS_PREFIX = "Models:"
+
+
+def models_line(models: dict[str, str] | None) -> str:
+    """"Models: claude-sonnet-5-5 (agents) · claude-opus-5-5 (blueprint)", from role -> model id.
+    The id's LangChain prefix ("anthropic:") is dropped; one model for every role is named once."""
+    if not models:
+        return ""
+    name = lambda role: (models.get(role) or "").split(":", 1)[-1]
+    agents = sorted({name(r) for r in config.ROLES if r != "blueprint" and models.get(r)})
+    summary = name("blueprint")
+    if agents == [summary] or not summary:
+        return f"{MODELS_PREFIX} {', '.join(agents)}"
+    return f"{MODELS_PREFIX} {', '.join(agents)} (agents) · {summary} (blueprint)"
+
+
+def _run_models(settings: RunSettings | None) -> dict[str, str] | None:
+    try:
+        return (settings or current_settings()).models
+    except RuntimeError:  # rendered outside a run with no settings (tests, re-renders)
+        return None
+
+
 def render_blueprint(state: LaunchState, summary: str | None = None, settings: RunSettings | None = None) -> str:
     """The blueprint as Markdown. summary=None asks the LLM for the executive summary
     (settings=None: the settings of the current run, inside the graph)."""
@@ -144,6 +178,7 @@ def render_blueprint(state: LaunchState, summary: str | None = None, settings: R
         max_revisions=config.MAX_REVISIONS,
         references=references.listed,
         generated=date.today().isoformat(),
+        models=models_line(_run_models(settings)),
     )
 
 

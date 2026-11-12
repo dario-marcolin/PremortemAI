@@ -4,6 +4,10 @@
 # Launch Blueprint: {{ brief.product_name }}
 
 **{{ brief.company_name }}** · launch in {{ brief.target_country }} · generated on {{ generated }}
+{% if models %}
+
+*{{ models }}*
+{% endif %}
 
 ## 1. Executive summary
 
@@ -64,10 +68,10 @@
 | | Segment | Estimated size | Main needs | Sources |
 |---|---|---|---|---|
 {% for s in analysis.segments %}
-| {{ "**→ " ~ s.segment_id ~ "**" if s.segment_id == strategy.target_segment_id else s.segment_id }} | {{ s.label | cell }} | {{ (s.estimated_size or "unknown") | refs | cell }} | {{ s.needs | join("; ") | refs | cell }} | {{ s.source_ids | cite }} |
+| {{ "**" ~ s.segment_id ~ "**" if s.segment_id == strategy.target_segment_id else s.segment_id }} | {{ s.label | cell }} | {{ (s.estimated_size or "unknown") | refs | cell }} | {{ s.needs | join("; ") | refs | cell }} | {{ s.source_ids | cite }} |
 {% endfor %}
 
-→ marks the target segment chosen in the strategy.
+The highlighted row, in bold, is the target segment chosen in the strategy.
 
 {% for s in analysis.segments %}
 - **{{ s.segment_id }} {{ s.label }}**: {{ s.description | refs }}

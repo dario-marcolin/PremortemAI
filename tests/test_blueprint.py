@@ -50,7 +50,8 @@ def test_references_are_numbered_by_first_use():
 
 def test_target_segment_is_marked(state):
     md = render_blueprint(state, summary="Summary.")
-    assert f"| **→ {state['strategy'].target_segment_id}** |" in md
+    assert f"| **{state['strategy'].target_segment_id}** |" in md
+    assert "→" not in md
 
 
 def test_table_cells_are_escaped(state):

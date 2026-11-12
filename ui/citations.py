@@ -47,7 +47,8 @@ class Citer:
             word = STATUS_WORDS.get(check.get("status"), check.get("status") or "")
             status = f'<span style="color:var({"--positive" if ok else "--negative"})">{esc(word if ok else "Invalid: " + word)}</span>'
         snip = f'<span class="snip">{esc(snippet[:320])}</span>' if snippet else ""
-        link = f'<span class="url">{esc(url)}</span>' if url and url != title else ""
+        link = (f'<a class="url" href="{esc(url)}" target="_blank" rel="noopener">Open source ↗'
+                f'<span class="addr">{esc(url)}</span></a>') if url else ""
         return (f'<span class="card" role="tooltip"><span class="src"><span>{esc(where)}</span>{status}</span>'
                 f'<span class="ttl" style="display:block">{esc(title)}</span>{snip}'
                 f'<span style="display:block;color:var(--muted);font-size:12px;margin-bottom:4px">{esc(origin)}</span>{link}</span>')

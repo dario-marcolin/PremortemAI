@@ -198,14 +198,22 @@ h1 { letter-spacing: -0.01em; }
   width: 320px; max-width: 80vw; padding: 12px 14px; background: var(--sheet); color: var(--text);
   border: 1px solid var(--border); border-radius: var(--radius-card); box-shadow: 0 8px 24px rgba(23, 21, 26, .12);
   font-size: 13px; line-height: 18px; font-weight: 400; text-align: left; white-space: normal;
-  visibility: hidden; opacity: 0; transition: opacity .12s ease; pointer-events: none;
+  visibility: hidden; opacity: 0; pointer-events: none;
+  /* a short delay before hiding, so the pointer can travel from the chip to the card */
+  transition: opacity .12s ease .15s, visibility 0s linear .27s;
 }
-.pm-cite:hover .card, .pm-cite:focus-within .card { visibility: visible; opacity: 1; pointer-events: auto; }
+/* an invisible bridge over the 6px gap: the card stays open while the pointer moves onto it */
+.pm-cite .card::before { content: ""; position: absolute; left: 0; right: 0; top: -8px; height: 8px; }
+.pm-cite:hover .card, .pm-cite:focus-within .card {
+  visibility: visible; opacity: 1; pointer-events: auto; transition: opacity .12s ease, visibility 0s;
+}
 .pm-cite .card .src { font-size: 12px; color: var(--muted); display: flex; justify-content: space-between; gap: 8px; margin: 0 0 4px; }
 .pm-cite .card .ttl { font-weight: 600; margin: 0 0 6px; overflow-wrap: anywhere; }
 .pm-cite .card .snip, .pm-cite .card .url { display: block; }
 .pm-cite .card .snip { color: var(--text); margin: 0 0 6px; border-left: 2px solid var(--brand-tint-2); padding-left: 8px; }
-.pm-cite .card .url { font-size: 12px; color: var(--brand-ink); overflow-wrap: anywhere; }
+.pm-cite .card a.url { font-size: 12px; font-weight: 600; color: var(--brand-ink); text-decoration: none; overflow-wrap: anywhere; }
+.pm-cite .card a.url:hover, .pm-cite .card a.url:focus-visible { text-decoration: underline; }
+.pm-cite .card a.url .addr { display: block; font-weight: 400; color: var(--muted); }
 
 /* ── Setup ────────────────────────────────────────────────────────────── */
 .pm-strip { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 4px 0 0; font-size: 13px; }
@@ -250,11 +258,24 @@ h1 { letter-spacing: -0.01em; }
 .pm-doc table { border-collapse: collapse; width: 100%; font-size: 14px; margin: 12px 0 20px; }
 .pm-doc th { text-align: left; font-size: 12px; color: var(--muted); font-weight: 500; border-bottom: 1px solid var(--border); padding: 8px 12px 8px 0; }
 .pm-doc td { border-bottom: 1px solid var(--rule); padding: 9px 12px 9px 0; vertical-align: top; }
+/* the target segment: the accent at a very light opacity, so it reads in light and dark */
+.pm-doc tr.target td { background: color-mix(in srgb, var(--brand) 6%, transparent); }
+.pm-doc tr.target td:first-child { box-shadow: inset 2px 0 0 var(--brand); padding-left: 10px; }
+.pm-doc tr:not(.target) td:first-child { padding-left: 10px; }
 .pm-doc .sources li { scroll-margin-top: 80px; margin: 0 0 6px; overflow-wrap: anywhere; }
 .pm-doc .sources li:target { background: var(--brand-tint); }
-.pm-toc { position: sticky; top: 72px; font-size: 13px; line-height: 18px; }
+.pm-toc { font-size: 13px; line-height: 18px; max-height: calc(100vh - 96px); overflow-y: auto; }
+/* The contents stay in view while the blueprint scrolls: the TOC's column is stretched to the height of
+   the article and the TOC's element sticks inside it (sticky on the nav alone would stop at its own box) */
+[data-testid="stColumn"]:has(.pm-toc) { align-self: stretch; }
+[data-testid="stColumn"]:has(.pm-toc) > [data-testid="stVerticalBlock"] { height: 100%; }
+[data-testid="stElementContainer"]:has(.pm-toc) {
+  position: sticky; top: 72px; z-index: 1;
+}
 .pm-toc a { display: block; color: var(--muted); text-decoration: none; padding: 5px 0 5px 12px; border-left: 2px solid var(--border); }
 .pm-toc a:hover { color: var(--text); border-left-color: var(--text); }
+/* the section being read (scroll spy in ui/blueprint_reader.py) */
+.pm-toc a.active { color: var(--brand-ink); border-left-color: var(--brand); font-weight: 600; }
 
 /* ── Buttons: flat, the primary in the brand hue ──────────────────────── */
 button[kind="primary"], [data-testid="stBaseButton-primary"] { font-weight: 500; }
