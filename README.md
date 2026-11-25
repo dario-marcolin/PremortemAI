@@ -5,7 +5,7 @@ specialised agents analyse the market (with web search), choose a target and a p
 write the campaign, check each other's work, and produce a **Launch Blueprint** where every
 claim cites its source. A human approves the strategy before the campaign is written.
 
-## Try it online
+## Online Open Demo to run and try
 
 **[premortemai.streamlit.app](https://premortemai.streamlit.app)** — nothing to install.
 
